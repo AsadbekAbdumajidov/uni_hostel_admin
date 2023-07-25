@@ -6,9 +6,9 @@ class AppStrings {
   static const strWaiting = "Kutish";
   static const strRejected = "Rad etilgan";
   static const strAdmin = "Hisobingizga administrator sifatida kiring";
-  static const strGmail = "Elektron pochta";
-  static const strEnterGmail = "elektron pochtangizni kiriting";
-  static const strValidateGmail = "elektron pochtangizni bo'sh qoldirmang";
+  static const strUserName = "Hisobingiz";
+  static const strEnterUserName = "foydalanuvchi hisobingizni kiriting";
+  static const strValidateUserName = "foydalanuvchi hisobingizni bo'sh qoldirmang";
 
   static const strPassword = "Parol";
   static const strEnterPassword = "parolingizni kiriting";
