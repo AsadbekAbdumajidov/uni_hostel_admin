@@ -49,7 +49,7 @@ class CardItemWidget extends StatelessWidget {
                   userName,
                   maxLines: 2,
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                        fontSize: textSize,
+                        fontSize: textSize,fontWeight: img==null ? FontWeight.w500 :FontWeight.w400
                       ),
                 ),
               ),
@@ -62,12 +62,14 @@ class CardItemWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               textStatus == null
-                  ? Text(status ?? "",
+                  ? Text(
+                      status ?? "",
                       overflow: TextOverflow.ellipsis,
                       style:
                           Theme.of(context).textTheme.headlineMedium?.copyWith(
                                 fontSize: textSize,
-                              ))
+                              ),
+                    )
                   : ResponsiveWidget.isMobile(context)
                       ? Icon(
                           statusColor == null
@@ -107,7 +109,7 @@ class CardItemWidget extends StatelessWidget {
             Text(
               date,
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontSize: textSize,
+                    fontSize: textSize,fontWeight: img==null ? FontWeight.w500 :FontWeight.w400
                   ),
             ),
           ]),
@@ -119,7 +121,7 @@ class CardItemWidget extends StatelessWidget {
             children: [
               Text(time,
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                        fontSize: textSize,
+                        fontSize: textSize,fontWeight: img==null ? FontWeight.w500 :FontWeight.w400
                       )),
             ],
           ),
