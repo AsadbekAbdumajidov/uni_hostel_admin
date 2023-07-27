@@ -94,6 +94,7 @@ class LoginPage extends StatelessWidget {
                           ),
                           SizedBox(height: 30),
                           CustomButton(
+                              isLoading: state.status == Status.LOADING,
                               text: AppStrings.strAcces,
                               onTap: () {
                                 if (formGlobalKey.currentState!.validate()) {

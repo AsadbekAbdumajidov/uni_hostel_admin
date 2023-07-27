@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel_admin/core/extension/for_context.dart';
-import 'package:uni_hostel_admin/core/utils/size_konfig.dart';
 import 'package:uni_hostel_admin/presentation/components/loading_widget.dart';
 import '../../../core/themes/app_colors.dart';
 
@@ -48,8 +48,8 @@ class CustomButton extends StatelessWidget {
               icon ?? SizedBox.shrink(),
               isLoading
                   ? SizedBox(
-                      height: he(30),
-                      width: he(30),
+                      height: 30,
+                      width: 30,
                       child: const LoadingWidget(color: AppColors.whiteColor))
                   :  Text(text,
                       style: style ??
@@ -83,28 +83,28 @@ class CustomOutlineButton extends StatelessWidget {
     return Material(
       color: bgColor,
       borderRadius: BorderRadius.circular(radius??5),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(radius??5),
-        onTap: onTap,
-        child: Ink(
-          height: 40,
-          width: width ?? context.w,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(radius??5),
-              border: Border.all(color:ounLineColour?? AppColors.primaryColor, width: wi(2)),
-              color: bgColor),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(text,
-                  style:style?? Theme.of(context)
-                      .textTheme
-                      .titleSmall
-                      ?.copyWith(color: AppColors.primaryColor)),
-            ],
-          ),
-        ),
+      child:  InkWell(
+          borderRadius: BorderRadius.circular(radius??5),
+          onTap: onTap,
+          child:Ink(
+              height: 30,
+              width: width ?? null,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(radius??5),
+                  border: Border.all(color: ounLineColour?? AppColors.primaryColor,width: 0.1),
+                  color: bgColor),
+              child: Center(
+                child:
+                  Expanded(
+                    child: Text(text,
+                    overflow: TextOverflow.ellipsis,
+                        style:style?? Theme.of(context)
+                            .textTheme
+                            .displaySmall
+                            ?.copyWith(color:ounLineColour?? AppColors.primaryColor,fontWeight: FontWeight.w300)),
+                  ),
+              ).paddingSymmetric(vertical: 4,horizontal: 16),
+            ),
       ),
     );
   }

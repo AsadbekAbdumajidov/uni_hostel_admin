@@ -8,7 +8,6 @@ import 'package:uni_hostel_admin/core/routes/app_routes.dart';
 import 'package:uni_hostel_admin/core/themes/app_colors.dart';
 import 'package:uni_hostel_admin/core/themes/app_icons.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
-import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
 import 'package:uni_hostel_admin/presentation/cubit/side_bar/side_bar_cubit.dart';
 import 'package:uni_hostel_admin/presentation/view/menu_drawer/widget/side_menu_item.dart';
 
@@ -76,10 +75,7 @@ class MenuDrawer extends StatelessWidget {
               },
             ),
           ],
-        ).paddingSymmetric(
-          vertical: ResponsiveWidget.isMobile(context) ? 60 : 15,
-          horizontal: 20,
-        ),
+        ).paddingSymmetric(vertical: 20,horizontal: 16),
       );
     });
   }

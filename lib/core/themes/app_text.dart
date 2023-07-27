@@ -8,13 +8,22 @@ class AppStrings {
   static const strAdmin = "Hisobingizga administrator sifatida kiring";
   static const strUserName = "Hisobingiz";
   static const strEnterUserName = "foydalanuvchi hisobingizni kiriting";
-  static const strValidateUserName = "foydalanuvchi hisobingizni bo'sh qoldirmang";
-
+  static const strValidateUserName =
+      "foydalanuvchi hisobingizni bo'sh qoldirmang";
   static const strPassword = "Parol";
   static const strEnterPassword = "parolingizni kiriting";
   static const strValidatePassword = "parolingizni bo'sh qoldirmang";
-static const strSearch = "Qidirish";
+  static const strSearch = "Qidirish";
   static const strAcces = "Kirish";
+  static const strExit = "Chiqish";
+  static const strQueuingRequirements = "Navbatga qo'yilgan talablar";
+  static const strRejectedStudents = "Rad etilgan talablar";
+   
+
+  static const strSN = "F.I.SH";
+  static const strStatus = "Holat";
+  static const strDate= "Sanasi";
+  static const strTime = "Vaqti";
 
   /// --------------------------- Failure Text ------------------------------- ///
   static const strUserNotFound = "Foydalanuvchi topilmadi";
