@@ -31,13 +31,13 @@ class CustomAppBar extends StatelessWidget {
                     child: Icon(Icons.menu,
                         color: AppColors.primaryColor, size: 30),
                     onTap: () => Scaffold.of(context).openDrawer(),
-                  ).paddingOnly(top: 8),
+                  ).paddingOnly(top: 8,left:ResponsiveWidget.isMobileLarge(context)? 6: 16),
                 ),
           SizedBox(width: 10),
           Expanded(
               child: CustomTextField(
             borderColor: AppColors.transparent,
-            hintText: "${AppStrings.strSearch} ...",
+            hintText: "${AppStrings.strSearch}...",
             prefixIcon: Icon(CupertinoIcons.search,size: 22),
             preIconColor: AppColors.bodyTextColor,
           ).paddingOnly(top: 8)),

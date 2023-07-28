@@ -14,7 +14,9 @@ class CardItemWidget extends StatelessWidget {
       required this.time,
       this.img,
       this.textStatus,
-      this.statusColor});
+      this.statusColor,
+      this.textOverflow,
+      required this.isIcon});
   final String userName;
   final String? status;
   final String date;
@@ -22,7 +24,8 @@ class CardItemWidget extends StatelessWidget {
   final String? img;
   final String? textStatus;
   final Color? statusColor;
-
+  final TextOverflow? textOverflow;
+  final bool isIcon;
   @override
   Widget build(BuildContext context) {
     double textSize = img == null
@@ -30,7 +33,7 @@ class CardItemWidget extends StatelessWidget {
             ? 16
             : 18
         : ResponsiveWidget.isMobileLarge(context)
-            ? 15
+            ? 14.5
             : 16;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,70 +50,78 @@ class CardItemWidget extends StatelessWidget {
               Expanded(
                 child: Text(
                   userName,
-                  maxLines: 2,
+                  maxLines: textOverflow == null ? 2 : 1,
+                  overflow: textOverflow,
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                        fontSize: textSize,fontWeight: img==null ? FontWeight.w500 :FontWeight.w400
-                      ),
+                      fontSize: textSize,
+                      fontWeight:
+                          img == null ? FontWeight.w500 : FontWeight.w400,
+                      color: AppColors.blackColor),
                 ),
               ),
             ],
           ),
         ),
-        Expanded(
-          flex: ResponsiveWidget.isMobile(context) ? 2 : 3,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              textStatus == null
-                  ? Text(
-                      status ?? "",
-                      overflow: TextOverflow.ellipsis,
-                      style:
-                          Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                fontSize: textSize,
+        status == null && textStatus == null
+            ? SizedBox.shrink()
+            : Expanded(
+                flex: ResponsiveWidget.isMobile(context) ? 2 : 3,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    textStatus == null
+                        ? Text(
+                            status ?? "",
+                            overflow: TextOverflow.ellipsis,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineMedium
+                                ?.copyWith(
+                                    fontSize: textSize,
+                                    color: AppColors.blackColor),
+                          )
+                        : ResponsiveWidget.isMobile(context)
+                            ? Icon(
+                                statusColor == null
+                                    ? CupertinoIcons.xmark_circle
+                                    : statusColor == AppColors.amberColor
+                                        ? CupertinoIcons.waveform_circle
+                                        : CupertinoIcons.check_mark_circled,
+                                color: statusColor ?? AppColors.redColour)
+                            : Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  border: Border.all(
+                                      color: statusColor ?? AppColors.redColour,
+                                      width: 0.3),
+                                  color: statusColor?.withOpacity(0.1) ??
+                                      AppColors.redColour.withOpacity(0.1),
+                                ),
+                                child: Expanded(
+                                  child: Center(
+                                    child: Text(
+                                      textStatus ?? "",
+                                      overflow: TextOverflow.ellipsis,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .displaySmall
+                                          ?.copyWith(fontSize: textSize,fontWeight: FontWeight.w300),
+                                    ),
+                                  ),
+                                ).paddingSymmetric(vertical: 4, horizontal: 10),
                               ),
-                    )
-                  : ResponsiveWidget.isMobile(context)
-                      ? Icon(
-                          statusColor == null
-                              ? CupertinoIcons.xmark_circle
-                              : statusColor == AppColors.amberColor
-                                  ? CupertinoIcons.waveform_circle
-                                  : CupertinoIcons.check_mark,
-                          color: statusColor ?? AppColors.redColour)
-                      : Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(
-                                color: statusColor ?? AppColors.redColour,
-                                width: 0.3),
-                            color: statusColor?.withOpacity(0.1) ??
-                                AppColors.redColour.withOpacity(0.1),
-                          ),
-                          child: Expanded(
-                            child: Center(
-                              child: Text(textStatus ?? "",
-                                  overflow: TextOverflow.ellipsis,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .displaySmall
-                                      ?.copyWith(
-                                          fontSize: textSize,
-                                          color: AppColors.bodyTextColor)),
-                            ),
-                          ).paddingSymmetric(vertical: 4, horizontal: 10),
-                        ),
-            ],
-          ),
-        ),
+                  ],
+                ),
+              ),
         Expanded(
           flex: 3,
           child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(
               date,
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontSize: textSize,fontWeight: img==null ? FontWeight.w500 :FontWeight.w400
-                  ),
+                  fontSize: textSize,
+                  fontWeight: img == null ? FontWeight.w500 : FontWeight.w400,
+                  color: AppColors.blackColor),
             ),
           ]),
         ),
@@ -121,11 +132,14 @@ class CardItemWidget extends StatelessWidget {
             children: [
               Text(time,
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                        fontSize: textSize,fontWeight: img==null ? FontWeight.w500 :FontWeight.w400
-                      )),
+                      fontSize: textSize,
+                      fontWeight:
+                          img == null ? FontWeight.w500 : FontWeight.w400,
+                      color: AppColors.blackColor)),
             ],
           ),
         ),
+        isIcon ? SizedBox(width: 50) : SizedBox.shrink()
       ],
     );
   }

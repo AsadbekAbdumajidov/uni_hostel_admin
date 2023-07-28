@@ -18,6 +18,10 @@ class AppStrings {
   static const strExit = "Chiqish";
   static const strQueuingRequirements = "Navbatga qo'yilgan talablar";
   static const strRejectedStudents = "Rad etilgan talablar";
+  static const strApproved = "Tasdiqlangan";
+  static const strApproveds = "Tasdiqlanganlar";
+
+
    
 
   static const strSN = "F.I.SH";

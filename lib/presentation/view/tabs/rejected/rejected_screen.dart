@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel_admin/core/extension/for_context.dart';
+import 'package:uni_hostel_admin/core/themes/app_decoration.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
 import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
 import 'package:uni_hostel_admin/presentation/view/menu_drawer/menu_drawer.dart';
 import 'package:uni_hostel_admin/presentation/view/profile_drawer/profile_drawer.dart';
 import 'package:uni_hostel_admin/presentation/view/custom_app_bar/custom_app_bar.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/widget/custom_card_widget.dart';
-
-import '../../../../core/themes/app_colors.dart';
 
 class RejectedScreen extends StatelessWidget {
   RejectedScreen({super.key});
@@ -31,19 +30,7 @@ class RejectedScreen extends StatelessWidget {
                     child: Container(
                       width: context.w,
                       padding: EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(
-                            color: AppColors.primaryColor.withOpacity(.4),
-                            width: .5),
-                        boxShadow: [
-                          BoxShadow(
-                              offset: const Offset(0, 6),
-                              color: AppColors.bodyTextColor.withOpacity(.1),
-                              blurRadius: 12)
-                        ],
-                        borderRadius: BorderRadius.circular(8),
-                      ),
+                      decoration: AppDecoration.customCardDecoration,
                       child: ListView(
                         physics: ClampingScrollPhysics(),
                         children: [
@@ -60,7 +47,7 @@ class RejectedScreen extends StatelessWidget {
                                                   ? 22
                                                   : 24)),
                             ],
-                          ).paddingOnly(bottom: 30),
+                          ).paddingOnly(bottom: 40),
                           CustomCardWidget(textStatus: AppStrings.strRejected),
                         ],
                       ),

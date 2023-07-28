@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/widget/card_item_widget.dart';
 
 class CustomCardWidget extends StatelessWidget {
-  const CustomCardWidget(
-      {super.key, this.textStatus,  this.statusColor});
+  const CustomCardWidget({super.key, this.textStatus, this.statusColor});
   final String? textStatus;
   final Color? statusColor;
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -20,17 +18,18 @@ class CustomCardWidget extends StatelessWidget {
               userName: AppStrings.strSN,
               status: AppStrings.strStatus,
               date: AppStrings.strDate,
-              time: AppStrings.strTime,
+              time: AppStrings.strTime, isIcon: false,
             ),
             Divider()
           ],
-        ),
+        ).paddingOnly(bottom: 4),
         ListView.separated(
             itemCount: 14,
             shrinkWrap: true,
             separatorBuilder: (BuildContext context, int index) => Divider(),
             itemBuilder: (_, __) {
               return CardItemWidget(
+              isIcon: false,
                 userName: "Asadbek Abdumajidov Ulugbek o'gli",
                 img: "",
                 statusColor: statusColor,
@@ -38,7 +37,7 @@ class CustomCardWidget extends StatelessWidget {
                 date: "06.07.2023",
                 time: "16:48",
               );
-            }),
+            }, ),
       ],
     );
   }
