@@ -6,6 +6,8 @@ enum RouteName {
   students(route: "/${AppStrings.strStudents}"),
   waiting(route: "/${AppStrings.strWaiting}"),
   rejected(route: "/${AppStrings.strRejected}"),
+  thoseWhoPaid(route: "/${AppStrings.strThoseWhoPaid}"),
+
   login(route: "/kirish"),
   splash(route: "/splash"),
   ;

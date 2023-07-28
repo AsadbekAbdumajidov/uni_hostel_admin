@@ -16,67 +16,81 @@ class MenuDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SideBarCubit, SideBarState>(builder: (context, state) {
-      return Container(
-        height: context.h,
-        width: 270,
-        color: AppColors.primaryColor,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SvgPicture.asset(AppIcons.iconWhiteLogo, height: 53, width: 53),
-            SizedBox(height: 50),
-            SideMenuItem(
-                index: 0,
-                title: AppStrings.strRequests,
+    return  BlocBuilder<SideBarCubit, SideBarState>(builder: (context, state) {
+        return Container(
+          height: context.h,
+          width: 270,
+          color: AppColors.primaryColor,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SvgPicture.asset(AppIcons.iconWhiteLogo, height: 53, width: 53),
+              SizedBox(height: 50),
+              SideMenuItem(
+                  index: 0,
+                  title: AppStrings.strRequests,
+                  currentIndex: state.currentIndex,
+                  icon: AppIcons.iconRequest,
+                  onTap: () {
+                    if (state.currentIndex != 0) {
+                      context.read<SideBarCubit>().changeIndex(0);
+                      Navigator.pop(context);
+                      Navigator.pushNamed(context, RouteName.requests.route);
+                    }
+                  }),
+              SideMenuItem(
+                  index: 1,
+                  title: AppStrings.strStudents,
+                  currentIndex: state.currentIndex,
+                  icon: AppIcons.iconStudent,
+                  onTap: () {
+                    if (state.currentIndex != 1) {
+                      context.read<SideBarCubit>().changeIndex(1);
+                      Navigator.pop(context);
+                      Navigator.pushNamed(context, RouteName.students.route);
+                    }
+                  }),
+              SideMenuItem(
+                  index: 2,
+                  title: AppStrings.strWaiting,
+                  currentIndex: state.currentIndex,
+                  onTap: () {
+                    if (state.currentIndex != 2) {
+                      context.read<SideBarCubit>().changeIndex(2);
+                      Navigator.pop(context);
+                      Navigator.pushNamed(context, RouteName.waiting.route);
+                    }
+                  }),
+              SideMenuItem(
+                index: 3,
+                title: AppStrings.strRejected,
                 currentIndex: state.currentIndex,
-                icon: AppIcons.iconRequest,
+                icon: AppIcons.iconRejected,
                 onTap: () {
-                  if (state.currentIndex != 0) {
-                    context.read<SideBarCubit>().changeIndex(0);
+                  if (state.currentIndex != 3) {
+                    context.read<SideBarCubit>().changeIndex(3);
                     Navigator.pop(context);
-                    Navigator.pushNamed(context, RouteName.requests.route);
+                    Navigator.pushNamed(context, RouteName.rejected.route);
                   }
-                }),
-            SideMenuItem(
-                index: 1,
-                title: AppStrings.strStudents,
+                },
+              ),
+              SideMenuItem(
+                index: 4,
+                title: AppStrings.strThoseWhoPaid,
                 currentIndex: state.currentIndex,
-                icon: AppIcons.iconStudent,
+                icon: AppIcons.iconPaymentMonitoring,
                 onTap: () {
-                  if (state.currentIndex != 1) {
-                    context.read<SideBarCubit>().changeIndex(1);
+                  if (state.currentIndex != 4) {
+                    context.read<SideBarCubit>().changeIndex(4);
                     Navigator.pop(context);
-                    Navigator.pushNamed(context, RouteName.students.route);
+                    Navigator.pushNamed(context, RouteName.thoseWhoPaid.route);
                   }
-                }),
-            SideMenuItem(
-                index: 2,
-                title: AppStrings.strWaiting,
-                currentIndex: state.currentIndex,
-                onTap: () {
-                  if (state.currentIndex != 2) {
-                    context.read<SideBarCubit>().changeIndex(2);
-                    Navigator.pop(context);
-                    Navigator.pushNamed(context, RouteName.waiting.route);
-                  }
-                }),
-            SideMenuItem(
-              index: 3,
-              title: AppStrings.strRejected,
-              currentIndex: state.currentIndex,
-              icon: AppIcons.iconRejected,
-              onTap: () {
-                if (state.currentIndex != 3) {
-                  context.read<SideBarCubit>().changeIndex(3);
-                  Navigator.pop(context);
-                  Navigator.pushNamed(context, RouteName.rejected.route);
-                }
-              },
-            ),
-          ],
-        ).paddingSymmetric(vertical: 20,horizontal: 16),
-      );
-    });
+                },
+              ),
+            ],
+          ).paddingSymmetric(vertical: 20, horizontal: 16),
+        );
+      }
+    );
   }
 }

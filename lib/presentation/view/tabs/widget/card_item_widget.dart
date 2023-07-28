@@ -105,7 +105,12 @@ class CardItemWidget extends StatelessWidget {
                                       style: Theme.of(context)
                                           .textTheme
                                           .displaySmall
-                                          ?.copyWith(fontSize: textSize,fontWeight: FontWeight.w300),
+                                          ?.copyWith(
+                                            fontSize: textSize,
+                                            fontWeight: FontWeight.w300,
+                                            color: statusColor ??
+                                                AppColors.redColour,
+                                          ),
                                     ),
                                   ),
                                 ).paddingSymmetric(vertical: 4, horizontal: 10),

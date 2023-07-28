@@ -5,6 +5,8 @@ class AppStrings {
   static const strStudents = "Talabalar";
   static const strWaiting = "Kutish";
   static const strRejected = "Rad etilgan";
+  static const strThoseWhoPaid = "To'lov qilganlar";
+  static const strPaymentHistory = "To'lovlar tarixi";
   static const strAdmin = "Hisobingizga administrator sifatida kiring";
   static const strUserName = "Hisobingiz";
   static const strEnterUserName = "foydalanuvchi hisobingizni kiriting";
@@ -20,14 +22,18 @@ class AppStrings {
   static const strRejectedStudents = "Rad etilgan talablar";
   static const strApproved = "Tasdiqlangan";
   static const strApproveds = "Tasdiqlanganlar";
-
-
-   
-
+  static const strPaid = "To'langan";  static const strDownload = "Yuklab olish";
+  static const strPaymentCheck = "To'lov cheki";
+  static const strNotPaid = "To'lanmagan";
+  static const strPaymentId = "To’lov ID si";
   static const strSN = "F.I.SH";
+  static const strDatePaid = "To’longan sana";
   static const strStatus = "Holat";
-  static const strDate= "Sanasi";
+  static const strDate= "Sanasi"; static const strPay = "To'lash";  static const strFiskalChekNumber = "Fiskal chek raqami";
   static const strTime = "Vaqti";
+  static const strQuantity= "Miqdor";
+  static const strCardNumber= "Karta raqami";
+  static const strCheckNumber= "Chek raqami";
 
   /// --------------------------- Failure Text ------------------------------- ///
   static const strUserNotFound = "Foydalanuvchi topilmadi";
