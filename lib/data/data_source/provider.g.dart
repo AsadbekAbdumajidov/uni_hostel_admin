@@ -44,9 +44,15 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<GetOrderResponse> getOrder(page) async {
+  Future<GetOrderResponse> getOrder(
+    page,
+    status,
+  ) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'page': page};
+    final queryParameters = <String, dynamic>{
+      r'page': page,
+      r'status': status,
+    };
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio

@@ -33,6 +33,8 @@ class AppStrings {
   static const strStatus = "Holat";
   static const strDate = "Sanasi";
   static const strPay = "To'lash";
+  static const strApplicationEmpty = "Arizalar mavjud emas";
+
   static const strFiskalChekNumber = "Fiskal chek raqami";
   static const strTime = "Vaqti";
   static const strQuantity = "Miqdor";

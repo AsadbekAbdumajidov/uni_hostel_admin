@@ -52,6 +52,7 @@ class _StudentsScreenState extends State<StudentsScreen> {
                             onChanged: (v) {},
                           ),
                           CustomCardWidget(
+                            list: [],
                             statusColor: AppColors.greenColour,
                             textStatus: AppStrings.strApproved,
                           ),

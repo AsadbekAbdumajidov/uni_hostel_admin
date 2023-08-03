@@ -37,7 +37,11 @@ class RequestsScreen extends StatelessWidget {
                   child: BlocBuilder<GetNewOrderCubit, GetNewOrderState>(
                       builder: (context, state) {
                     if (state.status == Status.LOADING) {
-                      return  LoadingWidget();
+                      return  Container(
+                        height: 400,
+                        width: 400,
+
+                        child: LoadingWidget());
                     }
                     return InfiniteScrollingPagination(
                       onPagination: ()  {

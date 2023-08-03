@@ -9,6 +9,6 @@ class LoginState with _$LoginState {
         @Default("") String userName,
 
     @Default("") String password,
-    @Default(false) bool? changeEye,
+    @Default(true) bool? changeEye,
   }) = _LoginState;
 }

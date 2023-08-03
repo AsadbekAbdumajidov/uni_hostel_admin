@@ -11,9 +11,10 @@ class GetOrderCubit extends Cubit<GetOrderState> {
   GetOrderCubit(this._orderUsCase) : super(GetOrderState());
   final GetOrderUseCase _orderUsCase;
 
-  Future<void> getOrder() async {
+  Future<void> getOrder(String status) async {
     emit(state.copyWith(status: Status.LOADING));
-    var result = await _orderUsCase.call(GetOrderParams(page: 1));
+    var result =
+        await _orderUsCase.call(GetOrderParams(page: 1, status: status));
     result.fold(
       (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),
       (success) => emit(
@@ -21,20 +22,20 @@ class GetOrderCubit extends Cubit<GetOrderState> {
           hasReachedMax: success.next == null,
           page: 2,
           orderResponse: success,
-          orderList: success.results??[],
+          orderList: success.results ?? [],
           status: Status.SUCCESS,
         ),
       ),
     );
   }
 
-  Future<void> getOrderInfinite() async {
+  Future<void> getOrderInfinite(String status) async {
     if (state.hasReachedMax) {
       return;
     }
     emit(state.copyWith(loadingPagination: true));
     var result = await _orderUsCase.call(
-      GetOrderParams(page: state.page),
+      GetOrderParams(page: state.page, status: status),
     );
     result.fold(
       (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),
@@ -47,7 +48,6 @@ class GetOrderCubit extends Cubit<GetOrderState> {
           loadingPagination: false,
           status: Status.SUCCESS,
         ),
-
       ),
     );
   }

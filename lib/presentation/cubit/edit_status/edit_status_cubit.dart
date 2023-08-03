@@ -16,23 +16,23 @@ class EditStatusCubit extends Cubit<EditStatusState> {
   void editStatus(
     int id,
     String? status,
-    String? monthlyPaymentPrice,
+    int? monthlyPaymentPrice,
     String? cancelReason,
-    String? paymentDate,
+    int? paymentDate,
   ) async {
     emit(state.copyWith(status: Status.LOADING));
     var result = await _editStatusUsCase.call(
       EditStatusParams(
         id: id,
         request: EditStatusRequest(
-          status: status == AppStrings.strApprovedAd
-              ? "accepted"
-              : status == AppStrings.strRejectedAd
-                  ? "cancelled"
-                  : "in_queue",
-          monthlyPaymentPrice: int.parse(monthlyPaymentPrice ?? ""),
+          status:status== AppStrings.strApprovedAd
+                                    ? "accepted"
+                                    : status == AppStrings.strRejectedAd
+                                        ? "cancelled"
+                                        : "in_queue",
+          monthlyPaymentPrice: monthlyPaymentPrice,
           cancelReason: cancelReason,
-          paymentDate: int.parse(paymentDate ?? ""),
+          paymentDate: paymentDate,
         ),
       ),
     );

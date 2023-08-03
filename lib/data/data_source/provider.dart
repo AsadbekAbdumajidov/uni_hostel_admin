@@ -21,7 +21,10 @@ abstract class ApiClient {
   Future<LoginResponseModel> login(@Body() LoginRequestModel request);
 
   @GET('admin/order/')
-  Future<GetOrderResponse> getOrder(@Query("page") int page);
+  Future<GetOrderResponse> getOrder(
+    @Query("page") int page,
+    @Query("status") String status,
+  );
 
   @GET('admin/new/orders/')
   Future<GetOrderResponse> getNewOrders(
@@ -34,5 +37,7 @@ abstract class ApiClient {
 
   @PATCH('admin/order/{id}/')
   Future<GetOrderResponse> editStatus(
-      @Body() EditStatusRequest request, @Path('id') int id);
+    @Body() EditStatusRequest request,
+    @Path('id') int id,
+  );
 }
