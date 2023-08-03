@@ -44,7 +44,7 @@ class CardItemWidget extends StatelessWidget {
             children: [
               img == null
                   ? SizedBox.shrink()
-                  : NetworkImageWidget(onTap: () {}, size: 40, img: img ?? "")
+                  : NetworkImageWidget(onTap: () {}, size: 50, img: img ?? "")
                       .paddingOnly(
                           right: ResponsiveWidget.isMobile(context) ? 4 : 10),
               Expanded(

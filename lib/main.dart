@@ -5,6 +5,7 @@ import 'package:uni_hostel_admin/core/routes/app_routes.dart';
 import 'package:uni_hostel_admin/core/themes/app_theme.dart';
 import 'package:uni_hostel_admin/di.dart';
 import 'package:uni_hostel_admin/presentation/cubit/auth/auth_cubit.dart';
+import 'package:uni_hostel_admin/presentation/cubit/edit_status/edit_status_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/side_bar/side_bar_cubit.dart';
 import 'package:uni_hostel_admin/presentation/view/splash/splash_screen.dart';
 
@@ -25,6 +26,8 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (context) => inject<SideBarCubit>()),
           BlocProvider(
               create: (context) => inject<AuthCubit>()..checkUserToAuth()),
+           BlocProvider(
+              create: (context) => inject<EditStatusCubit>()),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

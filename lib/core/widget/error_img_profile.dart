@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:uni_hostel_admin/core/themes/app_colors.dart';
 
@@ -22,17 +23,19 @@ class NetworkImageWidget extends StatelessWidget {
       borderRadius: BorderRadius.circular(30),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(30),
-        child: img == ""
-            ? ErrorImageProfile(
-                backgroundColor: backgroundColor,
-                lineColour: lineColour,
-                size: size)
-            : Image.network(
-                img ?? "",
-                width: size,
-                height: size,
-                fit: BoxFit.cover,
-              ),
+        child:ClipRRect(
+                  borderRadius: BorderRadius.circular(30),
+                  child: CachedNetworkImage(
+                    imageUrl: img ?? "",
+                    width: size,
+                    height: size,
+                    fit: BoxFit.cover,
+                    errorWidget: (context, url, error) => ErrorImageProfile(
+                      backgroundColor: backgroundColor,
+                      lineColour: lineColour,
+                      errorIcon: Icons.person_outline,
+                    ),
+                  )),
       ),
     );
   }
@@ -43,29 +46,29 @@ class ErrorImageProfile extends StatelessWidget {
       {super.key,
       required this.backgroundColor,
       required this.lineColour,
-      required this.size});
+      this.errorIcon});
   final Color? backgroundColor;
   final Color? lineColour;
-  final double size;
+  final IconData? errorIcon;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(4),
       child: Container(
-        width: size,
-        height: size,
         decoration: BoxDecoration(
             color: lineColour ?? AppColors.primaryColor.withOpacity(.5),
-            borderRadius: BorderRadius.circular(30)),
+            borderRadius: BorderRadius.circular(20)),
         child: Container(
           padding: const EdgeInsets.all(1),
           margin: const EdgeInsets.all(1),
           child: CircleAvatar(
               backgroundColor: backgroundColor ?? AppColors.whiteColor,
-              child: Icon(Icons.person_outline,
+              child: Icon(errorIcon ?? Icons.person_outline,
                   color: lineColour ?? AppColors.blackColor)),
         ),
       ),
     );
   }
 }
+
