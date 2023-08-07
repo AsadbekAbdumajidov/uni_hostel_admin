@@ -19,8 +19,8 @@ class NetworkClient {
         debugPrint(_token);
         if (_token != '') {
           options.headers['Authorization'] = 'Bearer $_token';
-          options.headers["Accept"] = "application/json";
-          options.headers["Content-type"] = "application/json";
+          // options.headers["Accept"] = "application/json";
+          // options.headers["Content-type"] = "application/json";
           options.headers['Access-Control-Allow-Origin'] = '*';
           options.headers['Access-Control-Allow-Methods'] =
               'GET, POST, OPTIONS, PUT, PATCH, DELETE';
