@@ -19,9 +19,14 @@ class NetworkClient {
         debugPrint(_token);
         if (_token != '') {
           options.headers['Authorization'] = 'Bearer $_token';
-         options.headers['Access-Control-Allow-Origin'] = '*';
+          options.headers["Accept"] = "application/json";
+          options.headers["Content-type"] = "application/json";
+          options.headers['Access-Control-Allow-Origin'] = '*';
           options.headers['Access-Control-Allow-Methods'] =
-              'POST, GET, OPTIONS, PUT, DELETE, HEAD';
+              'GET, POST, OPTIONS, PUT, PATCH, DELETE';
+          options.headers['Access-Control-Allow-Headers'] =
+              'GET, POST, OPTIONS, PUT, PATCH, DELETE';
+          options.headers['Access-Control-Allow-Credentials'] = true;
         }
         return handler.next(options);
       },
@@ -46,10 +51,15 @@ class NetworkClient {
             headers: requestOptions.headers,
           );
           options.headers!['Authorization'] = 'Bearer $_token';
+          options.headers!["Accept"] = "application/json";
+          options.headers!["Content-type"] = "application/json";
           options.headers!['Access-Control-Allow-Origin'] = '*';
           options.headers!['Access-Control-Allow-Methods'] =
-              'POST, GET, OPTIONS, PUT, DELETE, HEAD';
-          
+              'GET, POST, OPTIONS, PUT, PATCH, DELETE';
+          options.headers!['Access-Control-Allow-Headers'] =
+              'GET, POST, OPTIONS, PUT, PATCH, DELETE';
+          options.headers!['Access-Control-Allow-Credentials'] = true;
+
           Response cloneReq = await Dio().request<dynamic>(
               BASE_URL + requestOptions.path,
               data: requestOptions.data,

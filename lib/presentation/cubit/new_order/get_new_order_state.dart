@@ -9,7 +9,12 @@ class GetNewOrderState with _$GetNewOrderState {
     @Default([]) List<OrderModel> orderList,
 
     @Default(1) int page,
+    @Default("") String maritalStatus,
+
     @Default(false) bool hasReachedMax,
     @Default(false) bool loadingPagination,
+
+    @Default("") String search,
+
   }) = _GetNewOrderState;
 }

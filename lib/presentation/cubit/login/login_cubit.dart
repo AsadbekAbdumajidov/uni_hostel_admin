@@ -40,7 +40,8 @@ class LoginCubit extends Cubit<LoginState> {
 
   void changeEye() async {
     emit(state.copyWith(
-        changeEye: state.changeEye == true ? false : true,
-        status: Status.UNKNOWN));
+      changeEye: state.changeEye == true ? false : true,
+      status: Status.UNKNOWN,
+    ));
   }
 }

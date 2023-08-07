@@ -6,6 +6,8 @@ class AppStrings {
   static const strApproveds = "Tasdiqlanganlar";
   static const strStudents = "Talabalar";
   static const strWaiting = "Kutish";
+  static const strUploadedFile = "Toifani tasdiqlovchi file";
+
 
   static const strThoseWhoPaid = "To'lov qilganlar";
   static const strPaymentHistory = "To'lovlar tarixi";
@@ -20,6 +22,8 @@ class AppStrings {
   static const strSearch = "Qidirish";
   static const strAcces = "Kirish";
   static const strExit = "Chiqish";
+  static const strMaritals = "Toifalar";
+
   static const strQueuingRequirements = "Navbatga qo'yilgan talablar";
   static const strRejectedStudents = "Rad etilgan talablar";
   static const strApproved = "Tasdiqlangan";
@@ -34,6 +38,7 @@ class AppStrings {
   static const strDate = "Sanasi";
   static const strPay = "To'lash";
   static const strApplicationEmpty = "Arizalar mavjud emas";
+  static const strHasManyChildrenFamily = "Uch va undan ortiq farzandi, to‘lov-shartnoma asosida o‘qiyotgan oila farzandi";
 
   static const strFiskalChekNumber = "Fiskal chek raqami";
   static const strTime = "Vaqti";
@@ -48,6 +53,8 @@ class AppStrings {
   static const strFaculty = "Fakultet";
   static const strCourse = "Kurs";
   static const strGroup = "Guruh";
+  static const strPhoneNumber = "Telefon raqami";
+
   static const strApprovedAd = "Tasdiqlash";
   static const strWaitingAd = "Navbatga";
   static const strRejectedAd = "Rad etish";
@@ -70,7 +77,12 @@ class AppStrings {
   static const strPaymentDateEmpty = "To'lov sanasini bo'sh qoldirmang";
   static const strPaymentDateValidate = "To'lov sanasini xato";
   static const strNotEmpty = "bo'sh qoldirmang";
+  static const strNoneOfThem = "hech biri";
+  static const strToSee = "Hujjatni ko'rish";
 
+  static const strReasonforRejection = "Rad etilish sababi";
+  static const strQueuingReason
+ = "Navbatga qo'yilish sababi";
 
 
 

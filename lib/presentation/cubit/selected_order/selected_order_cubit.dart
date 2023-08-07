@@ -35,6 +35,7 @@ class SelectedOrderCubit extends Cubit<SelectedOrderState> {
       "one_parents_is_dead": state.orderResponse?.oneParentsIsDead ?? false,
       "disabled": state.orderResponse?.disabled ?? false,
       "gifted_student": state.orderResponse?.giftedStudent ?? false,
+      "has_many_children_family": state.orderResponse?.hasManyChildrenFamily ?? false,
     };
     properties.forEach((key, value) {
       if (value) {
@@ -62,6 +63,9 @@ class SelectedOrderCubit extends Cubit<SelectedOrderState> {
             break;
           case "gifted_student":
             trueProperties.add(AppStrings.strGiftedStudent);
+            break;
+          case "has_many_children_family":
+            trueProperties.add(AppStrings.strHasManyChildrenFamily);
             break;
           default:
         }

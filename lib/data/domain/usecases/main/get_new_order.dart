@@ -10,15 +10,17 @@ class GetNewOrderUseCase extends UseCase<GetOrderResponse, GetNewOrderParams> {
 
   @override
   Future<Either<Failure, GetOrderResponse>> call(GetNewOrderParams params) =>
-      _iMainRepository.getNewOrder(params.page, params.search);
+      _iMainRepository.getNewOrder(params.page, params.search,params.maritalStatus);
 }
 
 class GetNewOrderParams {
   final int page;
   final String search;
+  final String maritalStatus;
 
-  GetNewOrderParams({
+
+  GetNewOrderParams( {
     required this.page,
-    required this.search,
+    required this.search,required this.maritalStatus,
   });
 }

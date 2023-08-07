@@ -21,8 +21,10 @@ mixin _$GetNewOrderState {
   GetOrderResponse? get orderResponse => throw _privateConstructorUsedError;
   List<OrderModel> get orderList => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
+  String get maritalStatus => throw _privateConstructorUsedError;
   bool get hasReachedMax => throw _privateConstructorUsedError;
   bool get loadingPagination => throw _privateConstructorUsedError;
+  String get search => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $GetNewOrderStateCopyWith<GetNewOrderState> get copyWith =>
@@ -41,8 +43,10 @@ abstract class $GetNewOrderStateCopyWith<$Res> {
       GetOrderResponse? orderResponse,
       List<OrderModel> orderList,
       int page,
+      String maritalStatus,
       bool hasReachedMax,
-      bool loadingPagination});
+      bool loadingPagination,
+      String search});
 
   $GetOrderResponseCopyWith<$Res>? get orderResponse;
 }
@@ -65,8 +69,10 @@ class _$GetNewOrderStateCopyWithImpl<$Res, $Val extends GetNewOrderState>
     Object? orderResponse = freezed,
     Object? orderList = null,
     Object? page = null,
+    Object? maritalStatus = null,
     Object? hasReachedMax = null,
     Object? loadingPagination = null,
+    Object? search = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -89,6 +95,10 @@ class _$GetNewOrderStateCopyWithImpl<$Res, $Val extends GetNewOrderState>
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
+      maritalStatus: null == maritalStatus
+          ? _value.maritalStatus
+          : maritalStatus // ignore: cast_nullable_to_non_nullable
+              as String,
       hasReachedMax: null == hasReachedMax
           ? _value.hasReachedMax
           : hasReachedMax // ignore: cast_nullable_to_non_nullable
@@ -97,6 +107,10 @@ class _$GetNewOrderStateCopyWithImpl<$Res, $Val extends GetNewOrderState>
           ? _value.loadingPagination
           : loadingPagination // ignore: cast_nullable_to_non_nullable
               as bool,
+      search: null == search
+          ? _value.search
+          : search // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -127,8 +141,10 @@ abstract class _$$_GetNewOrderStateCopyWith<$Res>
       GetOrderResponse? orderResponse,
       List<OrderModel> orderList,
       int page,
+      String maritalStatus,
       bool hasReachedMax,
-      bool loadingPagination});
+      bool loadingPagination,
+      String search});
 
   @override
   $GetOrderResponseCopyWith<$Res>? get orderResponse;
@@ -150,8 +166,10 @@ class __$$_GetNewOrderStateCopyWithImpl<$Res>
     Object? orderResponse = freezed,
     Object? orderList = null,
     Object? page = null,
+    Object? maritalStatus = null,
     Object? hasReachedMax = null,
     Object? loadingPagination = null,
+    Object? search = null,
   }) {
     return _then(_$_GetNewOrderState(
       status: null == status
@@ -174,6 +192,10 @@ class __$$_GetNewOrderStateCopyWithImpl<$Res>
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
+      maritalStatus: null == maritalStatus
+          ? _value.maritalStatus
+          : maritalStatus // ignore: cast_nullable_to_non_nullable
+              as String,
       hasReachedMax: null == hasReachedMax
           ? _value.hasReachedMax
           : hasReachedMax // ignore: cast_nullable_to_non_nullable
@@ -182,6 +204,10 @@ class __$$_GetNewOrderStateCopyWithImpl<$Res>
           ? _value.loadingPagination
           : loadingPagination // ignore: cast_nullable_to_non_nullable
               as bool,
+      search: null == search
+          ? _value.search
+          : search // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -195,8 +221,10 @@ class _$_GetNewOrderState implements _GetNewOrderState {
       this.orderResponse,
       final List<OrderModel> orderList = const [],
       this.page = 1,
+      this.maritalStatus = "",
       this.hasReachedMax = false,
-      this.loadingPagination = false})
+      this.loadingPagination = false,
+      this.search = ""})
       : _orderList = orderList;
 
   @override
@@ -221,14 +249,20 @@ class _$_GetNewOrderState implements _GetNewOrderState {
   final int page;
   @override
   @JsonKey()
+  final String maritalStatus;
+  @override
+  @JsonKey()
   final bool hasReachedMax;
   @override
   @JsonKey()
   final bool loadingPagination;
+  @override
+  @JsonKey()
+  final String search;
 
   @override
   String toString() {
-    return 'GetNewOrderState(status: $status, failure: $failure, orderResponse: $orderResponse, orderList: $orderList, page: $page, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination)';
+    return 'GetNewOrderState(status: $status, failure: $failure, orderResponse: $orderResponse, orderList: $orderList, page: $page, maritalStatus: $maritalStatus, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination, search: $search)';
   }
 
   @override
@@ -243,10 +277,13 @@ class _$_GetNewOrderState implements _GetNewOrderState {
             const DeepCollectionEquality()
                 .equals(other._orderList, _orderList) &&
             (identical(other.page, page) || other.page == page) &&
+            (identical(other.maritalStatus, maritalStatus) ||
+                other.maritalStatus == maritalStatus) &&
             (identical(other.hasReachedMax, hasReachedMax) ||
                 other.hasReachedMax == hasReachedMax) &&
             (identical(other.loadingPagination, loadingPagination) ||
-                other.loadingPagination == loadingPagination));
+                other.loadingPagination == loadingPagination) &&
+            (identical(other.search, search) || other.search == search));
   }
 
   @override
@@ -257,8 +294,10 @@ class _$_GetNewOrderState implements _GetNewOrderState {
       orderResponse,
       const DeepCollectionEquality().hash(_orderList),
       page,
+      maritalStatus,
       hasReachedMax,
-      loadingPagination);
+      loadingPagination,
+      search);
 
   @JsonKey(ignore: true)
   @override
@@ -274,8 +313,10 @@ abstract class _GetNewOrderState implements GetNewOrderState {
       final GetOrderResponse? orderResponse,
       final List<OrderModel> orderList,
       final int page,
+      final String maritalStatus,
       final bool hasReachedMax,
-      final bool loadingPagination}) = _$_GetNewOrderState;
+      final bool loadingPagination,
+      final String search}) = _$_GetNewOrderState;
 
   @override
   Status get status;
@@ -288,9 +329,13 @@ abstract class _GetNewOrderState implements GetNewOrderState {
   @override
   int get page;
   @override
+  String get maritalStatus;
+  @override
   bool get hasReachedMax;
   @override
   bool get loadingPagination;
+  @override
+  String get search;
   @override
   @JsonKey(ignore: true)
   _$$_GetNewOrderStateCopyWith<_$_GetNewOrderState> get copyWith =>

@@ -4,22 +4,32 @@ import 'package:uni_hostel_admin/presentation/view/tabs/requests/widget/expansio
 
 class ExpansionItemWidget2 extends StatelessWidget {
   const ExpansionItemWidget2(
-      {super.key, required this.title, required this.subTitle, required this.title2, required this.subTitle2});
+      {super.key,
+      required this.title,
+      required this.subTitle,
+      required this.title2,
+      required this.subTitle2,
+      this.onTap});
   final String title;
   final String subTitle;
-final String title2;
-  final String subTitle2;
+  final String title2;
+  final String? subTitle2;
+
+  final Function()? onTap;
+
   @override
   Widget build(BuildContext context) {
     return Row(children: [
       Expanded(
-        child: ExpansionItemWidget(
-            title:title, subTitle: subTitle),
+        child: ExpansionItemWidget(title: title, subTitle: subTitle),
       ),
-      Expanded(
-        child: ExpansionItemWidget(
-            title: title2, subTitle: subTitle2),
-      )
+      SizedBox(width: subTitle2 == "" ? 0 : 12),
+      subTitle2 == ""
+          ? SizedBox.shrink()
+          : Expanded(
+              child: ExpansionItemWidget(
+                  onTap: onTap, title: title2, subTitle: subTitle2 ?? ""),
+            )
     ]).paddingOnly(bottom: 14);
   }
 }

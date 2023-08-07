@@ -16,11 +16,11 @@ class StepStatusWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        width: 300,
+        width: 250,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 40),
+            SizedBox(height: 100),
             SvgPicture.asset(img, height: 300,fit: BoxFit.contain),
             SizedBox(height: 25),
             Text(title,

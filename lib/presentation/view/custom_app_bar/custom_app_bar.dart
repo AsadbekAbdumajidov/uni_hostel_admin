@@ -8,8 +8,9 @@ import 'package:uni_hostel_admin/core/widget/error_img_profile.dart';
 import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
-  @override
+  const CustomAppBar({super.key, this.onchange});
+  final Function(dynamic v)?  onchange;
+  @override 
   Widget build(BuildContext context) {
     return Container(
       height: 80,
@@ -37,6 +38,7 @@ class CustomAppBar extends StatelessWidget {
 
           Expanded(
               child: CustomTextField(
+                onChange:  onchange,
             borderColor: AppColors.transparent,
             hintText: "${AppStrings.strSearch}...",
             prefixIcon: Icon(CupertinoIcons.search,size: 22),

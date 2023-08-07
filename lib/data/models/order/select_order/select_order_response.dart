@@ -17,6 +17,7 @@ class SelectOrderResponse with _$SelectOrderResponse {
     @JsonKey(name: 'foster_home') bool? fosterHome,
     @JsonKey(name: 'no_breadwinner') bool? noBreadwinner,
     @JsonKey(name: 'one_parents_is_dead') bool? oneParentsIsDead,
+    @JsonKey(name: 'has_many_children_family') bool? hasManyChildrenFamily,
     @JsonKey(name: 'gifted_student') bool? giftedStudent,
     @JsonKey(name: 'reference_file') String? referenceFile,
     @JsonKey(name: 'waiting_status') String? waitingStatus,
@@ -25,13 +26,11 @@ class SelectOrderResponse with _$SelectOrderResponse {
     @JsonKey(name: 'cancel_reason') String? cancelReason,
     @JsonKey(name: 'payment_date') int? paymentDate,
     @JsonKey(name: 'checked_admin') int? checkedAdmin,
-    
   }) = _SelectOrderResponse;
 
   factory SelectOrderResponse.fromJson(Map<String, dynamic> json) =>
       _$SelectOrderResponseFromJson(json);
 }
-
 
 @freezed
 class StudentInfoResponse with _$StudentInfoResponse {
@@ -50,7 +49,6 @@ class StudentInfoResponse with _$StudentInfoResponse {
     String? course,
     String? group,
     String? image,
-
   }) = _StudentInfoResponse;
 
   factory StudentInfoResponse.fromJson(Map<String, dynamic> json) =>

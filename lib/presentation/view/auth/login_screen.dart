@@ -81,13 +81,14 @@ class LoginPage extends StatelessWidget {
                           SizedBox(height: 10),
                           CustomTextField(
                             obscure: state.changeEye,
+                            maxLines: 1,
                             onChange: (v) =>
                                 context.read<LoginCubit>().getPassword(v),
                             hintText: AppStrings.strEnterPassword,
                             suffixIcon: GestureDetector(
                                 onTap: () =>
                                     context.read<LoginCubit>().changeEye(),
-                                child: const Icon(Icons.remove_red_eye)),
+                                child: Icon(state.changeEye == false ? Icons.remove_red_eye_outlined : Icons.remove_red_eye)),
                             validator: (dynamic v) => Validator.fieldChecker(
                                 value: v,
                                 message: AppStrings.strValidatePassword),

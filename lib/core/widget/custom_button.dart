@@ -77,12 +77,13 @@ class CustomOutlineButton extends StatelessWidget {
     this.width,
     this.style,
     this.ounLineColour,
-    this.radius,
+    this.radius, this.primaryColour,
   }) : super(key: key);
   final String text;
   final double? width;
   final Function() onTap;
   final TextStyle? style;
+  final Color? primaryColour;
   final Color? ounLineColour;
   final double? radius;
   @override
@@ -90,30 +91,31 @@ class CustomOutlineButton extends StatelessWidget {
     return BlocProvider(
       create: (context) => OnHoverCubit(),
       child: BlocBuilder<OnHoverCubit, OnHoverState>(builder: (context, state) {
-        return  InkWell(
-            borderRadius: BorderRadius.circular(radius ?? 5),
-            onHover: (v) => context.read<OnHoverCubit>().getHover(v),
-            onTap: onTap,
-            child: Container(
-              height: 30,
-              width: width ?? null,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(radius ?? 5),
-
-                  border: Border.all(
-                      color:  AppColors.primaryColor,
-                      width: 0.1),
-                  color: state.hover ? AppColors.primaryColor : AppColors.whiteColor),
-              child: Center(
-                child: Expanded(
-                  child: Text(text,
-                      overflow: TextOverflow.ellipsis,
-                      style: style ??
-                          Theme.of(context).textTheme.titleSmall?.copyWith(
-                              color:  state.hover ? AppColors.whiteColor :AppColors.blackColor,
-                              fontWeight: FontWeight.w300)),
-                ),
-              ).paddingSymmetric(vertical: 4, horizontal:ResponsiveWidget.isMobile(context) ? 8 : 16),
+        return InkWell(
+          borderRadius: BorderRadius.circular(radius ?? 5),
+          onHover: (v) => context.read<OnHoverCubit>().getHover(v),
+          onTap: onTap,
+          child: Container(
+            height: 30,
+            width: width ?? null,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(radius ?? 5),
+                border: Border.all(color:primaryColour?? AppColors.primaryColor, width: 0.7),
+                color: state.hover
+                    ?primaryColour?? primaryColour ?? AppColors.primaryColor
+                    : AppColors.whiteColor),
+            child: Center(
+              child: Text(text,
+                  overflow: TextOverflow.ellipsis,
+                  style: style ??
+                      Theme.of(context).textTheme.titleSmall?.copyWith(
+                          color: state.hover
+                              ? AppColors.whiteColor
+                              : AppColors.blackColor,
+                          fontWeight: FontWeight.w300)),
+            ).paddingSymmetric(
+                vertical: 4,
+                horizontal: ResponsiveWidget.isMobile(context) ? 8 : 16),
           ),
         );
       }),

@@ -67,6 +67,7 @@ class RejectedScreen extends StatelessWidget {
                                   ],
                                 ).paddingOnly(bottom: 40),
                                 CustomCardWidget(
+                                  notButtonIndex: 1,
                                     list: state.orderList,
                                     textStatus: AppStrings.strRejected),
                               ],

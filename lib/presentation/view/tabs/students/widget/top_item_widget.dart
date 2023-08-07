@@ -21,22 +21,19 @@ class TopItemWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-       Expanded(
-         child: Text(title,
-            overflow: TextOverflow.ellipsis,
-                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontSize: ResponsiveWidget.isMobileLarge(context) ? 22 : 24)),
-       ),
+        Expanded(
+          child: Text(title,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                  fontSize: ResponsiveWidget.isMobileLarge(context) ? 22 : 24)),
+        ),
         Row(
-            children: [
-              DropDownWidget(index: index, list: list, onChanged: onChanged).paddingSymmetric(horizontal: 6),
-                  
-              DropDownWidget(index: index, list: list, onChanged: onChanged),
-              DropDownWidget(index: index, list: list, onChanged: onChanged).paddingSymmetric(horizontal: 6),
-                 
-              DropDownWidget(index: index, list: list, onChanged: onChanged),
-            ],
-          ),
+          children: [
+            DropDownWidget(index: index, list: list, onChanged: onChanged)
+                .paddingSymmetric(horizontal: 6),
+            DropDownWidget(index: index, list: list, onChanged: onChanged),
+          ],
+        ),
       ],
     ).paddingOnly(bottom: 40);
   }

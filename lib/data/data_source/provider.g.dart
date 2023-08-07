@@ -76,11 +76,13 @@ class _ApiClient implements ApiClient {
   Future<GetOrderResponse> getNewOrders(
     page,
     search,
+    maritalStatus,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'page': page,
       r'search_query': search,
+      r'marital_status': maritalStatus,
     };
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};

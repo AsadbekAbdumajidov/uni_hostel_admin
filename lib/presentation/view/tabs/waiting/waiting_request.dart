@@ -65,6 +65,7 @@ class WaitingScreen extends StatelessWidget {
                                 ],
                               ).paddingOnly(bottom: 40),
                               CustomCardWidget(
+                                notButtonIndex: 2,
                                 list: state.orderList,
                                 statusColor: AppColors.amberColor,
                                 textStatus: AppStrings.strWaiting,

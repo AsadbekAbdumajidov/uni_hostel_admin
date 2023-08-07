@@ -30,6 +30,8 @@ abstract class ApiClient {
   Future<GetOrderResponse> getNewOrders(
     @Query("page") int page,
     @Query("search_query") String search,
+    @Query("marital_status") String maritalStatus,
+
   );
 
   @GET('admin/order/{id}/')

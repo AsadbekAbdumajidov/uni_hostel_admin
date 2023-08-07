@@ -184,7 +184,7 @@ class _$_LoginState implements _LoginState {
       this.loginResponseModel,
       this.userName = "",
       this.password = "",
-      this.changeEye = false});
+      this.changeEye = true});
 
   @override
   @JsonKey()

@@ -66,9 +66,9 @@ class MainRepository implements IMainRepository {
   }
   
   @override
-  Future<Either<Failure, GetOrderResponse>> getNewOrder(int page,String search)async {
+  Future<Either<Failure, GetOrderResponse>> getNewOrder(int page,String search,String maritalStatus)async {
     try {
-      final response = await _apiClient.getNewOrders(page,search);
+      final response = await _apiClient.getNewOrders(page,search,maritalStatus);
       return Right(response);
     } on DioError catch (e) {
       if (kDebugMode) {

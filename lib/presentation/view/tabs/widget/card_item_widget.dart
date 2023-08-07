@@ -33,7 +33,7 @@ class CardItemWidget extends StatelessWidget {
             ? 16
             : 18
         : ResponsiveWidget.isMobileLarge(context)
-            ? 14.5
+            ? 14
             : 16;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -44,7 +44,7 @@ class CardItemWidget extends StatelessWidget {
             children: [
               img == null
                   ? SizedBox.shrink()
-                  : NetworkImageWidget(onTap: () {}, size: 50, img: img ?? "")
+                  :  NetworkImageWidget(onTap: () {}, size: 50, img: img ?? "")
                       .paddingOnly(
                           right: ResponsiveWidget.isMobile(context) ? 4 : 10),
               Expanded(
@@ -65,7 +65,7 @@ class CardItemWidget extends StatelessWidget {
         status == null && textStatus == null
             ? SizedBox.shrink()
             : Expanded(
-                flex: ResponsiveWidget.isMobile(context) ? 2 : 3,
+                flex: ResponsiveWidget.isMobile(context) ? 2 : 4,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -97,8 +97,7 @@ class CardItemWidget extends StatelessWidget {
                                   color: statusColor?.withOpacity(0.1) ??
                                       AppColors.redColour.withOpacity(0.1),
                                 ),
-                                child: Expanded(
-                                  child: Center(
+                                child:  Center(
                                     child: Text(
                                       textStatus ?? "",
                                       overflow: TextOverflow.ellipsis,
@@ -112,7 +111,6 @@ class CardItemWidget extends StatelessWidget {
                                                 AppColors.redColour,
                                           ),
                                     ),
-                                  ),
                                 ).paddingSymmetric(vertical: 4, horizontal: 10),
                               ),
                   ],

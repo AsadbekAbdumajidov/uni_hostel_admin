@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel_admin/core/extension/for_context.dart';
 import 'package:uni_hostel_admin/core/themes/app_colors.dart';
 import 'package:uni_hostel_admin/core/themes/app_decoration.dart';
+import 'package:uni_hostel_admin/di.dart';
+import 'package:uni_hostel_admin/presentation/components/loading_widget.dart';
+import 'package:uni_hostel_admin/presentation/components/pagination.dart';
 import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
+import 'package:uni_hostel_admin/presentation/cubit/order/get_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/view/menu_drawer/menu_drawer.dart';
 import 'package:uni_hostel_admin/presentation/view/custom_app_bar/custom_app_bar.dart';
 import 'package:uni_hostel_admin/presentation/view/profile_drawer/profile_drawer.dart';
-import 'package:uni_hostel_admin/presentation/view/tabs/students/widget/top_item_widget.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/widget/custom_card_widget.dart';
-
 import '../../../../core/themes/app_text.dart';
+import '../../../../core/utils/utils.dart';
 
 class StudentsScreen extends StatefulWidget {
   const StudentsScreen({super.key});
@@ -24,6 +28,8 @@ class _StudentsScreenState extends State<StudentsScreen> {
   List<String> list = ['Fakultet', 'Fakulte', 'Fakultet2', 'Fakultet3'];
   @override
   Widget build(BuildContext context) {
+    double textSize = ResponsiveWidget.isMobileLarge(context) ? 22 : 24;
+    double paddingSize = ResponsiveWidget.isMobileLarge(context) ? 16 : 30;
     return SafeArea(
       child: Scaffold(
         drawer: Drawer(child: MenuDrawer()),
@@ -40,27 +46,47 @@ class _StudentsScreenState extends State<StudentsScreen> {
                   Expanded(
                     child: Container(
                       width: context.w,
-                      padding: EdgeInsets.all(20),
                       decoration: AppDecoration.customCardDecoration,
-                      child: ListView(
-                        physics: ClampingScrollPhysics(),
-                        children: [
-                          TopItemWidget(
-                            index: index,
-                            title: AppStrings.strApproveds,
-                            list: list,
-                            onChanged: (v) {},
-                          ),
-                          CustomCardWidget(
-                            list: [],
-                            statusColor: AppColors.greenColour,
-                            textStatus: AppStrings.strApproved,
-                          ),
-                        ],
+                      child: BlocProvider<GetOrderCubit>(
+                        create: (context) =>
+                            inject<GetOrderCubit>()..getOrder("accepted"),
+                        child: BlocBuilder<GetOrderCubit, GetOrderState>(
+                            builder: (context, state) {
+                          if (state.status == Status.LOADING) {
+                            return LoadingWidget();
+                          }
+                          return InfiniteScrollingPagination(
+                            onPagination: () {
+                              context
+                                  .read<GetOrderCubit>()
+                                  .getOrderInfinite("accepted");
+                            },
+                            isLoading: state.loadingPagination,
+                            child: ListView(
+                              physics: ClampingScrollPhysics(),
+                              children: [
+                                Row(
+                                  children: [
+                                    Text(AppStrings.strApproveds,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineMedium
+                                            ?.copyWith(fontSize: textSize)),
+                                  ],
+                                ).paddingOnly(bottom: 40),
+                                CustomCardWidget(
+                                  notButtonIndex: 0,
+                                  list: state.orderList,
+                                  statusColor: AppColors.greenColour,
+                                  textStatus: AppStrings.strApproved,
+                                ),
+                              ],
+                            ),
+                          ).paddingAll(paddingSize);
+                        }),
                       ),
-                    ).paddingAll(
-                        ResponsiveWidget.isMobileLarge(context) ? 16 : 30),
-                  ),
+                    ).paddingAll(20),
+                  )
                 ],
               ),
             )

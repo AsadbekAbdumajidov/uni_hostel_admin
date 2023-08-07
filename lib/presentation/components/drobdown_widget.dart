@@ -2,7 +2,9 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
+import 'package:text_scroll/text_scroll.dart';
 import 'package:uni_hostel_admin/core/themes/app_colors.dart';
+import 'package:uni_hostel_admin/core/themes/app_text.dart';
 import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
 
 class DropDownWidget extends StatelessWidget {
@@ -19,62 +21,78 @@ class DropDownWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return DropdownButtonHideUnderline(
       child: DropdownButton2<String>(
-        
+        isExpanded: true,
         items: list
             .map((String item) => DropdownMenuItem<String>(
-              
-                  value: item,
-                  child:  Center(
-                      child: Text(
-                        item,
-                        style: Theme.of(context)
-                            .textTheme
-                            .displaySmall
-                            ?.copyWith(
-                                color: item == index
-                                    ? AppColors.whiteColor
-                                    : AppColors.blackColor),
-                        overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                ))
+                alignment: AlignmentDirectional.bottomEnd,
+                value: item,
+                child: Center(
+                    child: TextScroll(
+                  item,
+                  velocity: Velocity(pixelsPerSecond: Offset(50, 0)),
+                  pauseBetween: Duration(milliseconds: 1000),
+                  mode: TextScrollMode.bouncing,
+                  style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                      color: item == index
+                          ? AppColors.whiteColor
+                          : AppColors.blackColor),
+                  textAlign: TextAlign.right,
+                  selectable: true,
+                ))))
             .toList(),
+        hint: Center(
+            child: TextScroll(
+          index == "" ? AppStrings.strMaritals : index,
+          velocity: Velocity(pixelsPerSecond: Offset(50, 0)),
+          pauseBetween: Duration(milliseconds: 1000),
+          mode: TextScrollMode.bouncing,
+          style: Theme.of(context)
+              .textTheme
+              .displaySmall
+              ?.copyWith(color: AppColors.whiteColor),
+          textAlign: TextAlign.right,
+          selectable: true,
+        )),
         selectedItemBuilder: (context) {
           return List.generate(
             list.length,
             (index) {
               return Center(
-                child: Text(
+                child: TextScroll(
                   list[index],
+                  velocity: Velocity(pixelsPerSecond: Offset(50, 0)),
+                  pauseBetween: Duration(milliseconds: 1000),
+                  mode: TextScrollMode.bouncing,
                   style: Theme.of(context).textTheme.displaySmall?.copyWith(
                       color: AppColors.whiteColor,
                       fontSize: ResponsiveWidget.isTablet(context) ? 14 : 16),
-                  overflow: TextOverflow.ellipsis,
-                ),
+                  textAlign: TextAlign.right,
+                  selectable: true,
+                ).paddingOnly(left: 5),
               );
             },
           );
         },
-        value: index,
+        value: index == "" ? null : index,
         onChanged: onChanged,
         buttonStyleData: ButtonStyleData(
-          
           padding: EdgeInsets.all(0),
           height: 35,
+          width: 200,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
               color: AppColors.primaryColor),
           elevation: 2,
         ),
         iconStyleData: IconStyleData(
-          icon:  Icon(CupertinoIcons.chevron_down, size:ResponsiveWidget.isMobileLarge(context)
-              ? 12
-              : 20)
-                  .paddingOnly(right: 8),
+          icon: Icon(CupertinoIcons.chevron_down,
+                  size: ResponsiveWidget.isMobileLarge(context) ? 12 : 20)
+              .paddingOnly(right: 8),
           iconEnabledColor: AppColors.whiteColor,
         ),
         dropdownStyleData: DropdownStyleData(
           padding: EdgeInsets.all(0),
+          width: 300,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
             color: AppColors.whiteColor,
@@ -91,7 +109,7 @@ class DropDownWidget extends StatelessWidget {
             .displaySmall
             ?.copyWith(color: AppColors.whiteColor),
         menuItemStyleData: MenuItemStyleData(
-          height: 35,
+            height: 35,
             selectedMenuItemBuilder: (context, child) {
               return Container(
                 height: 35,

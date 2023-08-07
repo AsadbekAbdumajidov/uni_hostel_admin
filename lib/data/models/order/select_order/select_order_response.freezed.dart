@@ -36,6 +36,8 @@ mixin _$SelectOrderResponse {
   bool? get noBreadwinner => throw _privateConstructorUsedError;
   @JsonKey(name: 'one_parents_is_dead')
   bool? get oneParentsIsDead => throw _privateConstructorUsedError;
+  @JsonKey(name: 'has_many_children_family')
+  bool? get hasManyChildrenFamily => throw _privateConstructorUsedError;
   @JsonKey(name: 'gifted_student')
   bool? get giftedStudent => throw _privateConstructorUsedError;
   @JsonKey(name: 'reference_file')
@@ -76,6 +78,7 @@ abstract class $SelectOrderResponseCopyWith<$Res> {
       @JsonKey(name: 'foster_home') bool? fosterHome,
       @JsonKey(name: 'no_breadwinner') bool? noBreadwinner,
       @JsonKey(name: 'one_parents_is_dead') bool? oneParentsIsDead,
+      @JsonKey(name: 'has_many_children_family') bool? hasManyChildrenFamily,
       @JsonKey(name: 'gifted_student') bool? giftedStudent,
       @JsonKey(name: 'reference_file') String? referenceFile,
       @JsonKey(name: 'waiting_status') String? waitingStatus,
@@ -111,6 +114,7 @@ class _$SelectOrderResponseCopyWithImpl<$Res, $Val extends SelectOrderResponse>
     Object? fosterHome = freezed,
     Object? noBreadwinner = freezed,
     Object? oneParentsIsDead = freezed,
+    Object? hasManyChildrenFamily = freezed,
     Object? giftedStudent = freezed,
     Object? referenceFile = freezed,
     Object? waitingStatus = freezed,
@@ -160,6 +164,10 @@ class _$SelectOrderResponseCopyWithImpl<$Res, $Val extends SelectOrderResponse>
       oneParentsIsDead: freezed == oneParentsIsDead
           ? _value.oneParentsIsDead
           : oneParentsIsDead // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      hasManyChildrenFamily: freezed == hasManyChildrenFamily
+          ? _value.hasManyChildrenFamily
+          : hasManyChildrenFamily // ignore: cast_nullable_to_non_nullable
               as bool?,
       giftedStudent: freezed == giftedStudent
           ? _value.giftedStudent
@@ -228,6 +236,7 @@ abstract class _$$_SelectOrderResponseCopyWith<$Res>
       @JsonKey(name: 'foster_home') bool? fosterHome,
       @JsonKey(name: 'no_breadwinner') bool? noBreadwinner,
       @JsonKey(name: 'one_parents_is_dead') bool? oneParentsIsDead,
+      @JsonKey(name: 'has_many_children_family') bool? hasManyChildrenFamily,
       @JsonKey(name: 'gifted_student') bool? giftedStudent,
       @JsonKey(name: 'reference_file') String? referenceFile,
       @JsonKey(name: 'waiting_status') String? waitingStatus,
@@ -262,6 +271,7 @@ class __$$_SelectOrderResponseCopyWithImpl<$Res>
     Object? fosterHome = freezed,
     Object? noBreadwinner = freezed,
     Object? oneParentsIsDead = freezed,
+    Object? hasManyChildrenFamily = freezed,
     Object? giftedStudent = freezed,
     Object? referenceFile = freezed,
     Object? waitingStatus = freezed,
@@ -311,6 +321,10 @@ class __$$_SelectOrderResponseCopyWithImpl<$Res>
       oneParentsIsDead: freezed == oneParentsIsDead
           ? _value.oneParentsIsDead
           : oneParentsIsDead // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      hasManyChildrenFamily: freezed == hasManyChildrenFamily
+          ? _value.hasManyChildrenFamily
+          : hasManyChildrenFamily // ignore: cast_nullable_to_non_nullable
               as bool?,
       giftedStudent: freezed == giftedStudent
           ? _value.giftedStudent
@@ -362,6 +376,7 @@ class _$_SelectOrderResponse implements _SelectOrderResponse {
       @JsonKey(name: 'foster_home') this.fosterHome,
       @JsonKey(name: 'no_breadwinner') this.noBreadwinner,
       @JsonKey(name: 'one_parents_is_dead') this.oneParentsIsDead,
+      @JsonKey(name: 'has_many_children_family') this.hasManyChildrenFamily,
       @JsonKey(name: 'gifted_student') this.giftedStudent,
       @JsonKey(name: 'reference_file') this.referenceFile,
       @JsonKey(name: 'waiting_status') this.waitingStatus,
@@ -401,6 +416,9 @@ class _$_SelectOrderResponse implements _SelectOrderResponse {
   @JsonKey(name: 'one_parents_is_dead')
   final bool? oneParentsIsDead;
   @override
+  @JsonKey(name: 'has_many_children_family')
+  final bool? hasManyChildrenFamily;
+  @override
   @JsonKey(name: 'gifted_student')
   final bool? giftedStudent;
   @override
@@ -427,7 +445,7 @@ class _$_SelectOrderResponse implements _SelectOrderResponse {
 
   @override
   String toString() {
-    return 'SelectOrderResponse(id: $id, status: $status, disabled: $disabled, student: $student, ironNotebook: $ironNotebook, womensBook: $womensBook, youthsNotebook: $youthsNotebook, fosterHome: $fosterHome, noBreadwinner: $noBreadwinner, oneParentsIsDead: $oneParentsIsDead, giftedStudent: $giftedStudent, referenceFile: $referenceFile, waitingStatus: $waitingStatus, monthlyPaymentPrice: $monthlyPaymentPrice, createdAt: $createdAt, cancelReason: $cancelReason, paymentDate: $paymentDate, checkedAdmin: $checkedAdmin)';
+    return 'SelectOrderResponse(id: $id, status: $status, disabled: $disabled, student: $student, ironNotebook: $ironNotebook, womensBook: $womensBook, youthsNotebook: $youthsNotebook, fosterHome: $fosterHome, noBreadwinner: $noBreadwinner, oneParentsIsDead: $oneParentsIsDead, hasManyChildrenFamily: $hasManyChildrenFamily, giftedStudent: $giftedStudent, referenceFile: $referenceFile, waitingStatus: $waitingStatus, monthlyPaymentPrice: $monthlyPaymentPrice, createdAt: $createdAt, cancelReason: $cancelReason, paymentDate: $paymentDate, checkedAdmin: $checkedAdmin)';
   }
 
   @override
@@ -452,6 +470,8 @@ class _$_SelectOrderResponse implements _SelectOrderResponse {
                 other.noBreadwinner == noBreadwinner) &&
             (identical(other.oneParentsIsDead, oneParentsIsDead) ||
                 other.oneParentsIsDead == oneParentsIsDead) &&
+            (identical(other.hasManyChildrenFamily, hasManyChildrenFamily) ||
+                other.hasManyChildrenFamily == hasManyChildrenFamily) &&
             (identical(other.giftedStudent, giftedStudent) ||
                 other.giftedStudent == giftedStudent) &&
             (identical(other.referenceFile, referenceFile) ||
@@ -472,26 +492,28 @@ class _$_SelectOrderResponse implements _SelectOrderResponse {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      status,
-      disabled,
-      student,
-      ironNotebook,
-      womensBook,
-      youthsNotebook,
-      fosterHome,
-      noBreadwinner,
-      oneParentsIsDead,
-      giftedStudent,
-      referenceFile,
-      waitingStatus,
-      monthlyPaymentPrice,
-      createdAt,
-      cancelReason,
-      paymentDate,
-      checkedAdmin);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        status,
+        disabled,
+        student,
+        ironNotebook,
+        womensBook,
+        youthsNotebook,
+        fosterHome,
+        noBreadwinner,
+        oneParentsIsDead,
+        hasManyChildrenFamily,
+        giftedStudent,
+        referenceFile,
+        waitingStatus,
+        monthlyPaymentPrice,
+        createdAt,
+        cancelReason,
+        paymentDate,
+        checkedAdmin
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -520,6 +542,8 @@ abstract class _SelectOrderResponse implements SelectOrderResponse {
       @JsonKey(name: 'foster_home') final bool? fosterHome,
       @JsonKey(name: 'no_breadwinner') final bool? noBreadwinner,
       @JsonKey(name: 'one_parents_is_dead') final bool? oneParentsIsDead,
+      @JsonKey(name: 'has_many_children_family')
+      final bool? hasManyChildrenFamily,
       @JsonKey(name: 'gifted_student') final bool? giftedStudent,
       @JsonKey(name: 'reference_file') final String? referenceFile,
       @JsonKey(name: 'waiting_status') final String? waitingStatus,
@@ -559,6 +583,9 @@ abstract class _SelectOrderResponse implements SelectOrderResponse {
   @override
   @JsonKey(name: 'one_parents_is_dead')
   bool? get oneParentsIsDead;
+  @override
+  @JsonKey(name: 'has_many_children_family')
+  bool? get hasManyChildrenFamily;
   @override
   @JsonKey(name: 'gifted_student')
   bool? get giftedStudent;
