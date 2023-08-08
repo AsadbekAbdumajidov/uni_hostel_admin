@@ -14,11 +14,9 @@ class AppStrings {
   static const strAdmin = "Hisobingizga administrator sifatida kiring";
   static const strUserName = "Hisobingiz";
   static const strEnterUserName = "foydalanuvchi hisobingizni kiriting";
-  static const strValidateUserName =
-      "foydalanuvchi hisobingizni bo'sh qoldirmang";
+  
   static const strPassword = "Parol";
   static const strEnterPassword = "parolingizni kiriting";
-  static const strValidatePassword = "parolingizni bo'sh qoldirmang";
   static const strSearch = "Qidirish";
   static const strAcces = "Kirish";
   static const strExit = "Chiqish";
@@ -53,6 +51,8 @@ class AppStrings {
   static const strFaculty = "Fakultet";
   static const strCourse = "Kurs";
   static const strGroup = "Guruh";
+  static const strChecked = "Tekshirdi";
+
   static const strPhoneNumber = "Telefon raqami";
 
   static const strApprovedAd = "Tasdiqlash";
@@ -70,16 +70,13 @@ class AppStrings {
 // ------------- //
   static const strOneMonthPay = "1 oylik to'lov";
   static const strOneMonthPayHint = "1 oylik to'lov kiriting";
-  static const strOneMonthPayValidate = "1 oylik to'lovni bo'sh qoldirmang";
 
   static const strPaymentDate = "To'lov sanasi";
   static const strPaymentDateHint = "To'lov sanasini kiriting (oyning qaysi kunida ?)";
-  static const strPaymentDateEmpty = "To'lov sanasini bo'sh qoldirmang";
   static const strPaymentDateValidate = "To'lov sanasini xato";
-  static const strNotEmpty = "bo'sh qoldirmang";
   static const strNoneOfThem = "hech biri";
   static const strToSee = "Hujjatni ko'rish";
-
+ static const strIsNotEmpty = "maydon bo'sh bo'lishi mumkin emas";
   static const strReasonforRejection = "Rad etilish sababi";
   static const strQueuingReason
  = "Navbatga qo'yilish sababi";

@@ -10,12 +10,24 @@ class GetOrderUseCase extends UseCase<GetOrderResponse, GetOrderParams> {
 
   @override
   Future<Either<Failure, GetOrderResponse>> call(GetOrderParams params) =>
-      _iMainRepository.getOrder(params.page,params.status);
+      _iMainRepository.getOrder(
+        params.page,
+        params.status,
+        params.course,
+        params.search,
+      );
 }
 
 class GetOrderParams {
   final int page;
   final String status;
+  final String course;
+  final String search;
 
-  GetOrderParams( {required this.page,required this.status,});
+  GetOrderParams({
+    required this.page,
+    required this.status,
+    required this.course,
+    required this.search,
+  });
 }

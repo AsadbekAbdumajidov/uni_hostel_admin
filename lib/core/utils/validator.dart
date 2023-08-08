@@ -13,7 +13,7 @@ class Validator {
 
   static String? validateDay(String? value) {
     if (value == null || value.isEmpty) {
-      return AppStrings.strPaymentDateEmpty;
+      return AppStrings.strIsNotEmpty;
     }
 
     int day = int.tryParse(value) ?? 0;

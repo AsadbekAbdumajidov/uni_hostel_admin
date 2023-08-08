@@ -70,7 +70,7 @@ class LoginPage extends StatelessWidget {
                             hintText: AppStrings.strEnterUserName,
                             validator: (dynamic v) => Validator.fieldChecker(
                                 value: v,
-                                message: AppStrings.strValidateUserName),
+                                message: AppStrings.strIsNotEmpty),
                           ),
                           SizedBox(height: 30),
                           Text(AppStrings.strPassword,
@@ -91,7 +91,7 @@ class LoginPage extends StatelessWidget {
                                 child: Icon(state.changeEye == false ? Icons.remove_red_eye_outlined : Icons.remove_red_eye)),
                             validator: (dynamic v) => Validator.fieldChecker(
                                 value: v,
-                                message: AppStrings.strValidatePassword),
+                                message: AppStrings.strIsNotEmpty),
                           ),
                           SizedBox(height: 30),
                           CustomButton(

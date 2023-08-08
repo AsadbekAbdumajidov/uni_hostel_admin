@@ -24,6 +24,8 @@ abstract class ApiClient {
   Future<GetOrderResponse> getOrder(
     @Query("page") int page,
     @Query("status") String status,
+    @Query("search_query") String search,
+    @Query("course") String course,
   );
 
   @GET('admin/new/orders/')
@@ -31,7 +33,6 @@ abstract class ApiClient {
     @Query("page") int page,
     @Query("search_query") String search,
     @Query("marital_status") String maritalStatus,
-
   );
 
   @GET('admin/order/{id}/')

@@ -14,11 +14,13 @@ import 'package:uni_hostel_admin/data/domain/usecases/main/get_order.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_selected_order.dart';
 import 'package:uni_hostel_admin/data/repository/authorization.dart';
 import 'package:uni_hostel_admin/data/repository/main.dart';
+import 'package:uni_hostel_admin/presentation/cubit/accepted_order/accepted_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/auth/auth_cubit.dart';
+import 'package:uni_hostel_admin/presentation/cubit/cancelled_order/cancelled_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/edit_status/edit_status_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/login/login_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/new_order/get_new_order_cubit.dart';
-import 'package:uni_hostel_admin/presentation/cubit/order/get_order_cubit.dart';
+import 'package:uni_hostel_admin/presentation/cubit/queue_order/queue_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/selected_order/selected_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/side_bar/side_bar_cubit.dart';
 
@@ -29,10 +31,14 @@ Future<void> initDi() async {
   inject.registerFactory(() => AuthCubit(inject(), inject()));
   inject.registerFactory(() => LoginCubit(inject()));
   inject.registerFactory(() => SideBarCubit());
-  inject.registerFactory(() => GetOrderCubit(inject()));
   inject.registerFactory(() => GetNewOrderCubit(inject()));
   inject.registerFactory(() => SelectedOrderCubit(inject()));
   inject.registerFactory(() => EditStatusCubit(inject()));
+
+  inject.registerFactory(() => AcceptedOrderCubit(inject()));
+  inject.registerFactory(() => CancelledOrderCubit(inject()));
+  inject.registerFactory(() => QueueOrderCubit(inject()));
+
 
 
   // use case need to register

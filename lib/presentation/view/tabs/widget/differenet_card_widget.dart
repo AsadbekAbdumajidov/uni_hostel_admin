@@ -6,7 +6,7 @@ import 'package:uni_hostel_admin/core/themes/app_text.dart';
 import 'package:uni_hostel_admin/core/utils/general_functions.dart';
 import 'package:uni_hostel_admin/core/widget/status_widget.dart';
 import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.dart';
-import 'package:uni_hostel_admin/presentation/view/tabs/requests/widget/request_item_widget.dart';
+import 'package:uni_hostel_admin/presentation/view/expansion_item/expansion_item.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/widget/card_item_widget.dart';
 
 class DifferentCardWidget extends StatelessWidget {
@@ -63,7 +63,7 @@ class DifferentCardWidget extends StatelessWidget {
                             isIcon: false,
                           ).paddingAll(4),
                           children: [
-                            RequestItemWidget(id: orderList?[__].id ?? 0)
+                            ExpansionItemWidget(id: orderList?[__].id ?? 0)
                           ],
                         ),
                       ),

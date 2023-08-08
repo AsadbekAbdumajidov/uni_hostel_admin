@@ -5,11 +5,10 @@ import 'package:uni_hostel_admin/core/extension/for_context.dart';
 import 'package:uni_hostel_admin/core/themes/app_decoration.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
-import 'package:uni_hostel_admin/di.dart';
 import 'package:uni_hostel_admin/presentation/components/loading_widget.dart';
 import 'package:uni_hostel_admin/presentation/components/pagination.dart';
 import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
-import 'package:uni_hostel_admin/presentation/cubit/order/get_order_cubit.dart';
+import 'package:uni_hostel_admin/presentation/cubit/cancelled_order/cancelled_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/view/menu_drawer/menu_drawer.dart';
 import 'package:uni_hostel_admin/presentation/view/profile_drawer/profile_drawer.dart';
 import 'package:uni_hostel_admin/presentation/view/custom_app_bar/custom_app_bar.dart';
@@ -37,21 +36,19 @@ class RejectedScreen extends StatelessWidget {
                   CustomAppBar(),
                   Expanded(
                     child: Container(
+                      height: 700,
                       width: context.w,
                       decoration: AppDecoration.customCardDecoration,
-                      child: BlocProvider<GetOrderCubit>(
-                        create: (context) =>
-                            inject<GetOrderCubit>()..getOrder("cancelled"),
-                        child: BlocBuilder<GetOrderCubit, GetOrderState>(
-                            builder: (context, state) {
+                      child:  BlocBuilder<CancelledOrderCubit,
+                            CancelledOrderState>(builder: (context, state) {
                           if (state.status == Status.LOADING) {
                             return LoadingWidget();
                           }
                           return InfiniteScrollingPagination(
                             onPagination: () {
                               context
-                                  .read<GetOrderCubit>()
-                                  .getOrderInfinite("cancelled");
+                                  .read<CancelledOrderCubit>()
+                                  .getCancelledOrderInfinite();
                             },
                             isLoading: state.loadingPagination,
                             child: ListView(
@@ -67,7 +64,7 @@ class RejectedScreen extends StatelessWidget {
                                   ],
                                 ).paddingOnly(bottom: 40),
                                 CustomCardWidget(
-                                  notButtonIndex: 1,
+                                    notButtonIndex: 1,
                                     list: state.orderList,
                                     textStatus: AppStrings.strRejected),
                               ],
@@ -76,7 +73,6 @@ class RejectedScreen extends StatelessWidget {
                         }),
                       ),
                     ).paddingAll(20),
-                  ),
                 ],
               ),
             ),
