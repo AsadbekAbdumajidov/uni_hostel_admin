@@ -72,6 +72,7 @@ class ExpansionItemWidget extends StatelessWidget {
             SizedBox(height: 20),
             GridView.builder(
               shrinkWrap: true,
+              padding: EdgeInsets.only(bottom: 14),
               physics: NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
@@ -84,11 +85,11 @@ class ExpansionItemWidget extends StatelessWidget {
                 return CheckboxItemWidget(title: response, value: true);
               },
             ),
-            state.orderResponse?.cancelReason == null
+            state.orderResponse?.checkedAdmin == null
                 ? SizedBox.shrink()
                 : userInformationMobile(
                     title: AppStrings.strChecked,
-                    subTitle: state.orderResponse?.cancelReason ?? "-",
+                    subTitle: "${state.orderResponse?.checkedAdmin?.firstName} ${state.orderResponse?.checkedAdmin?.lastName}",
                   ),
             index == 0
                 ? SizedBox.shrink()

@@ -31,7 +31,8 @@ class WaitingScreen extends StatelessWidget {
           Expanded(
             child: Column(
               children: [
-                CustomAppBar(),
+                CustomAppBar(onchange: (v) =>
+                    context.read<QueueOrderCubit>().searchQueue(v),),
                 Expanded(
                   child: Container(
                     height: 700,
@@ -71,8 +72,8 @@ class WaitingScreen extends StatelessWidget {
                           ),
                         ).paddingAll(paddingSize);
                       }),
-                    ),
-                  ).paddingAll(20),
+                    ).paddingAll(20),
+                  ),
               ],
             ),
           ),

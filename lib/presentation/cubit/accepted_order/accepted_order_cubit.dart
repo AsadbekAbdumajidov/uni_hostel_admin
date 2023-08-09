@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uni_hostel_admin/core/error/error.dart';
+import 'package:uni_hostel_admin/core/themes/app_text.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_order.dart';
 import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.dart';
@@ -13,8 +14,12 @@ class AcceptedOrderCubit extends Cubit<AcceptedOrderState> {
 
   Future<void> getAcceptedOrder() async {
     emit(state.copyWith(status: Status.LOADING));
-    var result =
-        await _orderUsCase.call(GetOrderParams(page: 1, status: "accepted", course: '', search: ''));
+    var result = await _orderUsCase.call(GetOrderParams(
+      page: 1,
+      status: "accepted",
+      search: state.search,
+      course: state.courseIndex,
+    ));
     result.fold(
       (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),
       (success) => emit(
@@ -28,10 +33,20 @@ class AcceptedOrderCubit extends Cubit<AcceptedOrderState> {
       ),
     );
   }
-  
+
   void searchAccepted(String search) {
     emit(state.copyWith(search: search, status: Status.UNKNOWN));
     getAcceptedOrder();
+  }
+
+  void selectCourse(String index) {
+    if (index == AppStrings.strNoneOfThem) {
+      emit(state.copyWith(courseIndex: "", status: Status.UNKNOWN));
+      getAcceptedOrder();
+    } else {
+      emit(state.copyWith(courseIndex: index, status: Status.UNKNOWN));
+      getAcceptedOrder();
+    }
   }
 
   Future<void> getAcceptedOrderInfinite() async {
@@ -40,7 +55,12 @@ class AcceptedOrderCubit extends Cubit<AcceptedOrderState> {
     }
     emit(state.copyWith(loadingPagination: true));
     var result = await _orderUsCase.call(
-      GetOrderParams(page: state.page, status: "accepted", course: '', search: ''),
+      GetOrderParams(
+        page: state.page,
+        status: "accepted",
+        search: state.search,
+        course: state.courseIndex,
+      ),
     );
     result.fold(
       (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),

@@ -11,6 +11,7 @@ import 'package:uni_hostel_admin/presentation/cubit/accepted_order/accepted_orde
 import 'package:uni_hostel_admin/presentation/view/menu_drawer/menu_drawer.dart';
 import 'package:uni_hostel_admin/presentation/view/custom_app_bar/custom_app_bar.dart';
 import 'package:uni_hostel_admin/presentation/view/profile_drawer/profile_drawer.dart';
+import 'package:uni_hostel_admin/presentation/view/tabs/students/widget/top_accepted_item_widget.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/widget/custom_card_widget.dart';
 import '../../../../core/themes/app_text.dart';
 import '../../../../core/utils/utils.dart';
@@ -25,7 +26,6 @@ class StudentsScreen extends StatefulWidget {
 class _StudentsScreenState extends State<StudentsScreen> {
   @override
   Widget build(BuildContext context) {
-    double textSize = ResponsiveWidget.isMobileLarge(context) ? 22 : 24;
     double paddingSize = ResponsiveWidget.isMobileLarge(context) ? 16 : 30;
     return SafeArea(
       child: Scaffold(
@@ -39,7 +39,10 @@ class _StudentsScreenState extends State<StudentsScreen> {
             Expanded(
               child: Column(
                 children: [
-                  CustomAppBar(),
+                  CustomAppBar(
+                    onchange: (v) =>
+                        context.read<AcceptedOrderCubit>().searchAccepted(v),
+                  ),
                   Expanded(
                     child: Container(
                       height: 700,
@@ -51,25 +54,19 @@ class _StudentsScreenState extends State<StudentsScreen> {
                         if (state.status == Status.LOADING) {
                           return LoadingWidget();
                         }
+                        var bloc = context.read<AcceptedOrderCubit>();
                         return InfiniteScrollingPagination(
-                          onPagination: () {
-                            context
-                                .read<AcceptedOrderCubit>()
-                                .getAcceptedOrderInfinite();
-                          },
+                          onPagination: () => bloc.getAcceptedOrderInfinite(),
                           isLoading: state.loadingPagination,
                           child: ListView(
-                            physics: ClampingScrollPhysics(),
+                            physics: BouncingScrollPhysics(),
                             children: [
-                              Row(
-                                children: [
-                                  Text(AppStrings.strApproveds,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headlineMedium
-                                          ?.copyWith(fontSize: textSize)),
-                                ],
-                              ).paddingOnly(bottom: 40),
+                              TopAcceptedItemWidget(
+                                title: AppStrings.strApproveds,
+                                courses: courseList,
+                                coursIndex: state.courseIndex,
+                                onChangecourse: (v) => bloc.selectCourse(v),
+                              ),
                               CustomCardWidget(
                                 notButtonIndex: 0,
                                 list: state.orderList,
@@ -80,8 +77,8 @@ class _StudentsScreenState extends State<StudentsScreen> {
                           ),
                         ).paddingAll(paddingSize);
                       }),
-                    ),
-                  ).paddingAll(20),
+                    ).paddingAll(20),
+                  ),
                 ],
               ),
             )

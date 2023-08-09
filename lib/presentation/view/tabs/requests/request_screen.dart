@@ -46,10 +46,10 @@ class RequestsScreen extends StatelessWidget {
                       onPagination: () => bloc.getOrderInfinite(),
                       isLoading: state.loadingPagination,
                       child: ListView(
-                         physics: BouncingScrollPhysics(),
+                        physics: BouncingScrollPhysics(),
                         children: [
                           TopRequestItemWidget(
-                              index: state.maritalStatus ,
+                              index: state.maritalStatus,
                               title: AppStrings.strRequests,
                               list: maritals,
                               onChanged: (v) => bloc.selectMaritals(v)),

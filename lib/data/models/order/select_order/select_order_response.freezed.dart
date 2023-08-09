@@ -52,8 +52,10 @@ mixin _$SelectOrderResponse {
   String? get cancelReason => throw _privateConstructorUsedError;
   @JsonKey(name: 'payment_date')
   int? get paymentDate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'updated_at')
+  String? get updatedAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'checked_admin')
-  int? get checkedAdmin => throw _privateConstructorUsedError;
+  CheackAdmin? get checkedAdmin => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -86,9 +88,11 @@ abstract class $SelectOrderResponseCopyWith<$Res> {
       @JsonKey(name: 'created_at') String? createdAt,
       @JsonKey(name: 'cancel_reason') String? cancelReason,
       @JsonKey(name: 'payment_date') int? paymentDate,
-      @JsonKey(name: 'checked_admin') int? checkedAdmin});
+      @JsonKey(name: 'updated_at') String? updatedAt,
+      @JsonKey(name: 'checked_admin') CheackAdmin? checkedAdmin});
 
   $StudentInfoResponseCopyWith<$Res>? get student;
+  $CheackAdminCopyWith<$Res>? get checkedAdmin;
 }
 
 /// @nodoc
@@ -122,6 +126,7 @@ class _$SelectOrderResponseCopyWithImpl<$Res, $Val extends SelectOrderResponse>
     Object? createdAt = freezed,
     Object? cancelReason = freezed,
     Object? paymentDate = freezed,
+    Object? updatedAt = freezed,
     Object? checkedAdmin = freezed,
   }) {
     return _then(_value.copyWith(
@@ -197,10 +202,14 @@ class _$SelectOrderResponseCopyWithImpl<$Res, $Val extends SelectOrderResponse>
           ? _value.paymentDate
           : paymentDate // ignore: cast_nullable_to_non_nullable
               as int?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
       checkedAdmin: freezed == checkedAdmin
           ? _value.checkedAdmin
           : checkedAdmin // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as CheackAdmin?,
     ) as $Val);
   }
 
@@ -213,6 +222,18 @@ class _$SelectOrderResponseCopyWithImpl<$Res, $Val extends SelectOrderResponse>
 
     return $StudentInfoResponseCopyWith<$Res>(_value.student!, (value) {
       return _then(_value.copyWith(student: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CheackAdminCopyWith<$Res>? get checkedAdmin {
+    if (_value.checkedAdmin == null) {
+      return null;
+    }
+
+    return $CheackAdminCopyWith<$Res>(_value.checkedAdmin!, (value) {
+      return _then(_value.copyWith(checkedAdmin: value) as $Val);
     });
   }
 }
@@ -244,10 +265,13 @@ abstract class _$$_SelectOrderResponseCopyWith<$Res>
       @JsonKey(name: 'created_at') String? createdAt,
       @JsonKey(name: 'cancel_reason') String? cancelReason,
       @JsonKey(name: 'payment_date') int? paymentDate,
-      @JsonKey(name: 'checked_admin') int? checkedAdmin});
+      @JsonKey(name: 'updated_at') String? updatedAt,
+      @JsonKey(name: 'checked_admin') CheackAdmin? checkedAdmin});
 
   @override
   $StudentInfoResponseCopyWith<$Res>? get student;
+  @override
+  $CheackAdminCopyWith<$Res>? get checkedAdmin;
 }
 
 /// @nodoc
@@ -279,6 +303,7 @@ class __$$_SelectOrderResponseCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? cancelReason = freezed,
     Object? paymentDate = freezed,
+    Object? updatedAt = freezed,
     Object? checkedAdmin = freezed,
   }) {
     return _then(_$_SelectOrderResponse(
@@ -354,10 +379,14 @@ class __$$_SelectOrderResponseCopyWithImpl<$Res>
           ? _value.paymentDate
           : paymentDate // ignore: cast_nullable_to_non_nullable
               as int?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
       checkedAdmin: freezed == checkedAdmin
           ? _value.checkedAdmin
           : checkedAdmin // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as CheackAdmin?,
     ));
   }
 }
@@ -384,6 +413,7 @@ class _$_SelectOrderResponse implements _SelectOrderResponse {
       @JsonKey(name: 'created_at') this.createdAt,
       @JsonKey(name: 'cancel_reason') this.cancelReason,
       @JsonKey(name: 'payment_date') this.paymentDate,
+      @JsonKey(name: 'updated_at') this.updatedAt,
       @JsonKey(name: 'checked_admin') this.checkedAdmin});
 
   factory _$_SelectOrderResponse.fromJson(Map<String, dynamic> json) =>
@@ -440,12 +470,15 @@ class _$_SelectOrderResponse implements _SelectOrderResponse {
   @JsonKey(name: 'payment_date')
   final int? paymentDate;
   @override
+  @JsonKey(name: 'updated_at')
+  final String? updatedAt;
+  @override
   @JsonKey(name: 'checked_admin')
-  final int? checkedAdmin;
+  final CheackAdmin? checkedAdmin;
 
   @override
   String toString() {
-    return 'SelectOrderResponse(id: $id, status: $status, disabled: $disabled, student: $student, ironNotebook: $ironNotebook, womensBook: $womensBook, youthsNotebook: $youthsNotebook, fosterHome: $fosterHome, noBreadwinner: $noBreadwinner, oneParentsIsDead: $oneParentsIsDead, hasManyChildrenFamily: $hasManyChildrenFamily, giftedStudent: $giftedStudent, referenceFile: $referenceFile, waitingStatus: $waitingStatus, monthlyPaymentPrice: $monthlyPaymentPrice, createdAt: $createdAt, cancelReason: $cancelReason, paymentDate: $paymentDate, checkedAdmin: $checkedAdmin)';
+    return 'SelectOrderResponse(id: $id, status: $status, disabled: $disabled, student: $student, ironNotebook: $ironNotebook, womensBook: $womensBook, youthsNotebook: $youthsNotebook, fosterHome: $fosterHome, noBreadwinner: $noBreadwinner, oneParentsIsDead: $oneParentsIsDead, hasManyChildrenFamily: $hasManyChildrenFamily, giftedStudent: $giftedStudent, referenceFile: $referenceFile, waitingStatus: $waitingStatus, monthlyPaymentPrice: $monthlyPaymentPrice, createdAt: $createdAt, cancelReason: $cancelReason, paymentDate: $paymentDate, updatedAt: $updatedAt, checkedAdmin: $checkedAdmin)';
   }
 
   @override
@@ -486,6 +519,8 @@ class _$_SelectOrderResponse implements _SelectOrderResponse {
                 other.cancelReason == cancelReason) &&
             (identical(other.paymentDate, paymentDate) ||
                 other.paymentDate == paymentDate) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
             (identical(other.checkedAdmin, checkedAdmin) ||
                 other.checkedAdmin == checkedAdmin));
   }
@@ -512,6 +547,7 @@ class _$_SelectOrderResponse implements _SelectOrderResponse {
         createdAt,
         cancelReason,
         paymentDate,
+        updatedAt,
         checkedAdmin
       ]);
 
@@ -551,8 +587,9 @@ abstract class _SelectOrderResponse implements SelectOrderResponse {
       @JsonKey(name: 'created_at') final String? createdAt,
       @JsonKey(name: 'cancel_reason') final String? cancelReason,
       @JsonKey(name: 'payment_date') final int? paymentDate,
+      @JsonKey(name: 'updated_at') final String? updatedAt,
       @JsonKey(name: 'checked_admin')
-      final int? checkedAdmin}) = _$_SelectOrderResponse;
+      final CheackAdmin? checkedAdmin}) = _$_SelectOrderResponse;
 
   factory _SelectOrderResponse.fromJson(Map<String, dynamic> json) =
       _$_SelectOrderResponse.fromJson;
@@ -608,8 +645,11 @@ abstract class _SelectOrderResponse implements SelectOrderResponse {
   @JsonKey(name: 'payment_date')
   int? get paymentDate;
   @override
+  @JsonKey(name: 'updated_at')
+  String? get updatedAt;
+  @override
   @JsonKey(name: 'checked_admin')
-  int? get checkedAdmin;
+  CheackAdmin? get checkedAdmin;
   @override
   @JsonKey(ignore: true)
   _$$_SelectOrderResponseCopyWith<_$_SelectOrderResponse> get copyWith =>
@@ -1051,5 +1091,173 @@ abstract class _StudentInfoResponse implements StudentInfoResponse {
   @override
   @JsonKey(ignore: true)
   _$$_StudentInfoResponseCopyWith<_$_StudentInfoResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+CheackAdmin _$CheackAdminFromJson(Map<String, dynamic> json) {
+  return _CheackAdmin.fromJson(json);
+}
+
+/// @nodoc
+mixin _$CheackAdmin {
+  @JsonKey(name: 'first_name')
+  String? get firstName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'last_name')
+  String? get lastName => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CheackAdminCopyWith<CheackAdmin> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CheackAdminCopyWith<$Res> {
+  factory $CheackAdminCopyWith(
+          CheackAdmin value, $Res Function(CheackAdmin) then) =
+      _$CheackAdminCopyWithImpl<$Res, CheackAdmin>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'first_name') String? firstName,
+      @JsonKey(name: 'last_name') String? lastName});
+}
+
+/// @nodoc
+class _$CheackAdminCopyWithImpl<$Res, $Val extends CheackAdmin>
+    implements $CheackAdminCopyWith<$Res> {
+  _$CheackAdminCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? firstName = freezed,
+    Object? lastName = freezed,
+  }) {
+    return _then(_value.copyWith(
+      firstName: freezed == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastName: freezed == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_CheackAdminCopyWith<$Res>
+    implements $CheackAdminCopyWith<$Res> {
+  factory _$$_CheackAdminCopyWith(
+          _$_CheackAdmin value, $Res Function(_$_CheackAdmin) then) =
+      __$$_CheackAdminCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'first_name') String? firstName,
+      @JsonKey(name: 'last_name') String? lastName});
+}
+
+/// @nodoc
+class __$$_CheackAdminCopyWithImpl<$Res>
+    extends _$CheackAdminCopyWithImpl<$Res, _$_CheackAdmin>
+    implements _$$_CheackAdminCopyWith<$Res> {
+  __$$_CheackAdminCopyWithImpl(
+      _$_CheackAdmin _value, $Res Function(_$_CheackAdmin) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? firstName = freezed,
+    Object? lastName = freezed,
+  }) {
+    return _then(_$_CheackAdmin(
+      firstName: freezed == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastName: freezed == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_CheackAdmin implements _CheackAdmin {
+  const _$_CheackAdmin(
+      {@JsonKey(name: 'first_name') this.firstName,
+      @JsonKey(name: 'last_name') this.lastName});
+
+  factory _$_CheackAdmin.fromJson(Map<String, dynamic> json) =>
+      _$$_CheackAdminFromJson(json);
+
+  @override
+  @JsonKey(name: 'first_name')
+  final String? firstName;
+  @override
+  @JsonKey(name: 'last_name')
+  final String? lastName;
+
+  @override
+  String toString() {
+    return 'CheackAdmin(firstName: $firstName, lastName: $lastName)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CheackAdmin &&
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, firstName, lastName);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CheackAdminCopyWith<_$_CheackAdmin> get copyWith =>
+      __$$_CheackAdminCopyWithImpl<_$_CheackAdmin>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_CheackAdminToJson(
+      this,
+    );
+  }
+}
+
+abstract class _CheackAdmin implements CheackAdmin {
+  const factory _CheackAdmin(
+      {@JsonKey(name: 'first_name') final String? firstName,
+      @JsonKey(name: 'last_name') final String? lastName}) = _$_CheackAdmin;
+
+  factory _CheackAdmin.fromJson(Map<String, dynamic> json) =
+      _$_CheackAdmin.fromJson;
+
+  @override
+  @JsonKey(name: 'first_name')
+  String? get firstName;
+  @override
+  @JsonKey(name: 'last_name')
+  String? get lastName;
+  @override
+  @JsonKey(ignore: true)
+  _$$_CheackAdminCopyWith<_$_CheackAdmin> get copyWith =>
       throw _privateConstructorUsedError;
 }

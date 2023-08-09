@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
-import 'package:uni_hostel_admin/presentation/components/drobdown_widget.dart';
 
 class TopItemPaymentMonitorWidget extends StatelessWidget {
   const TopItemPaymentMonitorWidget(
@@ -27,13 +26,13 @@ class TopItemPaymentMonitorWidget extends StatelessWidget {
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                   fontSize: ResponsiveWidget.isMobileLarge(context) ? 22 : 24)),
         ),
-        Row(
-          children: [
-            DropDownWidget(index: index, list: list, onChanged: onChanged)
-                .paddingSymmetric(horizontal: 6),
-            DropDownWidget(index: index, list: list, onChanged: onChanged),
-          ],
-        ),
+        // Row(
+        //   children: [
+        //     DropDownWidget(index: index, list: list, onChanged: onChanged)
+        //         .paddingSymmetric(horizontal: 6),
+        //     DropDownWidget(index: index, list: list, onChanged: onChanged),
+        //   ],
+        // ),
       ],
     ).paddingOnly(bottom: 40);
   }

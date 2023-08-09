@@ -7,9 +7,12 @@ class AcceptedOrderState with _$AcceptedOrderState {
     @Default(UnknownFailure()) Failure failure,
     GetOrderResponse? orderResponse,
     @Default([]) List<OrderModel> orderList,
-@Default("") String search,
+    @Default("") String search,
     @Default(1) int page,
     @Default(false) bool hasReachedMax,
     @Default(false) bool loadingPagination,
+
+    @Default("") String courseIndex,
+
   }) = _AcceptedOrderState;
 }

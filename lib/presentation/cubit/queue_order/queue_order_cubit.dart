@@ -13,8 +13,12 @@ class QueueOrderCubit extends Cubit<QueueOrderState> {
 
   Future<void> getQueueOrder() async {
     emit(state.copyWith(status: Status.LOADING));
-    var result =
-        await _orderUsCase.call(GetOrderParams(page: 1, status: "in_queue", course: '', search: ''));
+    var result = await _orderUsCase.call(GetOrderParams(
+      page: 1,
+      status: "in_queue",
+      search: state.search,
+      course: '',
+    ));
     result.fold(
       (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),
       (success) => emit(
@@ -28,7 +32,8 @@ class QueueOrderCubit extends Cubit<QueueOrderState> {
       ),
     );
   }
-   void searchQueue(String search) {
+
+  void searchQueue(String search) {
     emit(state.copyWith(search: search, status: Status.UNKNOWN));
     getQueueOrder();
   }
@@ -39,7 +44,12 @@ class QueueOrderCubit extends Cubit<QueueOrderState> {
     }
     emit(state.copyWith(loadingPagination: true));
     var result = await _orderUsCase.call(
-      GetOrderParams(page: state.page, status: "in_queue", course: '', search: ''),
+      GetOrderParams(
+        page: state.page,
+        status: "in_queue",
+        search: state.search,
+        course: '',
+      ),
     );
     result.fold(
       (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),

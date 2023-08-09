@@ -25,7 +25,8 @@ class SelectOrderResponse with _$SelectOrderResponse {
     @JsonKey(name: 'created_at') String? createdAt,
     @JsonKey(name: 'cancel_reason') String? cancelReason,
     @JsonKey(name: 'payment_date') int? paymentDate,
-    @JsonKey(name: 'checked_admin') int? checkedAdmin,
+    @JsonKey(name: 'updated_at') String? updatedAt,
+    @JsonKey(name: 'checked_admin') CheackAdmin? checkedAdmin,
   }) = _SelectOrderResponse;
 
   factory SelectOrderResponse.fromJson(Map<String, dynamic> json) =>
@@ -53,4 +54,15 @@ class StudentInfoResponse with _$StudentInfoResponse {
 
   factory StudentInfoResponse.fromJson(Map<String, dynamic> json) =>
       _$StudentInfoResponseFromJson(json);
+}
+
+@freezed
+class CheackAdmin with _$CheackAdmin {
+  const factory CheackAdmin({
+    @JsonKey(name: 'first_name') String? firstName,
+    @JsonKey(name: 'last_name') String? lastName,
+  }) = _CheackAdmin;
+
+  factory CheackAdmin.fromJson(Map<String, dynamic> json) =>
+      _$CheackAdminFromJson(json);
 }

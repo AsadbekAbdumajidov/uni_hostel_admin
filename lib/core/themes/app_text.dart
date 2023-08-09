@@ -57,6 +57,7 @@ class AppStrings {
 
   static const strApprovedAd = "Tasdiqlash";
   static const strWaitingAd = "Navbatga";
+
   static const strRejectedAd = "Rad etish";
 // ------------- //
   static const strIronNotebook = "Temir daftar";

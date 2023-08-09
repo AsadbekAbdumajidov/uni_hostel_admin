@@ -25,11 +25,11 @@ class EditStatusCubit extends Cubit<EditStatusState> {
       EditStatusParams(
         id: id,
         request: EditStatusRequest(
-          status:status== AppStrings.strApprovedAd
-                                    ? "accepted"
-                                    : status == AppStrings.strRejectedAd
-                                        ? "cancelled"
-                                        : "in_queue",
+          status: status == AppStrings.strApprovedAd
+              ? "accepted"
+              : status == AppStrings.strRejectedAd
+                  ? "cancelled"
+                  : "in_queue",
           monthlyPaymentPrice: monthlyPaymentPrice,
           cancelReason: cancelReason,
           paymentDate: paymentDate,
@@ -42,5 +42,9 @@ class EditStatusCubit extends Cubit<EditStatusState> {
         (success) {
       emit(state.copyWith(response: success, status: Status.SUCCESS));
     });
+  }
+
+  void getStart() async {
+    emit(state.copyWith(status: Status.UNKNOWN));
   }
 }

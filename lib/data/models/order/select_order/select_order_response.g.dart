@@ -30,7 +30,10 @@ _$_SelectOrderResponse _$$_SelectOrderResponseFromJson(
       createdAt: json['created_at'] as String?,
       cancelReason: json['cancel_reason'] as String?,
       paymentDate: json['payment_date'] as int?,
-      checkedAdmin: json['checked_admin'] as int?,
+      updatedAt: json['updated_at'] as String?,
+      checkedAdmin: json['checked_admin'] == null
+          ? null
+          : CheackAdmin.fromJson(json['checked_admin'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_SelectOrderResponseToJson(
@@ -54,6 +57,7 @@ Map<String, dynamic> _$$_SelectOrderResponseToJson(
       'created_at': instance.createdAt,
       'cancel_reason': instance.cancelReason,
       'payment_date': instance.paymentDate,
+      'updated_at': instance.updatedAt,
       'checked_admin': instance.checkedAdmin,
     };
 
@@ -93,4 +97,16 @@ Map<String, dynamic> _$$_StudentInfoResponseToJson(
       'course': instance.course,
       'group': instance.group,
       'image': instance.image,
+    };
+
+_$_CheackAdmin _$$_CheackAdminFromJson(Map<String, dynamic> json) =>
+    _$_CheackAdmin(
+      firstName: json['first_name'] as String?,
+      lastName: json['last_name'] as String?,
+    );
+
+Map<String, dynamic> _$$_CheackAdminToJson(_$_CheackAdmin instance) =>
+    <String, dynamic>{
+      'first_name': instance.firstName,
+      'last_name': instance.lastName,
     };

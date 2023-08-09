@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:text_scroll/text_scroll.dart';
 import 'package:uni_hostel_admin/core/themes/app_colors.dart';
-import 'package:uni_hostel_admin/core/themes/app_text.dart';
 import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
 
 class DropDownWidget extends StatelessWidget {
@@ -12,10 +11,15 @@ class DropDownWidget extends StatelessWidget {
       {super.key,
       required this.index,
       required this.list,
-      required this.onChanged});
+      required this.onChanged,
+      required this.isEmptyText, this.buttonWidth, this.drobDownWidth});
   final String index;
+  final String isEmptyText;
+
   final List<String> list;
   final Function(dynamic v) onChanged;
+  final double? buttonWidth;
+  final double? drobDownWidth;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +46,7 @@ class DropDownWidget extends StatelessWidget {
             .toList(),
         hint: Center(
             child: TextScroll(
-          index == "" ? AppStrings.strMaritals : index,
+          index == "" ? isEmptyText : index,
           velocity: Velocity(pixelsPerSecond: Offset(50, 0)),
           pauseBetween: Duration(milliseconds: 1000),
           mode: TextScrollMode.bouncing,
@@ -78,7 +82,7 @@ class DropDownWidget extends StatelessWidget {
         buttonStyleData: ButtonStyleData(
           padding: EdgeInsets.all(0),
           height: 35,
-          width: 200,
+          width:buttonWidth ?? 200,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
               color: AppColors.primaryColor),
@@ -92,7 +96,7 @@ class DropDownWidget extends StatelessWidget {
         ),
         dropdownStyleData: DropdownStyleData(
           padding: EdgeInsets.all(0),
-          width: 300,
+          width:drobDownWidth ?? 300,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
             color: AppColors.whiteColor,

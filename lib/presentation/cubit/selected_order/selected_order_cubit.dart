@@ -23,6 +23,7 @@ class SelectedOrderCubit extends Cubit<SelectedOrderState> {
       getStatus();
     });
   }
+ 
 
   Future<void> getStatus() async {
     List<String> trueProperties = [];

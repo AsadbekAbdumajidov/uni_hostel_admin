@@ -24,6 +24,7 @@ mixin _$AcceptedOrderState {
   int get page => throw _privateConstructorUsedError;
   bool get hasReachedMax => throw _privateConstructorUsedError;
   bool get loadingPagination => throw _privateConstructorUsedError;
+  String get courseIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AcceptedOrderStateCopyWith<AcceptedOrderState> get copyWith =>
@@ -44,7 +45,8 @@ abstract class $AcceptedOrderStateCopyWith<$Res> {
       String search,
       int page,
       bool hasReachedMax,
-      bool loadingPagination});
+      bool loadingPagination,
+      String courseIndex});
 
   $GetOrderResponseCopyWith<$Res>? get orderResponse;
 }
@@ -70,6 +72,7 @@ class _$AcceptedOrderStateCopyWithImpl<$Res, $Val extends AcceptedOrderState>
     Object? page = null,
     Object? hasReachedMax = null,
     Object? loadingPagination = null,
+    Object? courseIndex = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -104,6 +107,10 @@ class _$AcceptedOrderStateCopyWithImpl<$Res, $Val extends AcceptedOrderState>
           ? _value.loadingPagination
           : loadingPagination // ignore: cast_nullable_to_non_nullable
               as bool,
+      courseIndex: null == courseIndex
+          ? _value.courseIndex
+          : courseIndex // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -136,7 +143,8 @@ abstract class _$$_AcceptedOrderStateCopyWith<$Res>
       String search,
       int page,
       bool hasReachedMax,
-      bool loadingPagination});
+      bool loadingPagination,
+      String courseIndex});
 
   @override
   $GetOrderResponseCopyWith<$Res>? get orderResponse;
@@ -161,6 +169,7 @@ class __$$_AcceptedOrderStateCopyWithImpl<$Res>
     Object? page = null,
     Object? hasReachedMax = null,
     Object? loadingPagination = null,
+    Object? courseIndex = null,
   }) {
     return _then(_$_AcceptedOrderState(
       status: null == status
@@ -195,6 +204,10 @@ class __$$_AcceptedOrderStateCopyWithImpl<$Res>
           ? _value.loadingPagination
           : loadingPagination // ignore: cast_nullable_to_non_nullable
               as bool,
+      courseIndex: null == courseIndex
+          ? _value.courseIndex
+          : courseIndex // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -210,7 +223,8 @@ class _$_AcceptedOrderState implements _AcceptedOrderState {
       this.search = "",
       this.page = 1,
       this.hasReachedMax = false,
-      this.loadingPagination = false})
+      this.loadingPagination = false,
+      this.courseIndex = ""})
       : _orderList = orderList;
 
   @override
@@ -242,10 +256,13 @@ class _$_AcceptedOrderState implements _AcceptedOrderState {
   @override
   @JsonKey()
   final bool loadingPagination;
+  @override
+  @JsonKey()
+  final String courseIndex;
 
   @override
   String toString() {
-    return 'AcceptedOrderState(status: $status, failure: $failure, orderResponse: $orderResponse, orderList: $orderList, search: $search, page: $page, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination)';
+    return 'AcceptedOrderState(status: $status, failure: $failure, orderResponse: $orderResponse, orderList: $orderList, search: $search, page: $page, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination, courseIndex: $courseIndex)';
   }
 
   @override
@@ -264,7 +281,9 @@ class _$_AcceptedOrderState implements _AcceptedOrderState {
             (identical(other.hasReachedMax, hasReachedMax) ||
                 other.hasReachedMax == hasReachedMax) &&
             (identical(other.loadingPagination, loadingPagination) ||
-                other.loadingPagination == loadingPagination));
+                other.loadingPagination == loadingPagination) &&
+            (identical(other.courseIndex, courseIndex) ||
+                other.courseIndex == courseIndex));
   }
 
   @override
@@ -277,7 +296,8 @@ class _$_AcceptedOrderState implements _AcceptedOrderState {
       search,
       page,
       hasReachedMax,
-      loadingPagination);
+      loadingPagination,
+      courseIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -296,7 +316,8 @@ abstract class _AcceptedOrderState implements AcceptedOrderState {
       final String search,
       final int page,
       final bool hasReachedMax,
-      final bool loadingPagination}) = _$_AcceptedOrderState;
+      final bool loadingPagination,
+      final String courseIndex}) = _$_AcceptedOrderState;
 
   @override
   Status get status;
@@ -314,6 +335,8 @@ abstract class _AcceptedOrderState implements AcceptedOrderState {
   bool get hasReachedMax;
   @override
   bool get loadingPagination;
+  @override
+  String get courseIndex;
   @override
   @JsonKey(ignore: true)
   _$$_AcceptedOrderStateCopyWith<_$_AcceptedOrderState> get copyWith =>

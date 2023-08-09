@@ -13,8 +13,9 @@ class GetOrderUseCase extends UseCase<GetOrderResponse, GetOrderParams> {
       _iMainRepository.getOrder(
         params.page,
         params.status,
-        params.course,
         params.search,
+        params.course,
+        
       );
 }
 

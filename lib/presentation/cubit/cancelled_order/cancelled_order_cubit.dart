@@ -13,8 +13,12 @@ class CancelledOrderCubit extends Cubit<CancelledOrderState> {
 
   Future<void> getCancelledOrder() async {
     emit(state.copyWith(status: Status.LOADING));
-    var result =
-        await _orderUsCase.call(GetOrderParams(page: 1, status: "cancelled", course: '', search: ''));
+    var result = await _orderUsCase.call(GetOrderParams(
+      page: 1,
+      status: "cancelled",
+      search: state.search,
+      course: '',
+    ));
     result.fold(
       (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),
       (success) => emit(
@@ -28,6 +32,7 @@ class CancelledOrderCubit extends Cubit<CancelledOrderState> {
       ),
     );
   }
+
   void searchCancelled(String search) {
     emit(state.copyWith(search: search, status: Status.UNKNOWN));
     getCancelledOrder();
@@ -39,7 +44,12 @@ class CancelledOrderCubit extends Cubit<CancelledOrderState> {
     }
     emit(state.copyWith(loadingPagination: true));
     var result = await _orderUsCase.call(
-      GetOrderParams(page: state.page, status: "cancelled", course: '', search: ''),
+      GetOrderParams(
+        page: state.page,
+        status: "cancelled",
+        search: state.search,
+        course: '',
+      ),
     );
     result.fold(
       (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),

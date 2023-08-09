@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
+import 'package:uni_hostel_admin/core/themes/app_text.dart';
 import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
 
 import '../../../../components/drobdown_widget.dart';
@@ -7,7 +8,7 @@ import '../../../../components/drobdown_widget.dart';
 class TopRequestItemWidget extends StatelessWidget {
   const TopRequestItemWidget(
       {super.key,
-       this.index,
+      this.index,
       required this.title,
       required this.list,
       required this.onChanged});
@@ -29,7 +30,12 @@ class TopRequestItemWidget extends StatelessWidget {
               .headlineMedium
               ?.copyWith(fontSize: textSize),
         ),
-        DropDownWidget(index: index ?? "", list: list, onChanged: onChanged),
+        DropDownWidget(
+          index: index ?? "",
+          list: list,
+          onChanged: onChanged,
+          isEmptyText: AppStrings.strMaritals,
+        ),
       ],
     ).paddingOnly(bottom: 40);
   }

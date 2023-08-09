@@ -46,6 +46,9 @@ class EditStatusAlertDialog extends StatelessWidget {
             context.read<AcceptedOrderCubit>().getAcceptedOrder();
             context.read<CancelledOrderCubit>().getCancelledOrder();
             context.read<QueueOrderCubit>().getQueueOrder();
+            context.read<EditStatusCubit>().getStart();
+
+            
           }
           return Form(
             key: formGlobalKey,
@@ -102,7 +105,6 @@ class EditStatusAlertDialog extends StatelessWidget {
                                 CustomTextField(
                                   textEditingController:
                                       monthlyPaymentController,
-                                 
                                   hintText: AppStrings.strOneMonthPayHint,
                                   textInputFormatter: [
                                     FilteringTextInputFormatter.allow(

@@ -34,4 +34,15 @@ List<String> maritals = [
   AppStrings.strNoneOfThem
 ];
 
+List<String> courseList = [
+  "1-${AppStrings.strCourse.toLowerCase()}",
+  "2-${AppStrings.strCourse.toLowerCase()}",
+  "3-${AppStrings.strCourse.toLowerCase()}",
+  "4-${AppStrings.strCourse.toLowerCase()}",
+  "5-${AppStrings.strCourse.toLowerCase()}",
+  "6-${AppStrings.strCourse.toLowerCase()}",
+  "7-${AppStrings.strCourse.toLowerCase()}",
+  AppStrings.strNoneOfThem
+];
+
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey();

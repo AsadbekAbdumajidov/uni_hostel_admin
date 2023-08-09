@@ -33,7 +33,8 @@ class RejectedScreen extends StatelessWidget {
             Expanded(
               child: Column(
                 children: [
-                  CustomAppBar(),
+                  CustomAppBar(onchange: (v) =>
+                    context.read<CancelledOrderCubit>().searchCancelled(v),),
                   Expanded(
                     child: Container(
                       height: 700,
@@ -71,8 +72,8 @@ class RejectedScreen extends StatelessWidget {
                             ),
                           ).paddingAll(paddingSize);
                         }),
-                      ),
-                    ).paddingAll(20),
+                      ).paddingAll(20),
+                    ),
                 ],
               ),
             ),
