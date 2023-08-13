@@ -10,11 +10,18 @@ class TopAcceptedItemWidget extends StatelessWidget {
       required this.title,
       this.coursIndex,
       required this.courses,
-      required this.onChangecourse});
+      required this.onChangecourse,
+      this.facultyIndex,
+      required this.faculties,
+      required this.onChangeFaculty});
   final String title;
   final String? coursIndex;
   final List<String> courses;
+  final String? facultyIndex;
+  final List<String> faculties;
   final Function(dynamic v) onChangecourse;
+  final Function(dynamic v) onChangeFaculty;
+
   @override
   Widget build(BuildContext context) {
     double textSize = ResponsiveWidget.isMobileLarge(context) ? 22 : 24;
@@ -28,14 +35,26 @@ class TopAcceptedItemWidget extends StatelessWidget {
               .headlineMedium
               ?.copyWith(fontSize: textSize),
         ),
-        DropDownWidget(
-          buttonWidth: 100,
-          drobDownWidth: 100,
-          index: coursIndex ?? "",
-          list: courses,
-          onChanged: onChangecourse,
-          isEmptyText: AppStrings.strCourse,
-        ),
+        Row(
+          children: [
+            DropDownWidget(
+              buttonWidth: 150,
+              drobDownWidth: 200,
+              index: facultyIndex ?? "",
+              list: faculties,
+              onChanged: onChangeFaculty,
+              isEmptyText: AppStrings.strFaculty,
+            ).paddingSymmetric(horizontal: 6),
+            DropDownWidget(
+              buttonWidth: 100,
+              drobDownWidth: 100,
+              index: coursIndex ?? "",
+              list: courses,
+              onChanged: onChangecourse,
+              isEmptyText: AppStrings.strCourse,
+            ),
+          ],
+        )
       ],
     ).paddingOnly(bottom: 40);
   }

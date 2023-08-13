@@ -12,11 +12,13 @@ import 'package:uni_hostel_admin/presentation/components/loading_widget.dart';
 import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
 import 'package:uni_hostel_admin/presentation/cubit/selected_order/selected_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/view/expansion_item/widget/mobile/user_information_mobile.dart';
+import 'package:uni_hostel_admin/presentation/view/tabs/requests/widget/check_alert_dialog.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/requests/widget/checkbox_item_widget.dart';
 import 'package:uni_hostel_admin/presentation/view/expansion_item/widget/down_button.dart';
 import 'package:uni_hostel_admin/presentation/view/status_alert_dialog/edit_status_alert_dialog.dart';
 import 'package:uni_hostel_admin/presentation/view/expansion_item/widget/mobile/item_list_mobile.dart';
 import 'package:uni_hostel_admin/presentation/view/expansion_item/widget/web/item_list_web.dart';
+
 
 class ExpansionItemWidget extends StatelessWidget {
   const ExpansionItemWidget({super.key, required this.id, this.index});
@@ -89,7 +91,8 @@ class ExpansionItemWidget extends StatelessWidget {
                 ? SizedBox.shrink()
                 : userInformationMobile(
                     title: AppStrings.strChecked,
-                    subTitle: "${state.orderResponse?.checkedAdmin?.firstName} ${state.orderResponse?.checkedAdmin?.lastName}",
+                    subTitle:
+                        "${state.orderResponse?.checkedAdmin?.firstName} ${state.orderResponse?.checkedAdmin?.lastName}",
                   ),
             index == 0
                 ? SizedBox.shrink()
@@ -98,6 +101,20 @@ class ExpansionItemWidget extends StatelessWidget {
             index == 0
                 ? SizedBox.shrink()
                 : DownButtonWidget(
+                    onTapDeleteOrder: () {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return CheckDeleteAlertDialog(
+                              title:
+                                  "Ushbu arizani o'chirib yuborishini hohlaysizmi ?",
+                              onTapRight: () {
+                                
+                                inject<SelectedOrderCubit>().deleteOrder(id).whenComplete(() => Navigator.pop(context));
+                              },
+                            );
+                          });
+                    },
                     onTapRejected: index == 1
                         ? null
                         : () {
@@ -106,7 +123,7 @@ class ExpansionItemWidget extends StatelessWidget {
                                 builder: (BuildContext context) {
                                   return EditStatusAlertDialog(
                                     name: response?.fullName ?? "",
-                                    id: response?.id ?? 0,
+                                    id: id,
                                     title: AppStrings.strRejectedAd,
                                     reason: AppStrings.strReasonforRejection,
                                   );
@@ -120,7 +137,7 @@ class ExpansionItemWidget extends StatelessWidget {
                                 builder: (BuildContext context) {
                                   return EditStatusAlertDialog(
                                     name: response?.fullName ?? "",
-                                    id: response?.id ?? 0,
+                                    id: id,
                                     title: AppStrings.strWaitingAd,
                                     reason: AppStrings.strQueuingReason,
                                   );
@@ -134,7 +151,7 @@ class ExpansionItemWidget extends StatelessWidget {
                                 builder: (BuildContext context) {
                                   return EditStatusAlertDialog(
                                     name: response?.fullName ?? "",
-                                    id: response?.id ?? 0,
+                                    id: id ,
                                     title: AppStrings.strApprovedAd,
                                   );
                                 });

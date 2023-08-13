@@ -2,15 +2,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uni_hostel_admin/core/error/error.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
+import 'package:uni_hostel_admin/core/usecase/usecase.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
+import 'package:uni_hostel_admin/data/domain/usecases/main/get_faculties.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_order.dart';
+import 'package:uni_hostel_admin/data/models/order/get_faculties/get_faculties_response.dart';
 import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.dart';
 part 'accepted_order_state.dart';
 part 'accepted_order_cubit.freezed.dart';
 
 class AcceptedOrderCubit extends Cubit<AcceptedOrderState> {
-  AcceptedOrderCubit(this._orderUsCase) : super(AcceptedOrderState());
+  AcceptedOrderCubit(this._orderUsCase, this._getFacultiesUsCase)
+      : super(AcceptedOrderState());
   final GetOrderUseCase _orderUsCase;
+  final GetFacultiesUsCase _getFacultiesUsCase;
 
   Future<void> getAcceptedOrder() async {
     emit(state.copyWith(status: Status.LOADING));
@@ -19,6 +24,7 @@ class AcceptedOrderCubit extends Cubit<AcceptedOrderState> {
       status: "accepted",
       search: state.search,
       course: state.courseIndex,
+      facultyId: state.facultyIndex?.id,
     ));
     result.fold(
       (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),
@@ -34,9 +40,51 @@ class AcceptedOrderCubit extends Cubit<AcceptedOrderState> {
     );
   }
 
+  Future<void> getFaculties() async {
+    emit(state.copyWith(status: Status.LOADING));
+    var result = await _getFacultiesUsCase.call(NoParams());
+    result.fold(
+      (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),
+      (success) {
+        List<String> list = [];
+        for (var i = 0; i < success.response!.length; i++) {
+          list.add(success.response?[i].name ?? "");
+        }
+        list.add(AppStrings.strNoneOfThem);
+        emit(state.copyWith(
+            facultiesList: list,
+            facultiesResponse: success.response ?? [],
+            status: Status.SUCCESS));
+        getAcceptedOrder();
+      },
+    );
+  }
+
   void searchAccepted(String search) {
     emit(state.copyWith(search: search, status: Status.UNKNOWN));
     getAcceptedOrder();
+  }
+
+  void selectFaculty(String index) {
+    if (index == AppStrings.strNoneOfThem) {
+      emit(state.copyWith(
+          facultyIndex: FacultiesModel(name: "", id: null),
+          status: Status.UNKNOWN));
+      getAcceptedOrder();
+    } else {
+      for (var i = 0; i < state.facultiesResponse.length; i++) {
+        if (index == state.facultiesResponse[i].name) {
+          emit(state.copyWith(
+              facultyIndex: FacultiesModel(
+                  name: state.facultiesResponse[i].name,
+                  id: state.facultiesResponse[i].id),
+              status: Status.UNKNOWN));
+          getAcceptedOrder();
+        }
+      }
+
+
+    }
   }
 
   void selectCourse(String index) {
@@ -60,6 +108,7 @@ class AcceptedOrderCubit extends Cubit<AcceptedOrderState> {
         status: "accepted",
         search: state.search,
         course: state.courseIndex,
+        facultyId: state.facultyIndex?.id,
       ),
     );
     result.fold(

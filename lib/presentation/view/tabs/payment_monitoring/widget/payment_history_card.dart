@@ -1,9 +1,7 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel_admin/core/themes/app_colors.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
-import 'package:uni_hostel_admin/presentation/view/tabs/payment_monitoring/widget/check_alert_dialog.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/payment_monitoring/widget/payment_card_item_widget.dart';
 
 class PaymentHistoryCardWidget extends StatelessWidget {
@@ -46,11 +44,9 @@ class PaymentHistoryCardWidget extends StatelessWidget {
             itemBuilder: (_, __) {
               return GestureDetector(
                 onTap: () {
-                  showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return FadeInUp(child: CheckAlertDialog());
-                      });
+                  // showDialog(showDialog
+                  //     context: context,
+                  //     builder: (BuildContext context) => FadeInUp(child:()));child
                 },
                 child: Container(
                   decoration: BoxDecoration(

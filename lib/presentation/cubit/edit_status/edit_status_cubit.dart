@@ -10,8 +10,10 @@ part 'edit_status_state.dart';
 part 'edit_status_cubit.freezed.dart';
 
 class EditStatusCubit extends Cubit<EditStatusState> {
-  EditStatusCubit(this._editStatusUsCase) : super(EditStatusState());
+  EditStatusCubit(this._editStatusUsCase)
+      : super(EditStatusState());
   final EditStatusUseCase _editStatusUsCase;
+
 
   void editStatus(
     int id,

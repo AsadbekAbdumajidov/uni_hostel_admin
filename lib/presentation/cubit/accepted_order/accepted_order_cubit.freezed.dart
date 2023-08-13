@@ -24,7 +24,11 @@ mixin _$AcceptedOrderState {
   int get page => throw _privateConstructorUsedError;
   bool get hasReachedMax => throw _privateConstructorUsedError;
   bool get loadingPagination => throw _privateConstructorUsedError;
+  List<FacultiesModel> get facultiesResponse =>
+      throw _privateConstructorUsedError;
+  List<String> get facultiesList => throw _privateConstructorUsedError;
   String get courseIndex => throw _privateConstructorUsedError;
+  FacultiesModel? get facultyIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AcceptedOrderStateCopyWith<AcceptedOrderState> get copyWith =>
@@ -46,9 +50,13 @@ abstract class $AcceptedOrderStateCopyWith<$Res> {
       int page,
       bool hasReachedMax,
       bool loadingPagination,
-      String courseIndex});
+      List<FacultiesModel> facultiesResponse,
+      List<String> facultiesList,
+      String courseIndex,
+      FacultiesModel? facultyIndex});
 
   $GetOrderResponseCopyWith<$Res>? get orderResponse;
+  $FacultiesModelCopyWith<$Res>? get facultyIndex;
 }
 
 /// @nodoc
@@ -72,7 +80,10 @@ class _$AcceptedOrderStateCopyWithImpl<$Res, $Val extends AcceptedOrderState>
     Object? page = null,
     Object? hasReachedMax = null,
     Object? loadingPagination = null,
+    Object? facultiesResponse = null,
+    Object? facultiesList = null,
     Object? courseIndex = null,
+    Object? facultyIndex = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -107,10 +118,22 @@ class _$AcceptedOrderStateCopyWithImpl<$Res, $Val extends AcceptedOrderState>
           ? _value.loadingPagination
           : loadingPagination // ignore: cast_nullable_to_non_nullable
               as bool,
+      facultiesResponse: null == facultiesResponse
+          ? _value.facultiesResponse
+          : facultiesResponse // ignore: cast_nullable_to_non_nullable
+              as List<FacultiesModel>,
+      facultiesList: null == facultiesList
+          ? _value.facultiesList
+          : facultiesList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       courseIndex: null == courseIndex
           ? _value.courseIndex
           : courseIndex // ignore: cast_nullable_to_non_nullable
               as String,
+      facultyIndex: freezed == facultyIndex
+          ? _value.facultyIndex
+          : facultyIndex // ignore: cast_nullable_to_non_nullable
+              as FacultiesModel?,
     ) as $Val);
   }
 
@@ -123,6 +146,18 @@ class _$AcceptedOrderStateCopyWithImpl<$Res, $Val extends AcceptedOrderState>
 
     return $GetOrderResponseCopyWith<$Res>(_value.orderResponse!, (value) {
       return _then(_value.copyWith(orderResponse: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FacultiesModelCopyWith<$Res>? get facultyIndex {
+    if (_value.facultyIndex == null) {
+      return null;
+    }
+
+    return $FacultiesModelCopyWith<$Res>(_value.facultyIndex!, (value) {
+      return _then(_value.copyWith(facultyIndex: value) as $Val);
     });
   }
 }
@@ -144,10 +179,15 @@ abstract class _$$_AcceptedOrderStateCopyWith<$Res>
       int page,
       bool hasReachedMax,
       bool loadingPagination,
-      String courseIndex});
+      List<FacultiesModel> facultiesResponse,
+      List<String> facultiesList,
+      String courseIndex,
+      FacultiesModel? facultyIndex});
 
   @override
   $GetOrderResponseCopyWith<$Res>? get orderResponse;
+  @override
+  $FacultiesModelCopyWith<$Res>? get facultyIndex;
 }
 
 /// @nodoc
@@ -169,7 +209,10 @@ class __$$_AcceptedOrderStateCopyWithImpl<$Res>
     Object? page = null,
     Object? hasReachedMax = null,
     Object? loadingPagination = null,
+    Object? facultiesResponse = null,
+    Object? facultiesList = null,
     Object? courseIndex = null,
+    Object? facultyIndex = freezed,
   }) {
     return _then(_$_AcceptedOrderState(
       status: null == status
@@ -204,10 +247,22 @@ class __$$_AcceptedOrderStateCopyWithImpl<$Res>
           ? _value.loadingPagination
           : loadingPagination // ignore: cast_nullable_to_non_nullable
               as bool,
+      facultiesResponse: null == facultiesResponse
+          ? _value._facultiesResponse
+          : facultiesResponse // ignore: cast_nullable_to_non_nullable
+              as List<FacultiesModel>,
+      facultiesList: null == facultiesList
+          ? _value._facultiesList
+          : facultiesList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       courseIndex: null == courseIndex
           ? _value.courseIndex
           : courseIndex // ignore: cast_nullable_to_non_nullable
               as String,
+      facultyIndex: freezed == facultyIndex
+          ? _value.facultyIndex
+          : facultyIndex // ignore: cast_nullable_to_non_nullable
+              as FacultiesModel?,
     ));
   }
 }
@@ -224,8 +279,13 @@ class _$_AcceptedOrderState implements _AcceptedOrderState {
       this.page = 1,
       this.hasReachedMax = false,
       this.loadingPagination = false,
-      this.courseIndex = ""})
-      : _orderList = orderList;
+      final List<FacultiesModel> facultiesResponse = const [],
+      final List<String> facultiesList = const [],
+      this.courseIndex = "",
+      this.facultyIndex})
+      : _orderList = orderList,
+        _facultiesResponse = facultiesResponse,
+        _facultiesList = facultiesList;
 
   @override
   @JsonKey()
@@ -256,13 +316,34 @@ class _$_AcceptedOrderState implements _AcceptedOrderState {
   @override
   @JsonKey()
   final bool loadingPagination;
+  final List<FacultiesModel> _facultiesResponse;
+  @override
+  @JsonKey()
+  List<FacultiesModel> get facultiesResponse {
+    if (_facultiesResponse is EqualUnmodifiableListView)
+      return _facultiesResponse;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_facultiesResponse);
+  }
+
+  final List<String> _facultiesList;
+  @override
+  @JsonKey()
+  List<String> get facultiesList {
+    if (_facultiesList is EqualUnmodifiableListView) return _facultiesList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_facultiesList);
+  }
+
   @override
   @JsonKey()
   final String courseIndex;
+  @override
+  final FacultiesModel? facultyIndex;
 
   @override
   String toString() {
-    return 'AcceptedOrderState(status: $status, failure: $failure, orderResponse: $orderResponse, orderList: $orderList, search: $search, page: $page, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination, courseIndex: $courseIndex)';
+    return 'AcceptedOrderState(status: $status, failure: $failure, orderResponse: $orderResponse, orderList: $orderList, search: $search, page: $page, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination, facultiesResponse: $facultiesResponse, facultiesList: $facultiesList, courseIndex: $courseIndex, facultyIndex: $facultyIndex)';
   }
 
   @override
@@ -282,8 +363,14 @@ class _$_AcceptedOrderState implements _AcceptedOrderState {
                 other.hasReachedMax == hasReachedMax) &&
             (identical(other.loadingPagination, loadingPagination) ||
                 other.loadingPagination == loadingPagination) &&
+            const DeepCollectionEquality()
+                .equals(other._facultiesResponse, _facultiesResponse) &&
+            const DeepCollectionEquality()
+                .equals(other._facultiesList, _facultiesList) &&
             (identical(other.courseIndex, courseIndex) ||
-                other.courseIndex == courseIndex));
+                other.courseIndex == courseIndex) &&
+            (identical(other.facultyIndex, facultyIndex) ||
+                other.facultyIndex == facultyIndex));
   }
 
   @override
@@ -297,7 +384,10 @@ class _$_AcceptedOrderState implements _AcceptedOrderState {
       page,
       hasReachedMax,
       loadingPagination,
-      courseIndex);
+      const DeepCollectionEquality().hash(_facultiesResponse),
+      const DeepCollectionEquality().hash(_facultiesList),
+      courseIndex,
+      facultyIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -317,7 +407,10 @@ abstract class _AcceptedOrderState implements AcceptedOrderState {
       final int page,
       final bool hasReachedMax,
       final bool loadingPagination,
-      final String courseIndex}) = _$_AcceptedOrderState;
+      final List<FacultiesModel> facultiesResponse,
+      final List<String> facultiesList,
+      final String courseIndex,
+      final FacultiesModel? facultyIndex}) = _$_AcceptedOrderState;
 
   @override
   Status get status;
@@ -336,7 +429,13 @@ abstract class _AcceptedOrderState implements AcceptedOrderState {
   @override
   bool get loadingPagination;
   @override
+  List<FacultiesModel> get facultiesResponse;
+  @override
+  List<String> get facultiesList;
+  @override
   String get courseIndex;
+  @override
+  FacultiesModel? get facultyIndex;
   @override
   @JsonKey(ignore: true)
   _$$_AcceptedOrderStateCopyWith<_$_AcceptedOrderState> get copyWith =>

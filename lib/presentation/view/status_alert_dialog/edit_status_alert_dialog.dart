@@ -28,7 +28,6 @@ class EditStatusAlertDialog extends StatelessWidget {
   final String? reason;
   final String title;
   final String name;
-
   final int id;
   @override
   Widget build(BuildContext context) {
@@ -47,8 +46,6 @@ class EditStatusAlertDialog extends StatelessWidget {
             context.read<CancelledOrderCubit>().getCancelledOrder();
             context.read<QueueOrderCubit>().getQueueOrder();
             context.read<EditStatusCubit>().getStart();
-
-            
           }
           return Form(
             key: formGlobalKey,
@@ -186,7 +183,7 @@ class EditStatusAlertDialog extends StatelessWidget {
                           debugPrint(reasonController.text);
 
                           context.read<EditStatusCubit>().editStatus(
-                              1782,
+                              id,
                               title,
                               monthlyPayment,
                               reasonController.text,

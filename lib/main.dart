@@ -10,6 +10,7 @@ import 'package:uni_hostel_admin/presentation/cubit/cancelled_order/cancelled_or
 import 'package:uni_hostel_admin/presentation/cubit/edit_status/edit_status_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/new_order/get_new_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/queue_order/queue_order_cubit.dart';
+import 'package:uni_hostel_admin/presentation/cubit/selected_order/selected_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/side_bar/side_bar_cubit.dart';
 import 'package:uni_hostel_admin/presentation/view/splash/splash_screen.dart';
 
@@ -32,15 +33,18 @@ class MyApp extends StatelessWidget {
               create: (context) => inject<AuthCubit>()..checkUserToAuth()),
           BlocProvider(create: (context) => inject<EditStatusCubit>()),
           BlocProvider(
-              create: (context) => inject<GetNewOrderCubit>()..getNewOrder()),
+              create: (context) => inject<GetNewOrderCubit>()..getFaculties()),
           BlocProvider(
               create: (context) =>
-                  inject<AcceptedOrderCubit>()..getAcceptedOrder()),
+                  inject<AcceptedOrderCubit>()..getFaculties()),
           BlocProvider(
               create: (context) =>
-                  inject<CancelledOrderCubit>()..getCancelledOrder()),
+              inject<SelectedOrderCubit>()),
           BlocProvider(
-              create: (context) => inject<QueueOrderCubit>()..getQueueOrder()),
+              create: (context) =>
+                  inject<CancelledOrderCubit>()..getFaculties()),
+          BlocProvider(
+              create: (context) => inject<QueueOrderCubit>()..getFaculties()),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

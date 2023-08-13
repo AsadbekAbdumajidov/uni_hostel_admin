@@ -12,5 +12,9 @@ class GetNewOrderState with _$GetNewOrderState {
     @Default(false) bool hasReachedMax,
     @Default(false) bool loadingPagination,
     @Default("") String search,
+    @Default([]) List<FacultiesModel> facultiesResponse,
+    @Default([]) List<String> facultiesList,
+    FacultiesModel? facultyIndex,
+    @Default(null) String? courseIndex,
   }) = _GetNewOrderState;
 }

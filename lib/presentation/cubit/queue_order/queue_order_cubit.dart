@@ -4,12 +4,18 @@ import 'package:uni_hostel_admin/core/error/error.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_order.dart';
 import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.dart';
+
+import '../../../core/themes/app_text.dart';
+import '../../../core/usecase/usecase.dart';
+import '../../../data/domain/usecases/main/get_faculties.dart';
+import '../../../data/models/order/get_faculties/get_faculties_response.dart';
 part 'queue_order_state.dart';
 part 'queue_order_cubit.freezed.dart';
 
 class QueueOrderCubit extends Cubit<QueueOrderState> {
-  QueueOrderCubit(this._orderUsCase) : super(QueueOrderState());
+  QueueOrderCubit(this._orderUsCase, this._getFacultiesUsCase) : super(QueueOrderState());
   final GetOrderUseCase _orderUsCase;
+  final GetFacultiesUsCase _getFacultiesUsCase;
 
   Future<void> getQueueOrder() async {
     emit(state.copyWith(status: Status.LOADING));
@@ -17,7 +23,8 @@ class QueueOrderCubit extends Cubit<QueueOrderState> {
       page: 1,
       status: "in_queue",
       search: state.search,
-      course: '',
+      course: state.courseIndex,
+      facultyId: state.facultyIndex?.id,
     ));
     result.fold(
       (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),
@@ -31,6 +38,55 @@ class QueueOrderCubit extends Cubit<QueueOrderState> {
         ),
       ),
     );
+  }
+  Future<void> getFaculties() async {
+    emit(state.copyWith(status: Status.LOADING));
+    var result = await _getFacultiesUsCase.call(NoParams());
+    result.fold(
+          (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),
+          (success) {
+        List<String> list = [];
+        for (var i = 0; i < success.response!.length; i++) {
+          list.add(success.response?[i].name ?? "");
+        }
+        list.add(AppStrings.strNoneOfThem);
+        emit(state.copyWith(
+            facultiesList: list,
+            facultiesResponse: success.response ?? [],
+            status: Status.SUCCESS));
+        getQueueOrder();
+      },
+    );
+  }
+
+  void selectFaculty(String index) {
+    if (index == AppStrings.strNoneOfThem) {
+      emit(state.copyWith(
+          facultyIndex: FacultiesModel(name: "", id: null),
+          status: Status.UNKNOWN));
+      getQueueOrder();
+    } else {
+      for (var i = 0; i < state.facultiesResponse.length; i++) {
+        if (index == state.facultiesResponse[i].name) {
+          emit(state.copyWith(
+              facultyIndex: FacultiesModel(
+                  name: state.facultiesResponse[i].name,
+                  id: state.facultiesResponse[i].id),
+              status: Status.UNKNOWN));
+          getQueueOrder();
+        }
+      }
+    }
+  }
+
+  void selectCourse(String index) {
+    if (index == AppStrings.strNoneOfThem) {
+      emit(state.copyWith(courseIndex: "", status: Status.UNKNOWN));
+      getQueueOrder();
+    } else {
+      emit(state.copyWith(courseIndex: index, status: Status.UNKNOWN));
+      getQueueOrder();
+    }
   }
 
   void searchQueue(String search) {
@@ -48,7 +104,8 @@ class QueueOrderCubit extends Cubit<QueueOrderState> {
         page: state.page,
         status: "in_queue",
         search: state.search,
-        course: '',
+        course: state.courseIndex,
+        facultyId: state.facultyIndex?.id,
       ),
     );
     result.fold(

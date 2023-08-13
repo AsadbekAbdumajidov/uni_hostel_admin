@@ -11,10 +11,19 @@ class TopRequestItemWidget extends StatelessWidget {
       this.index,
       required this.title,
       required this.list,
-      required this.onChanged});
+      required this.onChanged,
+      this.facultyIndex,
+      required this.faculties,
+      required this.onChangeFaculty, this.coursIndex, required this.courses, required this.onChangecourse});
   final String? index;
   final String title;
+  final String? facultyIndex;
+  final List<String> faculties;
+  final String? coursIndex;
+  final List<String> courses;
+  final Function(dynamic v) onChangecourse;
 
+  final Function(dynamic v) onChangeFaculty;
   final List<String> list;
   final Function(dynamic v) onChanged;
   @override
@@ -30,12 +39,32 @@ class TopRequestItemWidget extends StatelessWidget {
               .headlineMedium
               ?.copyWith(fontSize: textSize),
         ),
-        DropDownWidget(
-          index: index ?? "",
-          list: list,
-          onChanged: onChanged,
-          isEmptyText: AppStrings.strMaritals,
-        ),
+        Row(
+          children: [
+            DropDownWidget(
+              buttonWidth: 100,
+              drobDownWidth: 100,
+              index: coursIndex ?? "",
+              list: courses,
+              onChanged: onChangecourse,
+              isEmptyText: AppStrings.strCourse,
+            ),
+            DropDownWidget(
+              buttonWidth: 150,
+              drobDownWidth: 200,
+              index: facultyIndex ?? "",
+              list: faculties,
+              onChanged: onChangeFaculty,
+              isEmptyText: AppStrings.strFaculty,
+            ).paddingSymmetric(horizontal: 6),
+            DropDownWidget(
+              index: index ?? "",
+              list: list,
+              onChanged: onChanged,
+              isEmptyText: AppStrings.strMaritals,
+            ),
+          ],
+        )
       ],
     ).paddingOnly(bottom: 40);
   }

@@ -3,6 +3,7 @@ import 'package:retrofit/http.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/data/models/login/request/login_request_model.dart';
 import 'package:uni_hostel_admin/data/models/login/response/login_response_model.dart';
+import 'package:uni_hostel_admin/data/models/order/get_faculties/get_faculties_response.dart';
 import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.dart';
 import 'package:uni_hostel_admin/data/models/order/post_order/edit_status_request.dart';
 import 'package:uni_hostel_admin/data/models/order/select_order/select_order_response.dart';
@@ -26,6 +27,7 @@ abstract class ApiClient {
     @Query("status") String status,
     @Query("search_query") String search,
     @Query("course") String course,
+    @Query("faculty") int? facultyId,
   );
 
   @GET('admin/new/orders/')
@@ -33,6 +35,8 @@ abstract class ApiClient {
     @Query("page") int page,
     @Query("search_query") String search,
     @Query("marital_status") String maritalStatus,
+    @Query("faculty") int? facultyId,
+    @Query("course") String? course,
   );
 
   @GET('admin/order/{id}/')
@@ -43,4 +47,10 @@ abstract class ApiClient {
     @Body() EditStatusRequest request,
     @Path('id') int id,
   );
+
+  @DELETE('admin/order/{id}/')
+  Future<bool> deleteOrder(@Path('id') int id);
+
+  @GET('admin/all/facultys/')
+  Future<GetFacultiesResponse> getFaculties();
 }

@@ -8,7 +8,9 @@ import 'package:uni_hostel_admin/data/domain/repository/main.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/auth/check_user_auth.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/auth/login.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/auth/logout.dart';
+import 'package:uni_hostel_admin/data/domain/usecases/main/delete_order.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/edit_status.dart';
+import 'package:uni_hostel_admin/data/domain/usecases/main/get_faculties.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_new_order.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_order.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_selected_order.dart';
@@ -31,15 +33,12 @@ Future<void> initDi() async {
   inject.registerFactory(() => AuthCubit(inject(), inject()));
   inject.registerFactory(() => LoginCubit(inject()));
   inject.registerFactory(() => SideBarCubit());
-  inject.registerFactory(() => GetNewOrderCubit(inject()));
-  inject.registerFactory(() => SelectedOrderCubit(inject()));
+  inject.registerFactory(() => GetNewOrderCubit(inject(), inject()));
+  inject.registerFactory(() => SelectedOrderCubit(inject(), inject()));
   inject.registerFactory(() => EditStatusCubit(inject()));
-
-  inject.registerFactory(() => AcceptedOrderCubit(inject()));
-  inject.registerFactory(() => CancelledOrderCubit(inject()));
-  inject.registerFactory(() => QueueOrderCubit(inject()));
-
-
+  inject.registerFactory(() => AcceptedOrderCubit(inject(), inject()));
+  inject.registerFactory(() => CancelledOrderCubit(inject(), inject()));
+  inject.registerFactory(() => QueueOrderCubit(inject(), inject()));
 
   // use case need to register
   inject.registerFactory(() => LoginUseCase(inject()));
@@ -49,7 +48,8 @@ Future<void> initDi() async {
   inject.registerLazySingleton(() => GetNewOrderUseCase(inject()));
   inject.registerLazySingleton(() => SelectedOrderUseCase(inject()));
   inject.registerLazySingleton(() => EditStatusUseCase(inject()));
-
+  inject.registerLazySingleton(() => DeleteOrderUseCase(inject()));
+  inject.registerLazySingleton(() => GetFacultiesUsCase(inject()));
 
   // repository init
   inject.registerLazySingleton<IAuthRepository>(

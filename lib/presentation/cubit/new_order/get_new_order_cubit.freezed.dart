@@ -25,6 +25,11 @@ mixin _$GetNewOrderState {
   bool get hasReachedMax => throw _privateConstructorUsedError;
   bool get loadingPagination => throw _privateConstructorUsedError;
   String get search => throw _privateConstructorUsedError;
+  List<FacultiesModel> get facultiesResponse =>
+      throw _privateConstructorUsedError;
+  List<String> get facultiesList => throw _privateConstructorUsedError;
+  FacultiesModel? get facultyIndex => throw _privateConstructorUsedError;
+  String? get courseIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $GetNewOrderStateCopyWith<GetNewOrderState> get copyWith =>
@@ -46,9 +51,14 @@ abstract class $GetNewOrderStateCopyWith<$Res> {
       String maritalStatus,
       bool hasReachedMax,
       bool loadingPagination,
-      String search});
+      String search,
+      List<FacultiesModel> facultiesResponse,
+      List<String> facultiesList,
+      FacultiesModel? facultyIndex,
+      String? courseIndex});
 
   $GetOrderResponseCopyWith<$Res>? get orderResponse;
+  $FacultiesModelCopyWith<$Res>? get facultyIndex;
 }
 
 /// @nodoc
@@ -73,6 +83,10 @@ class _$GetNewOrderStateCopyWithImpl<$Res, $Val extends GetNewOrderState>
     Object? hasReachedMax = null,
     Object? loadingPagination = null,
     Object? search = null,
+    Object? facultiesResponse = null,
+    Object? facultiesList = null,
+    Object? facultyIndex = freezed,
+    Object? courseIndex = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -111,6 +125,22 @@ class _$GetNewOrderStateCopyWithImpl<$Res, $Val extends GetNewOrderState>
           ? _value.search
           : search // ignore: cast_nullable_to_non_nullable
               as String,
+      facultiesResponse: null == facultiesResponse
+          ? _value.facultiesResponse
+          : facultiesResponse // ignore: cast_nullable_to_non_nullable
+              as List<FacultiesModel>,
+      facultiesList: null == facultiesList
+          ? _value.facultiesList
+          : facultiesList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      facultyIndex: freezed == facultyIndex
+          ? _value.facultyIndex
+          : facultyIndex // ignore: cast_nullable_to_non_nullable
+              as FacultiesModel?,
+      courseIndex: freezed == courseIndex
+          ? _value.courseIndex
+          : courseIndex // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -123,6 +153,18 @@ class _$GetNewOrderStateCopyWithImpl<$Res, $Val extends GetNewOrderState>
 
     return $GetOrderResponseCopyWith<$Res>(_value.orderResponse!, (value) {
       return _then(_value.copyWith(orderResponse: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FacultiesModelCopyWith<$Res>? get facultyIndex {
+    if (_value.facultyIndex == null) {
+      return null;
+    }
+
+    return $FacultiesModelCopyWith<$Res>(_value.facultyIndex!, (value) {
+      return _then(_value.copyWith(facultyIndex: value) as $Val);
     });
   }
 }
@@ -144,10 +186,16 @@ abstract class _$$_GetNewOrderStateCopyWith<$Res>
       String maritalStatus,
       bool hasReachedMax,
       bool loadingPagination,
-      String search});
+      String search,
+      List<FacultiesModel> facultiesResponse,
+      List<String> facultiesList,
+      FacultiesModel? facultyIndex,
+      String? courseIndex});
 
   @override
   $GetOrderResponseCopyWith<$Res>? get orderResponse;
+  @override
+  $FacultiesModelCopyWith<$Res>? get facultyIndex;
 }
 
 /// @nodoc
@@ -170,6 +218,10 @@ class __$$_GetNewOrderStateCopyWithImpl<$Res>
     Object? hasReachedMax = null,
     Object? loadingPagination = null,
     Object? search = null,
+    Object? facultiesResponse = null,
+    Object? facultiesList = null,
+    Object? facultyIndex = freezed,
+    Object? courseIndex = freezed,
   }) {
     return _then(_$_GetNewOrderState(
       status: null == status
@@ -208,6 +260,22 @@ class __$$_GetNewOrderStateCopyWithImpl<$Res>
           ? _value.search
           : search // ignore: cast_nullable_to_non_nullable
               as String,
+      facultiesResponse: null == facultiesResponse
+          ? _value._facultiesResponse
+          : facultiesResponse // ignore: cast_nullable_to_non_nullable
+              as List<FacultiesModel>,
+      facultiesList: null == facultiesList
+          ? _value._facultiesList
+          : facultiesList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      facultyIndex: freezed == facultyIndex
+          ? _value.facultyIndex
+          : facultyIndex // ignore: cast_nullable_to_non_nullable
+              as FacultiesModel?,
+      courseIndex: freezed == courseIndex
+          ? _value.courseIndex
+          : courseIndex // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -224,8 +292,14 @@ class _$_GetNewOrderState implements _GetNewOrderState {
       this.maritalStatus = "",
       this.hasReachedMax = false,
       this.loadingPagination = false,
-      this.search = ""})
-      : _orderList = orderList;
+      this.search = "",
+      final List<FacultiesModel> facultiesResponse = const [],
+      final List<String> facultiesList = const [],
+      this.facultyIndex,
+      this.courseIndex = null})
+      : _orderList = orderList,
+        _facultiesResponse = facultiesResponse,
+        _facultiesList = facultiesList;
 
   @override
   @JsonKey()
@@ -259,10 +333,34 @@ class _$_GetNewOrderState implements _GetNewOrderState {
   @override
   @JsonKey()
   final String search;
+  final List<FacultiesModel> _facultiesResponse;
+  @override
+  @JsonKey()
+  List<FacultiesModel> get facultiesResponse {
+    if (_facultiesResponse is EqualUnmodifiableListView)
+      return _facultiesResponse;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_facultiesResponse);
+  }
+
+  final List<String> _facultiesList;
+  @override
+  @JsonKey()
+  List<String> get facultiesList {
+    if (_facultiesList is EqualUnmodifiableListView) return _facultiesList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_facultiesList);
+  }
+
+  @override
+  final FacultiesModel? facultyIndex;
+  @override
+  @JsonKey()
+  final String? courseIndex;
 
   @override
   String toString() {
-    return 'GetNewOrderState(status: $status, failure: $failure, orderResponse: $orderResponse, orderList: $orderList, page: $page, maritalStatus: $maritalStatus, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination, search: $search)';
+    return 'GetNewOrderState(status: $status, failure: $failure, orderResponse: $orderResponse, orderList: $orderList, page: $page, maritalStatus: $maritalStatus, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination, search: $search, facultiesResponse: $facultiesResponse, facultiesList: $facultiesList, facultyIndex: $facultyIndex, courseIndex: $courseIndex)';
   }
 
   @override
@@ -283,7 +381,15 @@ class _$_GetNewOrderState implements _GetNewOrderState {
                 other.hasReachedMax == hasReachedMax) &&
             (identical(other.loadingPagination, loadingPagination) ||
                 other.loadingPagination == loadingPagination) &&
-            (identical(other.search, search) || other.search == search));
+            (identical(other.search, search) || other.search == search) &&
+            const DeepCollectionEquality()
+                .equals(other._facultiesResponse, _facultiesResponse) &&
+            const DeepCollectionEquality()
+                .equals(other._facultiesList, _facultiesList) &&
+            (identical(other.facultyIndex, facultyIndex) ||
+                other.facultyIndex == facultyIndex) &&
+            (identical(other.courseIndex, courseIndex) ||
+                other.courseIndex == courseIndex));
   }
 
   @override
@@ -297,7 +403,11 @@ class _$_GetNewOrderState implements _GetNewOrderState {
       maritalStatus,
       hasReachedMax,
       loadingPagination,
-      search);
+      search,
+      const DeepCollectionEquality().hash(_facultiesResponse),
+      const DeepCollectionEquality().hash(_facultiesList),
+      facultyIndex,
+      courseIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -316,7 +426,11 @@ abstract class _GetNewOrderState implements GetNewOrderState {
       final String maritalStatus,
       final bool hasReachedMax,
       final bool loadingPagination,
-      final String search}) = _$_GetNewOrderState;
+      final String search,
+      final List<FacultiesModel> facultiesResponse,
+      final List<String> facultiesList,
+      final FacultiesModel? facultyIndex,
+      final String? courseIndex}) = _$_GetNewOrderState;
 
   @override
   Status get status;
@@ -336,6 +450,14 @@ abstract class _GetNewOrderState implements GetNewOrderState {
   bool get loadingPagination;
   @override
   String get search;
+  @override
+  List<FacultiesModel> get facultiesResponse;
+  @override
+  List<String> get facultiesList;
+  @override
+  FacultiesModel? get facultyIndex;
+  @override
+  String? get courseIndex;
   @override
   @JsonKey(ignore: true)
   _$$_GetNewOrderStateCopyWith<_$_GetNewOrderState> get copyWith =>

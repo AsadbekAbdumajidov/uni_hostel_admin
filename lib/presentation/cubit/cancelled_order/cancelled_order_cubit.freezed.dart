@@ -24,6 +24,11 @@ mixin _$CancelledOrderState {
   String get search => throw _privateConstructorUsedError;
   bool get hasReachedMax => throw _privateConstructorUsedError;
   bool get loadingPagination => throw _privateConstructorUsedError;
+  List<FacultiesModel> get facultiesResponse =>
+      throw _privateConstructorUsedError;
+  List<String> get facultiesList => throw _privateConstructorUsedError;
+  String get courseIndex => throw _privateConstructorUsedError;
+  FacultiesModel? get facultyIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CancelledOrderStateCopyWith<CancelledOrderState> get copyWith =>
@@ -44,9 +49,14 @@ abstract class $CancelledOrderStateCopyWith<$Res> {
       int page,
       String search,
       bool hasReachedMax,
-      bool loadingPagination});
+      bool loadingPagination,
+      List<FacultiesModel> facultiesResponse,
+      List<String> facultiesList,
+      String courseIndex,
+      FacultiesModel? facultyIndex});
 
   $GetOrderResponseCopyWith<$Res>? get orderResponse;
+  $FacultiesModelCopyWith<$Res>? get facultyIndex;
 }
 
 /// @nodoc
@@ -70,6 +80,10 @@ class _$CancelledOrderStateCopyWithImpl<$Res, $Val extends CancelledOrderState>
     Object? search = null,
     Object? hasReachedMax = null,
     Object? loadingPagination = null,
+    Object? facultiesResponse = null,
+    Object? facultiesList = null,
+    Object? courseIndex = null,
+    Object? facultyIndex = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -104,6 +118,22 @@ class _$CancelledOrderStateCopyWithImpl<$Res, $Val extends CancelledOrderState>
           ? _value.loadingPagination
           : loadingPagination // ignore: cast_nullable_to_non_nullable
               as bool,
+      facultiesResponse: null == facultiesResponse
+          ? _value.facultiesResponse
+          : facultiesResponse // ignore: cast_nullable_to_non_nullable
+              as List<FacultiesModel>,
+      facultiesList: null == facultiesList
+          ? _value.facultiesList
+          : facultiesList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      courseIndex: null == courseIndex
+          ? _value.courseIndex
+          : courseIndex // ignore: cast_nullable_to_non_nullable
+              as String,
+      facultyIndex: freezed == facultyIndex
+          ? _value.facultyIndex
+          : facultyIndex // ignore: cast_nullable_to_non_nullable
+              as FacultiesModel?,
     ) as $Val);
   }
 
@@ -116,6 +146,18 @@ class _$CancelledOrderStateCopyWithImpl<$Res, $Val extends CancelledOrderState>
 
     return $GetOrderResponseCopyWith<$Res>(_value.orderResponse!, (value) {
       return _then(_value.copyWith(orderResponse: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FacultiesModelCopyWith<$Res>? get facultyIndex {
+    if (_value.facultyIndex == null) {
+      return null;
+    }
+
+    return $FacultiesModelCopyWith<$Res>(_value.facultyIndex!, (value) {
+      return _then(_value.copyWith(facultyIndex: value) as $Val);
     });
   }
 }
@@ -136,10 +178,16 @@ abstract class _$$_CancelledOrderStateCopyWith<$Res>
       int page,
       String search,
       bool hasReachedMax,
-      bool loadingPagination});
+      bool loadingPagination,
+      List<FacultiesModel> facultiesResponse,
+      List<String> facultiesList,
+      String courseIndex,
+      FacultiesModel? facultyIndex});
 
   @override
   $GetOrderResponseCopyWith<$Res>? get orderResponse;
+  @override
+  $FacultiesModelCopyWith<$Res>? get facultyIndex;
 }
 
 /// @nodoc
@@ -161,6 +209,10 @@ class __$$_CancelledOrderStateCopyWithImpl<$Res>
     Object? search = null,
     Object? hasReachedMax = null,
     Object? loadingPagination = null,
+    Object? facultiesResponse = null,
+    Object? facultiesList = null,
+    Object? courseIndex = null,
+    Object? facultyIndex = freezed,
   }) {
     return _then(_$_CancelledOrderState(
       status: null == status
@@ -195,6 +247,22 @@ class __$$_CancelledOrderStateCopyWithImpl<$Res>
           ? _value.loadingPagination
           : loadingPagination // ignore: cast_nullable_to_non_nullable
               as bool,
+      facultiesResponse: null == facultiesResponse
+          ? _value._facultiesResponse
+          : facultiesResponse // ignore: cast_nullable_to_non_nullable
+              as List<FacultiesModel>,
+      facultiesList: null == facultiesList
+          ? _value._facultiesList
+          : facultiesList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      courseIndex: null == courseIndex
+          ? _value.courseIndex
+          : courseIndex // ignore: cast_nullable_to_non_nullable
+              as String,
+      facultyIndex: freezed == facultyIndex
+          ? _value.facultyIndex
+          : facultyIndex // ignore: cast_nullable_to_non_nullable
+              as FacultiesModel?,
     ));
   }
 }
@@ -210,8 +278,14 @@ class _$_CancelledOrderState implements _CancelledOrderState {
       this.page = 1,
       this.search = "",
       this.hasReachedMax = false,
-      this.loadingPagination = false})
-      : _orderList = orderList;
+      this.loadingPagination = false,
+      final List<FacultiesModel> facultiesResponse = const [],
+      final List<String> facultiesList = const [],
+      this.courseIndex = "",
+      this.facultyIndex})
+      : _orderList = orderList,
+        _facultiesResponse = facultiesResponse,
+        _facultiesList = facultiesList;
 
   @override
   @JsonKey()
@@ -242,10 +316,34 @@ class _$_CancelledOrderState implements _CancelledOrderState {
   @override
   @JsonKey()
   final bool loadingPagination;
+  final List<FacultiesModel> _facultiesResponse;
+  @override
+  @JsonKey()
+  List<FacultiesModel> get facultiesResponse {
+    if (_facultiesResponse is EqualUnmodifiableListView)
+      return _facultiesResponse;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_facultiesResponse);
+  }
+
+  final List<String> _facultiesList;
+  @override
+  @JsonKey()
+  List<String> get facultiesList {
+    if (_facultiesList is EqualUnmodifiableListView) return _facultiesList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_facultiesList);
+  }
+
+  @override
+  @JsonKey()
+  final String courseIndex;
+  @override
+  final FacultiesModel? facultyIndex;
 
   @override
   String toString() {
-    return 'CancelledOrderState(status: $status, failure: $failure, orderResponse: $orderResponse, orderList: $orderList, page: $page, search: $search, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination)';
+    return 'CancelledOrderState(status: $status, failure: $failure, orderResponse: $orderResponse, orderList: $orderList, page: $page, search: $search, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination, facultiesResponse: $facultiesResponse, facultiesList: $facultiesList, courseIndex: $courseIndex, facultyIndex: $facultyIndex)';
   }
 
   @override
@@ -264,7 +362,15 @@ class _$_CancelledOrderState implements _CancelledOrderState {
             (identical(other.hasReachedMax, hasReachedMax) ||
                 other.hasReachedMax == hasReachedMax) &&
             (identical(other.loadingPagination, loadingPagination) ||
-                other.loadingPagination == loadingPagination));
+                other.loadingPagination == loadingPagination) &&
+            const DeepCollectionEquality()
+                .equals(other._facultiesResponse, _facultiesResponse) &&
+            const DeepCollectionEquality()
+                .equals(other._facultiesList, _facultiesList) &&
+            (identical(other.courseIndex, courseIndex) ||
+                other.courseIndex == courseIndex) &&
+            (identical(other.facultyIndex, facultyIndex) ||
+                other.facultyIndex == facultyIndex));
   }
 
   @override
@@ -277,7 +383,11 @@ class _$_CancelledOrderState implements _CancelledOrderState {
       page,
       search,
       hasReachedMax,
-      loadingPagination);
+      loadingPagination,
+      const DeepCollectionEquality().hash(_facultiesResponse),
+      const DeepCollectionEquality().hash(_facultiesList),
+      courseIndex,
+      facultyIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -296,7 +406,11 @@ abstract class _CancelledOrderState implements CancelledOrderState {
       final int page,
       final String search,
       final bool hasReachedMax,
-      final bool loadingPagination}) = _$_CancelledOrderState;
+      final bool loadingPagination,
+      final List<FacultiesModel> facultiesResponse,
+      final List<String> facultiesList,
+      final String courseIndex,
+      final FacultiesModel? facultyIndex}) = _$_CancelledOrderState;
 
   @override
   Status get status;
@@ -314,6 +428,14 @@ abstract class _CancelledOrderState implements CancelledOrderState {
   bool get hasReachedMax;
   @override
   bool get loadingPagination;
+  @override
+  List<FacultiesModel> get facultiesResponse;
+  @override
+  List<String> get facultiesList;
+  @override
+  String get courseIndex;
+  @override
+  FacultiesModel? get facultyIndex;
   @override
   @JsonKey(ignore: true)
   _$$_CancelledOrderStateCopyWith<_$_CancelledOrderState> get copyWith =>

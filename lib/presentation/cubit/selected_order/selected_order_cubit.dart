@@ -3,14 +3,17 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uni_hostel_admin/core/error/error.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
+import 'package:uni_hostel_admin/data/domain/usecases/main/delete_order.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_selected_order.dart';
 import 'package:uni_hostel_admin/data/models/order/select_order/select_order_response.dart';
 part 'selected_order_state.dart';
 part 'selected_order_cubit.freezed.dart';
 
 class SelectedOrderCubit extends Cubit<SelectedOrderState> {
-  SelectedOrderCubit(this._orderUsCase) : super(SelectedOrderState());
+  SelectedOrderCubit(this._orderUsCase, this._deleteOrderUseCase)
+      : super(SelectedOrderState());
   final SelectedOrderUseCase _orderUsCase;
+  final DeleteOrderUseCase _deleteOrderUseCase;
 
   Future<void> getSelectedOrder(int id) async {
     emit(state.copyWith(status: Status.LOADING));
@@ -23,7 +26,17 @@ class SelectedOrderCubit extends Cubit<SelectedOrderState> {
       getStatus();
     });
   }
- 
+
+  Future<void> deleteOrder(int id) async {
+    emit(state.copyWith(status: Status.LOADING));
+    var result = await _deleteOrderUseCase.call(DeleteOrderParams(id: id));
+    result.fold(
+        (failure) =>
+            emit(state.copyWith(failure: failure, status: Status.ERROR)),
+        (success) {
+      emit(state.copyWith(status: Status.SUCCESS));
+    });
+  }
 
   Future<void> getStatus() async {
     List<String> trueProperties = [];
@@ -36,7 +49,8 @@ class SelectedOrderCubit extends Cubit<SelectedOrderState> {
       "one_parents_is_dead": state.orderResponse?.oneParentsIsDead ?? false,
       "disabled": state.orderResponse?.disabled ?? false,
       "gifted_student": state.orderResponse?.giftedStudent ?? false,
-      "has_many_children_family": state.orderResponse?.hasManyChildrenFamily ?? false,
+      "has_many_children_family":
+          state.orderResponse?.hasManyChildrenFamily ?? false,
     };
     properties.forEach((key, value) {
       if (value) {

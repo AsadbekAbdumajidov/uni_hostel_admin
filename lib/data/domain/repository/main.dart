@@ -4,15 +4,30 @@ import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.
 import 'package:uni_hostel_admin/data/models/order/post_order/edit_status_request.dart';
 import 'package:uni_hostel_admin/data/models/order/select_order/select_order_response.dart';
 
+import '../../models/order/get_faculties/get_faculties_response.dart';
+
 abstract class IMainRepository {
   Future<Either<Failure, GetOrderResponse>> getOrder(
-      int page, String status, String search, String course);
+    int page,
+    String status,
+    String search,
+    String course,
+    int? facultyId,
+  );
   Future<Either<Failure, GetOrderResponse>> getNewOrder(
     int page,
     String search,
     String maritalStatus,
+    int? facultyId,
+    String? course,
   );
   Future<Either<Failure, SelectOrderResponse>> getSelectOrder(int id);
+
   Future<Either<Failure, GetOrderResponse>> editStatus(
-      EditStatusRequest request, int id);
+    EditStatusRequest request,
+    int id,
+  );
+  Future<Either<Failure, bool>> deleteOrder(int id);
+
+  Future<Either<Failure, GetFacultiesResponse>> getFaculties();
 }

@@ -13,12 +13,12 @@ import 'package:uni_hostel_admin/presentation/view/menu_drawer/menu_drawer.dart'
 import 'package:uni_hostel_admin/presentation/view/profile_drawer/profile_drawer.dart';
 import 'package:uni_hostel_admin/presentation/view/custom_app_bar/custom_app_bar.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/widget/custom_card_widget.dart';
+import '../students/widget/top_accepted_item_widget.dart';
 
 class RejectedScreen extends StatelessWidget {
   RejectedScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    double textSize = ResponsiveWidget.isMobileLarge(context) ? 22 : 24;
     double paddingSize = ResponsiveWidget.isMobileLarge(context) ? 16 : 30;
 
     return SafeArea(
@@ -45,6 +45,8 @@ class RejectedScreen extends StatelessWidget {
                           if (state.status == Status.LOADING) {
                             return LoadingWidget();
                           }
+                          var bloc = context.read<CancelledOrderCubit>();
+
                           return InfiniteScrollingPagination(
                             onPagination: () {
                               context
@@ -55,15 +57,16 @@ class RejectedScreen extends StatelessWidget {
                             child: ListView(
                               physics: ClampingScrollPhysics(),
                               children: [
-                                Row(
-                                  children: [
-                                    Text(AppStrings.strRejectedStudents,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headlineMedium
-                                            ?.copyWith(fontSize: textSize)),
-                                  ],
-                                ).paddingOnly(bottom: 40),
+
+                                TopAcceptedItemWidget(
+                                  title: AppStrings.strRejectedStudents,
+                                  courses: courseList,
+                                  coursIndex: state.courseIndex,
+                                  faculties: state.facultiesList,
+                                  facultyIndex: state.facultyIndex?.name,
+                                  onChangeFaculty: (v)=>bloc.selectFaculty(v),
+                                  onChangecourse: (v) => bloc.selectCourse(v),
+                                ),
                                 CustomCardWidget(
                                     notButtonIndex: 1,
                                     list: state.orderList,

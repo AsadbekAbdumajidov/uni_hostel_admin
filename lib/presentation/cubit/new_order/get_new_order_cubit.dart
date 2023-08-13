@@ -2,20 +2,32 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uni_hostel_admin/core/error/error.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
+import 'package:uni_hostel_admin/core/usecase/usecase.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
+import 'package:uni_hostel_admin/data/domain/usecases/main/get_faculties.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_new_order.dart';
+import 'package:uni_hostel_admin/data/models/order/get_faculties/get_faculties_response.dart';
 import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.dart';
 part 'get_new_order_state.dart';
 part 'get_new_order_cubit.freezed.dart';
 
 class GetNewOrderCubit extends Cubit<GetNewOrderState> {
-  GetNewOrderCubit(this._newOrderUsCase) : super(GetNewOrderState());
+  GetNewOrderCubit(this._newOrderUsCase, this._getFacultiesUsCase)
+      : super(GetNewOrderState());
   final GetNewOrderUseCase _newOrderUsCase;
+  final GetFacultiesUsCase _getFacultiesUsCase;
 
   Future<void> getNewOrder() async {
     emit(state.copyWith(status: Status.LOADING));
-    var result = await _newOrderUsCase.call(GetNewOrderParams(
-        page: 1, search: state.search, maritalStatus: getStatus()));
+    var result = await _newOrderUsCase.call(
+      GetNewOrderParams(
+        page: 1,
+        search: state.search,
+        maritalStatus: getStatus(),
+        faculty: state.facultyIndex?.id,
+        course: state.courseIndex ?? null,
+      ),
+    );
     result.fold(
       (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),
       (success) => emit(
@@ -30,6 +42,46 @@ class GetNewOrderCubit extends Cubit<GetNewOrderState> {
     );
   }
 
+  Future<void> getFaculties() async {
+    emit(state.copyWith(status: Status.LOADING));
+    var result = await _getFacultiesUsCase.call(NoParams());
+    result.fold(
+      (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),
+      (success) {
+        List<String> list = [];
+        for (var i = 0; i < success.response!.length; i++) {
+          list.add(success.response?[i].name ?? "");
+        }
+        list.add(AppStrings.strNoneOfThem);
+        emit(state.copyWith(
+            facultiesList: list,
+            facultiesResponse: success.response ?? [],
+            status: Status.SUCCESS));
+        getNewOrder();
+      },
+    );
+  }
+
+  void selectFaculty(String index) {
+    if (index == AppStrings.strNoneOfThem) {
+      emit(state.copyWith(
+          facultyIndex: FacultiesModel(name: "", id: null),
+          status: Status.UNKNOWN));
+      getNewOrder();
+    } else {
+      for (var i = 0; i < state.facultiesResponse.length; i++) {
+        if (index == state.facultiesResponse[i].name) {
+          emit(state.copyWith(
+              facultyIndex: FacultiesModel(
+                  name: state.facultiesResponse[i].name,
+                  id: state.facultiesResponse[i].id),
+              status: Status.UNKNOWN));
+          getNewOrder();
+        }
+      }
+    }
+  }
+
   String getStatus() {
     for (var i = 0; i < maritals.length; i++) {
       if (maritals[i] == state.maritalStatus) {
@@ -41,6 +93,16 @@ class GetNewOrderCubit extends Cubit<GetNewOrderState> {
       }
     }
     return "";
+  }
+
+  void selectCourse(String index) {
+    if (index == AppStrings.strNoneOfThem) {
+      emit(state.copyWith(courseIndex: null, status: Status.UNKNOWN));
+      getNewOrder();
+    } else {
+      emit(state.copyWith(courseIndex: index, status: Status.UNKNOWN));
+      getNewOrder();
+    }
   }
 
   void searchRequests(String search) {
@@ -65,7 +127,12 @@ class GetNewOrderCubit extends Cubit<GetNewOrderState> {
     emit(state.copyWith(loadingPagination: true));
     var result = await _newOrderUsCase.call(
       GetNewOrderParams(
-          page: state.page, search: state.search, maritalStatus: getStatus()),
+        page: state.page,
+        search: state.search,
+        maritalStatus: getStatus(),
+        faculty: state.facultyIndex?.id,
+        course: state.courseIndex ?? null,
+      ),
     );
     result.fold(
       (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),

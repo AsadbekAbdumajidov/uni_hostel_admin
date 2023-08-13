@@ -45,6 +45,7 @@ class _ApiClient implements ApiClient {
     status,
     search,
     course,
+    facultyId,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -52,7 +53,9 @@ class _ApiClient implements ApiClient {
       r'status': status,
       r'search_query': search,
       r'course': course,
+      r'faculty': facultyId,
     };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -77,13 +80,18 @@ class _ApiClient implements ApiClient {
     page,
     search,
     maritalStatus,
+    facultyId,
+    course,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'page': page,
       r'search_query': search,
       r'marital_status': maritalStatus,
+      r'faculty': facultyId,
+      r'course': course,
     };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -149,6 +157,51 @@ class _ApiClient implements ApiClient {
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = GetOrderResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<bool> deleteOrder(id) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<bool>(_setStreamType<bool>(Options(
+      method: 'DELETE',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'admin/order/${id}/',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = _result.data!;
+    return value;
+  }
+
+  @override
+  Future<GetFacultiesResponse> getFaculties() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<GetFacultiesResponse>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'admin/all/facultys/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = GetFacultiesResponse.fromJson(_result.data!);
     return value;
   }
 

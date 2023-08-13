@@ -54,6 +54,7 @@ class _StudentsScreenState extends State<StudentsScreen> {
                         if (state.status == Status.LOADING) {
                           return LoadingWidget();
                         }
+                        debugPrint("=====${state.facultiesResponse[1].name}======");
                         var bloc = context.read<AcceptedOrderCubit>();
                         return InfiniteScrollingPagination(
                           onPagination: () => bloc.getAcceptedOrderInfinite(),
@@ -65,6 +66,9 @@ class _StudentsScreenState extends State<StudentsScreen> {
                                 title: AppStrings.strApproveds,
                                 courses: courseList,
                                 coursIndex: state.courseIndex,
+                                faculties: state.facultiesList,
+                                facultyIndex: state.facultyIndex?.name,
+                                onChangeFaculty: (v)=>bloc.selectFaculty(v),
                                 onChangecourse: (v) => bloc.selectCourse(v),
                               ),
                               CustomCardWidget(

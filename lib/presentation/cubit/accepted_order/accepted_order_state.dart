@@ -11,8 +11,10 @@ class AcceptedOrderState with _$AcceptedOrderState {
     @Default(1) int page,
     @Default(false) bool hasReachedMax,
     @Default(false) bool loadingPagination,
+    @Default([]) List<FacultiesModel> facultiesResponse,
+    @Default([]) List<String> facultiesList,
 
     @Default("") String courseIndex,
-
+     FacultiesModel? facultyIndex,
   }) = _AcceptedOrderState;
 }

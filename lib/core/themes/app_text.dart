@@ -7,14 +7,15 @@ class AppStrings {
   static const strStudents = "Talabalar";
   static const strWaiting = "Kutish";
   static const strUploadedFile = "Toifani tasdiqlovchi file";
-
+  static const strDeleteOrder = "Arizani o'chirish";
+  static const strDelete = "O'chirish";
 
   static const strThoseWhoPaid = "To'lov qilganlar";
   static const strPaymentHistory = "To'lovlar tarixi";
   static const strAdmin = "Hisobingizga administrator sifatida kiring";
   static const strUserName = "Hisobingiz";
   static const strEnterUserName = "foydalanuvchi hisobingizni kiriting";
-  
+
   static const strPassword = "Parol";
   static const strEnterPassword = "parolingizni kiriting";
   static const strSearch = "Qidirish";
@@ -36,7 +37,8 @@ class AppStrings {
   static const strDate = "Sanasi";
   static const strPay = "To'lash";
   static const strApplicationEmpty = "Arizalar mavjud emas";
-  static const strHasManyChildrenFamily = "Uch va undan ortiq farzandi, to‘lov-shartnoma asosida o‘qiyotgan oila farzandi";
+  static const strHasManyChildrenFamily =
+      "Uch va undan ortiq farzandi, to‘lov-shartnoma asosida o‘qiyotgan oila farzandi";
 
   static const strFiskalChekNumber = "Fiskal chek raqami";
   static const strTime = "Vaqti";
@@ -59,6 +61,9 @@ class AppStrings {
   static const strWaitingAd = "Navbatga";
 
   static const strRejectedAd = "Rad etish";
+  static const stirApproved = "Tasdiqlash";
+  static const strIsCancelled = "Bekor qilish";
+
 // ------------- //
   static const strIronNotebook = "Temir daftar";
   static const strWomenNotebook = "Ayollar daftari";
@@ -73,16 +78,14 @@ class AppStrings {
   static const strOneMonthPayHint = "1 oylik to'lov kiriting";
 
   static const strPaymentDate = "To'lov sanasi";
-  static const strPaymentDateHint = "To'lov sanasini kiriting (oyning qaysi kunida ?)";
+  static const strPaymentDateHint =
+      "To'lov sanasini kiriting (oyning qaysi kunida ?)";
   static const strPaymentDateValidate = "To'lov sanasini xato";
   static const strNoneOfThem = "hech biri";
   static const strToSee = "Hujjatni ko'rish";
- static const strIsNotEmpty = "maydon bo'sh bo'lishi mumkin emas";
+  static const strIsNotEmpty = "maydon bo'sh bo'lishi mumkin emas";
   static const strReasonforRejection = "Rad etilish sababi";
-  static const strQueuingReason
- = "Navbatga qo'yilish sababi";
-
-
+  static const strQueuingReason = "Navbatga qo'yilish sababi";
 
   /// --------------------------- Failure Text ------------------------------- ///
   static const strUserNotFound = "Foydalanuvchi topilmadi";

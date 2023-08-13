@@ -10,5 +10,9 @@ class CancelledOrderState with _$CancelledOrderState {
     @Default(1) int page,@Default("") String search,
     @Default(false) bool hasReachedMax,
     @Default(false) bool loadingPagination,
+    @Default([]) List<FacultiesModel> facultiesResponse,
+    @Default([]) List<String> facultiesList,
+    @Default("") String courseIndex,
+    FacultiesModel? facultyIndex,
   }) = _CancelledOrderState;
 }

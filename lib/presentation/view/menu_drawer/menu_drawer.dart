@@ -80,11 +80,11 @@ class MenuDrawer extends StatelessWidget {
                 currentIndex: state.currentIndex,
                 icon: AppIcons.iconPaymentMonitoring,
                 onTap: () {
-                  if (state.currentIndex != 4) {
-                    context.read<SideBarCubit>().changeIndex(4);
-                    Navigator.pop(context);
-                    Navigator.pushNamed(context, RouteName.thoseWhoPaid.route);
-                  }
+                  // if (state.currentIndex != 4) {
+                  //   context.read<SideBarCubit>().changeIndex(4);
+                  //   Navigator.pop(context);
+                  //   Navigator.pushNamed(context, RouteName.thoseWhoPaid.route);
+                  // }
                 },
               ),
             ],
