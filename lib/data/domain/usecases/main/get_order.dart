@@ -11,7 +11,7 @@ class GetOrderUseCase extends UseCase<GetOrderResponse, GetOrderParams> {
   @override
   Future<Either<Failure, GetOrderResponse>> call(GetOrderParams params) =>
       _iMainRepository.getOrder(params.page, params.status, params.search,
-          params.course, params.facultyId);
+          params.course, params.facultyId, params.maritalStatus);
 }
 
 class GetOrderParams {
@@ -19,12 +19,15 @@ class GetOrderParams {
   final String status;
   final String course;
   final String search;
+
   final int? facultyId;
+  final String maritalStatus;
   GetOrderParams({
     required this.page,
     required this.status,
     required this.course,
     required this.search,
-     this.facultyId,
+    this.facultyId,
+    required this.maritalStatus,
   });
 }

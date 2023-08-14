@@ -13,8 +13,9 @@ class AcceptedOrderState with _$AcceptedOrderState {
     @Default(false) bool loadingPagination,
     @Default([]) List<FacultiesModel> facultiesResponse,
     @Default([]) List<String> facultiesList,
-
     @Default("") String courseIndex,
-     FacultiesModel? facultyIndex,
+    FacultiesModel? facultyIndex,
+    @Default("") String maritalStatus,
+    @Default("") String? ordersList,
   }) = _AcceptedOrderState;
 }

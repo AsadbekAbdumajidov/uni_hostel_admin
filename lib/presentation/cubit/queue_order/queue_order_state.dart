@@ -15,5 +15,7 @@ class QueueOrderState with _$QueueOrderState {
     @Default([]) List<String> facultiesList,
     @Default("") String courseIndex,
     FacultiesModel? facultyIndex,
+    @Default("") String maritalStatus,
+    @Default("") String? ordersList,
   }) = _QueueOrderState;
 }

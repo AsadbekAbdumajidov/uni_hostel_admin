@@ -29,8 +29,6 @@ class userInformationMobile extends StatelessWidget {
                     .titleSmall
                     ?.copyWith(fontWeight: FontWeight.w600))
             : FlutterWebButton.textUnderline(
-              
-              
               lineSpacing: 4,
                 AppStrings.strToSee,
                 onPressed: onTap,

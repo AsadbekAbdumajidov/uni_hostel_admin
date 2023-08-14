@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uni_hostel_admin/core/error/error.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_order.dart';
+import 'package:uni_hostel_admin/data/domain/usecases/main/get_orders_list.dart';
 import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.dart';
 
 import '../../../core/themes/app_text.dart';
@@ -13,21 +14,27 @@ part 'cancelled_order_state.dart';
 part 'cancelled_order_cubit.freezed.dart';
 
 class CancelledOrderCubit extends Cubit<CancelledOrderState> {
-  CancelledOrderCubit(this._orderUsCase, this._getFacultiesUsCase) : super(CancelledOrderState());
+  CancelledOrderCubit(
+      this._orderUsCase, this._getFacultiesUsCase, this._getOrdersListUseCase)
+      : super(CancelledOrderState());
   final GetOrderUseCase _orderUsCase;
   final GetFacultiesUsCase _getFacultiesUsCase;
+  final GetOrdersListUseCase _getOrdersListUseCase;
 
   Future<void> getCancelledOrder() async {
     emit(state.copyWith(status: Status.LOADING));
     var result = await _orderUsCase.call(GetOrderParams(
-      page: 1,
-      status: "cancelled",
-      search: state.search,
-      course: state.courseIndex,
-      facultyId: state.facultyIndex?.id,    ));
+        page: 1,
+        status: "cancelled",
+        search: state.search,
+        course: state.courseIndex,
+        facultyId: state.facultyIndex?.id,
+        maritalStatus: ""));
     result.fold(
-      (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),
-      (success) => emit(
+        (failure) =>
+            emit(state.copyWith(failure: failure, status: Status.ERROR)),
+        (success) {
+      emit(
         state.copyWith(
           hasReachedMax: success.next == null,
           page: 2,
@@ -35,16 +42,59 @@ class CancelledOrderCubit extends Cubit<CancelledOrderState> {
           orderList: success.results ?? [],
           status: Status.SUCCESS,
         ),
+      );
+      getOrdersList();
+    });
+  }
+
+  Future<void> getOrdersList() async {
+    emit(state.copyWith(status: Status.LOADING));
+    var result = await _getOrdersListUseCase.call(
+      GetOrdersListParams(
+        search: "",
+        maritalStatus: getStatus(),
+        status: "cancelled",
+        facultyId: state.facultyIndex?.id,
+        course: state.courseIndex,
       ),
     );
+    result.fold(
+      (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),
+      (success) => emit(
+        state.copyWith(ordersList: success.file, status: Status.UNKNOWN),
+      ),
+    );
+  }
+
+  String getStatus() {
+    for (var i = 0; i < maritals.length; i++) {
+      if (maritals[i] == state.maritalStatus) {
+        if (AppStrings.strNoneOfThem == state.maritalStatus) {
+          return "";
+        } else {
+          return checkBoxList[i];
+        }
+      }
+    }
+    return "";
+  }
+
+  void selectMaritals(String index) {
+    if (index == AppStrings.strNoneOfThem) {
+      emit(state.copyWith(maritalStatus: "", status: Status.UNKNOWN));
+      getCancelledOrder();
+    } else {
+      emit(state.copyWith(maritalStatus: index, status: Status.UNKNOWN));
+      getCancelledOrder();
+    }
   }
 
   Future<void> getFaculties() async {
     emit(state.copyWith(status: Status.LOADING));
     var result = await _getFacultiesUsCase.call(NoParams());
     result.fold(
-          (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),
-          (success) {
+      (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),
+      (success) {
         List<String> list = [];
         for (var i = 0; i < success.response!.length; i++) {
           list.add(success.response?[i].name ?? "");
@@ -58,7 +108,6 @@ class CancelledOrderCubit extends Cubit<CancelledOrderState> {
       },
     );
   }
-
 
   void selectFaculty(String index) {
     if (index == AppStrings.strNoneOfThem) {
@@ -77,8 +126,6 @@ class CancelledOrderCubit extends Cubit<CancelledOrderState> {
           getCancelledOrder();
         }
       }
-
-
     }
   }
 
@@ -92,7 +139,6 @@ class CancelledOrderCubit extends Cubit<CancelledOrderState> {
     }
   }
 
-
   void searchCancelled(String search) {
     emit(state.copyWith(search: search, status: Status.UNKNOWN));
     getCancelledOrder();
@@ -105,11 +151,12 @@ class CancelledOrderCubit extends Cubit<CancelledOrderState> {
     emit(state.copyWith(loadingPagination: true));
     var result = await _orderUsCase.call(
       GetOrderParams(
-        page: state.page,
-        status: "cancelled",
-        search: state.search,
-        course: state.courseIndex,
-        facultyId: state.facultyIndex?.id,      ),
+          page: state.page,
+          status: "cancelled",
+          search: state.search,
+          course: state.courseIndex,
+          facultyId: state.facultyIndex?.id,
+          maritalStatus: ""),
     );
     result.fold(
       (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),

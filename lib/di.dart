@@ -13,6 +13,7 @@ import 'package:uni_hostel_admin/data/domain/usecases/main/edit_status.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_faculties.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_new_order.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_order.dart';
+import 'package:uni_hostel_admin/data/domain/usecases/main/get_orders_list.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_selected_order.dart';
 import 'package:uni_hostel_admin/data/repository/authorization.dart';
 import 'package:uni_hostel_admin/data/repository/main.dart';
@@ -33,12 +34,12 @@ Future<void> initDi() async {
   inject.registerFactory(() => AuthCubit(inject(), inject()));
   inject.registerFactory(() => LoginCubit(inject()));
   inject.registerFactory(() => SideBarCubit());
-  inject.registerFactory(() => GetNewOrderCubit(inject(), inject()));
-  inject.registerFactory(() => SelectedOrderCubit(inject(),inject()));
+  inject.registerFactory(() => GetNewOrderCubit(inject(), inject(),inject()));
+  inject.registerFactory(() => SelectedOrderCubit(inject(), inject()));
   inject.registerFactory(() => EditStatusCubit(inject()));
-  inject.registerFactory(() => AcceptedOrderCubit(inject(), inject()));
-  inject.registerFactory(() => CancelledOrderCubit(inject(), inject()));
-  inject.registerFactory(() => QueueOrderCubit(inject(), inject()));
+  inject.registerFactory(() => AcceptedOrderCubit(inject(), inject(),inject()));
+  inject.registerFactory(() => CancelledOrderCubit(inject(), inject(), inject()));
+  inject.registerFactory(() => QueueOrderCubit(inject(), inject(),inject()));
 
   // use case need to register
   inject.registerFactory(() => LoginUseCase(inject()));
@@ -50,6 +51,7 @@ Future<void> initDi() async {
   inject.registerLazySingleton(() => EditStatusUseCase(inject()));
   inject.registerLazySingleton(() => DeleteOrderUseCase(inject()));
   inject.registerLazySingleton(() => GetFacultiesUsCase(inject()));
+  inject.registerLazySingleton(() => GetOrdersListUseCase(inject()));
 
   // repository init
   inject.registerLazySingleton<IAuthRepository>(

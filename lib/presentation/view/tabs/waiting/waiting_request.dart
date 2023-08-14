@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_web_buttons/flutter_web_buttons.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel_admin/core/extension/for_context.dart';
 import 'package:uni_hostel_admin/core/themes/app_colors.dart';
 import 'package:uni_hostel_admin/core/themes/app_decoration.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
+import 'package:uni_hostel_admin/core/utils/service_link.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/presentation/components/loading_widget.dart';
 import 'package:uni_hostel_admin/presentation/components/pagination.dart';
@@ -13,9 +15,8 @@ import 'package:uni_hostel_admin/presentation/cubit/queue_order/queue_order_cubi
 import 'package:uni_hostel_admin/presentation/view/menu_drawer/menu_drawer.dart';
 import 'package:uni_hostel_admin/presentation/view/custom_app_bar/custom_app_bar.dart';
 import 'package:uni_hostel_admin/presentation/view/profile_drawer/profile_drawer.dart';
+import 'package:uni_hostel_admin/presentation/view/tabs/requests/widget/top_request_item_widget.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/widget/custom_card_widget.dart';
-
-import '../students/widget/top_accepted_item_widget.dart';
 
 class WaitingScreen extends StatelessWidget {
   const WaitingScreen({super.key});
@@ -32,52 +33,90 @@ class WaitingScreen extends StatelessWidget {
           Expanded(
             child: Column(
               children: [
-                CustomAppBar(onchange: (v) =>
-                    context.read<QueueOrderCubit>().searchQueue(v),),
+                CustomAppBar(
+                  onchange: (v) =>
+                      context.read<QueueOrderCubit>().searchQueue(v),
+                ),
                 Expanded(
                   child: Container(
                     height: 700,
                     width: context.w,
                     decoration: AppDecoration.customCardDecoration,
-                    child:  BlocBuilder<QueueOrderCubit, QueueOrderState>(
-                          builder: (context, state) {
-                        if (state.status == Status.LOADING) {
-                          return LoadingWidget();
-                        }
-                        var bloc = context.read<QueueOrderCubit>();
+                    child: BlocBuilder<QueueOrderCubit, QueueOrderState>(
+                        builder: (context, state) {
+                      if (state.status == Status.LOADING) {
+                        return LoadingWidget();
+                      }
+                      var bloc = context.read<QueueOrderCubit>();
 
-                        return InfiniteScrollingPagination(
-                          onPagination: () {
-                            context
-                                .read<QueueOrderCubit>()
-                                .getQueueOrderInfinite();
-                          },
-                          isLoading: state.loadingPagination,
-                          child: ListView(
-                            physics: ClampingScrollPhysics(),
-                            children: [
-
-                              TopAcceptedItemWidget(
-                                title: AppStrings.strQueuingRequirements,
-                                courses: courseList,
-                                coursIndex: state.courseIndex,
-                                faculties: state.facultiesList,
-                                facultyIndex: state.facultyIndex?.name,
-                                onChangeFaculty: (v)=>bloc.selectFaculty(v),
-                                onChangecourse: (v) => bloc.selectCourse(v),
-                              ),
-                              CustomCardWidget(
-                                notButtonIndex: 2,
-                                list: state.orderList,
-                                statusColor: AppColors.amberColor,
-                                textStatus: AppStrings.strWaiting,
-                              ),
-                            ],
-                          ),
-                        ).paddingAll(paddingSize);
-                      }),
-                    ).paddingAll(20),
-                  ),
+                      return InfiniteScrollingPagination(
+                        onPagination: () {
+                          context
+                              .read<QueueOrderCubit>()
+                              .getQueueOrderInfinite();
+                        },
+                        isLoading: state.loadingPagination,
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                height: 800,
+                                width: context.w,
+                                child: ListView(
+                                  physics: ClampingScrollPhysics(),
+                                  children: [
+                                    TopRequestItemWidget(
+                                      index: state.maritalStatus,
+                                      title: AppStrings.strRequests,
+                                      list: maritals,
+                                      courses: courseList,
+                                      coursIndex: state.courseIndex,
+                                      faculties: state.facultiesList,
+                                      facultyIndex: state.facultyIndex?.name,
+                                      onChanged: (v) => bloc.selectMaritals(v),
+                                      onChangeFaculty: (v) =>
+                                          bloc.selectFaculty(v),
+                                      onChangecourse: (v) =>
+                                          bloc.selectCourse(v),
+                                    ),
+                                    CustomCardWidget(
+                                      notButtonIndex: 2,
+                                      list: state.orderList,
+                                      statusColor: AppColors.amberColor,
+                                      textStatus: AppStrings.strWaiting,
+                                    ),
+                                  ],
+                                ),
+                              ).paddingAll(paddingSize),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                FlutterWebButton.textUnderline(
+                                  lineSpacing: 4,
+                                  AppStrings.strOrderListUpload,
+                                  onPressed: () {
+                                    ServiceUrl.launchInBrow(
+                                        state.ordersList ?? "");
+                                  },
+                                  animationDuration:
+                                      const Duration(milliseconds: 500),
+                                  textAnimatedColor: AppColors.primaryColor,
+                                  flutterTextOptions: FlutterTextOptions(
+                                    fontSize: 14,
+                                    padding: EdgeInsets.all(0),
+                                    textColor: AppColors.primaryColor,
+                                  ),
+                                ).paddingOnly(right: paddingSize, bottom: 16),
+                              ],
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
+                  ).paddingAll(20),
+                ),
               ],
             ),
           ),

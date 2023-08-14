@@ -29,6 +29,8 @@ mixin _$QueueOrderState {
   List<String> get facultiesList => throw _privateConstructorUsedError;
   String get courseIndex => throw _privateConstructorUsedError;
   FacultiesModel? get facultyIndex => throw _privateConstructorUsedError;
+  String get maritalStatus => throw _privateConstructorUsedError;
+  String? get ordersList => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QueueOrderStateCopyWith<QueueOrderState> get copyWith =>
@@ -53,7 +55,9 @@ abstract class $QueueOrderStateCopyWith<$Res> {
       List<FacultiesModel> facultiesResponse,
       List<String> facultiesList,
       String courseIndex,
-      FacultiesModel? facultyIndex});
+      FacultiesModel? facultyIndex,
+      String maritalStatus,
+      String? ordersList});
 
   $GetOrderResponseCopyWith<$Res>? get orderResponse;
   $FacultiesModelCopyWith<$Res>? get facultyIndex;
@@ -84,6 +88,8 @@ class _$QueueOrderStateCopyWithImpl<$Res, $Val extends QueueOrderState>
     Object? facultiesList = null,
     Object? courseIndex = null,
     Object? facultyIndex = freezed,
+    Object? maritalStatus = null,
+    Object? ordersList = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -134,6 +140,14 @@ class _$QueueOrderStateCopyWithImpl<$Res, $Val extends QueueOrderState>
           ? _value.facultyIndex
           : facultyIndex // ignore: cast_nullable_to_non_nullable
               as FacultiesModel?,
+      maritalStatus: null == maritalStatus
+          ? _value.maritalStatus
+          : maritalStatus // ignore: cast_nullable_to_non_nullable
+              as String,
+      ordersList: freezed == ordersList
+          ? _value.ordersList
+          : ordersList // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -182,7 +196,9 @@ abstract class _$$_QueueOrderStateCopyWith<$Res>
       List<FacultiesModel> facultiesResponse,
       List<String> facultiesList,
       String courseIndex,
-      FacultiesModel? facultyIndex});
+      FacultiesModel? facultyIndex,
+      String maritalStatus,
+      String? ordersList});
 
   @override
   $GetOrderResponseCopyWith<$Res>? get orderResponse;
@@ -213,6 +229,8 @@ class __$$_QueueOrderStateCopyWithImpl<$Res>
     Object? facultiesList = null,
     Object? courseIndex = null,
     Object? facultyIndex = freezed,
+    Object? maritalStatus = null,
+    Object? ordersList = freezed,
   }) {
     return _then(_$_QueueOrderState(
       status: null == status
@@ -263,6 +281,14 @@ class __$$_QueueOrderStateCopyWithImpl<$Res>
           ? _value.facultyIndex
           : facultyIndex // ignore: cast_nullable_to_non_nullable
               as FacultiesModel?,
+      maritalStatus: null == maritalStatus
+          ? _value.maritalStatus
+          : maritalStatus // ignore: cast_nullable_to_non_nullable
+              as String,
+      ordersList: freezed == ordersList
+          ? _value.ordersList
+          : ordersList // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -282,7 +308,9 @@ class _$_QueueOrderState implements _QueueOrderState {
       final List<FacultiesModel> facultiesResponse = const [],
       final List<String> facultiesList = const [],
       this.courseIndex = "",
-      this.facultyIndex})
+      this.facultyIndex,
+      this.maritalStatus = "",
+      this.ordersList = ""})
       : _orderList = orderList,
         _facultiesResponse = facultiesResponse,
         _facultiesList = facultiesList;
@@ -340,10 +368,16 @@ class _$_QueueOrderState implements _QueueOrderState {
   final String courseIndex;
   @override
   final FacultiesModel? facultyIndex;
+  @override
+  @JsonKey()
+  final String maritalStatus;
+  @override
+  @JsonKey()
+  final String? ordersList;
 
   @override
   String toString() {
-    return 'QueueOrderState(status: $status, failure: $failure, orderResponse: $orderResponse, orderList: $orderList, page: $page, search: $search, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination, facultiesResponse: $facultiesResponse, facultiesList: $facultiesList, courseIndex: $courseIndex, facultyIndex: $facultyIndex)';
+    return 'QueueOrderState(status: $status, failure: $failure, orderResponse: $orderResponse, orderList: $orderList, page: $page, search: $search, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination, facultiesResponse: $facultiesResponse, facultiesList: $facultiesList, courseIndex: $courseIndex, facultyIndex: $facultyIndex, maritalStatus: $maritalStatus, ordersList: $ordersList)';
   }
 
   @override
@@ -370,7 +404,11 @@ class _$_QueueOrderState implements _QueueOrderState {
             (identical(other.courseIndex, courseIndex) ||
                 other.courseIndex == courseIndex) &&
             (identical(other.facultyIndex, facultyIndex) ||
-                other.facultyIndex == facultyIndex));
+                other.facultyIndex == facultyIndex) &&
+            (identical(other.maritalStatus, maritalStatus) ||
+                other.maritalStatus == maritalStatus) &&
+            (identical(other.ordersList, ordersList) ||
+                other.ordersList == ordersList));
   }
 
   @override
@@ -387,7 +425,9 @@ class _$_QueueOrderState implements _QueueOrderState {
       const DeepCollectionEquality().hash(_facultiesResponse),
       const DeepCollectionEquality().hash(_facultiesList),
       courseIndex,
-      facultyIndex);
+      facultyIndex,
+      maritalStatus,
+      ordersList);
 
   @JsonKey(ignore: true)
   @override
@@ -409,7 +449,9 @@ abstract class _QueueOrderState implements QueueOrderState {
       final List<FacultiesModel> facultiesResponse,
       final List<String> facultiesList,
       final String courseIndex,
-      final FacultiesModel? facultyIndex}) = _$_QueueOrderState;
+      final FacultiesModel? facultyIndex,
+      final String maritalStatus,
+      final String? ordersList}) = _$_QueueOrderState;
 
   @override
   Status get status;
@@ -435,6 +477,10 @@ abstract class _QueueOrderState implements QueueOrderState {
   String get courseIndex;
   @override
   FacultiesModel? get facultyIndex;
+  @override
+  String get maritalStatus;
+  @override
+  String? get ordersList;
   @override
   @JsonKey(ignore: true)
   _$$_QueueOrderStateCopyWith<_$_QueueOrderState> get copyWith =>

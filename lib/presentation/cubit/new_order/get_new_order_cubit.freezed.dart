@@ -30,6 +30,7 @@ mixin _$GetNewOrderState {
   List<String> get facultiesList => throw _privateConstructorUsedError;
   FacultiesModel? get facultyIndex => throw _privateConstructorUsedError;
   String? get courseIndex => throw _privateConstructorUsedError;
+  String? get ordersList => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $GetNewOrderStateCopyWith<GetNewOrderState> get copyWith =>
@@ -55,7 +56,8 @@ abstract class $GetNewOrderStateCopyWith<$Res> {
       List<FacultiesModel> facultiesResponse,
       List<String> facultiesList,
       FacultiesModel? facultyIndex,
-      String? courseIndex});
+      String? courseIndex,
+      String? ordersList});
 
   $GetOrderResponseCopyWith<$Res>? get orderResponse;
   $FacultiesModelCopyWith<$Res>? get facultyIndex;
@@ -87,6 +89,7 @@ class _$GetNewOrderStateCopyWithImpl<$Res, $Val extends GetNewOrderState>
     Object? facultiesList = null,
     Object? facultyIndex = freezed,
     Object? courseIndex = freezed,
+    Object? ordersList = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -141,6 +144,10 @@ class _$GetNewOrderStateCopyWithImpl<$Res, $Val extends GetNewOrderState>
           ? _value.courseIndex
           : courseIndex // ignore: cast_nullable_to_non_nullable
               as String?,
+      ordersList: freezed == ordersList
+          ? _value.ordersList
+          : ordersList // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -190,7 +197,8 @@ abstract class _$$_GetNewOrderStateCopyWith<$Res>
       List<FacultiesModel> facultiesResponse,
       List<String> facultiesList,
       FacultiesModel? facultyIndex,
-      String? courseIndex});
+      String? courseIndex,
+      String? ordersList});
 
   @override
   $GetOrderResponseCopyWith<$Res>? get orderResponse;
@@ -222,6 +230,7 @@ class __$$_GetNewOrderStateCopyWithImpl<$Res>
     Object? facultiesList = null,
     Object? facultyIndex = freezed,
     Object? courseIndex = freezed,
+    Object? ordersList = freezed,
   }) {
     return _then(_$_GetNewOrderState(
       status: null == status
@@ -276,6 +285,10 @@ class __$$_GetNewOrderStateCopyWithImpl<$Res>
           ? _value.courseIndex
           : courseIndex // ignore: cast_nullable_to_non_nullable
               as String?,
+      ordersList: freezed == ordersList
+          ? _value.ordersList
+          : ordersList // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -296,7 +309,8 @@ class _$_GetNewOrderState implements _GetNewOrderState {
       final List<FacultiesModel> facultiesResponse = const [],
       final List<String> facultiesList = const [],
       this.facultyIndex,
-      this.courseIndex = null})
+      this.courseIndex = null,
+      this.ordersList = ""})
       : _orderList = orderList,
         _facultiesResponse = facultiesResponse,
         _facultiesList = facultiesList;
@@ -357,10 +371,13 @@ class _$_GetNewOrderState implements _GetNewOrderState {
   @override
   @JsonKey()
   final String? courseIndex;
+  @override
+  @JsonKey()
+  final String? ordersList;
 
   @override
   String toString() {
-    return 'GetNewOrderState(status: $status, failure: $failure, orderResponse: $orderResponse, orderList: $orderList, page: $page, maritalStatus: $maritalStatus, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination, search: $search, facultiesResponse: $facultiesResponse, facultiesList: $facultiesList, facultyIndex: $facultyIndex, courseIndex: $courseIndex)';
+    return 'GetNewOrderState(status: $status, failure: $failure, orderResponse: $orderResponse, orderList: $orderList, page: $page, maritalStatus: $maritalStatus, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination, search: $search, facultiesResponse: $facultiesResponse, facultiesList: $facultiesList, facultyIndex: $facultyIndex, courseIndex: $courseIndex, ordersList: $ordersList)';
   }
 
   @override
@@ -389,7 +406,9 @@ class _$_GetNewOrderState implements _GetNewOrderState {
             (identical(other.facultyIndex, facultyIndex) ||
                 other.facultyIndex == facultyIndex) &&
             (identical(other.courseIndex, courseIndex) ||
-                other.courseIndex == courseIndex));
+                other.courseIndex == courseIndex) &&
+            (identical(other.ordersList, ordersList) ||
+                other.ordersList == ordersList));
   }
 
   @override
@@ -407,7 +426,8 @@ class _$_GetNewOrderState implements _GetNewOrderState {
       const DeepCollectionEquality().hash(_facultiesResponse),
       const DeepCollectionEquality().hash(_facultiesList),
       facultyIndex,
-      courseIndex);
+      courseIndex,
+      ordersList);
 
   @JsonKey(ignore: true)
   @override
@@ -430,7 +450,8 @@ abstract class _GetNewOrderState implements GetNewOrderState {
       final List<FacultiesModel> facultiesResponse,
       final List<String> facultiesList,
       final FacultiesModel? facultyIndex,
-      final String? courseIndex}) = _$_GetNewOrderState;
+      final String? courseIndex,
+      final String? ordersList}) = _$_GetNewOrderState;
 
   @override
   Status get status;
@@ -458,6 +479,8 @@ abstract class _GetNewOrderState implements GetNewOrderState {
   FacultiesModel? get facultyIndex;
   @override
   String? get courseIndex;
+  @override
+  String? get ordersList;
   @override
   @JsonKey(ignore: true)
   _$$_GetNewOrderStateCopyWith<_$_GetNewOrderState> get copyWith =>

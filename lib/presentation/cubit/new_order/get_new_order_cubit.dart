@@ -6,16 +6,19 @@ import 'package:uni_hostel_admin/core/usecase/usecase.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_faculties.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_new_order.dart';
+import 'package:uni_hostel_admin/data/domain/usecases/main/get_orders_list.dart';
 import 'package:uni_hostel_admin/data/models/order/get_faculties/get_faculties_response.dart';
 import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.dart';
 part 'get_new_order_state.dart';
 part 'get_new_order_cubit.freezed.dart';
 
 class GetNewOrderCubit extends Cubit<GetNewOrderState> {
-  GetNewOrderCubit(this._newOrderUsCase, this._getFacultiesUsCase)
+  GetNewOrderCubit(this._newOrderUsCase, this._getFacultiesUsCase,
+      this._getOrdersListUseCase)
       : super(GetNewOrderState());
   final GetNewOrderUseCase _newOrderUsCase;
   final GetFacultiesUsCase _getFacultiesUsCase;
+  final GetOrdersListUseCase _getOrdersListUseCase;
 
   Future<void> getNewOrder() async {
     emit(state.copyWith(status: Status.LOADING));
@@ -29,15 +32,35 @@ class GetNewOrderCubit extends Cubit<GetNewOrderState> {
       ),
     );
     result.fold(
+        (failure) =>
+            emit(state.copyWith(failure: failure, status: Status.ERROR)),
+        (success) {
+      emit(state.copyWith(
+        hasReachedMax: success.next == null,
+        page: 2,
+        orderResponse: success,
+        orderList: success.results ?? [],
+        status: Status.SUCCESS,
+      ));
+      getOrdersList();
+    });
+  }
+
+  Future<void> getOrdersList() async {
+    emit(state.copyWith(status: Status.LOADING));
+    var result = await _getOrdersListUseCase.call(
+      GetOrdersListParams(
+        search: "",
+        status: "",
+        maritalStatus: getStatus(),
+        facultyId: state.facultyIndex?.id,
+        course: state.courseIndex ?? "",
+      ),
+    );
+    result.fold(
       (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),
       (success) => emit(
-        state.copyWith(
-          hasReachedMax: success.next == null,
-          page: 2,
-          orderResponse: success,
-          orderList: success.results ?? [],
-          status: Status.SUCCESS,
-        ),
+        state.copyWith(ordersList: success.file, status: Status.UNKNOWN),
       ),
     );
   }

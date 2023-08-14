@@ -50,6 +50,7 @@ class _ApiClient implements ApiClient {
     search,
     course,
     facultyId,
+    maritalStatus,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -58,6 +59,7 @@ class _ApiClient implements ApiClient {
       r'search_query': search,
       r'course': course,
       r'faculty': facultyId,
+      r'marital_status': maritalStatus,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
@@ -206,6 +208,42 @@ class _ApiClient implements ApiClient {
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = GetFacultiesResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<DownloadOrdersListResponse> downloadOrdersList(
+    maritalStatus,
+    status,
+    course,
+    facultyId,
+    search,
+  ) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'marital_status': maritalStatus,
+      r'status': status,
+      r'course': course,
+      r'faculty': facultyId,
+      r'search_query': search,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<DownloadOrdersListResponse>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'admin/download/orders/list/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = DownloadOrdersListResponse.fromJson(_result.data!);
     return value;
   }
 

@@ -6,16 +6,19 @@ import 'package:uni_hostel_admin/core/usecase/usecase.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_faculties.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_order.dart';
+import 'package:uni_hostel_admin/data/domain/usecases/main/get_orders_list.dart';
 import 'package:uni_hostel_admin/data/models/order/get_faculties/get_faculties_response.dart';
 import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.dart';
 part 'accepted_order_state.dart';
 part 'accepted_order_cubit.freezed.dart';
 
 class AcceptedOrderCubit extends Cubit<AcceptedOrderState> {
-  AcceptedOrderCubit(this._orderUsCase, this._getFacultiesUsCase)
+  AcceptedOrderCubit(
+      this._orderUsCase, this._getFacultiesUsCase, this._getOrdersListUseCase)
       : super(AcceptedOrderState());
   final GetOrderUseCase _orderUsCase;
   final GetFacultiesUsCase _getFacultiesUsCase;
+  final GetOrdersListUseCase _getOrdersListUseCase;
 
   Future<void> getAcceptedOrder() async {
     emit(state.copyWith(status: Status.LOADING));
@@ -25,10 +28,13 @@ class AcceptedOrderCubit extends Cubit<AcceptedOrderState> {
       search: state.search,
       course: state.courseIndex,
       facultyId: state.facultyIndex?.id,
+      maritalStatus: getStatus(),
     ));
     result.fold(
-      (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),
-      (success) => emit(
+        (failure) =>
+            emit(state.copyWith(failure: failure, status: Status.ERROR)),
+        (success) {
+      emit(
         state.copyWith(
           hasReachedMax: success.next == null,
           page: 2,
@@ -36,8 +42,52 @@ class AcceptedOrderCubit extends Cubit<AcceptedOrderState> {
           orderList: success.results ?? [],
           status: Status.SUCCESS,
         ),
+      );
+      getOrdersList();
+    });
+  }
+
+  Future<void> getOrdersList() async {
+    emit(state.copyWith(status: Status.LOADING));
+    var result = await _getOrdersListUseCase.call(
+      GetOrdersListParams(
+        search: "",
+        status: "accepted",
+        maritalStatus: getStatus(),
+        
+        facultyId: state.facultyIndex?.id,
+        course: state.courseIndex,
       ),
     );
+    result.fold(
+      (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),
+      (success) => emit(
+        state.copyWith(ordersList: success.file, status: Status.UNKNOWN),
+      ),
+    );
+  }
+
+  String getStatus() {
+    for (var i = 0; i < maritals.length; i++) {
+      if (maritals[i] == state.maritalStatus) {
+        if (AppStrings.strNoneOfThem == state.maritalStatus) {
+          return "";
+        } else {
+          return checkBoxList[i];
+        }
+      }
+    }
+    return "";
+  }
+
+  void selectMaritals(String index) {
+    if (index == AppStrings.strNoneOfThem) {
+      emit(state.copyWith(maritalStatus: "", status: Status.UNKNOWN));
+      getAcceptedOrder();
+    } else {
+      emit(state.copyWith(maritalStatus: index, status: Status.UNKNOWN));
+      getAcceptedOrder();
+    }
   }
 
   Future<void> getFaculties() async {
@@ -82,8 +132,6 @@ class AcceptedOrderCubit extends Cubit<AcceptedOrderState> {
           getAcceptedOrder();
         }
       }
-
-
     }
   }
 
@@ -109,6 +157,7 @@ class AcceptedOrderCubit extends Cubit<AcceptedOrderState> {
         search: state.search,
         course: state.courseIndex,
         facultyId: state.facultyIndex?.id,
+        maritalStatus: getStatus(),
       ),
     );
     result.fold(

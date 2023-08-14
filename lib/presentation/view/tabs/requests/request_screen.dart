@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_web_buttons/flutter_web_buttons.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel_admin/core/extension/for_context.dart';
+import 'package:uni_hostel_admin/core/themes/app_colors.dart';
 import 'package:uni_hostel_admin/core/themes/app_decoration.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
+import 'package:uni_hostel_admin/core/utils/service_link.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/presentation/components/loading_widget.dart';
 import 'package:uni_hostel_admin/presentation/components/pagination.dart';
@@ -18,6 +21,7 @@ import 'package:uni_hostel_admin/presentation/view/tabs/widget/differenet_card_w
 class RequestsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double paddingSize = ResponsiveWidget.isMobileLarge(context) ? 16 : 30;
     return SafeArea(
       child: Scaffold(
         drawer: Drawer(child: MenuDrawer()),
@@ -32,7 +36,7 @@ class RequestsScreen extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  height: 700,
+                  height: 800,
                   width: context.w,
                   decoration: AppDecoration.customCardDecoration,
                   child: BlocBuilder<GetNewOrderCubit, GetNewOrderState>(
@@ -45,29 +49,66 @@ class RequestsScreen extends StatelessWidget {
                     return InfiniteScrollingPagination(
                       onPagination: () => bloc.getOrderInfinite(),
                       isLoading: state.loadingPagination,
-                      child: ListView(
-                        physics: BouncingScrollPhysics(),
+                      child: Column(
                         children: [
-                          TopRequestItemWidget(
-                            index: state.maritalStatus,
-                            title: AppStrings.strRequests,
-                            list: maritals,
-                            courses: courseList,
-                            coursIndex: state.courseIndex,
-                            faculties: state.facultiesList,
-                            facultyIndex: state.facultyIndex?.name,
-                            onChanged: (v) => bloc.selectMaritals(v),
-                            onChangeFaculty: (v) => bloc.selectFaculty(v),
-                            onChangecourse: (v) => bloc.selectCourse(v),
+                          Expanded(
+                            child: Container(
+                              height: 800,
+                              width: context.w,
+                              child: ListView(
+                                physics: BouncingScrollPhysics(),
+                                children: [
+                                  TopRequestItemWidget(
+                                    index: state.maritalStatus,
+                                    title: AppStrings.strRequests,
+                                    list: maritals,
+                                    courses: courseList,
+                                    coursIndex: state.courseIndex,
+                                    faculties: state.facultiesList,
+                                    facultyIndex: state.facultyIndex?.name,
+                                    onChanged: (v) => bloc.selectMaritals(v),
+                                    onChangeFaculty: (v) =>
+                                        bloc.selectFaculty(v),
+                                    onChangecourse: (v) => bloc.selectCourse(v),
+                                  ),
+                                  DifferentCardWidget(
+                                      orderList: state.orderList),
+                                ],
+                              ),
+                            ).paddingOnly(
+                                top: paddingSize,
+                                left: paddingSize,
+                                right: paddingSize,
+                                bottom: 16),
                           ),
-                          DifferentCardWidget(orderList: state.orderList),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              FlutterWebButton.textUnderline(
+                                lineSpacing: 4,
+                                AppStrings.strOrderListUpload,
+                                onPressed: () {
+                                  ServiceUrl.launchInBrow(
+                                      state.ordersList ?? "");
+                                },
+                                animationDuration:
+                                    const Duration(milliseconds: 500),
+                                textAnimatedColor: AppColors.primaryColor,
+                                flutterTextOptions: FlutterTextOptions(
+                                  fontSize: 14,
+                                  padding: EdgeInsets.all(0),
+                                  textColor: AppColors.primaryColor,
+                                ),
+                              ).paddingOnly(right: paddingSize, bottom: 16),
+                            ],
+                          ),
                         ],
                       ),
-                    ).paddingAll(
-                        ResponsiveWidget.isMobileLarge(context) ? 16 : 30);
+                    );
                   }),
                 ).paddingAll(20),
-              )
+              ),
             ]),
           ),
         ]),

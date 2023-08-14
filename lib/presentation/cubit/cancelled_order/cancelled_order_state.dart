@@ -14,5 +14,7 @@ class CancelledOrderState with _$CancelledOrderState {
     @Default([]) List<String> facultiesList,
     @Default("") String courseIndex,
     FacultiesModel? facultyIndex,
+    @Default("") String maritalStatus,
+    @Default("") String? ordersList,
   }) = _CancelledOrderState;
 }
