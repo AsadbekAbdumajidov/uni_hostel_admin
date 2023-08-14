@@ -49,10 +49,7 @@ class LoginPage extends StatelessWidget {
                         child: Text(
                           AppStrings.strAdmin,
                           textAlign: TextAlign.center,
-                          style: Theme.of(context)
-                              .textTheme
-                              .displayMedium
-                              ?.copyWith(fontSize: 30),
+                           style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 28,fontWeight: FontWeight.w500),
                         ),
                       ),
                       Column(

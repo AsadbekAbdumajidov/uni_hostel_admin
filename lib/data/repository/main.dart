@@ -16,10 +16,11 @@ class MainRepository implements IMainRepository {
   MainRepository(this._apiClient);
 
   @override
-  Future<Either<Failure, GetOrderResponse>> getOrder(
-      int page, String status, String search, String course,int? facultyId) async {
+  Future<Either<Failure, GetOrderResponse>> getOrder(int page, String status,
+      String search, String course, int? facultyId) async {
     try {
-      final response = await _apiClient.getOrder(page, status, search, course,facultyId??null);
+      final response = await _apiClient.getOrder(
+          page, status, search, course, facultyId ?? null);
       return Right(response);
     } on DioError catch (e) {
       if (kDebugMode) {
@@ -67,11 +68,11 @@ class MainRepository implements IMainRepository {
   }
 
   @override
-  Future<Either<Failure, GetOrderResponse>> getNewOrder(
-      int page, String search, String maritalStatus, int? faculty,String? course) async {
+  Future<Either<Failure, GetOrderResponse>> getNewOrder(int page, String search,
+      String maritalStatus, int? faculty, String? course) async {
     try {
-      final response =
-          await _apiClient.getNewOrders(page, search, maritalStatus,faculty ?? null,course??null);
+      final response = await _apiClient.getNewOrders(
+          page, search, maritalStatus, faculty ?? null, course ?? null);
       return Right(response);
     } on DioError catch (e) {
       if (kDebugMode) {
@@ -122,6 +123,7 @@ class MainRepository implements IMainRepository {
   @override
   Future<Either<Failure, bool>> deleteOrder(int id) async {
     try {
+      await _apiClient.deleteOrder(id);
       return Right(true);
     } on DioError catch (e) {
       if (kDebugMode) {
@@ -144,10 +146,11 @@ class MainRepository implements IMainRepository {
   }
 
   @override
-  Future<Either<Failure, GetFacultiesResponse>> getFaculties() async{
+  Future<Either<Failure, GetFacultiesResponse>> getFaculties() async {
     try {
       final response = await _apiClient.getFaculties();
-      return Right(response);    } on DioError catch (e) {
+      return Right(response);
+    } on DioError catch (e) {
       if (kDebugMode) {
         debugPrint("$e");
       }

@@ -34,6 +34,8 @@ class AppStrings {
   static const strSN = "F.I.SH";
   static const strDatePaid = "To’longan sana";
   static const strStatus = "Holat";
+  static const strRequestDeleted = "Ariza muvaffaqiyatli o'chirildi";
+ static const strWouldYouDelete = "Ushbu arizani o'chirib yuborishini hohlaysizmi ?";
   static const strDate = "Sanasi";
   static const strPay = "To'lash";
   static const strApplicationEmpty = "Arizalar mavjud emas";

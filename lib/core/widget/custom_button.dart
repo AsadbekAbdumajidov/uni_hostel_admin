@@ -77,7 +77,9 @@ class CustomOutlineButton extends StatelessWidget {
     this.width,
     this.style,
     this.ounLineColour,
-    this.radius, this.primaryColour,
+    this.radius,
+    this.primaryColour,
+    this.isLoading = false,
   }) : super(key: key);
   final String text;
   final double? width;
@@ -86,6 +88,8 @@ class CustomOutlineButton extends StatelessWidget {
   final Color? primaryColour;
   final Color? ounLineColour;
   final double? radius;
+  final bool isLoading;
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -100,19 +104,25 @@ class CustomOutlineButton extends StatelessWidget {
             width: width ?? null,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(radius ?? 5),
-                border: Border.all(color:primaryColour?? AppColors.primaryColor, width: 0.7),
+                border: Border.all(
+                    color: primaryColour ?? AppColors.primaryColor, width: 0.7),
                 color: state.hover
-                    ?primaryColour?? primaryColour ?? AppColors.primaryColor
+                    ? primaryColour ?? primaryColour ?? AppColors.primaryColor
                     : AppColors.whiteColor),
             child: Center(
-              child: Text(text,
-                  overflow: TextOverflow.ellipsis,
-                  style: style ??
-                      Theme.of(context).textTheme.titleSmall?.copyWith(
-                          color: state.hover
-                              ? AppColors.whiteColor
-                              : AppColors.blackColor,
-                          fontWeight: FontWeight.w300)),
+              child: isLoading
+                  ? LoadingWidget(
+                      color: state.hover
+                          ? AppColors.whiteColor
+                          : AppColors.primaryColor)
+                  : Text(text,
+                      overflow: TextOverflow.ellipsis,
+                      style: style ??
+                          Theme.of(context).textTheme.titleSmall?.copyWith(
+                              color: state.hover
+                                  ? AppColors.whiteColor
+                                  : AppColors.blackColor,
+                              fontWeight: FontWeight.w300)),
             ).paddingSymmetric(
                 vertical: 4,
                 horizontal: ResponsiveWidget.isMobile(context) ? 8 : 16),

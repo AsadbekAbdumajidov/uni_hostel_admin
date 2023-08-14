@@ -9,10 +9,10 @@ import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
 
 class CheckDeleteAlertDialog extends StatelessWidget {
   const CheckDeleteAlertDialog(
-      {super.key, required this.title, required this.onTapRight});
+      {super.key, required this.title, required this.onTapright});
 
   final String title;
-  final Function() onTapRight;
+  final Function() onTapright;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +57,7 @@ class CheckDeleteAlertDialog extends StatelessWidget {
                   CustomOutlineButton(
                     text: AppStrings.stirApproved,
                     width: 137,
-                    onTap: onTapRight,
+                    onTap: onTapright,
                   )
                 ],
               ).paddingOnly(top: 14)

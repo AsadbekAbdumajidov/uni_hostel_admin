@@ -8,8 +8,12 @@ import 'package:uni_hostel_admin/core/themes/app_images.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/di.dart';
+import 'package:uni_hostel_admin/presentation/components/flush_bars.dart';
 import 'package:uni_hostel_admin/presentation/components/loading_widget.dart';
 import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
+import 'package:uni_hostel_admin/presentation/cubit/cancelled_order/cancelled_order_cubit.dart';
+import 'package:uni_hostel_admin/presentation/cubit/new_order/get_new_order_cubit.dart';
+import 'package:uni_hostel_admin/presentation/cubit/queue_order/queue_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/selected_order/selected_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/view/expansion_item/widget/mobile/user_information_mobile.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/requests/widget/check_alert_dialog.dart';
@@ -18,7 +22,6 @@ import 'package:uni_hostel_admin/presentation/view/expansion_item/widget/down_bu
 import 'package:uni_hostel_admin/presentation/view/status_alert_dialog/edit_status_alert_dialog.dart';
 import 'package:uni_hostel_admin/presentation/view/expansion_item/widget/mobile/item_list_mobile.dart';
 import 'package:uni_hostel_admin/presentation/view/expansion_item/widget/web/item_list_web.dart';
-
 
 class ExpansionItemWidget extends StatelessWidget {
   const ExpansionItemWidget({super.key, required this.id, this.index});
@@ -34,8 +37,10 @@ class ExpansionItemWidget extends StatelessWidget {
         if (state.status == Status.LOADING) {
           return Container(height: 200, width: 200, child: LoadingWidget());
         }
-        var response = state.orderResponse?.student;
+        var responseStudent = state.orderResponse?.student;
+        var responseAdmin = state.orderResponse?.checkedAdmin;
 
+        var bloc = context.read<SelectedOrderCubit>();
         return Container(
           width: context.w,
           height: ResponsiveWidget.isMobile(context) ? 400 : 450,
@@ -48,18 +53,18 @@ class ExpansionItemWidget extends StatelessWidget {
                   flex: 7,
                   child: ResponsiveWidget.isMobileLarge(context)
                       ? ItemListMobile(
-                          response: response,
+                          response: responseStudent,
                           file: state.orderResponse?.referenceFile,
                         )
                       : ItemListWeb(
-                          response: response,
+                          response: responseStudent,
                           file: state.orderResponse?.referenceFile,
                         ),
                 ),
                 Expanded(
                   flex: ResponsiveWidget.isMobile(context) ? 3 : 2,
                   child: CachedNetworkImage(
-                    imageUrl: response?.image ?? "",
+                    imageUrl: responseStudent?.image ?? "",
                     height: 200,
                     fit: BoxFit.contain,
                     errorWidget: (context, error, stackTrace) => Image.asset(
@@ -84,6 +89,7 @@ class ExpansionItemWidget extends StatelessWidget {
               itemCount: state.trueProperties.length,
               itemBuilder: (BuildContext ctx, index) {
                 var response = state.trueProperties[index];
+
                 return CheckboxItemWidget(title: response, value: true);
               },
             ),
@@ -92,7 +98,7 @@ class ExpansionItemWidget extends StatelessWidget {
                 : userInformationMobile(
                     title: AppStrings.strChecked,
                     subTitle:
-                        "${state.orderResponse?.checkedAdmin?.firstName} ${state.orderResponse?.checkedAdmin?.lastName}",
+                        "${responseAdmin?.firstName} ${responseAdmin?.lastName}",
                   ),
             index == 0
                 ? SizedBox.shrink()
@@ -106,12 +112,25 @@ class ExpansionItemWidget extends StatelessWidget {
                           context: context,
                           builder: (BuildContext context) {
                             return CheckDeleteAlertDialog(
-                              title:
-                                  "Ushbu arizani o'chirib yuborishini hohlaysizmi ?",
-                              onTapRight: () {
-                                
-                                inject<SelectedOrderCubit>().deleteOrder(id).whenComplete(() => Navigator.pop(context));
+                              onTapright: () {
+                                bloc
+                                    .deleteOrder(state.orderResponse?.id ?? 0)
+                                    .whenComplete(() {
+                                  Navigator.pop(context);
+                                  showMessage(
+                                      context, AppStrings.strRequestDeleted);
+                                  context
+                                      .read<GetNewOrderCubit>()
+                                      .getNewOrder();
+                                  context
+                                      .read<CancelledOrderCubit>()
+                                      .getCancelledOrder();
+                                  context
+                                      .read<QueueOrderCubit>()
+                                      .getQueueOrder();
+                                });
                               },
+                              title: AppStrings.strWouldYouDelete,
                             );
                           });
                     },
@@ -122,7 +141,7 @@ class ExpansionItemWidget extends StatelessWidget {
                                 context: context,
                                 builder: (BuildContext context) {
                                   return EditStatusAlertDialog(
-                                    name: response?.fullName ?? "",
+                                    name: responseStudent?.fullName ?? "",
                                     id: id,
                                     title: AppStrings.strRejectedAd,
                                     reason: AppStrings.strReasonforRejection,
@@ -136,7 +155,7 @@ class ExpansionItemWidget extends StatelessWidget {
                                 context: context,
                                 builder: (BuildContext context) {
                                   return EditStatusAlertDialog(
-                                    name: response?.fullName ?? "",
+                                    name: responseStudent?.fullName ?? "",
                                     id: id,
                                     title: AppStrings.strWaitingAd,
                                     reason: AppStrings.strQueuingReason,
@@ -150,8 +169,8 @@ class ExpansionItemWidget extends StatelessWidget {
                                 context: context,
                                 builder: (BuildContext context) {
                                   return EditStatusAlertDialog(
-                                    name: response?.fullName ?? "",
-                                    id: id ,
+                                    name: responseStudent?.fullName ?? "",
+                                    id: id,
                                     title: AppStrings.strApprovedAd,
                                   );
                                 });

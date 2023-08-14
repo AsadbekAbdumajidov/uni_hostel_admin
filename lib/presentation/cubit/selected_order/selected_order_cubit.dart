@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uni_hostel_admin/core/error/error.dart';
@@ -34,7 +35,9 @@ class SelectedOrderCubit extends Cubit<SelectedOrderState> {
         (failure) =>
             emit(state.copyWith(failure: failure, status: Status.ERROR)),
         (success) {
+           debugPrint("====1=======${state.status}============");
       emit(state.copyWith(status: Status.SUCCESS));
+       debugPrint("===2========${state.status}============");
     });
   }
 
@@ -88,5 +91,6 @@ class SelectedOrderCubit extends Cubit<SelectedOrderState> {
     });
     emit(
         state.copyWith(trueProperties: trueProperties, status: Status.SUCCESS));
+   
   }
 }

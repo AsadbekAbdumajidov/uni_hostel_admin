@@ -34,7 +34,7 @@ Future<void> initDi() async {
   inject.registerFactory(() => LoginCubit(inject()));
   inject.registerFactory(() => SideBarCubit());
   inject.registerFactory(() => GetNewOrderCubit(inject(), inject()));
-  inject.registerFactory(() => SelectedOrderCubit(inject(), inject()));
+  inject.registerFactory(() => SelectedOrderCubit(inject(),inject()));
   inject.registerFactory(() => EditStatusCubit(inject()));
   inject.registerFactory(() => AcceptedOrderCubit(inject(), inject()));
   inject.registerFactory(() => CancelledOrderCubit(inject(), inject()));

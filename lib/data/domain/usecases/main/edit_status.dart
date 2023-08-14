@@ -18,5 +18,5 @@ class EditStatusParams {
   final EditStatusRequest request;
   final int id;
 
-  EditStatusParams( {required this.request,required this.id,});
+  EditStatusParams( {required this.request,required this.id});
 }
