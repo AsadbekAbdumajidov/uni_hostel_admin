@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uni_hostel_admin/core/error/error.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
 import 'package:uni_hostel_admin/core/usecase/usecase.dart';
+import 'package:uni_hostel_admin/core/utils/service_link.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_faculties.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_order.dart';
@@ -43,28 +44,27 @@ class AcceptedOrderCubit extends Cubit<AcceptedOrderState> {
           status: Status.SUCCESS,
         ),
       );
-      getOrdersList();
     });
   }
 
   Future<void> getOrdersList() async {
-    emit(state.copyWith(status: Status.LOADING));
+    emit(state.copyWith(status: Status.UNKNOWN));
     var result = await _getOrdersListUseCase.call(
       GetOrdersListParams(
         search: "",
         status: "accepted",
         maritalStatus: getStatus(),
-        
         facultyId: state.facultyIndex?.id,
         course: state.courseIndex,
       ),
     );
     result.fold(
-      (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),
-      (success) => emit(
-        state.copyWith(ordersList: success.file, status: Status.UNKNOWN),
-      ),
-    );
+        (failure) =>
+            emit(state.copyWith(failure: failure, status: Status.ERROR)),
+        (success) {
+      emit(state.copyWith(ordersList: success.file, status: Status.SUCCESS));
+      ServiceUrl.launchInBrow(state.ordersList ?? "");
+    });
   }
 
   String getStatus() {
@@ -82,10 +82,10 @@ class AcceptedOrderCubit extends Cubit<AcceptedOrderState> {
 
   void selectMaritals(String index) {
     if (index == AppStrings.strNoneOfThem) {
-      emit(state.copyWith(maritalStatus: "", status: Status.UNKNOWN));
+      emit(state.copyWith(maritalStatus: ""));
       getAcceptedOrder();
     } else {
-      emit(state.copyWith(maritalStatus: index, status: Status.UNKNOWN));
+      emit(state.copyWith(maritalStatus: index));
       getAcceptedOrder();
     }
   }
@@ -102,33 +102,33 @@ class AcceptedOrderCubit extends Cubit<AcceptedOrderState> {
         }
         list.add(AppStrings.strNoneOfThem);
         emit(state.copyWith(
-            facultiesList: list,
-            facultiesResponse: success.response ?? [],
-            status: Status.SUCCESS));
+          facultiesList: list,
+          facultiesResponse: success.response ?? [],
+        ));
         getAcceptedOrder();
       },
     );
   }
 
   void searchAccepted(String search) {
-    emit(state.copyWith(search: search, status: Status.UNKNOWN));
+    emit(state.copyWith(search: search));
     getAcceptedOrder();
   }
 
   void selectFaculty(String index) {
     if (index == AppStrings.strNoneOfThem) {
       emit(state.copyWith(
-          facultyIndex: FacultiesModel(name: "", id: null),
-          status: Status.UNKNOWN));
+        facultyIndex: FacultiesModel(name: "", id: null),
+      ));
       getAcceptedOrder();
     } else {
       for (var i = 0; i < state.facultiesResponse.length; i++) {
         if (index == state.facultiesResponse[i].name) {
           emit(state.copyWith(
-              facultyIndex: FacultiesModel(
-                  name: state.facultiesResponse[i].name,
-                  id: state.facultiesResponse[i].id),
-              status: Status.UNKNOWN));
+            facultyIndex: FacultiesModel(
+                name: state.facultiesResponse[i].name,
+                id: state.facultiesResponse[i].id),
+          ));
           getAcceptedOrder();
         }
       }
@@ -137,10 +137,10 @@ class AcceptedOrderCubit extends Cubit<AcceptedOrderState> {
 
   void selectCourse(String index) {
     if (index == AppStrings.strNoneOfThem) {
-      emit(state.copyWith(courseIndex: "", status: Status.UNKNOWN));
+      emit(state.copyWith(courseIndex: ""));
       getAcceptedOrder();
     } else {
-      emit(state.copyWith(courseIndex: index, status: Status.UNKNOWN));
+      emit(state.copyWith(courseIndex: index));
       getAcceptedOrder();
     }
   }
@@ -169,7 +169,6 @@ class AcceptedOrderCubit extends Cubit<AcceptedOrderState> {
           orderResponse: response,
           orderList: List.of(state.orderList)..addAll(response.results ?? []),
           loadingPagination: false,
-          status: Status.SUCCESS,
         ),
       ),
     );

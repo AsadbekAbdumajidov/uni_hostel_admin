@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel_admin/core/extension/for_context.dart';
 import 'package:uni_hostel_admin/presentation/components/loading_widget.dart';
-import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
 import 'package:uni_hostel_admin/presentation/cubit/on_hover/on_hover_cubit.dart';
 import '../../../core/themes/app_colors.dart';
 
@@ -70,17 +69,18 @@ class CustomButton extends StatelessWidget {
 }
 
 class CustomOutlineButton extends StatelessWidget {
-  const CustomOutlineButton({
-    Key? key,
-    required this.text,
-    required this.onTap,
-    this.width,
-    this.style,
-    this.ounLineColour,
-    this.radius,
-    this.primaryColour,
-    this.isLoading = false,
-  }) : super(key: key);
+  const CustomOutlineButton(
+      {Key? key,
+      required this.text,
+      required this.onTap,
+      this.width,
+      this.style,
+      this.ounLineColour,
+      this.radius,
+      this.primaryColour,
+      this.isLoading = false,
+      this.icon})
+      : super(key: key);
   final String text;
   final double? width;
   final Function() onTap;
@@ -89,6 +89,7 @@ class CustomOutlineButton extends StatelessWidget {
   final Color? ounLineColour;
   final double? radius;
   final bool isLoading;
+  final IconData? icon;
 
   @override
   Widget build(BuildContext context) {
@@ -114,18 +115,35 @@ class CustomOutlineButton extends StatelessWidget {
                   ? LoadingWidget(
                       color: state.hover
                           ? AppColors.whiteColor
-                          : AppColors.primaryColor)
-                  : Text(text,
-                      overflow: TextOverflow.ellipsis,
-                      style: style ??
-                          Theme.of(context).textTheme.titleSmall?.copyWith(
-                              color: state.hover
-                                  ? AppColors.whiteColor
-                                  : AppColors.blackColor,
-                              fontWeight: FontWeight.w300)),
-            ).paddingSymmetric(
-                vertical: 4,
-                horizontal: ResponsiveWidget.isMobile(context) ? 8 : 16),
+                          : AppColors.primaryColor).paddingOnly(right: 12)
+                  : Row(
+                      mainAxisAlignment: icon == null
+                          ? MainAxisAlignment.center
+                          : MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(text,
+                            overflow: TextOverflow.ellipsis,
+                            style: style ??
+                                TextStyle(
+                                    color: state.hover
+                                        ? AppColors.whiteColor
+                                        : AppColors.blackColor,
+                                    fontWeight: FontWeight.w300)),
+                        SizedBox(width: 10),
+                        icon == null
+                            ? SizedBox.shrink()
+                            : Icon(
+                                icon,
+                                color: state.hover
+                                    ? AppColors.whiteColor
+                                    : AppColors.blackColor,
+                              ).paddingOnly(right: 12)
+                      ],
+                    ),
+            ).paddingOnly(
+                top: 4,
+                bottom: 4,
+                left: 12),
           ),
         );
       }),

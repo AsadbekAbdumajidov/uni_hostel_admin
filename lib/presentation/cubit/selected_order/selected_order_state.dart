@@ -6,10 +6,18 @@ class SelectedOrderState with _$SelectedOrderState {
     @Default(Status.UNKNOWN) Status status,
     @Default(UnknownFailure()) Failure failure,
     SelectOrderResponse? orderResponse,
-    List<CheckBoxModel>? checkBoxModel,
+    @Default(false) bool ironNotebook,
+    @Default(false) bool womensBook,
+    @Default(false) bool youthsNotebook,
+    @Default(false) bool fosterHome,
+    @Default(false) bool noBreadWinner,
+    @Default(false) bool oneParentsIsDead,
+    @Default(false) bool disabled,
+    @Default(false) bool giftedStudent,
+    @Default(false) bool hasManyChildrenFamily,
     @Default([]) List<String> trueProperties,
+        List<CheckBoxModel>? checkBoxModel,
 
-    // // Iterate through the map and check for properties with a value of true
   }) = _SelectedOrderState;
 }
 

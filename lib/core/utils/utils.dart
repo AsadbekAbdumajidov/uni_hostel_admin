@@ -7,7 +7,7 @@ const BASE_URL = 'https://api.unihostel.uz/v1/';
 const ACCESS_TOKEN = 'access-token';
 const REFRESH_TOKEN = 'refresh-token';
 
-enum Status { LOADING, UNKNOWN, SUCCESS, ERROR }
+enum Status { LOADING, UNKNOWN, SUCCESS, ERROR, OTHER }
 
 List<String> checkBoxList = [
   "iron_notebook",
@@ -33,7 +33,17 @@ List<String> maritals = [
   AppStrings.strHasManyChildrenFamily,
   AppStrings.strNoneOfThem
 ];
-
+List<String> maritalStatus = [
+  AppStrings.strIronNotebook,
+  AppStrings.strWomenNotebook,
+  AppStrings.strYouthNotebook,
+  AppStrings.strFosterCareHome,
+  AppStrings.strParentsDead,
+  AppStrings.strOneParentsDead,
+  AppStrings.strDisabledGroup,
+  AppStrings.strGiftedStudent,
+  AppStrings.strHasManyChildrenFamily,
+];
 List<String> courseList = [
   "1-${AppStrings.strCourse.toLowerCase()}",
   "2-${AppStrings.strCourse.toLowerCase()}",

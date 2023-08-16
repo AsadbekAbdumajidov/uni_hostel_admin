@@ -1,13 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_web_buttons/flutter_web_buttons.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel_admin/core/extension/for_context.dart';
 import 'package:uni_hostel_admin/core/themes/app_colors.dart';
 import 'package:uni_hostel_admin/core/themes/app_decoration.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
-import 'package:uni_hostel_admin/core/utils/service_link.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
+import 'package:uni_hostel_admin/core/widget/custom_button.dart';
 import 'package:uni_hostel_admin/presentation/components/loading_widget.dart';
 import 'package:uni_hostel_admin/presentation/components/pagination.dart';
 import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
@@ -87,30 +87,31 @@ class WaitingScreen extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                              ).paddingAll(paddingSize),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                FlutterWebButton.textUnderline(
-                                  lineSpacing: 4,
-                                  AppStrings.strOrderListUpload,
-                                  onPressed: () {
-                                    ServiceUrl.launchInBrow(
-                                        state.ordersList ?? "");
-                                  },
-                                  animationDuration:
-                                      const Duration(milliseconds: 500),
-                                  textAnimatedColor: AppColors.primaryColor,
-                                  flutterTextOptions: FlutterTextOptions(
-                                    fontSize: 14,
-                                    padding: EdgeInsets.all(0),
-                                    textColor: AppColors.primaryColor,
-                                  ),
-                                ).paddingOnly(right: paddingSize, bottom: 16),
-                              ],
-                            ),
+                              ).paddingOnly(
+                                top: paddingSize,
+                                left: paddingSize,
+                                right: paddingSize,
+                                bottom: 16),
+                          ),
+                             Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              CustomOutlineButton(
+                                icon: CupertinoIcons.cloud_download,
+                                isLoading: state.status == Status.UNKNOWN,
+                                text: AppStrings.strOrderListUpload,
+                                ounLineColour: AppColors.primaryColor,
+                                onTap: () async{
+                                 await context
+                                      .read<QueueOrderCubit>()
+                                      .getOrdersList();
+                                 
+                                },
+                              ).paddingOnly(right: paddingSize, bottom: 16),
+                             
+                            ],
+                          ),
                           ],
                         ),
                       );

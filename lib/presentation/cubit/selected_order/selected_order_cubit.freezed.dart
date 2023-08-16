@@ -19,8 +19,17 @@ mixin _$SelectedOrderState {
   Status get status => throw _privateConstructorUsedError;
   Failure get failure => throw _privateConstructorUsedError;
   SelectOrderResponse? get orderResponse => throw _privateConstructorUsedError;
-  List<CheckBoxModel>? get checkBoxModel => throw _privateConstructorUsedError;
+  bool get ironNotebook => throw _privateConstructorUsedError;
+  bool get womensBook => throw _privateConstructorUsedError;
+  bool get youthsNotebook => throw _privateConstructorUsedError;
+  bool get fosterHome => throw _privateConstructorUsedError;
+  bool get noBreadWinner => throw _privateConstructorUsedError;
+  bool get oneParentsIsDead => throw _privateConstructorUsedError;
+  bool get disabled => throw _privateConstructorUsedError;
+  bool get giftedStudent => throw _privateConstructorUsedError;
+  bool get hasManyChildrenFamily => throw _privateConstructorUsedError;
   List<String> get trueProperties => throw _privateConstructorUsedError;
+  List<CheckBoxModel>? get checkBoxModel => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SelectedOrderStateCopyWith<SelectedOrderState> get copyWith =>
@@ -37,8 +46,17 @@ abstract class $SelectedOrderStateCopyWith<$Res> {
       {Status status,
       Failure failure,
       SelectOrderResponse? orderResponse,
-      List<CheckBoxModel>? checkBoxModel,
-      List<String> trueProperties});
+      bool ironNotebook,
+      bool womensBook,
+      bool youthsNotebook,
+      bool fosterHome,
+      bool noBreadWinner,
+      bool oneParentsIsDead,
+      bool disabled,
+      bool giftedStudent,
+      bool hasManyChildrenFamily,
+      List<String> trueProperties,
+      List<CheckBoxModel>? checkBoxModel});
 
   $SelectOrderResponseCopyWith<$Res>? get orderResponse;
 }
@@ -59,8 +77,17 @@ class _$SelectedOrderStateCopyWithImpl<$Res, $Val extends SelectedOrderState>
     Object? status = null,
     Object? failure = null,
     Object? orderResponse = freezed,
-    Object? checkBoxModel = freezed,
+    Object? ironNotebook = null,
+    Object? womensBook = null,
+    Object? youthsNotebook = null,
+    Object? fosterHome = null,
+    Object? noBreadWinner = null,
+    Object? oneParentsIsDead = null,
+    Object? disabled = null,
+    Object? giftedStudent = null,
+    Object? hasManyChildrenFamily = null,
     Object? trueProperties = null,
+    Object? checkBoxModel = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -75,14 +102,50 @@ class _$SelectedOrderStateCopyWithImpl<$Res, $Val extends SelectedOrderState>
           ? _value.orderResponse
           : orderResponse // ignore: cast_nullable_to_non_nullable
               as SelectOrderResponse?,
-      checkBoxModel: freezed == checkBoxModel
-          ? _value.checkBoxModel
-          : checkBoxModel // ignore: cast_nullable_to_non_nullable
-              as List<CheckBoxModel>?,
+      ironNotebook: null == ironNotebook
+          ? _value.ironNotebook
+          : ironNotebook // ignore: cast_nullable_to_non_nullable
+              as bool,
+      womensBook: null == womensBook
+          ? _value.womensBook
+          : womensBook // ignore: cast_nullable_to_non_nullable
+              as bool,
+      youthsNotebook: null == youthsNotebook
+          ? _value.youthsNotebook
+          : youthsNotebook // ignore: cast_nullable_to_non_nullable
+              as bool,
+      fosterHome: null == fosterHome
+          ? _value.fosterHome
+          : fosterHome // ignore: cast_nullable_to_non_nullable
+              as bool,
+      noBreadWinner: null == noBreadWinner
+          ? _value.noBreadWinner
+          : noBreadWinner // ignore: cast_nullable_to_non_nullable
+              as bool,
+      oneParentsIsDead: null == oneParentsIsDead
+          ? _value.oneParentsIsDead
+          : oneParentsIsDead // ignore: cast_nullable_to_non_nullable
+              as bool,
+      disabled: null == disabled
+          ? _value.disabled
+          : disabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      giftedStudent: null == giftedStudent
+          ? _value.giftedStudent
+          : giftedStudent // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasManyChildrenFamily: null == hasManyChildrenFamily
+          ? _value.hasManyChildrenFamily
+          : hasManyChildrenFamily // ignore: cast_nullable_to_non_nullable
+              as bool,
       trueProperties: null == trueProperties
           ? _value.trueProperties
           : trueProperties // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      checkBoxModel: freezed == checkBoxModel
+          ? _value.checkBoxModel
+          : checkBoxModel // ignore: cast_nullable_to_non_nullable
+              as List<CheckBoxModel>?,
     ) as $Val);
   }
 
@@ -111,8 +174,17 @@ abstract class _$$_SelectedOrderStateCopyWith<$Res>
       {Status status,
       Failure failure,
       SelectOrderResponse? orderResponse,
-      List<CheckBoxModel>? checkBoxModel,
-      List<String> trueProperties});
+      bool ironNotebook,
+      bool womensBook,
+      bool youthsNotebook,
+      bool fosterHome,
+      bool noBreadWinner,
+      bool oneParentsIsDead,
+      bool disabled,
+      bool giftedStudent,
+      bool hasManyChildrenFamily,
+      List<String> trueProperties,
+      List<CheckBoxModel>? checkBoxModel});
 
   @override
   $SelectOrderResponseCopyWith<$Res>? get orderResponse;
@@ -132,8 +204,17 @@ class __$$_SelectedOrderStateCopyWithImpl<$Res>
     Object? status = null,
     Object? failure = null,
     Object? orderResponse = freezed,
-    Object? checkBoxModel = freezed,
+    Object? ironNotebook = null,
+    Object? womensBook = null,
+    Object? youthsNotebook = null,
+    Object? fosterHome = null,
+    Object? noBreadWinner = null,
+    Object? oneParentsIsDead = null,
+    Object? disabled = null,
+    Object? giftedStudent = null,
+    Object? hasManyChildrenFamily = null,
     Object? trueProperties = null,
+    Object? checkBoxModel = freezed,
   }) {
     return _then(_$_SelectedOrderState(
       status: null == status
@@ -148,14 +229,50 @@ class __$$_SelectedOrderStateCopyWithImpl<$Res>
           ? _value.orderResponse
           : orderResponse // ignore: cast_nullable_to_non_nullable
               as SelectOrderResponse?,
-      checkBoxModel: freezed == checkBoxModel
-          ? _value._checkBoxModel
-          : checkBoxModel // ignore: cast_nullable_to_non_nullable
-              as List<CheckBoxModel>?,
+      ironNotebook: null == ironNotebook
+          ? _value.ironNotebook
+          : ironNotebook // ignore: cast_nullable_to_non_nullable
+              as bool,
+      womensBook: null == womensBook
+          ? _value.womensBook
+          : womensBook // ignore: cast_nullable_to_non_nullable
+              as bool,
+      youthsNotebook: null == youthsNotebook
+          ? _value.youthsNotebook
+          : youthsNotebook // ignore: cast_nullable_to_non_nullable
+              as bool,
+      fosterHome: null == fosterHome
+          ? _value.fosterHome
+          : fosterHome // ignore: cast_nullable_to_non_nullable
+              as bool,
+      noBreadWinner: null == noBreadWinner
+          ? _value.noBreadWinner
+          : noBreadWinner // ignore: cast_nullable_to_non_nullable
+              as bool,
+      oneParentsIsDead: null == oneParentsIsDead
+          ? _value.oneParentsIsDead
+          : oneParentsIsDead // ignore: cast_nullable_to_non_nullable
+              as bool,
+      disabled: null == disabled
+          ? _value.disabled
+          : disabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      giftedStudent: null == giftedStudent
+          ? _value.giftedStudent
+          : giftedStudent // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasManyChildrenFamily: null == hasManyChildrenFamily
+          ? _value.hasManyChildrenFamily
+          : hasManyChildrenFamily // ignore: cast_nullable_to_non_nullable
+              as bool,
       trueProperties: null == trueProperties
           ? _value._trueProperties
           : trueProperties // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      checkBoxModel: freezed == checkBoxModel
+          ? _value._checkBoxModel
+          : checkBoxModel // ignore: cast_nullable_to_non_nullable
+              as List<CheckBoxModel>?,
     ));
   }
 }
@@ -167,10 +284,19 @@ class _$_SelectedOrderState implements _SelectedOrderState {
       {this.status = Status.UNKNOWN,
       this.failure = const UnknownFailure(),
       this.orderResponse,
-      final List<CheckBoxModel>? checkBoxModel,
-      final List<String> trueProperties = const []})
-      : _checkBoxModel = checkBoxModel,
-        _trueProperties = trueProperties;
+      this.ironNotebook = false,
+      this.womensBook = false,
+      this.youthsNotebook = false,
+      this.fosterHome = false,
+      this.noBreadWinner = false,
+      this.oneParentsIsDead = false,
+      this.disabled = false,
+      this.giftedStudent = false,
+      this.hasManyChildrenFamily = false,
+      final List<String> trueProperties = const [],
+      final List<CheckBoxModel>? checkBoxModel})
+      : _trueProperties = trueProperties,
+        _checkBoxModel = checkBoxModel;
 
   @override
   @JsonKey()
@@ -180,6 +306,42 @@ class _$_SelectedOrderState implements _SelectedOrderState {
   final Failure failure;
   @override
   final SelectOrderResponse? orderResponse;
+  @override
+  @JsonKey()
+  final bool ironNotebook;
+  @override
+  @JsonKey()
+  final bool womensBook;
+  @override
+  @JsonKey()
+  final bool youthsNotebook;
+  @override
+  @JsonKey()
+  final bool fosterHome;
+  @override
+  @JsonKey()
+  final bool noBreadWinner;
+  @override
+  @JsonKey()
+  final bool oneParentsIsDead;
+  @override
+  @JsonKey()
+  final bool disabled;
+  @override
+  @JsonKey()
+  final bool giftedStudent;
+  @override
+  @JsonKey()
+  final bool hasManyChildrenFamily;
+  final List<String> _trueProperties;
+  @override
+  @JsonKey()
+  List<String> get trueProperties {
+    if (_trueProperties is EqualUnmodifiableListView) return _trueProperties;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_trueProperties);
+  }
+
   final List<CheckBoxModel>? _checkBoxModel;
   @override
   List<CheckBoxModel>? get checkBoxModel {
@@ -190,18 +352,9 @@ class _$_SelectedOrderState implements _SelectedOrderState {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<String> _trueProperties;
-  @override
-  @JsonKey()
-  List<String> get trueProperties {
-    if (_trueProperties is EqualUnmodifiableListView) return _trueProperties;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_trueProperties);
-  }
-
   @override
   String toString() {
-    return 'SelectedOrderState(status: $status, failure: $failure, orderResponse: $orderResponse, checkBoxModel: $checkBoxModel, trueProperties: $trueProperties)';
+    return 'SelectedOrderState(status: $status, failure: $failure, orderResponse: $orderResponse, ironNotebook: $ironNotebook, womensBook: $womensBook, youthsNotebook: $youthsNotebook, fosterHome: $fosterHome, noBreadWinner: $noBreadWinner, oneParentsIsDead: $oneParentsIsDead, disabled: $disabled, giftedStudent: $giftedStudent, hasManyChildrenFamily: $hasManyChildrenFamily, trueProperties: $trueProperties, checkBoxModel: $checkBoxModel)';
   }
 
   @override
@@ -213,10 +366,28 @@ class _$_SelectedOrderState implements _SelectedOrderState {
             (identical(other.failure, failure) || other.failure == failure) &&
             (identical(other.orderResponse, orderResponse) ||
                 other.orderResponse == orderResponse) &&
+            (identical(other.ironNotebook, ironNotebook) ||
+                other.ironNotebook == ironNotebook) &&
+            (identical(other.womensBook, womensBook) ||
+                other.womensBook == womensBook) &&
+            (identical(other.youthsNotebook, youthsNotebook) ||
+                other.youthsNotebook == youthsNotebook) &&
+            (identical(other.fosterHome, fosterHome) ||
+                other.fosterHome == fosterHome) &&
+            (identical(other.noBreadWinner, noBreadWinner) ||
+                other.noBreadWinner == noBreadWinner) &&
+            (identical(other.oneParentsIsDead, oneParentsIsDead) ||
+                other.oneParentsIsDead == oneParentsIsDead) &&
+            (identical(other.disabled, disabled) ||
+                other.disabled == disabled) &&
+            (identical(other.giftedStudent, giftedStudent) ||
+                other.giftedStudent == giftedStudent) &&
+            (identical(other.hasManyChildrenFamily, hasManyChildrenFamily) ||
+                other.hasManyChildrenFamily == hasManyChildrenFamily) &&
             const DeepCollectionEquality()
-                .equals(other._checkBoxModel, _checkBoxModel) &&
+                .equals(other._trueProperties, _trueProperties) &&
             const DeepCollectionEquality()
-                .equals(other._trueProperties, _trueProperties));
+                .equals(other._checkBoxModel, _checkBoxModel));
   }
 
   @override
@@ -225,8 +396,17 @@ class _$_SelectedOrderState implements _SelectedOrderState {
       status,
       failure,
       orderResponse,
-      const DeepCollectionEquality().hash(_checkBoxModel),
-      const DeepCollectionEquality().hash(_trueProperties));
+      ironNotebook,
+      womensBook,
+      youthsNotebook,
+      fosterHome,
+      noBreadWinner,
+      oneParentsIsDead,
+      disabled,
+      giftedStudent,
+      hasManyChildrenFamily,
+      const DeepCollectionEquality().hash(_trueProperties),
+      const DeepCollectionEquality().hash(_checkBoxModel));
 
   @JsonKey(ignore: true)
   @override
@@ -241,8 +421,17 @@ abstract class _SelectedOrderState implements SelectedOrderState {
       {final Status status,
       final Failure failure,
       final SelectOrderResponse? orderResponse,
-      final List<CheckBoxModel>? checkBoxModel,
-      final List<String> trueProperties}) = _$_SelectedOrderState;
+      final bool ironNotebook,
+      final bool womensBook,
+      final bool youthsNotebook,
+      final bool fosterHome,
+      final bool noBreadWinner,
+      final bool oneParentsIsDead,
+      final bool disabled,
+      final bool giftedStudent,
+      final bool hasManyChildrenFamily,
+      final List<String> trueProperties,
+      final List<CheckBoxModel>? checkBoxModel}) = _$_SelectedOrderState;
 
   @override
   Status get status;
@@ -251,9 +440,27 @@ abstract class _SelectedOrderState implements SelectedOrderState {
   @override
   SelectOrderResponse? get orderResponse;
   @override
-  List<CheckBoxModel>? get checkBoxModel;
+  bool get ironNotebook;
+  @override
+  bool get womensBook;
+  @override
+  bool get youthsNotebook;
+  @override
+  bool get fosterHome;
+  @override
+  bool get noBreadWinner;
+  @override
+  bool get oneParentsIsDead;
+  @override
+  bool get disabled;
+  @override
+  bool get giftedStudent;
+  @override
+  bool get hasManyChildrenFamily;
   @override
   List<String> get trueProperties;
+  @override
+  List<CheckBoxModel>? get checkBoxModel;
   @override
   @JsonKey(ignore: true)
   _$$_SelectedOrderStateCopyWith<_$_SelectedOrderState> get copyWith =>

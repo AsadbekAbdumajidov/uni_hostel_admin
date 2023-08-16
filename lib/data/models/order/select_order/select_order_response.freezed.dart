@@ -22,24 +22,24 @@ SelectOrderResponse _$SelectOrderResponseFromJson(Map<String, dynamic> json) {
 mixin _$SelectOrderResponse {
   int? get id => throw _privateConstructorUsedError;
   String? get status => throw _privateConstructorUsedError;
-  bool? get disabled => throw _privateConstructorUsedError;
   StudentInfoResponse? get student => throw _privateConstructorUsedError;
+  bool get disabled => throw _privateConstructorUsedError;
   @JsonKey(name: 'iron_notebook')
-  bool? get ironNotebook => throw _privateConstructorUsedError;
+  bool get ironNotebook => throw _privateConstructorUsedError;
   @JsonKey(name: 'womens_book')
-  bool? get womensBook => throw _privateConstructorUsedError;
+  bool get womensBook => throw _privateConstructorUsedError;
   @JsonKey(name: 'youths_notebook')
-  bool? get youthsNotebook => throw _privateConstructorUsedError;
+  bool get youthsNotebook => throw _privateConstructorUsedError;
   @JsonKey(name: 'foster_home')
-  bool? get fosterHome => throw _privateConstructorUsedError;
+  bool get fosterHome => throw _privateConstructorUsedError;
   @JsonKey(name: 'no_breadwinner')
-  bool? get noBreadwinner => throw _privateConstructorUsedError;
+  bool get noBreadwinner => throw _privateConstructorUsedError;
   @JsonKey(name: 'one_parents_is_dead')
-  bool? get oneParentsIsDead => throw _privateConstructorUsedError;
+  bool get oneParentsIsDead => throw _privateConstructorUsedError;
   @JsonKey(name: 'has_many_children_family')
-  bool? get hasManyChildrenFamily => throw _privateConstructorUsedError;
+  bool get hasManyChildrenFamily => throw _privateConstructorUsedError;
   @JsonKey(name: 'gifted_student')
-  bool? get giftedStudent => throw _privateConstructorUsedError;
+  bool get giftedStudent => throw _privateConstructorUsedError;
   @JsonKey(name: 'reference_file')
   String? get referenceFile => throw _privateConstructorUsedError;
   @JsonKey(name: 'waiting_status')
@@ -72,16 +72,16 @@ abstract class $SelectOrderResponseCopyWith<$Res> {
   $Res call(
       {int? id,
       String? status,
-      bool? disabled,
       StudentInfoResponse? student,
-      @JsonKey(name: 'iron_notebook') bool? ironNotebook,
-      @JsonKey(name: 'womens_book') bool? womensBook,
-      @JsonKey(name: 'youths_notebook') bool? youthsNotebook,
-      @JsonKey(name: 'foster_home') bool? fosterHome,
-      @JsonKey(name: 'no_breadwinner') bool? noBreadwinner,
-      @JsonKey(name: 'one_parents_is_dead') bool? oneParentsIsDead,
-      @JsonKey(name: 'has_many_children_family') bool? hasManyChildrenFamily,
-      @JsonKey(name: 'gifted_student') bool? giftedStudent,
+      bool disabled,
+      @JsonKey(name: 'iron_notebook') bool ironNotebook,
+      @JsonKey(name: 'womens_book') bool womensBook,
+      @JsonKey(name: 'youths_notebook') bool youthsNotebook,
+      @JsonKey(name: 'foster_home') bool fosterHome,
+      @JsonKey(name: 'no_breadwinner') bool noBreadwinner,
+      @JsonKey(name: 'one_parents_is_dead') bool oneParentsIsDead,
+      @JsonKey(name: 'has_many_children_family') bool hasManyChildrenFamily,
+      @JsonKey(name: 'gifted_student') bool giftedStudent,
       @JsonKey(name: 'reference_file') String? referenceFile,
       @JsonKey(name: 'waiting_status') String? waitingStatus,
       @JsonKey(name: 'monthly_payment_price') int? monthlyPaymentPrice,
@@ -110,16 +110,16 @@ class _$SelectOrderResponseCopyWithImpl<$Res, $Val extends SelectOrderResponse>
   $Res call({
     Object? id = freezed,
     Object? status = freezed,
-    Object? disabled = freezed,
     Object? student = freezed,
-    Object? ironNotebook = freezed,
-    Object? womensBook = freezed,
-    Object? youthsNotebook = freezed,
-    Object? fosterHome = freezed,
-    Object? noBreadwinner = freezed,
-    Object? oneParentsIsDead = freezed,
-    Object? hasManyChildrenFamily = freezed,
-    Object? giftedStudent = freezed,
+    Object? disabled = null,
+    Object? ironNotebook = null,
+    Object? womensBook = null,
+    Object? youthsNotebook = null,
+    Object? fosterHome = null,
+    Object? noBreadwinner = null,
+    Object? oneParentsIsDead = null,
+    Object? hasManyChildrenFamily = null,
+    Object? giftedStudent = null,
     Object? referenceFile = freezed,
     Object? waitingStatus = freezed,
     Object? monthlyPaymentPrice = freezed,
@@ -138,46 +138,46 @@ class _$SelectOrderResponseCopyWithImpl<$Res, $Val extends SelectOrderResponse>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String?,
-      disabled: freezed == disabled
-          ? _value.disabled
-          : disabled // ignore: cast_nullable_to_non_nullable
-              as bool?,
       student: freezed == student
           ? _value.student
           : student // ignore: cast_nullable_to_non_nullable
               as StudentInfoResponse?,
-      ironNotebook: freezed == ironNotebook
+      disabled: null == disabled
+          ? _value.disabled
+          : disabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      ironNotebook: null == ironNotebook
           ? _value.ironNotebook
           : ironNotebook // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      womensBook: freezed == womensBook
+              as bool,
+      womensBook: null == womensBook
           ? _value.womensBook
           : womensBook // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      youthsNotebook: freezed == youthsNotebook
+              as bool,
+      youthsNotebook: null == youthsNotebook
           ? _value.youthsNotebook
           : youthsNotebook // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      fosterHome: freezed == fosterHome
+              as bool,
+      fosterHome: null == fosterHome
           ? _value.fosterHome
           : fosterHome // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      noBreadwinner: freezed == noBreadwinner
+              as bool,
+      noBreadwinner: null == noBreadwinner
           ? _value.noBreadwinner
           : noBreadwinner // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      oneParentsIsDead: freezed == oneParentsIsDead
+              as bool,
+      oneParentsIsDead: null == oneParentsIsDead
           ? _value.oneParentsIsDead
           : oneParentsIsDead // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      hasManyChildrenFamily: freezed == hasManyChildrenFamily
+              as bool,
+      hasManyChildrenFamily: null == hasManyChildrenFamily
           ? _value.hasManyChildrenFamily
           : hasManyChildrenFamily // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      giftedStudent: freezed == giftedStudent
+              as bool,
+      giftedStudent: null == giftedStudent
           ? _value.giftedStudent
           : giftedStudent // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       referenceFile: freezed == referenceFile
           ? _value.referenceFile
           : referenceFile // ignore: cast_nullable_to_non_nullable
@@ -249,16 +249,16 @@ abstract class _$$_SelectOrderResponseCopyWith<$Res>
   $Res call(
       {int? id,
       String? status,
-      bool? disabled,
       StudentInfoResponse? student,
-      @JsonKey(name: 'iron_notebook') bool? ironNotebook,
-      @JsonKey(name: 'womens_book') bool? womensBook,
-      @JsonKey(name: 'youths_notebook') bool? youthsNotebook,
-      @JsonKey(name: 'foster_home') bool? fosterHome,
-      @JsonKey(name: 'no_breadwinner') bool? noBreadwinner,
-      @JsonKey(name: 'one_parents_is_dead') bool? oneParentsIsDead,
-      @JsonKey(name: 'has_many_children_family') bool? hasManyChildrenFamily,
-      @JsonKey(name: 'gifted_student') bool? giftedStudent,
+      bool disabled,
+      @JsonKey(name: 'iron_notebook') bool ironNotebook,
+      @JsonKey(name: 'womens_book') bool womensBook,
+      @JsonKey(name: 'youths_notebook') bool youthsNotebook,
+      @JsonKey(name: 'foster_home') bool fosterHome,
+      @JsonKey(name: 'no_breadwinner') bool noBreadwinner,
+      @JsonKey(name: 'one_parents_is_dead') bool oneParentsIsDead,
+      @JsonKey(name: 'has_many_children_family') bool hasManyChildrenFamily,
+      @JsonKey(name: 'gifted_student') bool giftedStudent,
       @JsonKey(name: 'reference_file') String? referenceFile,
       @JsonKey(name: 'waiting_status') String? waitingStatus,
       @JsonKey(name: 'monthly_payment_price') int? monthlyPaymentPrice,
@@ -287,16 +287,16 @@ class __$$_SelectOrderResponseCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? status = freezed,
-    Object? disabled = freezed,
     Object? student = freezed,
-    Object? ironNotebook = freezed,
-    Object? womensBook = freezed,
-    Object? youthsNotebook = freezed,
-    Object? fosterHome = freezed,
-    Object? noBreadwinner = freezed,
-    Object? oneParentsIsDead = freezed,
-    Object? hasManyChildrenFamily = freezed,
-    Object? giftedStudent = freezed,
+    Object? disabled = null,
+    Object? ironNotebook = null,
+    Object? womensBook = null,
+    Object? youthsNotebook = null,
+    Object? fosterHome = null,
+    Object? noBreadwinner = null,
+    Object? oneParentsIsDead = null,
+    Object? hasManyChildrenFamily = null,
+    Object? giftedStudent = null,
     Object? referenceFile = freezed,
     Object? waitingStatus = freezed,
     Object? monthlyPaymentPrice = freezed,
@@ -315,46 +315,46 @@ class __$$_SelectOrderResponseCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String?,
-      disabled: freezed == disabled
-          ? _value.disabled
-          : disabled // ignore: cast_nullable_to_non_nullable
-              as bool?,
       student: freezed == student
           ? _value.student
           : student // ignore: cast_nullable_to_non_nullable
               as StudentInfoResponse?,
-      ironNotebook: freezed == ironNotebook
+      disabled: null == disabled
+          ? _value.disabled
+          : disabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      ironNotebook: null == ironNotebook
           ? _value.ironNotebook
           : ironNotebook // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      womensBook: freezed == womensBook
+              as bool,
+      womensBook: null == womensBook
           ? _value.womensBook
           : womensBook // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      youthsNotebook: freezed == youthsNotebook
+              as bool,
+      youthsNotebook: null == youthsNotebook
           ? _value.youthsNotebook
           : youthsNotebook // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      fosterHome: freezed == fosterHome
+              as bool,
+      fosterHome: null == fosterHome
           ? _value.fosterHome
           : fosterHome // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      noBreadwinner: freezed == noBreadwinner
+              as bool,
+      noBreadwinner: null == noBreadwinner
           ? _value.noBreadwinner
           : noBreadwinner // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      oneParentsIsDead: freezed == oneParentsIsDead
+              as bool,
+      oneParentsIsDead: null == oneParentsIsDead
           ? _value.oneParentsIsDead
           : oneParentsIsDead // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      hasManyChildrenFamily: freezed == hasManyChildrenFamily
+              as bool,
+      hasManyChildrenFamily: null == hasManyChildrenFamily
           ? _value.hasManyChildrenFamily
           : hasManyChildrenFamily // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      giftedStudent: freezed == giftedStudent
+              as bool,
+      giftedStudent: null == giftedStudent
           ? _value.giftedStudent
           : giftedStudent // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       referenceFile: freezed == referenceFile
           ? _value.referenceFile
           : referenceFile // ignore: cast_nullable_to_non_nullable
@@ -397,16 +397,17 @@ class _$_SelectOrderResponse implements _SelectOrderResponse {
   const _$_SelectOrderResponse(
       {this.id,
       this.status,
-      this.disabled,
       this.student,
-      @JsonKey(name: 'iron_notebook') this.ironNotebook,
-      @JsonKey(name: 'womens_book') this.womensBook,
-      @JsonKey(name: 'youths_notebook') this.youthsNotebook,
-      @JsonKey(name: 'foster_home') this.fosterHome,
-      @JsonKey(name: 'no_breadwinner') this.noBreadwinner,
-      @JsonKey(name: 'one_parents_is_dead') this.oneParentsIsDead,
-      @JsonKey(name: 'has_many_children_family') this.hasManyChildrenFamily,
-      @JsonKey(name: 'gifted_student') this.giftedStudent,
+      required this.disabled,
+      @JsonKey(name: 'iron_notebook') required this.ironNotebook,
+      @JsonKey(name: 'womens_book') required this.womensBook,
+      @JsonKey(name: 'youths_notebook') required this.youthsNotebook,
+      @JsonKey(name: 'foster_home') required this.fosterHome,
+      @JsonKey(name: 'no_breadwinner') required this.noBreadwinner,
+      @JsonKey(name: 'one_parents_is_dead') required this.oneParentsIsDead,
+      @JsonKey(name: 'has_many_children_family')
+      required this.hasManyChildrenFamily,
+      @JsonKey(name: 'gifted_student') required this.giftedStudent,
       @JsonKey(name: 'reference_file') this.referenceFile,
       @JsonKey(name: 'waiting_status') this.waitingStatus,
       @JsonKey(name: 'monthly_payment_price') this.monthlyPaymentPrice,
@@ -424,33 +425,33 @@ class _$_SelectOrderResponse implements _SelectOrderResponse {
   @override
   final String? status;
   @override
-  final bool? disabled;
-  @override
   final StudentInfoResponse? student;
   @override
+  final bool disabled;
+  @override
   @JsonKey(name: 'iron_notebook')
-  final bool? ironNotebook;
+  final bool ironNotebook;
   @override
   @JsonKey(name: 'womens_book')
-  final bool? womensBook;
+  final bool womensBook;
   @override
   @JsonKey(name: 'youths_notebook')
-  final bool? youthsNotebook;
+  final bool youthsNotebook;
   @override
   @JsonKey(name: 'foster_home')
-  final bool? fosterHome;
+  final bool fosterHome;
   @override
   @JsonKey(name: 'no_breadwinner')
-  final bool? noBreadwinner;
+  final bool noBreadwinner;
   @override
   @JsonKey(name: 'one_parents_is_dead')
-  final bool? oneParentsIsDead;
+  final bool oneParentsIsDead;
   @override
   @JsonKey(name: 'has_many_children_family')
-  final bool? hasManyChildrenFamily;
+  final bool hasManyChildrenFamily;
   @override
   @JsonKey(name: 'gifted_student')
-  final bool? giftedStudent;
+  final bool giftedStudent;
   @override
   @JsonKey(name: 'reference_file')
   final String? referenceFile;
@@ -478,7 +479,7 @@ class _$_SelectOrderResponse implements _SelectOrderResponse {
 
   @override
   String toString() {
-    return 'SelectOrderResponse(id: $id, status: $status, disabled: $disabled, student: $student, ironNotebook: $ironNotebook, womensBook: $womensBook, youthsNotebook: $youthsNotebook, fosterHome: $fosterHome, noBreadwinner: $noBreadwinner, oneParentsIsDead: $oneParentsIsDead, hasManyChildrenFamily: $hasManyChildrenFamily, giftedStudent: $giftedStudent, referenceFile: $referenceFile, waitingStatus: $waitingStatus, monthlyPaymentPrice: $monthlyPaymentPrice, createdAt: $createdAt, cancelReason: $cancelReason, paymentDate: $paymentDate, updatedAt: $updatedAt, checkedAdmin: $checkedAdmin)';
+    return 'SelectOrderResponse(id: $id, status: $status, student: $student, disabled: $disabled, ironNotebook: $ironNotebook, womensBook: $womensBook, youthsNotebook: $youthsNotebook, fosterHome: $fosterHome, noBreadwinner: $noBreadwinner, oneParentsIsDead: $oneParentsIsDead, hasManyChildrenFamily: $hasManyChildrenFamily, giftedStudent: $giftedStudent, referenceFile: $referenceFile, waitingStatus: $waitingStatus, monthlyPaymentPrice: $monthlyPaymentPrice, createdAt: $createdAt, cancelReason: $cancelReason, paymentDate: $paymentDate, updatedAt: $updatedAt, checkedAdmin: $checkedAdmin)';
   }
 
   @override
@@ -488,9 +489,9 @@ class _$_SelectOrderResponse implements _SelectOrderResponse {
             other is _$_SelectOrderResponse &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.status, status) || other.status == status) &&
+            (identical(other.student, student) || other.student == student) &&
             (identical(other.disabled, disabled) ||
                 other.disabled == disabled) &&
-            (identical(other.student, student) || other.student == student) &&
             (identical(other.ironNotebook, ironNotebook) ||
                 other.ironNotebook == ironNotebook) &&
             (identical(other.womensBook, womensBook) ||
@@ -531,8 +532,8 @@ class _$_SelectOrderResponse implements _SelectOrderResponse {
         runtimeType,
         id,
         status,
-        disabled,
         student,
+        disabled,
         ironNotebook,
         womensBook,
         youthsNotebook,
@@ -570,17 +571,18 @@ abstract class _SelectOrderResponse implements SelectOrderResponse {
   const factory _SelectOrderResponse(
       {final int? id,
       final String? status,
-      final bool? disabled,
       final StudentInfoResponse? student,
-      @JsonKey(name: 'iron_notebook') final bool? ironNotebook,
-      @JsonKey(name: 'womens_book') final bool? womensBook,
-      @JsonKey(name: 'youths_notebook') final bool? youthsNotebook,
-      @JsonKey(name: 'foster_home') final bool? fosterHome,
-      @JsonKey(name: 'no_breadwinner') final bool? noBreadwinner,
-      @JsonKey(name: 'one_parents_is_dead') final bool? oneParentsIsDead,
+      required final bool disabled,
+      @JsonKey(name: 'iron_notebook') required final bool ironNotebook,
+      @JsonKey(name: 'womens_book') required final bool womensBook,
+      @JsonKey(name: 'youths_notebook') required final bool youthsNotebook,
+      @JsonKey(name: 'foster_home') required final bool fosterHome,
+      @JsonKey(name: 'no_breadwinner') required final bool noBreadwinner,
+      @JsonKey(name: 'one_parents_is_dead')
+      required final bool oneParentsIsDead,
       @JsonKey(name: 'has_many_children_family')
-      final bool? hasManyChildrenFamily,
-      @JsonKey(name: 'gifted_student') final bool? giftedStudent,
+      required final bool hasManyChildrenFamily,
+      @JsonKey(name: 'gifted_student') required final bool giftedStudent,
       @JsonKey(name: 'reference_file') final String? referenceFile,
       @JsonKey(name: 'waiting_status') final String? waitingStatus,
       @JsonKey(name: 'monthly_payment_price') final int? monthlyPaymentPrice,
@@ -599,33 +601,33 @@ abstract class _SelectOrderResponse implements SelectOrderResponse {
   @override
   String? get status;
   @override
-  bool? get disabled;
-  @override
   StudentInfoResponse? get student;
   @override
+  bool get disabled;
+  @override
   @JsonKey(name: 'iron_notebook')
-  bool? get ironNotebook;
+  bool get ironNotebook;
   @override
   @JsonKey(name: 'womens_book')
-  bool? get womensBook;
+  bool get womensBook;
   @override
   @JsonKey(name: 'youths_notebook')
-  bool? get youthsNotebook;
+  bool get youthsNotebook;
   @override
   @JsonKey(name: 'foster_home')
-  bool? get fosterHome;
+  bool get fosterHome;
   @override
   @JsonKey(name: 'no_breadwinner')
-  bool? get noBreadwinner;
+  bool get noBreadwinner;
   @override
   @JsonKey(name: 'one_parents_is_dead')
-  bool? get oneParentsIsDead;
+  bool get oneParentsIsDead;
   @override
   @JsonKey(name: 'has_many_children_family')
-  bool? get hasManyChildrenFamily;
+  bool get hasManyChildrenFamily;
   @override
   @JsonKey(name: 'gifted_student')
-  bool? get giftedStudent;
+  bool get giftedStudent;
   @override
   @JsonKey(name: 'reference_file')
   String? get referenceFile;

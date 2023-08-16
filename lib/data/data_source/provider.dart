@@ -15,7 +15,7 @@ part 'provider.g.dart';
 @RestApi(baseUrl: BASE_URL)
 abstract class ApiClient {
   factory ApiClient(Dio dio, String baseUrl) {
-    dio.options = BaseOptions(receiveTimeout: 3000, connectTimeout: 3000);
+    dio.options = BaseOptions(receiveTimeout: 30000, connectTimeout: 30000);
     return _ApiClient(dio, baseUrl: baseUrl);
   }
 
@@ -58,12 +58,10 @@ abstract class ApiClient {
 
   @GET('admin/download/orders/list/')
   Future<DownloadOrdersListResponse> downloadOrdersList(
-    
     @Query("marital_status") String maritalStatus,
     @Query("status") String status,
     @Query("course") String? course,
     @Query("faculty") int? facultyId,
-    
     @Query("search_query") String search,
   );
 }

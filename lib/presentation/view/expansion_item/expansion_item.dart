@@ -15,9 +15,10 @@ import 'package:uni_hostel_admin/presentation/cubit/cancelled_order/cancelled_or
 import 'package:uni_hostel_admin/presentation/cubit/new_order/get_new_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/queue_order/queue_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/selected_order/selected_order_cubit.dart';
+import 'package:uni_hostel_admin/presentation/view/expansion_item/widget/checkbox_item_widget.dart';
+import 'package:uni_hostel_admin/presentation/view/expansion_item/widget/checkbox_list_widget.dart';
 import 'package:uni_hostel_admin/presentation/view/expansion_item/widget/mobile/user_information_mobile.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/requests/widget/check_alert_dialog.dart';
-import 'package:uni_hostel_admin/presentation/view/tabs/requests/widget/checkbox_item_widget.dart';
 import 'package:uni_hostel_admin/presentation/view/expansion_item/widget/down_button.dart';
 import 'package:uni_hostel_admin/presentation/view/status_alert_dialog/edit_status_alert_dialog.dart';
 import 'package:uni_hostel_admin/presentation/view/expansion_item/widget/mobile/item_list_mobile.dart';
@@ -27,7 +28,6 @@ class ExpansionItemWidget extends StatelessWidget {
   const ExpansionItemWidget({super.key, required this.id, this.index});
   final int id;
   final int? index;
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider<SelectedOrderCubit>(
@@ -77,7 +77,10 @@ class ExpansionItemWidget extends StatelessWidget {
               ],
             ),
             SizedBox(height: 20),
-            GridView.builder(
+            index != 0 ? context.read<SelectedOrderCubit>().cheack()
+                ? CheckboxListWidget()
+                : SizedBox.shrink() :
+           state.trueProperties.isEmpty ? SizedBox.shrink(): GridView.builder(
               shrinkWrap: true,
               padding: EdgeInsets.only(bottom: 14),
               physics: NeverScrollableScrollPhysics(),
@@ -141,6 +144,16 @@ class ExpansionItemWidget extends StatelessWidget {
                                 context: context,
                                 builder: (BuildContext context) {
                                   return EditStatusAlertDialog(
+                                    disabled: state.disabled,
+                                    ironNotebook: state.ironNotebook,
+                                    womensBook: state.womensBook,
+                                    youthsNotebook: state.youthsNotebook,
+                                    fosterHome: state.fosterHome,
+                                    noBreadwinner: state.noBreadWinner,
+                                    oneParentsIsDead: state.oneParentsIsDead,
+                                    hasManyChildrenFamily:
+                                        state.hasManyChildrenFamily,
+                                    giftedStudent: state.giftedStudent,
                                     name: responseStudent?.fullName ?? "",
                                     id: id,
                                     title: AppStrings.strRejectedAd,
@@ -155,6 +168,16 @@ class ExpansionItemWidget extends StatelessWidget {
                                 context: context,
                                 builder: (BuildContext context) {
                                   return EditStatusAlertDialog(
+                                    disabled: state.disabled,
+                                    ironNotebook: state.ironNotebook,
+                                    womensBook: state.womensBook,
+                                    youthsNotebook: state.youthsNotebook,
+                                    fosterHome: state.fosterHome,
+                                    noBreadwinner: state.noBreadWinner,
+                                    oneParentsIsDead: state.oneParentsIsDead,
+                                    hasManyChildrenFamily:
+                                        state.hasManyChildrenFamily,
+                                    giftedStudent: state.giftedStudent,
                                     name: responseStudent?.fullName ?? "",
                                     id: id,
                                     title: AppStrings.strWaitingAd,
@@ -169,6 +192,16 @@ class ExpansionItemWidget extends StatelessWidget {
                                 context: context,
                                 builder: (BuildContext context) {
                                   return EditStatusAlertDialog(
+                                    disabled: state.disabled,
+                                    ironNotebook: state.ironNotebook,
+                                    womensBook: state.womensBook,
+                                    youthsNotebook: state.youthsNotebook,
+                                    fosterHome: state.fosterHome,
+                                    noBreadwinner: state.noBreadWinner,
+                                    oneParentsIsDead: state.oneParentsIsDead,
+                                    hasManyChildrenFamily:
+                                        state.hasManyChildrenFamily,
+                                    giftedStudent: state.giftedStudent,
                                     name: responseStudent?.fullName ?? "",
                                     id: id,
                                     title: AppStrings.strApprovedAd,

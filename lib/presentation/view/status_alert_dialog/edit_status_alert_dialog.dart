@@ -24,11 +24,29 @@ class EditStatusAlertDialog extends StatelessWidget {
       this.reason,
       required this.title,
       required this.id,
-      required this.name});
+      required this.name,
+      required this.disabled,
+      required this.ironNotebook,
+      required this.womensBook,
+      required this.youthsNotebook,
+      required this.fosterHome,
+      required this.noBreadwinner,
+      required this.oneParentsIsDead,
+      required this.hasManyChildrenFamily,
+      required this.giftedStudent});
   final String? reason;
   final String title;
   final String name;
   final int id;
+  final bool disabled;
+  final bool ironNotebook;
+  final bool womensBook;
+  final bool youthsNotebook;
+  final bool fosterHome;
+  final bool noBreadwinner;
+  final bool oneParentsIsDead;
+  final bool hasManyChildrenFamily;
+  final bool giftedStudent;
   @override
   Widget build(BuildContext context) {
     final monthlyPaymentController = TextEditingController();
@@ -177,17 +195,22 @@ class EditStatusAlertDialog extends StatelessWidget {
                           var datePayment = datePaymentController.text == ""
                               ? null
                               : int.parse(datePaymentController.text);
-                          debugPrint(monthlyPayment.toString());
-                          debugPrint(datePayment.toString());
-                          debugPrint(title);
-                          debugPrint(reasonController.text);
-
                           context.read<EditStatusCubit>().editStatus(
-                              id,
-                              title,
-                              monthlyPayment,
-                              reasonController.text,
-                              datePayment);
+                                id,
+                                title,
+                                monthlyPayment,
+                                reasonController.text,
+                                datePayment,
+                                ironNotebook,
+                                womensBook,
+                                youthsNotebook,
+                                fosterHome,
+                                noBreadwinner,
+                                oneParentsIsDead,
+                                disabled,
+                                giftedStudent,
+                                hasManyChildrenFamily,
+                              );
                         }
                       },
                       width: 300)

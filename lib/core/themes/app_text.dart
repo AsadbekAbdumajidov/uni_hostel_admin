@@ -9,7 +9,7 @@ class AppStrings {
   static const strUploadedFile = "Toifani tasdiqlovchi file";
   static const strDeleteOrder = "Arizani o'chirish";
   static const strDelete = "O'chirish";
-  static const strOrderListUpload = "Arizalarni ro'yxatini yuklash";
+  static const strOrderListUpload = "Arizalar ro'yxatini yuklash";
 
 
 

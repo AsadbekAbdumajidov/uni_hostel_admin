@@ -23,7 +23,19 @@ class SelectedOrderCubit extends Cubit<SelectedOrderState> {
         (failure) =>
             emit(state.copyWith(failure: failure, status: Status.ERROR)),
         (success) {
-      emit(state.copyWith(orderResponse: success, status: Status.SUCCESS));
+      emit(state.copyWith(
+        orderResponse: success,
+        ironNotebook: success.ironNotebook,
+        womensBook: success.womensBook,
+        youthsNotebook: success.youthsNotebook,
+        fosterHome: success.fosterHome,
+        noBreadWinner: success.noBreadwinner,
+        oneParentsIsDead: success.oneParentsIsDead,
+        disabled: success.disabled,
+        giftedStudent: success.giftedStudent,
+        hasManyChildrenFamily: success.hasManyChildrenFamily,
+        status: Status.SUCCESS,
+      ));
       getStatus();
     });
   }
@@ -35,13 +47,29 @@ class SelectedOrderCubit extends Cubit<SelectedOrderState> {
         (failure) =>
             emit(state.copyWith(failure: failure, status: Status.ERROR)),
         (success) {
-           debugPrint("====1=======${state.status}============");
+      debugPrint("====1=======${state.status}============");
       emit(state.copyWith(status: Status.SUCCESS));
-       debugPrint("===2========${state.status}============");
+      debugPrint("===2========${state.status}============");
     });
   }
 
-  Future<void> getStatus() async {
+  bool cheack() {
+    if (state.ironNotebook == false &&
+        state.womensBook == false &&
+        state.youthsNotebook == false &&
+        state.fosterHome == false &&
+        state.noBreadWinner == false &&
+        state.oneParentsIsDead == false &&
+        state.disabled == false &&
+        state.giftedStudent == false &&
+        state.hasManyChildrenFamily == false) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+   Future<void> getStatus() async {
     List<String> trueProperties = [];
     Map<String, bool> properties = {
       "iron_notebook": state.orderResponse?.ironNotebook ?? false,
@@ -92,5 +120,49 @@ class SelectedOrderCubit extends Cubit<SelectedOrderState> {
     emit(
         state.copyWith(trueProperties: trueProperties, status: Status.SUCCESS));
    
+  }
+
+  Future<void> checkBox(int index) async {
+    switch (index) {
+      case 1:
+        emit(state.copyWith(
+            ironNotebook: !state.ironNotebook, status: Status.UNKNOWN));
+        debugPrint(state.ironNotebook.toString());
+        break;
+      case 2:
+        emit(state.copyWith(
+            womensBook: !state.womensBook, status: Status.UNKNOWN));
+        break;
+      case 3:
+        emit(state.copyWith(
+            youthsNotebook: !state.youthsNotebook, status: Status.UNKNOWN));
+        break;
+      case 4:
+        emit(state.copyWith(
+            fosterHome: !state.fosterHome, status: Status.UNKNOWN));
+        break;
+      case 5:
+        emit(state.copyWith(
+            noBreadWinner: !state.noBreadWinner, status: Status.UNKNOWN));
+        break;
+      case 6:
+        emit(state.copyWith(
+            oneParentsIsDead: !state.oneParentsIsDead, status: Status.UNKNOWN));
+        break;
+      case 7:
+        emit(state.copyWith(disabled: !state.disabled, status: Status.UNKNOWN));
+        break;
+      case 8:
+        emit(state.copyWith(
+            giftedStudent: !state.giftedStudent, status: Status.UNKNOWN));
+        break;
+      case 9:
+        emit(state.copyWith(
+            hasManyChildrenFamily: !state.hasManyChildrenFamily,
+            status: Status.UNKNOWN));
+        debugPrint(state.hasManyChildrenFamily.toString());
+        break;
+      default:
+    }
   }
 }

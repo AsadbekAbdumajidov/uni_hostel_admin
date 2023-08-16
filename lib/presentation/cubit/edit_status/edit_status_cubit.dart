@@ -10,10 +10,8 @@ part 'edit_status_state.dart';
 part 'edit_status_cubit.freezed.dart';
 
 class EditStatusCubit extends Cubit<EditStatusState> {
-  EditStatusCubit(this._editStatusUsCase)
-      : super(EditStatusState());
+  EditStatusCubit(this._editStatusUsCase) : super(EditStatusState());
   final EditStatusUseCase _editStatusUsCase;
-
 
   void editStatus(
     int id,
@@ -21,6 +19,15 @@ class EditStatusCubit extends Cubit<EditStatusState> {
     int? monthlyPaymentPrice,
     String? cancelReason,
     int? paymentDate,
+    bool ironNotebook,
+    bool womensBook,
+    bool youthsNotebook,
+    bool fosterHome,
+    bool noBreadWinner,
+    bool oneParentsIsDead,
+    bool disabled,
+    bool giftedStudent,
+    bool hasManyChildrenFamily,
   ) async {
     emit(state.copyWith(status: Status.LOADING));
     var result = await _editStatusUsCase.call(
@@ -35,6 +42,15 @@ class EditStatusCubit extends Cubit<EditStatusState> {
           monthlyPaymentPrice: monthlyPaymentPrice,
           cancelReason: cancelReason,
           paymentDate: paymentDate,
+          ironNotebook: ironNotebook,
+          womensBook: womensBook,
+          youthsNotebook: youthsNotebook,
+          fosterHome: fosterHome,
+          noBreadWinner: noBreadWinner,
+          oneParentsIsDead: oneParentsIsDead,
+          disabled: disabled,
+          giftedStudent: giftedStudent,
+          hasManyChildrenFamily: hasManyChildrenFamily,
         ),
       ),
     );
