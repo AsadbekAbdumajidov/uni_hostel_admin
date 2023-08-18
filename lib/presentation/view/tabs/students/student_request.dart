@@ -14,6 +14,7 @@ import 'package:uni_hostel_admin/presentation/view/menu_drawer/menu_drawer.dart'
 import 'package:uni_hostel_admin/presentation/view/custom_app_bar/custom_app_bar.dart';
 import 'package:uni_hostel_admin/presentation/view/profile_drawer/profile_drawer.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/requests/widget/top_request_item_widget.dart';
+import 'package:uni_hostel_admin/presentation/view/tabs/students/widget/bottom_filter_widget.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/widget/custom_card_widget.dart';
 import '../../../../core/themes/app_text.dart';
 import '../../../../core/utils/utils.dart';
@@ -84,6 +85,26 @@ class _StudentsScreenState extends State<StudentsScreen> {
                                               bloc.selectFaculty(v),
                                           onChangecourse: (v) =>
                                               bloc.selectCourse(v),
+                                          onTapFilter: () {
+                                            showModalBottomSheet(
+                                                context: context,
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    AppColors.transparent,
+                                                builder: (context) {
+                                                  return BottomFilterAccWidget(
+                                                    indexM: state.maritalStatus,
+                                                    list: maritals,
+                                                    courses: courseList,
+                                                    coursIndex:
+                                                        state.courseIndex,
+                                                    faculties:
+                                                        state.facultiesList,
+                                                    facultyIndex: state
+                                                        .facultyIndex?.name,
+                                                  ).paddingOnly(top: 80);
+                                                });
+                                          },
                                         ),
                                         CustomCardWidget(
                                           notButtonIndex: 0,
@@ -112,7 +133,6 @@ class _StudentsScreenState extends State<StudentsScreen> {
                                         await context
                                             .read<AcceptedOrderCubit>()
                                             .getOrdersList();
-                                       
                                       },
                                     ).paddingOnly(
                                         right: paddingSize, bottom: 16),
@@ -121,7 +141,8 @@ class _StudentsScreenState extends State<StudentsScreen> {
                               ],
                             ));
                       }),
-                    ).paddingAll(20),
+                    ).paddingAll(
+                        ResponsiveWidget.isMobileLarge(context) ? 10 : 20),
                   ),
                 ],
               ),

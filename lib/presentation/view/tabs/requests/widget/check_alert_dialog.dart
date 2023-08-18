@@ -54,6 +54,7 @@ class CheckDeleteAlertDialog extends StatelessWidget {
                     text: AppStrings.strIsCancelled,
                     onTap: () => Navigator.pop(context),
                   ),
+                  SizedBox(width: 8),
                   CustomOutlineButton(
                     text: AppStrings.stirApproved,
                     width: 137,

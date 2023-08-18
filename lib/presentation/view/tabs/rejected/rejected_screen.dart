@@ -15,6 +15,7 @@ import 'package:uni_hostel_admin/presentation/cubit/cancelled_order/cancelled_or
 import 'package:uni_hostel_admin/presentation/view/menu_drawer/menu_drawer.dart';
 import 'package:uni_hostel_admin/presentation/view/profile_drawer/profile_drawer.dart';
 import 'package:uni_hostel_admin/presentation/view/custom_app_bar/custom_app_bar.dart';
+import 'package:uni_hostel_admin/presentation/view/tabs/rejected/widget/bottom_filter_widget.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/requests/widget/top_request_item_widget.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/widget/custom_card_widget.dart';
 
@@ -83,8 +84,25 @@ class RejectedScreen extends StatelessWidget {
                                           onChangeFaculty: (v) =>
                                               bloc.selectFaculty(v),
                                           onChangecourse: (v) =>
-                                              bloc.selectCourse(v),
-                                        ),
+                                              bloc.selectCourse(v), onTapFilter: () {
+                                      showModalBottomSheet(
+                                          context: context,
+                                          isScrollControlled: true,
+                                          backgroundColor:
+                                              AppColors.transparent,
+                                          builder: (context) {
+                                            return BottomFilterCancelledWidget(
+                                              indexM: state.maritalStatus,
+                                              list: maritals,
+                                              courses: courseList,
+                                              coursIndex: state.courseIndex,
+                                              faculties: state.facultiesList,
+                                              facultyIndex:
+                                                  state.facultyIndex?.name,
+                                              
+                                            ).paddingOnly(top: 80);
+                                          });
+                                              }),
                                         CustomCardWidget(
                                             notButtonIndex: 1,
                                             list: state.orderList,
@@ -119,7 +137,7 @@ class RejectedScreen extends StatelessWidget {
                               ],
                             ));
                       }),
-                    ).paddingAll(20),
+                    ).paddingAll(ResponsiveWidget.isMobileLarge(context) ? 10 : 20),
                   ),
                 ],
               ),

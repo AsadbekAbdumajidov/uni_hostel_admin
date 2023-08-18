@@ -77,7 +77,7 @@ class WaitingScreen extends StatelessWidget {
                                       onChangeFaculty: (v) =>
                                           bloc.selectFaculty(v),
                                       onChangecourse: (v) =>
-                                          bloc.selectCourse(v),
+                                          bloc.selectCourse(v), onTapFilter: () {  },
                                     ),
                                     CustomCardWidget(
                                       notButtonIndex: 2,
@@ -116,7 +116,7 @@ class WaitingScreen extends StatelessWidget {
                         ),
                       );
                     }),
-                  ).paddingAll(20),
+                  ).paddingAll(ResponsiveWidget.isMobileLarge(context) ? 10 : 20),
                 ),
               ],
             ),

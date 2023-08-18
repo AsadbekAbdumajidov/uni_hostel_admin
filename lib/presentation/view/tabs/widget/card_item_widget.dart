@@ -116,7 +116,7 @@ class CardItemWidget extends StatelessWidget {
                   ],
                 ),
               ),
-        Expanded(
+      ResponsiveWidget.isMobile(context) ? SizedBox.shrink():  Expanded(
           flex: 3,
           child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(
@@ -128,7 +128,7 @@ class CardItemWidget extends StatelessWidget {
             ),
           ]),
         ),
-        Expanded(
+         ResponsiveWidget.isMobile(context) ? SizedBox.shrink(): Expanded(
           flex: 2,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

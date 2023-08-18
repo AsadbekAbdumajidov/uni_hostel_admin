@@ -62,6 +62,18 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "bottom_inset_observer",
+      "rootUri": "file:///Users/abrorsamurai/.pub-cache/hosted/pub.dev/bottom_inset_observer-3.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
+      "name": "bottom_sheet",
+      "rootUri": "file:///Users/abrorsamurai/.pub-cache/hosted/pub.dev/bottom_sheet-4.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "build",
       "rootUri": "file:///Users/abrorsamurai/.pub-cache/hosted/pub.dev/build-2.4.1",
       "packageUri": "lib/",
@@ -830,7 +842,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-08-14T16:01:27.765514Z",
+  "generated": "2023-08-18T18:08:40.633429Z",
   "generator": "pub",
   "generatorVersion": "3.0.6"
 }

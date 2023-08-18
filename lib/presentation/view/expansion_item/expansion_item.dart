@@ -44,7 +44,7 @@ class ExpansionItemWidget extends StatelessWidget {
         return Container(
           width: context.w,
           height: ResponsiveWidget.isMobile(context) ? 400 : 450,
-          padding: EdgeInsets.all(16),
+          padding: EdgeInsets.symmetric(vertical: 16,horizontal: 8),
           child: ListView(children: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,25 +77,29 @@ class ExpansionItemWidget extends StatelessWidget {
               ],
             ),
             SizedBox(height: 20),
-            index != 0 ? context.read<SelectedOrderCubit>().cheack()
-                ? CheckboxListWidget()
-                : SizedBox.shrink() :
-           state.trueProperties.isEmpty ? SizedBox.shrink(): GridView.builder(
-              shrinkWrap: true,
-              padding: EdgeInsets.only(bottom: 14),
-              physics: NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 2,
-                mainAxisExtent: 20,
-              ),
-              itemCount: state.trueProperties.length,
-              itemBuilder: (BuildContext ctx, index) {
-                var response = state.trueProperties[index];
+            index != 0
+                ? context.read<SelectedOrderCubit>().cheack()
+                    ? CheckboxListWidget()
+                    : SizedBox.shrink()
+                : state.trueProperties.isEmpty
+                    ? SizedBox.shrink()
+                    : GridView.builder(
+                        shrinkWrap: true,
+                        padding: EdgeInsets.only(bottom: 14),
+                        physics: NeverScrollableScrollPhysics(),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 2,
+                          mainAxisExtent: 20,
+                        ),
+                        itemCount: state.trueProperties.length,
+                        itemBuilder: (BuildContext ctx, index) {
+                          var response = state.trueProperties[index];
 
-                return CheckboxItemWidget(title: response, value: true);
-              },
-            ),
+                          return CheckboxItemWidget(
+                              title: response, value: true);
+                        },
+                      ),
             state.orderResponse?.checkedAdmin == null
                 ? SizedBox.shrink()
                 : userInformationMobile(

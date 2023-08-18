@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel_admin/core/extension/for_context.dart';
 import 'package:uni_hostel_admin/presentation/components/loading_widget.dart';
+import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
 import 'package:uni_hostel_admin/presentation/cubit/on_hover/on_hover_cubit.dart';
 import '../../../core/themes/app_colors.dart';
 
@@ -93,6 +94,8 @@ class CustomOutlineButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double textsize = ResponsiveWidget.isMobile(context) ? 13 : 14;
+
     return BlocProvider(
       create: (context) => OnHoverCubit(),
       child: BlocBuilder<OnHoverCubit, OnHoverState>(builder: (context, state) {
@@ -113,9 +116,10 @@ class CustomOutlineButton extends StatelessWidget {
             child: Center(
               child: isLoading
                   ? LoadingWidget(
-                      color: state.hover
-                          ? AppColors.whiteColor
-                          : AppColors.primaryColor).paddingOnly(right: 12)
+                          color: state.hover
+                              ? AppColors.whiteColor
+                              : AppColors.primaryColor)
+                      .paddingOnly(right: 12)
                   : Row(
                       mainAxisAlignment: icon == null
                           ? MainAxisAlignment.center
@@ -128,7 +132,8 @@ class CustomOutlineButton extends StatelessWidget {
                                     color: state.hover
                                         ? AppColors.whiteColor
                                         : AppColors.blackColor,
-                                    fontWeight: FontWeight.w300)),
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: textsize)),
                         SizedBox(width: 10),
                         icon == null
                             ? SizedBox.shrink()
@@ -140,10 +145,7 @@ class CustomOutlineButton extends StatelessWidget {
                               ).paddingOnly(right: 12)
                       ],
                     ),
-            ).paddingOnly(
-                top: 4,
-                bottom: 4,
-                left: 12),
+            ).paddingOnly(top: 4, bottom: 4, left: 12),
           ),
         );
       }),

@@ -10,6 +10,7 @@ class AppStrings {
   static const strDeleteOrder = "Arizani o'chirish";
   static const strDelete = "O'chirish";
   static const strOrderListUpload = "Arizalar ro'yxatini yuklash";
+  static const strFilters = "Filterlar";
 
 
 

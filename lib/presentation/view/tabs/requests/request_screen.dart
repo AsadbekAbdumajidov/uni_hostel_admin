@@ -15,13 +15,14 @@ import 'package:uni_hostel_admin/presentation/cubit/new_order/get_new_order_cubi
 import 'package:uni_hostel_admin/presentation/view/menu_drawer/menu_drawer.dart';
 import 'package:uni_hostel_admin/presentation/view/profile_drawer/profile_drawer.dart';
 import 'package:uni_hostel_admin/presentation/view/custom_app_bar/custom_app_bar.dart';
+import 'package:uni_hostel_admin/presentation/view/tabs/requests/widget/bottom_filter_widget.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/requests/widget/top_request_item_widget.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/widget/differenet_card_widget.dart';
 
 class RequestsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    double paddingSize = ResponsiveWidget.isMobileLarge(context) ? 16 : 30;
+    double paddingSize = ResponsiveWidget.isMobileLarge(context) ? 14 : 30;
     return SafeArea(
       child: Scaffold(
         drawer: Drawer(child: MenuDrawer()),
@@ -71,6 +72,19 @@ class RequestsScreen extends StatelessWidget {
                                     onChangeFaculty: (v) =>
                                         bloc.selectFaculty(v),
                                     onChangecourse: (v) => bloc.selectCourse(v),
+                                    onTapFilter: () {
+                                      showModalBottomSheet(
+                                          context: context,
+                                          isScrollControlled: true,
+                                          backgroundColor:
+                                              AppColors.transparent,
+                                          builder: (context) {
+                                            return BottomFilterWidget(
+                                             
+                                              
+                                            ).paddingOnly(top: 80);
+                                          });
+                                    },
                                   ),
                                   DifferentCardWidget(
                                       orderList: state.orderList),
@@ -95,7 +109,6 @@ class RequestsScreen extends StatelessWidget {
                                   await context
                                       .read<GetNewOrderCubit>()
                                       .getOrdersList();
-                                
                                 },
                               ).paddingOnly(right: paddingSize, bottom: 16),
                             ],
@@ -104,7 +117,7 @@ class RequestsScreen extends StatelessWidget {
                       ),
                     );
                   }),
-                ).paddingAll(20),
+                ).paddingAll(ResponsiveWidget.isMobileLarge(context) ? 10 : 20),
               ),
             ]),
           ),

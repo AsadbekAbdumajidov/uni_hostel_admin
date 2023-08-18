@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel_admin/core/themes/app_colors.dart';
 
 class CheckboxItemWidget extends StatelessWidget {
@@ -14,6 +15,7 @@ class CheckboxItemWidget extends StatelessWidget {
         Theme(
           data: ThemeData(),
           child: Checkbox(
+            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
             activeColor: AppColors.primaryColor,
@@ -34,6 +36,37 @@ class CheckboxItemWidget extends StatelessWidget {
               style: Theme.of(context).textTheme.titleSmall),
         ),
       ],
+    );
+  }
+}
+
+class CheckboxItemRowWidget extends StatelessWidget {
+  const CheckboxItemRowWidget(
+      {super.key, required this.title, required this.value, this.onChange});
+  final String title;
+  final bool value;
+  final Function(bool? v)? onChange;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 35,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5),
+      color: value ? AppColors.primaryColor : AppColors.whiteColor,
+
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: Text(title,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                    color:
+                        value ? AppColors.whiteColor : AppColors.blackColor)),
+          ),
+        ],
+      ).paddingSymmetric(horizontal: 6),
     );
   }
 }
