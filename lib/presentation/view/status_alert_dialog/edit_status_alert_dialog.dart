@@ -89,7 +89,7 @@ class EditStatusAlertDialog extends StatelessWidget {
                               ?.copyWith(
                                   fontWeight: FontWeight.w600,
                                   fontSize: ResponsiveWidget.isMobile(context)
-                                      ? 16
+                                      ? 14
                                       : 18),
                         ),
                       ),
@@ -215,7 +215,7 @@ class EditStatusAlertDialog extends StatelessWidget {
                       },
                       width: 300)
                 ],
-              ).paddingAll(30),
+              ).paddingAll(ResponsiveWidget.isMobile(context)?16: 30),
             ),
           );
         }),

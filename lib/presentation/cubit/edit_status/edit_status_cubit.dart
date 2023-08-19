@@ -4,8 +4,8 @@ import 'package:uni_hostel_admin/core/error/error.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/edit_status.dart';
-import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.dart';
-import 'package:uni_hostel_admin/data/models/order/post_order/edit_status_request.dart';
+import 'package:uni_hostel_admin/data/models/order/post_order/request/edit_status_request.dart';
+import 'package:uni_hostel_admin/data/models/order/post_order/response/edit_status_response.dart';
 part 'edit_status_state.dart';
 part 'edit_status_cubit.freezed.dart';
 
@@ -34,24 +34,24 @@ class EditStatusCubit extends Cubit<EditStatusState> {
       EditStatusParams(
         id: id,
         request: EditStatusRequest(
-          status: status == AppStrings.strApprovedAd
-              ? "accepted"
-              : status == AppStrings.strRejectedAd
-                  ? "cancelled"
-                  : "in_queue",
-          monthlyPaymentPrice: monthlyPaymentPrice,
-          cancelReason: cancelReason,
-          paymentDate: paymentDate,
-          ironNotebook: ironNotebook,
-          womensBook: womensBook,
-          youthsNotebook: youthsNotebook,
-          fosterHome: fosterHome,
-          noBreadWinner: noBreadWinner,
-          oneParentsIsDead: oneParentsIsDead,
-          disabled: disabled,
-          giftedStudent: giftedStudent,
-          hasManyChildrenFamily: hasManyChildrenFamily,
-        ),
+            status: status == AppStrings.strApprovedAd
+                ? "accepted"
+                : status == AppStrings.strRejectedAd
+                    ? "cancelled"
+                    : "in_queue",
+            monthlyPaymentPrice: monthlyPaymentPrice,
+            cancelReason: cancelReason,
+            paymentDate: paymentDate,
+            ironNotebook: ironNotebook,
+            womensBook: womensBook,
+            youthsNotebook: youthsNotebook,
+            fosterHome: fosterHome,
+            noBreadWinner: noBreadWinner,
+            oneParentsIsDead: oneParentsIsDead,
+            disabled: disabled,
+            giftedStudent: giftedStudent,
+            hasManyChildrenFamily: hasManyChildrenFamily,
+            basedOnPaymentContract: false),
       ),
     );
     result.fold(

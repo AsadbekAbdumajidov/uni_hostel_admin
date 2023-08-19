@@ -31,131 +31,132 @@ class BottomFilterCancelledWidget extends StatelessWidget {
         builder: (context, state) {
       var bloc = context.read<CancelledOrderCubit>();
       return Container(
-          height: 600,
-          padding: EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: AppColors.whiteColor,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(12),
-              topRight: Radius.circular(12),
-            ),
+        height: 600,
+        padding: EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: AppColors.whiteColor,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(12),
+            topRight: Radius.circular(12),
           ),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(AppStrings.strFilters,
-                        style: Theme.of(context).textTheme.titleMedium),
-                    GestureDetector(
-                      child: Icon(CupertinoIcons.xmark,
-                          color: AppColors.bodyTextColor),
-                      onTap: () => Navigator.pop(context),
-                    )
-                  ],
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(AppStrings.strFilters,
+                      style: Theme.of(context).textTheme.titleMedium),
+                  GestureDetector(
+                    child: Icon(CupertinoIcons.xmark,
+                        color: AppColors.bodyTextColor),
+                    onTap: () => Navigator.pop(context),
+                  )
+                ],
+              ),
+              SizedBox(height: 20),
+              ExpansionTile(
+                tilePadding: EdgeInsets.all(0),
+                title: Text(
+                  state.courseIndex == ""
+                      ? AppStrings.strCourse
+                      : state.courseIndex,
+                  style: Theme.of(context).textTheme.displaySmall,
                 ),
-                SizedBox(height: 20),
-                ExpansionTile(
-                  tilePadding: EdgeInsets.all(0),
-                  title: Text(
-                    state.courseIndex == ""
-                        ? AppStrings.strCourse
-                        : state.courseIndex,
-                    style: Theme.of(context).textTheme.displaySmall,
-                  ),
-                  children: [
-                    ListView.builder(
-                      padding: EdgeInsets.symmetric(vertical: 10),
-                      shrinkWrap: true,
-                      itemBuilder: (context, index) {
-                        return InkWell(
-                          onTap: () {
-                            bloc.selectCourse(courseList[index]);
-                          },
-                          child: CheckboxItemRowWidget(
-                            title: courseList[index],
-                            value: state.courseIndex == courseList[index],
-                          ),
-                        );
-                      },
-                      itemCount: courseList.length,
-                    )
-                  ],
+                children: [
+                  ListView.builder(
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          bloc.selectCourse(courseList[index]);
+                        },
+                        child: CheckboxItemRowWidget(
+                          title: courseList[index],
+                          value: state.courseIndex == courseList[index],
+                        ),
+                      );
+                    },
+                    itemCount: courseList.length,
+                  )
+                ],
+              ),
+              ExpansionTile(
+                tilePadding: EdgeInsets.all(0),
+                title: TextScroll(
+                  state.facultyIndex?.name ?? AppStrings.strFaculty,
+                  velocity: Velocity(pixelsPerSecond: Offset(50, 0)),
+                  pauseBetween: Duration(milliseconds: 1000),
+                  mode: TextScrollMode.bouncing,
+                  style: Theme.of(context)
+                      .textTheme
+                      .displaySmall
+                      ?.copyWith(color: AppColors.blackColor),
+                  textAlign: TextAlign.right,
+                  selectable: true,
                 ),
-                ExpansionTile(
-                  tilePadding: EdgeInsets.all(0),
-                  title: TextScroll(
-                    state.facultyIndex?.name ?? AppStrings.strFaculty,
-                    velocity: Velocity(pixelsPerSecond: Offset(50, 0)),
-                    pauseBetween: Duration(milliseconds: 1000),
-                    mode: TextScrollMode.bouncing,
-                    style: Theme.of(context)
-                        .textTheme
-                        .displaySmall
-                        ?.copyWith(color: AppColors.blackColor),
-                    textAlign: TextAlign.right,
-                    selectable: true,
-                  ),
-                  children: [
-                    ListView.builder(
-                      shrinkWrap: true,
-                      padding: EdgeInsets.symmetric(vertical: 10),
-                      itemBuilder: (context, index) {
-                        return InkWell(
-                          onTap: () {
-                            bloc.selectFaculty(state.facultiesList[index]);
-                          },
-                          child: CheckboxItemRowWidget(
-                            title: state.facultiesList[index],
-                            value: state.facultyIndex?.name ==
-                                state.facultiesList[index],
-                          ),
-                        );
-                      },
-                      itemCount: state.facultiesList.length,
-                    )
-                  ],
+                children: [
+                  ListView.builder(
+                    shrinkWrap: true,
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          bloc.selectFaculty(state.facultiesList[index]);
+                        },
+                        child: CheckboxItemRowWidget(
+                          title: state.facultiesList[index],
+                          value: state.facultyIndex?.name ==
+                              state.facultiesList[index],
+                        ),
+                      );
+                    },
+                    itemCount: state.facultiesList.length,
+                  )
+                ],
+              ),
+              ExpansionTile(
+                tilePadding: EdgeInsets.all(0),
+                title: TextScroll(
+                  state.maritalStatus == ""
+                      ? AppStrings.strMaritals
+                      : state.maritalStatus,
+                  velocity: Velocity(pixelsPerSecond: Offset(50, 0)),
+                  pauseBetween: Duration(milliseconds: 1000),
+                  mode: TextScrollMode.bouncing,
+                  style: Theme.of(context)
+                      .textTheme
+                      .displaySmall
+                      ?.copyWith(color: AppColors.blackColor),
+                  textAlign: TextAlign.right,
+                  selectable: true,
                 ),
-                ExpansionTile(
-                  tilePadding: EdgeInsets.all(0),
-                  title: TextScroll(
-                    state.maritalStatus == ""
-                        ? AppStrings.strMaritals
-                        : state.maritalStatus,
-                    velocity: Velocity(pixelsPerSecond: Offset(50, 0)),
-                    pauseBetween: Duration(milliseconds: 1000),
-                    mode: TextScrollMode.bouncing,
-                    style: Theme.of(context)
-                        .textTheme
-                        .displaySmall
-                        ?.copyWith(color: AppColors.blackColor),
-                    textAlign: TextAlign.right,
-                    selectable: true,
-                  ),
-                  children: [
-                    ListView.builder(
-                      padding: EdgeInsets.symmetric(vertical: 10),
-                      shrinkWrap: true,
-                      itemBuilder: (context, index) {
-                        return InkWell(
-                          onTap: () {
-                            bloc.selectMaritals(maritals[index]);
-                          },
-                          child: CheckboxItemRowWidget(
-                            title: maritals[index],
-                            value: state.maritalStatus == maritals[index],
-                          ),
-                        );
-                      },
-                      itemCount: maritals.length,
-                    )
-                  ],
-                ),
-                SizedBox(height: 50),
-              ],
-            ),
-          ));
+                children: [
+                  ListView.builder(
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          bloc.selectMaritals(maritals[index]);
+                        },
+                        child: CheckboxItemRowWidget(
+                          title: maritals[index],
+                          value: state.maritalStatus == maritals[index],
+                        ),
+                      );
+                    },
+                    itemCount: maritals.length,
+                  )
+                ],
+              ),
+              SizedBox(height: 50),
+            ],
+          ),
+        ),
+      );
     });
   }
 }

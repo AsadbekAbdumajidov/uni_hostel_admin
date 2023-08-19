@@ -9,7 +9,8 @@ import 'package:uni_hostel_admin/data/domain/repository/main.dart';
 import 'package:uni_hostel_admin/data/models/download_orders_list/download_orders_list_response.dart';
 import 'package:uni_hostel_admin/data/models/order/get_faculties/get_faculties_response.dart';
 import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.dart';
-import 'package:uni_hostel_admin/data/models/order/post_order/edit_status_request.dart';
+import 'package:uni_hostel_admin/data/models/order/post_order/request/edit_status_request.dart';
+import 'package:uni_hostel_admin/data/models/order/post_order/response/edit_status_response.dart';
 import 'package:uni_hostel_admin/data/models/order/select_order/select_order_response.dart';
 
 class MainRepository implements IMainRepository {
@@ -102,7 +103,7 @@ class MainRepository implements IMainRepository {
   }
 
   @override
-  Future<Either<Failure, GetOrderResponse>> editStatus(
+  Future<Either<Failure, EditStatusResponse>> editStatus(
       EditStatusRequest request, int id) async {
     try {
       final response = await _apiClient.editStatus(request, id);

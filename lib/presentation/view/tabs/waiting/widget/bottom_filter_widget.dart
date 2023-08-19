@@ -40,7 +40,7 @@ class BottomFilterWaitWidget extends StatelessWidget {
               topRight: Radius.circular(12),
             ),
           ),
-          child: SingleChildScrollView(
+         child: SingleChildScrollView(
             child: Column(
               children: [
                 Row(
@@ -155,7 +155,8 @@ class BottomFilterWaitWidget extends StatelessWidget {
                 SizedBox(height: 50),
               ],
             ),
-          ));
+          ),
+          );
     });
   }
 }

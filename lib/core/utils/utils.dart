@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
 
-const BASE_URL = 'https://api.unihostel.uz/v1/';
+const BASE_URL = 'https://backend.unihostel.uz/v1/';
 const ACCESS_TOKEN = 'access-token';
 const REFRESH_TOKEN = 'refresh-token';
 

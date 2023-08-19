@@ -5,7 +5,7 @@ class EditStatusState with _$EditStatusState {
   const factory EditStatusState({
     @Default(Status.UNKNOWN) Status status,
     @Default(UnknownFailure()) Failure failure,
-    GetOrderResponse? response,
+    EditStatusResponse? response,
 
    
   }) = _EditStatusState;

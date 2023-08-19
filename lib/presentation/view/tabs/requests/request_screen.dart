@@ -101,6 +101,7 @@ class RequestsScreen extends StatelessWidget {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               CustomOutlineButton(
+                                width: 229,
                                 icon: CupertinoIcons.cloud_download,
                                 isLoading: state.status == Status.UNKNOWN,
                                 text: AppStrings.strOrderListUpload,

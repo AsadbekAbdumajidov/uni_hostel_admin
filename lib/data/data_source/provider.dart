@@ -6,7 +6,8 @@ import 'package:uni_hostel_admin/data/models/login/request/login_request_model.d
 import 'package:uni_hostel_admin/data/models/login/response/login_response_model.dart';
 import 'package:uni_hostel_admin/data/models/order/get_faculties/get_faculties_response.dart';
 import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.dart';
-import 'package:uni_hostel_admin/data/models/order/post_order/edit_status_request.dart';
+import 'package:uni_hostel_admin/data/models/order/post_order/request/edit_status_request.dart';
+import 'package:uni_hostel_admin/data/models/order/post_order/response/edit_status_response.dart';
 import 'package:uni_hostel_admin/data/models/order/select_order/select_order_response.dart';
 part 'provider.g.dart';
 
@@ -45,7 +46,7 @@ abstract class ApiClient {
   Future<SelectOrderResponse> getSelectedOrder(@Path('id') int id);
 
   @PATCH('admin/order/{id}/')
-  Future<GetOrderResponse> editStatus(
+  Future<EditStatusResponse> editStatus(
     @Body() EditStatusRequest request,
     @Path('id') int id,
   );

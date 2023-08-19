@@ -16,6 +16,7 @@ class CheckDeleteAlertDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+   
     return FadeInUp(
       child: Dialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -43,6 +44,7 @@ class CheckDeleteAlertDialog extends StatelessWidget {
                 title,
                 style: Theme.of(context).textTheme.headlineSmall,
                 textAlign: TextAlign.center,
+                
               ),
               Spacer(),
               Divider(color: AppColors.bodyTextColor.withOpacity(0.2)),
@@ -50,12 +52,14 @@ class CheckDeleteAlertDialog extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   CustomOutlineButton(
+                    primaryColour: AppColors.redColour,
                     width: 137,
                     text: AppStrings.strIsCancelled,
                     onTap: () => Navigator.pop(context),
                   ),
                   SizedBox(width: 8),
                   CustomOutlineButton(
+                    primaryColour: AppColors.greenColour,
                     text: AppStrings.stirApproved,
                     width: 137,
                     onTap: onTapright,

@@ -41,6 +41,6 @@ class userInformationMobile extends StatelessWidget {
                 ),
               ),
       ],
-    ).paddingOnly(bottom: 18);
+    ).paddingOnly(bottom: 18,top: 10);
   }
 }

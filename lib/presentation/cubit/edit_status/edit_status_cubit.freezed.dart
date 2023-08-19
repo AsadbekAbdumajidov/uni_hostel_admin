@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$EditStatusState {
   Status get status => throw _privateConstructorUsedError;
   Failure get failure => throw _privateConstructorUsedError;
-  GetOrderResponse? get response => throw _privateConstructorUsedError;
+  EditStatusResponse? get response => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EditStatusStateCopyWith<EditStatusState> get copyWith =>
@@ -31,9 +31,9 @@ abstract class $EditStatusStateCopyWith<$Res> {
           EditStatusState value, $Res Function(EditStatusState) then) =
       _$EditStatusStateCopyWithImpl<$Res, EditStatusState>;
   @useResult
-  $Res call({Status status, Failure failure, GetOrderResponse? response});
+  $Res call({Status status, Failure failure, EditStatusResponse? response});
 
-  $GetOrderResponseCopyWith<$Res>? get response;
+  $EditStatusResponseCopyWith<$Res>? get response;
 }
 
 /// @nodoc
@@ -65,18 +65,18 @@ class _$EditStatusStateCopyWithImpl<$Res, $Val extends EditStatusState>
       response: freezed == response
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
-              as GetOrderResponse?,
+              as EditStatusResponse?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $GetOrderResponseCopyWith<$Res>? get response {
+  $EditStatusResponseCopyWith<$Res>? get response {
     if (_value.response == null) {
       return null;
     }
 
-    return $GetOrderResponseCopyWith<$Res>(_value.response!, (value) {
+    return $EditStatusResponseCopyWith<$Res>(_value.response!, (value) {
       return _then(_value.copyWith(response: value) as $Val);
     });
   }
@@ -90,10 +90,10 @@ abstract class _$$_EditStatusStateCopyWith<$Res>
       __$$_EditStatusStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Status status, Failure failure, GetOrderResponse? response});
+  $Res call({Status status, Failure failure, EditStatusResponse? response});
 
   @override
-  $GetOrderResponseCopyWith<$Res>? get response;
+  $EditStatusResponseCopyWith<$Res>? get response;
 }
 
 /// @nodoc
@@ -123,7 +123,7 @@ class __$$_EditStatusStateCopyWithImpl<$Res>
       response: freezed == response
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
-              as GetOrderResponse?,
+              as EditStatusResponse?,
     ));
   }
 }
@@ -143,7 +143,7 @@ class _$_EditStatusState implements _EditStatusState {
   @JsonKey()
   final Failure failure;
   @override
-  final GetOrderResponse? response;
+  final EditStatusResponse? response;
 
   @override
   String toString() {
@@ -175,14 +175,14 @@ abstract class _EditStatusState implements EditStatusState {
   const factory _EditStatusState(
       {final Status status,
       final Failure failure,
-      final GetOrderResponse? response}) = _$_EditStatusState;
+      final EditStatusResponse? response}) = _$_EditStatusState;
 
   @override
   Status get status;
   @override
   Failure get failure;
   @override
-  GetOrderResponse? get response;
+  EditStatusResponse? get response;
   @override
   @JsonKey(ignore: true)
   _$$_EditStatusStateCopyWith<_$_EditStatusState> get copyWith =>

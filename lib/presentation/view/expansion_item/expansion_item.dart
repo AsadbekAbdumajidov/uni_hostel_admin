@@ -76,7 +76,7 @@ class ExpansionItemWidget extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             index != 0
                 ? context.read<SelectedOrderCubit>().cheack()
                     ? CheckboxListWidget()
@@ -110,7 +110,7 @@ class ExpansionItemWidget extends StatelessWidget {
             index == 0
                 ? SizedBox.shrink()
                 : Divider(color: AppColors.bodyTextColor.withOpacity(0.2))
-                    .paddingOnly(bottom: 6, top: 20),
+                    .paddingOnly(bottom: 6, top: 10),
             index == 0
                 ? SizedBox.shrink()
                 : DownButtonWidget(

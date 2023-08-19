@@ -33,6 +33,7 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double height = ResponsiveWidget.isMobile(context) ? 30 : 40;
     return Material(
       color: bgColor,
       borderRadius: BorderRadius.circular(radius ?? 5),
@@ -40,7 +41,7 @@ class CustomButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(radius ?? 5),
         onTap: onTap,
         child: Ink(
-          height: 40,
+          height:height,
           width: width ?? context.w,
           decoration: BoxDecoration(
             color: bgColor ?? AppColors.primaryColor,
@@ -95,6 +96,7 @@ class CustomOutlineButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double textsize = ResponsiveWidget.isMobile(context) ? 13 : 14;
+    double padding = ResponsiveWidget.isMobile(context) ? 2 : 12;
 
     return BlocProvider(
       create: (context) => OnHoverCubit(),
@@ -120,7 +122,8 @@ class CustomOutlineButton extends StatelessWidget {
                               ? AppColors.whiteColor
                               : AppColors.primaryColor)
                       .paddingOnly(right: 12)
-                  : Row(
+                  :  icon == null
+                            ? Row(
                       mainAxisAlignment: icon == null
                           ? MainAxisAlignment.center
                           : MainAxisAlignment.spaceBetween,
@@ -134,18 +137,33 @@ class CustomOutlineButton extends StatelessWidget {
                                         : AppColors.blackColor,
                                     fontWeight: FontWeight.w300,
                                     fontSize: textsize)),
+                      
+                      ],
+                    )
+                            :  Row(
+                      mainAxisAlignment: icon == null
+                          ? MainAxisAlignment.center
+                          : MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(text,
+                            overflow: TextOverflow.ellipsis,
+                            style: style ??
+                                TextStyle(
+                                    color: state.hover
+                                        ? AppColors.whiteColor
+                                        : AppColors.blackColor,
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: textsize)),
                         SizedBox(width: 10),
-                        icon == null
-                            ? SizedBox.shrink()
-                            : Icon(
+                       Icon(
                                 icon,
                                 color: state.hover
                                     ? AppColors.whiteColor
                                     : AppColors.blackColor,
-                              ).paddingOnly(right: 12)
+                              )
                       ],
                     ),
-            ).paddingOnly(top: 4, bottom: 4, left: 12),
+            ).paddingOnly(top: 4, bottom: 4, left: padding,right: padding),
           ),
         );
       }),

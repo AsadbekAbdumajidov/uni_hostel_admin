@@ -16,6 +16,7 @@ import 'package:uni_hostel_admin/presentation/view/menu_drawer/menu_drawer.dart'
 import 'package:uni_hostel_admin/presentation/view/custom_app_bar/custom_app_bar.dart';
 import 'package:uni_hostel_admin/presentation/view/profile_drawer/profile_drawer.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/requests/widget/top_request_item_widget.dart';
+import 'package:uni_hostel_admin/presentation/view/tabs/waiting/widget/bottom_filter_widget.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/widget/custom_card_widget.dart';
 
 class WaitingScreen extends StatelessWidget {
@@ -77,7 +78,26 @@ class WaitingScreen extends StatelessWidget {
                                       onChangeFaculty: (v) =>
                                           bloc.selectFaculty(v),
                                       onChangecourse: (v) =>
-                                          bloc.selectCourse(v), onTapFilter: () {  },
+                                          bloc.selectCourse(v), onTapFilter: () {
+                                            showModalBottomSheet(
+                                                context: context,
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    AppColors.transparent,
+                                                builder: (context) {
+                                                  return BottomFilterWaitWidget(
+                                                    indexM: state.maritalStatus,
+                                                    list: maritals,
+                                                    courses: courseList,
+                                                    coursIndex:
+                                                        state.courseIndex,
+                                                    faculties:
+                                                        state.facultiesList,
+                                                    facultyIndex: state
+                                                        .facultyIndex?.name,
+                                                  ).paddingOnly(top: 80);
+                                                });
+                                          },
                                     ),
                                     CustomCardWidget(
                                       notButtonIndex: 2,
@@ -98,6 +118,7 @@ class WaitingScreen extends StatelessWidget {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               CustomOutlineButton(
+                                width: 225,
                                 icon: CupertinoIcons.cloud_download,
                                 isLoading: state.status == Status.UNKNOWN,
                                 text: AppStrings.strOrderListUpload,

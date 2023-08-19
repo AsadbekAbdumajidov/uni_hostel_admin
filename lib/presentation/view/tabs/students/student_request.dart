@@ -93,7 +93,7 @@ class _StudentsScreenState extends State<StudentsScreen> {
                                                     AppColors.transparent,
                                                 builder: (context) {
                                                   return BottomFilterAccWidget(
-                                                    indexM: state.maritalStatus,
+                                                     indexM: state.maritalStatus,
                                                     list: maritals,
                                                     courses: courseList,
                                                     coursIndex:
@@ -125,6 +125,7 @@ class _StudentsScreenState extends State<StudentsScreen> {
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     CustomOutlineButton(
+                                      width: 225,
                                       icon: CupertinoIcons.cloud_download,
                                       isLoading: state.status == Status.UNKNOWN,
                                       text: AppStrings.strOrderListUpload,
