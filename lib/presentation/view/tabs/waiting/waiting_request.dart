@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,100 +22,98 @@ import 'package:uni_hostel_admin/presentation/view/tabs/waiting/widget/bottom_fi
 import 'package:uni_hostel_admin/presentation/view/tabs/widget/custom_card_widget.dart';
 
 class WaitingScreen extends StatelessWidget {
-  const WaitingScreen({super.key});
-
+  var searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     double paddingSize = ResponsiveWidget.isMobileLarge(context) ? 16 : 30;
-    return SafeArea(
-      child: Scaffold(
-        drawer: Drawer(child: MenuDrawer()),
-        endDrawer: ProfileDrawer(),
-        body: Row(children: [
-          ResponsiveWidget.isTablet(context) ? SizedBox.shrink() : MenuDrawer(),
-          Expanded(
-            child: Column(
-              children: [
-                CustomAppBar(
+    return Scaffold(
+      drawer: Drawer(child: MenuDrawer()),
+      endDrawer: ProfileDrawer(),
+      body: Row(children: [
+        ResponsiveWidget.isTablet(context) ? SizedBox.shrink() : MenuDrawer(),
+        Expanded(
+          child: Column(
+            children: [
+              SizedBox(height: ResponsiveWidget.isMobile(context) ? 40 : 0),
+              CustomAppBar(
+                  textEditingController: searchController,
                   onchange: (v) =>
                       context.read<QueueOrderCubit>().searchQueue(v),
-                ),
-                Expanded(
-                  child: Container(
-                    height: 700,
-                    width: context.w,
-                    decoration: AppDecoration.customCardDecoration,
-                    child: BlocBuilder<QueueOrderCubit, QueueOrderState>(
-                        builder: (context, state) {
-                      if (state.status == Status.LOADING) {
-                        return LoadingWidget();
-                      }
-                      var bloc = context.read<QueueOrderCubit>();
-
-                      return InfiniteScrollingPagination(
-                        onPagination: () {
-                          context
-                              .read<QueueOrderCubit>()
-                              .getQueueOrderInfinite();
-                        },
-                        isLoading: state.loadingPagination,
-                        child: Column(
-                          children: [
-                            Expanded(
-                              child: Container(
-                                height: 800,
-                                width: context.w,
-                                child: ListView(
-                                  physics: ClampingScrollPhysics(),
-                                  children: [
-                                    TopRequestItemWidget(
-                                      index: state.maritalStatus,
-                                      title: AppStrings.strRequests,
-                                      list: maritals,
-                                      courses: courseList,
-                                      coursIndex: state.courseIndex,
-                                      faculties: state.facultiesList,
-                                      facultyIndex: state.facultyIndex?.name,
-                                      onChanged: (v) => bloc.selectMaritals(v),
-                                      onChangeFaculty: (v) =>
-                                          bloc.selectFaculty(v),
-                                      onChangecourse: (v) =>
-                                          bloc.selectCourse(v), onTapFilter: () {
-                                            showModalBottomSheet(
-                                                context: context,
-                                                isScrollControlled: true,
-                                                backgroundColor:
-                                                    AppColors.transparent,
-                                                builder: (context) {
-                                                  return BottomFilterWaitWidget(
-                                                    indexM: state.maritalStatus,
-                                                    list: maritals,
-                                                    courses: courseList,
-                                                    coursIndex:
-                                                        state.courseIndex,
-                                                    faculties:
-                                                        state.facultiesList,
-                                                    facultyIndex: state
-                                                        .facultyIndex?.name,
-                                                  ).paddingOnly(top: 80);
-                                                });
-                                          },
-                                    ),
-                                    CustomCardWidget(
-                                      notButtonIndex: 2,
-                                      list: state.orderList,
-                                      statusColor: AppColors.amberColor,
-                                      textStatus: AppStrings.strWaiting,
-                                    ),
-                                  ],
-                                ),
-                              ).paddingOnly(
+                  onCancel: () {
+                    context.read<QueueOrderCubit>().searchQueue('');
+                    searchController.text = "";
+                  }),
+              Expanded(
+                child: Container(
+                  height: 700,
+                  width: context.w,
+                  decoration: AppDecoration.customCardDecoration,
+                  child: BlocBuilder<QueueOrderCubit, QueueOrderState>(
+                      builder: (context, state) {
+                    if (state.status == Status.LOADING) {
+                      return LoadingWidget(size: 40);
+                    }
+                    var bloc = context.read<QueueOrderCubit>();
+                    return InfiniteScrollingPagination(
+                      onPagination: () {
+                        context.read<QueueOrderCubit>().getQueueOrderInfinite();
+                      },
+                      isLoading: state.loadingPagination,
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              height: 800,
+                              width: context.w,
+                              child: ListView(
+                                physics: ClampingScrollPhysics(),
+                                children: [
+                                  TopRequestItemWidget(
+                                    index: state.maritalStatus,
+                                    title: AppStrings.strRequests,
+                                    list: maritals,
+                                    courses: courseList,
+                                    coursIndex: state.courseIndex,
+                                    faculties: state.facultiesList,
+                                    facultyIndex: state.facultyIndex?.name,
+                                    onChanged: (v) => bloc.selectMaritals(v),
+                                    onChangeFaculty: (v) =>
+                                        bloc.selectFaculty(v),
+                                    onChangecourse: (v) => bloc.selectCourse(v),
+                                    onTapFilter: () {
+                                      showModalBottomSheet(
+                                          context: context,
+                                          isScrollControlled: true,
+                                          backgroundColor:
+                                              AppColors.transparent,
+                                          builder: (context) {
+                                            return BottomFilterWaitWidget(
+                                              indexM: state.maritalStatus,
+                                              list: maritals,
+                                              courses: courseList,
+                                              coursIndex: state.courseIndex,
+                                              faculties: state.facultiesList,
+                                              facultyIndex:
+                                                  state.facultyIndex?.name,
+                                            ).paddingOnly(top: 80);
+                                          });
+                                    },
+                                  ),
+                                  CustomCardWidget(
+                                    notButtonIndex: 2,
+                                    list: state.orderList,
+                                    statusColor: AppColors.amberColor,
+                                    textStatus: AppStrings.strWaiting,
+                                  ),
+                                ],
+                              ),
+                            ).paddingOnly(
                                 top: paddingSize,
                                 left: paddingSize,
                                 right: paddingSize,
                                 bottom: 16),
                           ),
-                             Row(
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -123,27 +123,24 @@ class WaitingScreen extends StatelessWidget {
                                 isLoading: state.status == Status.UNKNOWN,
                                 text: AppStrings.strOrderListUpload,
                                 ounLineColour: AppColors.primaryColor,
-                                onTap: () async{
-                                 await context
+                                onTap: () async {
+                                  await context
                                       .read<QueueOrderCubit>()
                                       .getOrdersList();
-                                 
                                 },
                               ).paddingOnly(right: paddingSize, bottom: 16),
-                             
                             ],
                           ),
-                          ],
-                        ),
-                      );
-                    }),
-                  ).paddingAll(ResponsiveWidget.isMobileLarge(context) ? 10 : 20),
-                ),
-              ],
-            ),
+                        ],
+                      ),
+                    );
+                  }),
+                ).paddingAll(ResponsiveWidget.isMobileLarge(context) ? 10 : 20),
+              ),
+            ],
           ),
-        ]),
-      ),
+        ),
+      ]),
     );
   }
 }

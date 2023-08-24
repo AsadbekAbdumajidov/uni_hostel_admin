@@ -9,6 +9,7 @@ import 'package:uni_hostel_admin/presentation/cubit/auth/auth_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/cancelled_order/cancelled_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/edit_status/edit_status_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/new_order/get_new_order_cubit.dart';
+import 'package:uni_hostel_admin/presentation/cubit/profile/profile_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/queue_order/queue_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/selected_order/selected_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/side_bar/side_bar_cubit.dart';
@@ -31,6 +32,8 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (context) => inject<SideBarCubit>()),
           BlocProvider(
               create: (context) => inject<AuthCubit>()..checkUserToAuth()),
+                BlocProvider(
+              create: (context) => inject<ProfileCubit>()..getProfile()),
           BlocProvider(create: (context) => inject<EditStatusCubit>()),
           BlocProvider(create: (context) => inject<SelectedOrderCubit>()),
           BlocProvider(

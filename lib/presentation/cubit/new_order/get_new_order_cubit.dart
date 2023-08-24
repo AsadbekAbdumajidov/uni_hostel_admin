@@ -133,6 +133,7 @@ class GetNewOrderCubit extends Cubit<GetNewOrderState> {
     getNewOrder();
   }
 
+
   void selectMaritals(String index) {
     if (index == AppStrings.strNoneOfThem) {
       emit(state.copyWith(maritalStatus: ""));

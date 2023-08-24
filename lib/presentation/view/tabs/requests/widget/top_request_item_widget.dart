@@ -24,6 +24,7 @@ class TopRequestItemWidget extends StatelessWidget {
   });
   final String? index;
   final String title;
+
   final String? facultyIndex;
   final List<String> faculties;
   final String? coursIndex;

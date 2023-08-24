@@ -1,11 +1,20 @@
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel_admin/core/routes/app_routes.dart';
 import 'package:uni_hostel_admin/core/themes/app_colors.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
+import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/di.dart';
+import 'package:uni_hostel_admin/presentation/components/flush_bars.dart';
+import 'package:uni_hostel_admin/presentation/components/loading_widget.dart';
 import 'package:uni_hostel_admin/presentation/cubit/auth/auth_cubit.dart';
+import 'package:uni_hostel_admin/presentation/cubit/profile/profile_cubit.dart';
 import 'package:uni_hostel_admin/presentation/view/profile_drawer/widget/full_name_information.dart';
+import 'package:uni_hostel_admin/presentation/view/profile_drawer/widget/profile_driwer_item.dart';
+
+import '../../components/responsiveness.dart';
 
 class ProfileDrawer extends StatelessWidget {
   ProfileDrawer({Key? key}) : super(key: key);
@@ -14,32 +23,42 @@ class ProfileDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: AppColors.primaryColor,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          FullNameInformation(
-            title: "Asadbek Abdumajidov",
-            subTitle: "Guruh raxbari",
-            img: "",
-          ),
-          SizedBox(height: 20),
-          // ProfileDriwerItem(
-          //   title: "${AppStrings.strResidenceAddress}:",
-          //   subTitle:
-          //       "${state.infoResponse?.region} ${state.infoResponse?.district}",
-          // ),
-
-          Spacer(),
-          TextButton(
-            onPressed: () async => await logout(context),
-            child: Text(
-              AppStrings.strExit,
-              style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                  fontWeight: FontWeight.w500, color: AppColors.whiteColor),
+      child:
+          BlocConsumer<ProfileCubit, ProfileState>(listener: (context, state) {
+        if (state.status == Status.ERROR) {
+          showErrorMessage(context, state.failure.getLocalizedMessage(context));
+        }
+      }, builder: (context, state) {
+        if (state.status == Status.LOADING) {
+          return LoadingWidget(color: AppColors.whiteColor);
+        }
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+              SizedBox(height: ResponsiveWidget.isMobile(context) ? 40 : 0),
+            FullNameInformation(
+              title: "${state.response?.firstName} ${state.response?.lastName}",
+              subTitle: "@${state.response?.username}",
+              img: state.response?.image ?? "",
             ),
-          ),
-        ],
-      ).paddingAll(20),
+            Divider(color: AppColors.darkPrimaryColour, height: 30),
+            SizedBox(height: 30),
+            ProfileDriwerItem(
+              title: "${AppStrings.strRegion}:",
+              subTitle: state.response?.region,
+            ),
+            Spacer(),
+            TextButton(
+              onPressed: () async => await logout(context),
+              child: Text(
+                AppStrings.strExit,
+                style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                    fontWeight: FontWeight.w500, color: AppColors.whiteColor),
+              ),
+            ),
+          ],
+        ).paddingAll(20);
+      }),
     );
   }
 

@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -8,6 +9,7 @@ import 'package:uni_hostel_admin/core/routes/app_routes.dart';
 import 'package:uni_hostel_admin/core/themes/app_colors.dart';
 import 'package:uni_hostel_admin/core/themes/app_icons.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
+import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
 import 'package:uni_hostel_admin/presentation/cubit/side_bar/side_bar_cubit.dart';
 import 'package:uni_hostel_admin/presentation/view/menu_drawer/widget/side_menu_item.dart';
 
@@ -24,6 +26,7 @@ class MenuDrawer extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+               SizedBox(height: ResponsiveWidget.isMobile(context) ? 40 : 0),
               SvgPicture.asset(AppIcons.iconWhiteLogo, height: 53, width: 53),
               SizedBox(height: 50),
               SideMenuItem(

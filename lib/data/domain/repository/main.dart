@@ -5,6 +5,7 @@ import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.
 import 'package:uni_hostel_admin/data/models/order/post_order/request/edit_status_request.dart';
 import 'package:uni_hostel_admin/data/models/order/post_order/response/edit_status_response.dart';
 import 'package:uni_hostel_admin/data/models/order/select_order/select_order_response.dart';
+import 'package:uni_hostel_admin/data/models/profile/get_profile/profile_response.dart';
 
 import '../../models/order/get_faculties/get_faculties_response.dart';
 
@@ -31,6 +32,8 @@ abstract class IMainRepository {
     int id,
   );
   Future<Either<Failure, bool>> deleteOrder(int id);
+  Future<Either<Failure, ProfileResponse>> getProfile();
+
 
   Future<Either<Failure, GetFacultiesResponse>> getFaculties();
 

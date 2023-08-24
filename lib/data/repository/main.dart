@@ -12,6 +12,7 @@ import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.
 import 'package:uni_hostel_admin/data/models/order/post_order/request/edit_status_request.dart';
 import 'package:uni_hostel_admin/data/models/order/post_order/response/edit_status_response.dart';
 import 'package:uni_hostel_admin/data/models/order/select_order/select_order_response.dart';
+import 'package:uni_hostel_admin/data/models/profile/get_profile/profile_response.dart';
 
 class MainRepository implements IMainRepository {
   final ApiClient _apiClient;
@@ -194,6 +195,31 @@ class MainRepository implements IMainRepository {
         facultyId ?? null,
         search,
       );
+      return Right(response);
+    } on DioError catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      if (e.error is SocketException) {
+        return const Left(ConnectionFailure());
+      }
+      return Left(
+        (e.response?.statusCode == 400)
+            ? const UserNotFound()
+            : ServerFailure(e.response?.statusCode),
+      );
+    } on Object catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      rethrow;
+    }
+  }
+
+  @override
+  Future<Either<Failure, ProfileResponse>> getProfile() async {
+    try {
+      final response = await _apiClient.getProfile();
       return Right(response);
     } on DioError catch (e) {
       if (kDebugMode) {

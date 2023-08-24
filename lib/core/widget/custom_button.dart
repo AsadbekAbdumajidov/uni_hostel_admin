@@ -53,8 +53,8 @@ class CustomButton extends StatelessWidget {
               icon ?? SizedBox.shrink(),
               isLoading
                   ? SizedBox(
-                      height: 30,
-                      width: 30,
+                      height: 35,
+                      width: 35,
                       child: const LoadingWidget(color: AppColors.whiteColor))
                   : Text(text,
                       style: style ??

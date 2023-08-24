@@ -33,6 +33,7 @@ class DifferentCardWidget extends StatelessWidget {
                 ],
               ).paddingOnly(bottom: 4),
               ListView.separated(
+                padding: EdgeInsets.all(0),
                 physics: BouncingScrollPhysics(),
                   itemCount: orderList?.length ?? 0,
                   shrinkWrap: true,

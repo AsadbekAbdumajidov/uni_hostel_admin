@@ -13,6 +13,7 @@ import 'package:uni_hostel_admin/core/widget/custom_text_field.dart';
 import 'package:uni_hostel_admin/di.dart';
 import 'package:uni_hostel_admin/presentation/components/flush_bars.dart';
 import 'package:uni_hostel_admin/presentation/cubit/login/login_cubit.dart';
+import 'package:uni_hostel_admin/presentation/cubit/profile/profile_cubit.dart';
 
 class LoginPage extends StatelessWidget {
   final formGlobalKey = GlobalKey<FormState>();
@@ -22,6 +23,8 @@ class LoginPage extends StatelessWidget {
       create: (context) => inject<LoginCubit>(),
       child: BlocConsumer<LoginCubit, LoginState>(listener: (context, state) {
         if (state.status == Status.SUCCESS) {
+          context.read<ProfileCubit>().getProfile();
+
           Navigator.pushNamedAndRemoveUntil(
               context, RouteName.requests.route, (route) => false);
         }
@@ -49,7 +52,11 @@ class LoginPage extends StatelessWidget {
                         child: Text(
                           AppStrings.strAdmin,
                           textAlign: TextAlign.center,
-                           style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 28,fontWeight: FontWeight.w500),
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall
+                              ?.copyWith(
+                                  fontSize: 28, fontWeight: FontWeight.w500),
                         ),
                       ),
                       Column(
@@ -66,8 +73,7 @@ class LoginPage extends StatelessWidget {
                                 context.read<LoginCubit>().getUserName(v),
                             hintText: AppStrings.strEnterUserName,
                             validator: (dynamic v) => Validator.fieldChecker(
-                                value: v,
-                                message: AppStrings.strIsNotEmpty),
+                                value: v, message: AppStrings.strIsNotEmpty),
                           ),
                           SizedBox(height: 30),
                           Text(AppStrings.strPassword,
@@ -85,13 +91,15 @@ class LoginPage extends StatelessWidget {
                             suffixIcon: GestureDetector(
                                 onTap: () =>
                                     context.read<LoginCubit>().changeEye(),
-                                child: Icon(state.changeEye == false ? Icons.remove_red_eye_outlined : Icons.remove_red_eye)),
+                                child: Icon(state.changeEye == false
+                                    ? Icons.remove_red_eye_outlined
+                                    : Icons.remove_red_eye)),
                             validator: (dynamic v) => Validator.fieldChecker(
-                                value: v,
-                                message: AppStrings.strIsNotEmpty),
+                                value: v, message: AppStrings.strIsNotEmpty),
                           ),
                           SizedBox(height: 30),
                           CustomButton(
+                            
                               isLoading: state.status == Status.LOADING,
                               text: AppStrings.strAcces,
                               onTap: () {

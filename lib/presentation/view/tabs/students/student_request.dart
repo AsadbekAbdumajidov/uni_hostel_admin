@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,137 +21,128 @@ import 'package:uni_hostel_admin/presentation/view/tabs/widget/custom_card_widge
 import '../../../../core/themes/app_text.dart';
 import '../../../../core/utils/utils.dart';
 
-class StudentsScreen extends StatefulWidget {
-  const StudentsScreen({super.key});
-
-  @override
-  State<StudentsScreen> createState() => _StudentsScreenState();
-}
-
-class _StudentsScreenState extends State<StudentsScreen> {
+class StudentsScreen extends StatelessWidget {
+  var searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     double paddingSize = ResponsiveWidget.isMobileLarge(context) ? 16 : 30;
-    return SafeArea(
-      child: Scaffold(
-        drawer: Drawer(child: MenuDrawer()),
-        endDrawer: ProfileDrawer(),
-        body: Row(
-          children: [
-            ResponsiveWidget.isTablet(context)
-                ? SizedBox.shrink()
-                : MenuDrawer(),
-            Expanded(
-              child: Column(
-                children: [
-                  CustomAppBar(
+    return Scaffold(
+      drawer: Drawer(child: MenuDrawer()),
+      endDrawer: ProfileDrawer(),
+      body: Row(
+        children: [
+          ResponsiveWidget.isTablet(context) ? SizedBox.shrink() : MenuDrawer(),
+          Expanded(
+            child: Column(
+              children: [
+                SizedBox(height: ResponsiveWidget.isMobile(context) ? 40 : 0),
+                CustomAppBar(
+                  textEditingController: searchController,
                     onchange: (v) =>
                         context.read<AcceptedOrderCubit>().searchAccepted(v),
-                  ),
-                  Expanded(
-                    child: Container(
-                      height: 700,
-                      width: context.w,
-                      decoration: AppDecoration.customCardDecoration,
-                      child:
-                          BlocBuilder<AcceptedOrderCubit, AcceptedOrderState>(
-                              builder: (context, state) {
-                        if (state.status == Status.LOADING) {
-                          return LoadingWidget();
-                        }
-                        var bloc = context.read<AcceptedOrderCubit>();
-                        return InfiniteScrollingPagination(
-                            onPagination: () => bloc.getAcceptedOrderInfinite(),
-                            isLoading: state.loadingPagination,
-                            child: Column(
-                              children: [
-                                Expanded(
-                                  child: Container(
-                                    height: 800,
-                                    width: context.w,
-                                    child: ListView(
-                                      physics: BouncingScrollPhysics(),
-                                      children: [
-                                        TopRequestItemWidget(
-                                          index: state.maritalStatus,
-                                          title: AppStrings.strRequests,
-                                          list: maritals,
-                                          courses: courseList,
-                                          coursIndex: state.courseIndex,
-                                          faculties: state.facultiesList,
-                                          facultyIndex:
-                                              state.facultyIndex?.name,
-                                          onChanged: (v) =>
-                                              bloc.selectMaritals(v),
-                                          onChangeFaculty: (v) =>
-                                              bloc.selectFaculty(v),
-                                          onChangecourse: (v) =>
-                                              bloc.selectCourse(v),
-                                          onTapFilter: () {
-                                            showModalBottomSheet(
-                                                context: context,
-                                                isScrollControlled: true,
-                                                backgroundColor:
-                                                    AppColors.transparent,
-                                                builder: (context) {
-                                                  return BottomFilterAccWidget(
-                                                     indexM: state.maritalStatus,
-                                                    list: maritals,
-                                                    courses: courseList,
-                                                    coursIndex:
-                                                        state.courseIndex,
-                                                    faculties:
-                                                        state.facultiesList,
-                                                    facultyIndex: state
-                                                        .facultyIndex?.name,
-                                                  ).paddingOnly(top: 80);
-                                                });
-                                          },
-                                        ),
-                                        CustomCardWidget(
-                                          notButtonIndex: 0,
-                                          list: state.orderList,
-                                          statusColor: AppColors.greenColour,
-                                          textStatus: AppStrings.strApproved,
-                                        ),
-                                      ],
-                                    ),
-                                  ).paddingOnly(
-                                      top: paddingSize,
-                                      left: paddingSize,
-                                      right: paddingSize,
-                                      bottom: 16),
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    CustomOutlineButton(
-                                      width: 225,
-                                      icon: CupertinoIcons.cloud_download,
-                                      isLoading: state.status == Status.UNKNOWN,
-                                      text: AppStrings.strOrderListUpload,
-                                      ounLineColour: AppColors.primaryColor,
-                                      onTap: () async {
-                                        await context
-                                            .read<AcceptedOrderCubit>()
-                                            .getOrdersList();
-                                      },
-                                    ).paddingOnly(
-                                        right: paddingSize, bottom: 16),
-                                  ],
-                                ),
-                              ],
-                            ));
-                      }),
-                    ).paddingAll(
-                        ResponsiveWidget.isMobileLarge(context) ? 10 : 20),
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
+                    onCancel: () {
+                      context.read<AcceptedOrderCubit>().searchAccepted('');
+                      searchController.text = "";
+                    }),
+                Expanded(
+                  child: Container(
+                    height: 700,
+                    width: context.w,
+                    decoration: AppDecoration.customCardDecoration,
+                    child: BlocBuilder<AcceptedOrderCubit, AcceptedOrderState>(
+                        builder: (context, state) {
+                      if (state.status == Status.LOADING) {
+                        return LoadingWidget(size: 40);
+                      }
+                      var bloc = context.read<AcceptedOrderCubit>();
+                      return InfiniteScrollingPagination(
+                          onPagination: () => bloc.getAcceptedOrderInfinite(),
+                          isLoading: state.loadingPagination,
+                          child: Column(
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  height: 800,
+                                  width: context.w,
+                                  child: ListView(
+                                    physics: BouncingScrollPhysics(),
+                                    children: [
+                                      TopRequestItemWidget(
+                                        index: state.maritalStatus,
+                                        title: AppStrings.strRequests,
+                                        list: maritals,
+                                        courses: courseList,
+                                        coursIndex: state.courseIndex,
+                                        faculties: state.facultiesList,
+                                        facultyIndex: state.facultyIndex?.name,
+                                        onChanged: (v) =>
+                                            bloc.selectMaritals(v),
+                                        onChangeFaculty: (v) =>
+                                            bloc.selectFaculty(v),
+                                        onChangecourse: (v) =>
+                                            bloc.selectCourse(v),
+                                        onTapFilter: () {
+                                          showModalBottomSheet(
+                                              context: context,
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  AppColors.transparent,
+                                              builder: (context) {
+                                                return BottomFilterAccWidget(
+                                                  indexM: state.maritalStatus,
+                                                  list: maritals,
+                                                  courses: courseList,
+                                                  coursIndex: state.courseIndex,
+                                                  faculties:
+                                                      state.facultiesList,
+                                                  facultyIndex:
+                                                      state.facultyIndex?.name,
+                                                ).paddingOnly(top: 80);
+                                              });
+                                        },
+                                      ),
+                                      CustomCardWidget(
+                                        notButtonIndex: 0,
+                                        list: state.orderList,
+                                        statusColor: AppColors.greenColour,
+                                        textStatus: AppStrings.strApproved,
+                                      ),
+                                    ],
+                                  ),
+                                ).paddingOnly(
+                                    top: paddingSize,
+                                    left: paddingSize,
+                                    right: paddingSize,
+                                    bottom: 16),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  CustomOutlineButton(
+                                    width: 225,
+                                    icon: CupertinoIcons.cloud_download,
+                                    isLoading: state.status == Status.UNKNOWN,
+                                    text: AppStrings.strOrderListUpload,
+                                    ounLineColour: AppColors.primaryColor,
+                                    onTap: () async {
+                                      await context
+                                          .read<AcceptedOrderCubit>()
+                                          .getOrdersList();
+                                    },
+                                  ).paddingOnly(right: paddingSize, bottom: 16),
+                                ],
+                              ),
+                            ],
+                          ));
+                    }),
+                  ).paddingAll(
+                      ResponsiveWidget.isMobileLarge(context) ? 10 : 20),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

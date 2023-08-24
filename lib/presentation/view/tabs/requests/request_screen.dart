@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,110 +22,110 @@ import 'package:uni_hostel_admin/presentation/view/tabs/requests/widget/top_requ
 import 'package:uni_hostel_admin/presentation/view/tabs/widget/differenet_card_widget.dart';
 
 class RequestsScreen extends StatelessWidget {
+  var searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     double paddingSize = ResponsiveWidget.isMobileLarge(context) ? 14 : 30;
-    return SafeArea(
-      child: Scaffold(
-        drawer: Drawer(child: MenuDrawer()),
-        endDrawer: ProfileDrawer(),
-        body: Row(children: [
-          ResponsiveWidget.isTablet(context) ? SizedBox.shrink() : MenuDrawer(),
-          Expanded(
-            child: Column(children: [
-              CustomAppBar(
+    return Scaffold(
+      drawer: Drawer(child: MenuDrawer()),
+      endDrawer: ProfileDrawer(),
+      body: Row(children: [
+        ResponsiveWidget.isTablet(context) ? SizedBox.shrink() : MenuDrawer(),
+        Expanded(
+          child: Column(children: [
+            SizedBox(height: ResponsiveWidget.isMobile(context) ? 40 : 0),
+            CustomAppBar(
+                textEditingController: searchController,
                 onchange: (v) =>
                     context.read<GetNewOrderCubit>().searchRequests(v),
-              ),
-              Expanded(
-                child: Container(
-                  height: 800,
-                  width: context.w,
-                  decoration: AppDecoration.customCardDecoration,
-                  child: BlocBuilder<GetNewOrderCubit, GetNewOrderState>(
-                      builder: (context, state) {
-                    if (state.status == Status.LOADING) {
-                      return Container(
-                          height: 400, width: 400, child: LoadingWidget());
-                    }
+                onCancel: () {
+                  context.read<GetNewOrderCubit>().searchRequests('');
+                  searchController.text = "";
+                }),
+            Expanded(
+              child: Container(
+                height: 800,
+                width: context.w,
+                decoration: AppDecoration.customCardDecoration,
+                child: BlocBuilder<GetNewOrderCubit, GetNewOrderState>(
+                    builder: (context, state) {
+                  if (state.status == Status.LOADING) {
+                    return Container(
+                        height: 400, width: 400, child: LoadingWidget(size: 40));
+                  }
 
-                    var bloc = context.read<GetNewOrderCubit>();
-                    return InfiniteScrollingPagination(
-                      onPagination: () => bloc.getOrderInfinite(),
-                      isLoading: state.loadingPagination,
-                      child: Column(
-                        children: [
-                          Expanded(
-                            child: Container(
-                              height: 800,
-                              width: context.w,
-                              child: ListView(
-                                physics: BouncingScrollPhysics(),
-                                children: [
-                                  TopRequestItemWidget(
-                                    index: state.maritalStatus,
-                                    title: AppStrings.strRequests,
-                                    list: maritals,
-                                    courses: courseList,
-                                    coursIndex: state.courseIndex,
-                                    faculties: state.facultiesList,
-                                    facultyIndex: state.facultyIndex?.name,
-                                    onChanged: (v) => bloc.selectMaritals(v),
-                                    onChangeFaculty: (v) =>
-                                        bloc.selectFaculty(v),
-                                    onChangecourse: (v) => bloc.selectCourse(v),
-                                    onTapFilter: () {
-                                      showModalBottomSheet(
-                                          context: context,
-                                          isScrollControlled: true,
-                                          backgroundColor:
-                                              AppColors.transparent,
-                                          builder: (context) {
-                                            return BottomFilterWidget(
-                                             
-                                              
-                                            ).paddingOnly(top: 80);
-                                          });
-                                    },
-                                  ),
-                                  DifferentCardWidget(
-                                      orderList: state.orderList),
-                                ],
-                              ),
-                            ).paddingOnly(
-                                top: paddingSize,
-                                left: paddingSize,
-                                right: paddingSize,
-                                bottom: 16),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              CustomOutlineButton(
-                                width: 229,
-                                icon: CupertinoIcons.cloud_download,
-                                isLoading: state.status == Status.UNKNOWN,
-                                text: AppStrings.strOrderListUpload,
-                                ounLineColour: AppColors.primaryColor,
-                                onTap: () async {
-                                  await context
-                                      .read<GetNewOrderCubit>()
-                                      .getOrdersList();
-                                },
-                              ).paddingOnly(right: paddingSize, bottom: 16),
-                            ],
-                          ),
-                        ],
-                      ),
-                    );
-                  }),
-                ).paddingAll(ResponsiveWidget.isMobileLarge(context) ? 10 : 20),
-              ),
-            ]),
-          ),
-        ]),
-      ),
+                  var bloc = context.read<GetNewOrderCubit>();
+                  return InfiniteScrollingPagination(
+                    onPagination: () => bloc.getOrderInfinite(),
+                    isLoading: state.loadingPagination,
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            height: 800,
+                            width: context.w,
+                            child: ListView(
+                              padding: EdgeInsets.all(0),
+                              physics: BouncingScrollPhysics(),
+                              children: [
+                                TopRequestItemWidget(
+                                  index: state.maritalStatus,
+                                  title: AppStrings.strRequests,
+                                  list: maritals,
+                                  courses: courseList,
+                                  coursIndex: state.courseIndex,
+                                  faculties: state.facultiesList,
+                                  facultyIndex: state.facultyIndex?.name,
+                                  onChanged: (v) => bloc.selectMaritals(v),
+                                  onChangeFaculty: (v) => bloc.selectFaculty(v),
+                                  onChangecourse: (v) => bloc.selectCourse(v),
+                                  onTapFilter: () {
+                                    showModalBottomSheet(
+                                        context: context,
+                                        isScrollControlled: true,
+                                        backgroundColor: AppColors.transparent,
+                                        builder: (context) {
+                                          return BottomFilterWidget()
+                                              .paddingOnly(top: 80);
+                                        });
+                                  },
+                                ),
+                                DifferentCardWidget(orderList: state.orderList),
+                              ],
+                            ),
+                          ).paddingOnly(
+                              top: paddingSize,
+                              left: paddingSize,
+                              right: paddingSize,
+                              bottom: 16),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            CustomOutlineButton(
+                              width: 229,
+                              icon: CupertinoIcons.cloud_download,
+                              isLoading: state.status == Status.UNKNOWN,
+                              text: AppStrings.strOrderListUpload,
+                              ounLineColour: AppColors.primaryColor,
+                              onTap: () async {
+                                await context
+                                    .read<GetNewOrderCubit>()
+                                    .getOrdersList();
+                              },
+                            ).paddingOnly(right: paddingSize, bottom: 16),
+                          ],
+                        ),
+                      ],
+                    ),
+                  );
+                }),
+              ).paddingAll(ResponsiveWidget.isMobileLarge(context) ? 14 : 20),
+            ),
+          ]),
+        ),
+      ]),
     );
   }
 }

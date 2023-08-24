@@ -1,0 +1,294 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'profile_response.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+ProfileResponse _$ProfileResponseFromJson(Map<String, dynamic> json) {
+  return _ProfileResponse.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ProfileResponse {
+  int? get id => throw _privateConstructorUsedError;
+  String? get username => throw _privateConstructorUsedError;
+  @JsonKey(name: 'first_name')
+  String? get firstName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'last_name')
+  String? get lastName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'admin_image')
+  String? get image => throw _privateConstructorUsedError;
+  @JsonKey(name: 'admin_region')
+  String? get region => throw _privateConstructorUsedError;
+  @JsonKey(name: 'user_type')
+  String? get type => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ProfileResponseCopyWith<ProfileResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ProfileResponseCopyWith<$Res> {
+  factory $ProfileResponseCopyWith(
+          ProfileResponse value, $Res Function(ProfileResponse) then) =
+      _$ProfileResponseCopyWithImpl<$Res, ProfileResponse>;
+  @useResult
+  $Res call(
+      {int? id,
+      String? username,
+      @JsonKey(name: 'first_name') String? firstName,
+      @JsonKey(name: 'last_name') String? lastName,
+      @JsonKey(name: 'admin_image') String? image,
+      @JsonKey(name: 'admin_region') String? region,
+      @JsonKey(name: 'user_type') String? type});
+}
+
+/// @nodoc
+class _$ProfileResponseCopyWithImpl<$Res, $Val extends ProfileResponse>
+    implements $ProfileResponseCopyWith<$Res> {
+  _$ProfileResponseCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? username = freezed,
+    Object? firstName = freezed,
+    Object? lastName = freezed,
+    Object? image = freezed,
+    Object? region = freezed,
+    Object? type = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      username: freezed == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String?,
+      firstName: freezed == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastName: freezed == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+      region: freezed == region
+          ? _value.region
+          : region // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_ProfileResponseCopyWith<$Res>
+    implements $ProfileResponseCopyWith<$Res> {
+  factory _$$_ProfileResponseCopyWith(
+          _$_ProfileResponse value, $Res Function(_$_ProfileResponse) then) =
+      __$$_ProfileResponseCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {int? id,
+      String? username,
+      @JsonKey(name: 'first_name') String? firstName,
+      @JsonKey(name: 'last_name') String? lastName,
+      @JsonKey(name: 'admin_image') String? image,
+      @JsonKey(name: 'admin_region') String? region,
+      @JsonKey(name: 'user_type') String? type});
+}
+
+/// @nodoc
+class __$$_ProfileResponseCopyWithImpl<$Res>
+    extends _$ProfileResponseCopyWithImpl<$Res, _$_ProfileResponse>
+    implements _$$_ProfileResponseCopyWith<$Res> {
+  __$$_ProfileResponseCopyWithImpl(
+      _$_ProfileResponse _value, $Res Function(_$_ProfileResponse) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? username = freezed,
+    Object? firstName = freezed,
+    Object? lastName = freezed,
+    Object? image = freezed,
+    Object? region = freezed,
+    Object? type = freezed,
+  }) {
+    return _then(_$_ProfileResponse(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      username: freezed == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String?,
+      firstName: freezed == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastName: freezed == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+      region: freezed == region
+          ? _value.region
+          : region // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_ProfileResponse implements _ProfileResponse {
+  const _$_ProfileResponse(
+      {this.id,
+      this.username,
+      @JsonKey(name: 'first_name') this.firstName,
+      @JsonKey(name: 'last_name') this.lastName,
+      @JsonKey(name: 'admin_image') this.image,
+      @JsonKey(name: 'admin_region') this.region,
+      @JsonKey(name: 'user_type') this.type});
+
+  factory _$_ProfileResponse.fromJson(Map<String, dynamic> json) =>
+      _$$_ProfileResponseFromJson(json);
+
+  @override
+  final int? id;
+  @override
+  final String? username;
+  @override
+  @JsonKey(name: 'first_name')
+  final String? firstName;
+  @override
+  @JsonKey(name: 'last_name')
+  final String? lastName;
+  @override
+  @JsonKey(name: 'admin_image')
+  final String? image;
+  @override
+  @JsonKey(name: 'admin_region')
+  final String? region;
+  @override
+  @JsonKey(name: 'user_type')
+  final String? type;
+
+  @override
+  String toString() {
+    return 'ProfileResponse(id: $id, username: $username, firstName: $firstName, lastName: $lastName, image: $image, region: $region, type: $type)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ProfileResponse &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName) &&
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.region, region) || other.region == region) &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, id, username, firstName, lastName, image, region, type);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ProfileResponseCopyWith<_$_ProfileResponse> get copyWith =>
+      __$$_ProfileResponseCopyWithImpl<_$_ProfileResponse>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ProfileResponseToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ProfileResponse implements ProfileResponse {
+  const factory _ProfileResponse(
+      {final int? id,
+      final String? username,
+      @JsonKey(name: 'first_name') final String? firstName,
+      @JsonKey(name: 'last_name') final String? lastName,
+      @JsonKey(name: 'admin_image') final String? image,
+      @JsonKey(name: 'admin_region') final String? region,
+      @JsonKey(name: 'user_type') final String? type}) = _$_ProfileResponse;
+
+  factory _ProfileResponse.fromJson(Map<String, dynamic> json) =
+      _$_ProfileResponse.fromJson;
+
+  @override
+  int? get id;
+  @override
+  String? get username;
+  @override
+  @JsonKey(name: 'first_name')
+  String? get firstName;
+  @override
+  @JsonKey(name: 'last_name')
+  String? get lastName;
+  @override
+  @JsonKey(name: 'admin_image')
+  String? get image;
+  @override
+  @JsonKey(name: 'admin_region')
+  String? get region;
+  @override
+  @JsonKey(name: 'user_type')
+  String? get type;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ProfileResponseCopyWith<_$_ProfileResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}

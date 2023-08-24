@@ -18,7 +18,7 @@ class FullNameInformation extends StatelessWidget {
     return Row(
       children: [
         NetworkImageWidget(
-          size: 55,
+          size: 50,
           img: img,
           backgroundColor: AppColors.primaryColor,
           lineColour: AppColors.whiteColor,

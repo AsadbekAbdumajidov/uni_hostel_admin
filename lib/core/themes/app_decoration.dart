@@ -11,7 +11,7 @@ class AppDecoration {
       BoxShadow(
           offset: const Offset(0, 6),
           color: AppColors.bodyTextColor.withOpacity(.1),
-          blurRadius: 12)
+          blurRadius: 6)
     ],
     borderRadius: BorderRadius.circular(8),
   );

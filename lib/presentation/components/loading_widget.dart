@@ -1,14 +1,19 @@
 import 'package:flutter/cupertino.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:uni_hostel_admin/core/themes/app_colors.dart';
 
 class LoadingWidget extends StatelessWidget {
-  const LoadingWidget({super.key, this.color});
+  const LoadingWidget({super.key, this.color, this.size});
   final Color? color;
+  final double? size;
+
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: CupertinoActivityIndicator(
-          color: color ?? AppColors.primaryColor, radius: 12),
+      child: LoadingAnimationWidget.hexagonDots(
+           color: color ?? AppColors.primaryColor,
+           size:  size ?? 25
+        ),
     );
   }
 }

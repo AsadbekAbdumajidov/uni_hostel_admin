@@ -27,7 +27,7 @@ class PaymentMonitoring extends StatelessWidget {
             Expanded(
               child: Column(
                 children: [
-                  CustomAppBar(),
+                  CustomAppBar(textEditingController: TextEditingController(),),
                   Expanded(
                     child: Container(
                       width: context.w,

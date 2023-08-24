@@ -53,7 +53,7 @@ final appThemeData = ThemeData(
     bodyMedium: TextStyle(
         fontSize: 15, fontWeight: FontWeight.w600, color: AppColors.blackColor),
   ),
-  scaffoldBackgroundColor: AppColors.backgroundColour,
+  scaffoldBackgroundColor:  AppColors.whiteColor,
   cupertinoOverrideTheme: const CupertinoThemeData(brightness: Brightness.dark),
   visualDensity: VisualDensity.adaptivePlatformDensity,
   primarySwatch: Colors.blueGrey,
