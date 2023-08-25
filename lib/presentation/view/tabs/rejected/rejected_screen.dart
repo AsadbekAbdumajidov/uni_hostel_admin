@@ -38,7 +38,6 @@ class RejectedScreen extends StatelessWidget {
           Expanded(
             child: Column(
               children: [
-                 SizedBox(height: ResponsiveWidget.isMobile(context) ? 40 : 0),
                 CustomAppBar(
                   textEditingController: searchController,
                   onchange: (v) =>

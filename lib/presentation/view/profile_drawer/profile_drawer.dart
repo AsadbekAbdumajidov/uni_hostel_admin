@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
@@ -29,24 +28,30 @@ class ProfileDrawer extends StatelessWidget {
           showErrorMessage(context, state.failure.getLocalizedMessage(context));
         }
       }, builder: (context, state) {
-        if (state.status == Status.LOADING) {
-          return LoadingWidget(color: AppColors.whiteColor);
-        }
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-              SizedBox(height: ResponsiveWidget.isMobile(context) ? 40 : 0),
-            FullNameInformation(
-              title: "${state.response?.firstName} ${state.response?.lastName}",
-              subTitle: "@${state.response?.username}",
-              img: state.response?.image ?? "",
-            ),
-            Divider(color: AppColors.darkPrimaryColour, height: 30),
-            SizedBox(height: 30),
-            ProfileDriwerItem(
-              title: "${AppStrings.strRegion}:",
-              subTitle: state.response?.region,
-            ),
+            (state.status == Status.LOADING)
+                ? LoadingWidget(color: AppColors.whiteColor)
+                : Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                          height: ResponsiveWidget.isMobile(context) ? 40 : 0),
+                      FullNameInformation(
+                        title:
+                            "${state.response?.firstName} ${state.response?.lastName}",
+                        subTitle: "@${state.response?.username}",
+                        img: state.response?.image ?? "",
+                      ),
+                      Divider(color: AppColors.darkPrimaryColour, height: 30),
+                      SizedBox(height: 30),
+                      ProfileDriwerItem(
+                        title: "${AppStrings.strRegion}:",
+                        subTitle: state.response?.region,
+                      ),
+                    ],
+                  ),
             Spacer(),
             TextButton(
               onPressed: () async => await logout(context),

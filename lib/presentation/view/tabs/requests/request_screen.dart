@@ -33,7 +33,6 @@ class RequestsScreen extends StatelessWidget {
         ResponsiveWidget.isTablet(context) ? SizedBox.shrink() : MenuDrawer(),
         Expanded(
           child: Column(children: [
-            SizedBox(height: ResponsiveWidget.isMobile(context) ? 40 : 0),
             CustomAppBar(
                 textEditingController: searchController,
                 onchange: (v) =>
@@ -51,7 +50,9 @@ class RequestsScreen extends StatelessWidget {
                     builder: (context, state) {
                   if (state.status == Status.LOADING) {
                     return Container(
-                        height: 400, width: 400, child: LoadingWidget(size: 40));
+                        height: 400,
+                        width: 400,
+                        child: LoadingWidget(size: 40));
                   }
 
                   var bloc = context.read<GetNewOrderCubit>();
@@ -64,34 +65,38 @@ class RequestsScreen extends StatelessWidget {
                           child: Container(
                             height: 800,
                             width: context.w,
-                            child: ListView(
-                              padding: EdgeInsets.all(0),
+                            child: SingleChildScrollView(
                               physics: BouncingScrollPhysics(),
-                              children: [
-                                TopRequestItemWidget(
-                                  index: state.maritalStatus,
-                                  title: AppStrings.strRequests,
-                                  list: maritals,
-                                  courses: courseList,
-                                  coursIndex: state.courseIndex,
-                                  faculties: state.facultiesList,
-                                  facultyIndex: state.facultyIndex?.name,
-                                  onChanged: (v) => bloc.selectMaritals(v),
-                                  onChangeFaculty: (v) => bloc.selectFaculty(v),
-                                  onChangecourse: (v) => bloc.selectCourse(v),
-                                  onTapFilter: () {
-                                    showModalBottomSheet(
-                                        context: context,
-                                        isScrollControlled: true,
-                                        backgroundColor: AppColors.transparent,
-                                        builder: (context) {
-                                          return BottomFilterWidget()
-                                              .paddingOnly(top: 80);
-                                        });
-                                  },
-                                ),
-                                DifferentCardWidget(orderList: state.orderList),
-                              ],
+                              child: Column(
+                                children: [
+                                  TopRequestItemWidget(
+                                    index: state.maritalStatus,
+                                    title: AppStrings.strRequests,
+                                    list: maritals,
+                                    courses: courseList,
+                                    coursIndex: state.courseIndex,
+                                    faculties: state.facultiesList,
+                                    facultyIndex: state.facultyIndex?.name,
+                                    onChanged: (v) => bloc.selectMaritals(v),
+                                    onChangeFaculty: (v) =>
+                                        bloc.selectFaculty(v),
+                                    onChangecourse: (v) => bloc.selectCourse(v),
+                                    onTapFilter: () {
+                                      showModalBottomSheet(
+                                          context: context,
+                                          isScrollControlled: true,
+                                          backgroundColor:
+                                              AppColors.transparent,
+                                          builder: (context) {
+                                            return BottomFilterWidget()
+                                                .paddingOnly(top: 80);
+                                          });
+                                    },
+                                  ),
+                                  DifferentCardWidget(
+                                      orderList: state.orderList),
+                                ],
+                              ),
                             ),
                           ).paddingOnly(
                               top: paddingSize,
