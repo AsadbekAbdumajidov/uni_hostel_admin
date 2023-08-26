@@ -21,6 +21,7 @@ class TopRequestItemWidget extends StatelessWidget {
     required this.courses,
     required this.onChangecourse,
     required this.onTapFilter,
+    this.count,
   });
   final String? index;
   final String title;
@@ -28,6 +29,8 @@ class TopRequestItemWidget extends StatelessWidget {
   final String? facultyIndex;
   final List<String> faculties;
   final String? coursIndex;
+  final int? count;
+
   final List<String> courses;
   final Function(dynamic v) onChangecourse;
   final Function(dynamic v) onChangeFaculty;
@@ -41,12 +44,20 @@ class TopRequestItemWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          title,
-          style: Theme.of(context)
-              .textTheme
-              .headlineMedium
-              ?.copyWith(fontSize: textSize),
+        Row(
+          children: [
+            Text(
+              "$title ",
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineMedium
+                  ?.copyWith(fontSize: textSize),
+            ),
+            Text(
+              count  == 0 ? "" : count.toString(),
+              style: Theme.of(context).textTheme.titleLarge,
+            ).paddingOnly(top: 4),
+          ],
         ),
         ResponsiveWidget.isMobileLarge(context)
             ? GestureDetector(

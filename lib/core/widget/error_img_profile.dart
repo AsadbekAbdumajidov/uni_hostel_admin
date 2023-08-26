@@ -59,13 +59,15 @@ class ErrorImageProfile extends StatelessWidget {
         decoration: BoxDecoration(
             color: lineColour ?? AppColors.primaryColor.withOpacity(.5),
             borderRadius: BorderRadius.circular(20)),
-        child: Container(
-          padding: const EdgeInsets.all(1),
-          margin: const EdgeInsets.all(1),
-          child: CircleAvatar(
-              backgroundColor: backgroundColor ?? AppColors.whiteColor,
-              child: Icon(errorIcon ?? Icons.person_outline,
-                  color: lineColour ?? AppColors.blackColor)),
+        child: Center(
+          child: Container(
+            padding: const EdgeInsets.all(1),
+            margin: const EdgeInsets.all(1),
+            child: CircleAvatar(
+                backgroundColor: backgroundColor ?? AppColors.whiteColor,
+                child: Icon(errorIcon ?? Icons.person_outline,
+                    color: lineColour ?? AppColors.blackColor)),
+          ),
         ),
       ),
     );

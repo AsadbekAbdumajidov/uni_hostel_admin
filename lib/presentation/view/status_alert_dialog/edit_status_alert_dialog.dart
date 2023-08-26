@@ -10,6 +10,7 @@ import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/core/utils/validator.dart';
 import 'package:uni_hostel_admin/core/widget/custom_button.dart';
 import 'package:uni_hostel_admin/core/widget/custom_text_field.dart';
+import 'package:uni_hostel_admin/presentation/components/flush_bars.dart';
 import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
 import 'package:uni_hostel_admin/presentation/cubit/accepted_order/accepted_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/cancelled_order/cancelled_order_cubit.dart';
@@ -58,6 +59,7 @@ class EditStatusAlertDialog extends StatelessWidget {
         child: BlocBuilder<EditStatusCubit, EditStatusState>(
             builder: (context, state) {
           if (state.status == Status.SUCCESS) {
+            showMessage(context, state.response?.message ?? "");
             Navigator.pop(context);
             context.read<GetNewOrderCubit>().getNewOrder();
             context.read<AcceptedOrderCubit>().getAcceptedOrder();
@@ -143,7 +145,7 @@ class EditStatusAlertDialog extends StatelessWidget {
                                                 fontWeight: FontWeight.w500))
                                     .paddingOnly(top: 20, bottom: 10),
                                 CustomTextField(
-                                  validator: (v) => Validator.validateDay(v),
+                                  // validator: (v) => Validator.validateDay(v),
                                   textEditingController: datePaymentController,
                                   textInputFormatter: [
                                     FilteringTextInputFormatter.allow(
@@ -215,7 +217,7 @@ class EditStatusAlertDialog extends StatelessWidget {
                       },
                       width: 300)
                 ],
-              ).paddingAll(ResponsiveWidget.isMobile(context)?16: 30),
+              ).paddingAll(ResponsiveWidget.isMobile(context) ? 16 : 30),
             ),
           );
         }),

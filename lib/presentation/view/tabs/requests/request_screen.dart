@@ -70,6 +70,8 @@ class RequestsScreen extends StatelessWidget {
                               child: Column(
                                 children: [
                                   TopRequestItemWidget(
+                                    count:
+                                        state.orderResponse?.count,
                                     index: state.maritalStatus,
                                     title: AppStrings.strRequests,
                                     list: maritals,

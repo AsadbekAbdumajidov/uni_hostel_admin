@@ -68,6 +68,8 @@ class WaitingScreen extends StatelessWidget {
                                 physics: ClampingScrollPhysics(),
                                 children: [
                                   TopRequestItemWidget(
+                                    count:
+                                        state.orderResponse?.count,
                                     index: state.maritalStatus,
                                     title: AppStrings.strRequests,
                                     list: maritals,

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uni_hostel_admin/core/error/error.dart';
@@ -13,7 +14,7 @@ class EditStatusCubit extends Cubit<EditStatusState> {
   EditStatusCubit(this._editStatusUsCase) : super(EditStatusState());
   final EditStatusUseCase _editStatusUsCase;
 
-  void editStatus(
+  Future<void> editStatus(
     int id,
     String? status,
     int? monthlyPaymentPrice,
@@ -59,6 +60,7 @@ class EditStatusCubit extends Cubit<EditStatusState> {
             emit(state.copyWith(failure: failure, status: Status.ERROR)),
         (success) {
       emit(state.copyWith(response: success, status: Status.SUCCESS));
+      debugPrint(state.response?.message);
     });
   }
 

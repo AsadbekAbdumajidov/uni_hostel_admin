@@ -67,6 +67,8 @@ class StudentsScreen extends StatelessWidget {
                                     physics: BouncingScrollPhysics(),
                                     children: [
                                       TopRequestItemWidget(
+                                         count:
+                                        state.orderResponse?.count,
                                         index: state.maritalStatus,
                                         title: AppStrings.strRequests,
                                         list: maritals,
