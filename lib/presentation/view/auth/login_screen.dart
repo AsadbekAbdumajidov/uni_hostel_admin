@@ -69,6 +69,7 @@ class LoginPage extends StatelessWidget {
                                   ?.copyWith(color: AppColors.bodyTextColor)),
                           SizedBox(height: 10),
                           CustomTextField(
+                            textInputAction: TextInputAction.next,
                             onChange: (v) =>
                                 context.read<LoginCubit>().getUserName(v),
                             hintText: AppStrings.strEnterUserName,
@@ -84,6 +85,7 @@ class LoginPage extends StatelessWidget {
                           SizedBox(height: 10),
                           CustomTextField(
                             obscure: state.changeEye,
+                            textInputAction: TextInputAction.done,
                             maxLines: 1,
                             onChange: (v) =>
                                 context.read<LoginCubit>().getPassword(v),

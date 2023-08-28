@@ -10,6 +10,8 @@ class AppIcons {
   static const iconPaymentMonitoring = "assets/icons/ic_those_who_paid.svg";
   static const iconSearch = "assets/icons/ic_search.svg";
   static const iconClose = "assets/icons/ic_close.svg";
+  static const iconStatistics = "assets/icons/ic_statistics.svg";
+
 
 
 }

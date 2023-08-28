@@ -90,6 +90,19 @@ class MenuDrawer extends StatelessWidget {
                   // }
                 },
               ),
+              SideMenuItem(
+                index: 5,
+                title: AppStrings.strStatistics,
+                currentIndex: state.currentIndex,
+                icon: AppIcons.iconStatistics,
+                onTap: () {
+                  if (state.currentIndex != 5) {
+                    context.read<SideBarCubit>().changeIndex(5);
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, RouteName.statistics.route);
+                  }
+                },
+              ),
             ],
           ).paddingSymmetric(vertical: 20, horizontal: 16),
         );

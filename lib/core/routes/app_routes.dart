@@ -7,7 +7,7 @@ enum RouteName {
   waiting(route: "/${AppStrings.strWaiting}"),
   rejected(route: "/${AppStrings.strRejected}"),
   thoseWhoPaid(route: "/${AppStrings.strThoseWhoPaid}"),
-
+  statistics(route: "/${AppStrings.strStatistics}"),
   login(route: "/kirish"),
   splash(route: "/splash"),
   ;

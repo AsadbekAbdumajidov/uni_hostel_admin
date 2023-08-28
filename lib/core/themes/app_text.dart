@@ -15,6 +15,7 @@ class AppStrings {
 
 
   static const strThoseWhoPaid = "To'lov qilganlar";
+  static const strStatistics = "Statistika";
   static const strPaymentHistory = "To'lovlar tarixi";
   static const strAdmin = "Hisobingizga administrator sifatida kiring";
   static const strUserName = "Hisobingiz";

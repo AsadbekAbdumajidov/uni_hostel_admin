@@ -6,6 +6,7 @@ import 'package:uni_hostel_admin/presentation/view/splash/splash_screen.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/payment_monitoring/payment_monitoring_screen.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/rejected/rejected_screen.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/requests/request_screen.dart';
+import 'package:uni_hostel_admin/presentation/view/tabs/statistics/statistics_screen.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/students/student_request.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/waiting/waiting_request.dart';
 
@@ -34,6 +35,8 @@ RouteFactory generateRoute() {
         return _createPageRoute( RejectedScreen(), routeName);
       case RouteName.thoseWhoPaid:
         return _createPageRoute( PaymentMonitoring(), routeName);
+      case RouteName.statistics:
+        return _createPageRoute( StatisticsScreen(), routeName);
     }
   };
 }
