@@ -77,7 +77,7 @@ class TopRequestItemWidget extends StatelessWidget {
                   ),
                   DropDownWidget(
                     buttonWidth: 150,
-                    drobDownWidth: 200,
+                    drobDownWidth: 250,
                     index: facultyIndex ?? "",
                     list: faculties,
                     onChanged: onChangeFaculty,

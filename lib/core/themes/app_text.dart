@@ -15,6 +15,7 @@ class AppStrings {
 
 
   static const strThoseWhoPaid = "To'lov qilganlar";
+  static const strInDormitory = "Joylashganlar";
   static const strStatistics = "Statistika";
   static const strPaymentHistory = "To'lovlar tarixi";
   static const strAdmin = "Hisobingizga administrator sifatida kiring";
@@ -68,8 +69,17 @@ class AppStrings {
   static const strWaitingAd = "Navbatga";
 
   static const strRejectedAd = "Rad etish";
-  static const stirApproved = "Tasdiqlash";
+  static const strApprove = "Tasdiqlash";
   static const strIsCancelled = "Bekor qilish";
+  static const strGender = "Jinsi";
+  static const strTTJ = "TTJ";
+  static const strFloor = "Qavat";
+  static const strRoom = "Xona";
+
+
+  static const strMen = "Erkak";
+  static const strWoMen = "Ayol";
+
 
 // ------------- //
   static const strIronNotebook = "Temir daftar";

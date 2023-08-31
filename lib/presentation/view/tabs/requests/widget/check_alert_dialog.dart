@@ -60,7 +60,7 @@ class CheckDeleteAlertDialog extends StatelessWidget {
                   SizedBox(width: 8),
                   CustomOutlineButton(
                     primaryColour: AppColors.greenColour,
-                    text: AppStrings.stirApproved,
+                    text: AppStrings.strApprove,
                     width: 137,
                     onTap: onTapright,
                   )

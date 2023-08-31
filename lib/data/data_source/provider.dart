@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/data/models/download_orders_list/download_orders_list_response.dart';
+import 'package:uni_hostel_admin/data/models/in_dormitory/in_dormitory_response.dart';
 import 'package:uni_hostel_admin/data/models/login/request/login_request_model.dart';
 import 'package:uni_hostel_admin/data/models/login/response/login_response_model.dart';
 import 'package:uni_hostel_admin/data/models/order/get_faculties/get_faculties_response.dart';
@@ -67,6 +68,25 @@ abstract class ApiClient {
     @Query("search_query") String search,
   );
 
-   @GET('admin/profile/')
+  @GET('admin/profile/')
   Future<ProfileResponse> getProfile();
+
+  @GET('admin/students/in/dormitory/')
+  Future<GetInDormitoryResponse> getInDormitory(
+    @Query("page") int page,
+    @Query("course") String? course,
+    @Query("faculty") int? facultyId,
+    @Query("search_query") String search,
+    @Query("gender") String? gender,
+    @Query("dormitory") String? dormitoryId,
+  );
+  @GET('admin/download/students/in/dormitory/')
+  Future<DownloadOrdersListResponse> downloadIndormitory(
+    @Query("search_query") String search,
+    @Query("course") String? course,
+    @Query("faculty") int? facultyId,
+    
+    @Query("gender") String? gender,
+    @Query("dormitory") String? dormitoryId,
+  );
 }

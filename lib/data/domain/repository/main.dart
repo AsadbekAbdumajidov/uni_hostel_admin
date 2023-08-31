@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:uni_hostel_admin/core/error/error.dart';
 import 'package:uni_hostel_admin/data/models/download_orders_list/download_orders_list_response.dart';
+import 'package:uni_hostel_admin/data/models/in_dormitory/in_dormitory_response.dart';
 import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.dart';
 import 'package:uni_hostel_admin/data/models/order/post_order/request/edit_status_request.dart';
 import 'package:uni_hostel_admin/data/models/order/post_order/response/edit_status_response.dart';
@@ -18,6 +19,27 @@ abstract class IMainRepository {
     int? facultyId,
     String maritalStatus,
   );
+  Future<Either<Failure, GetInDormitoryResponse>> getInDormitory(
+    int page,
+     String course,
+       int? facultyId,
+    String search,
+   
+    String? gender,
+    String? dormitory,
+  
+  );
+
+   Future<Either<Failure, DownloadOrdersListResponse>> getInDormitoryList(
+    String search,
+    String? course,
+    int? facultyId,
+    String? gender,
+    String? dormitory,
+    
+  );
+
+   
   Future<Either<Failure, GetOrderResponse>> getNewOrder(
     int page,
     String search,

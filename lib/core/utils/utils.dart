@@ -33,6 +33,13 @@ List<String> maritals = [
   AppStrings.strHasManyChildrenFamily,
   AppStrings.strNoneOfThem
 ];
+List<String> genders = [
+  AppStrings.strMen,
+  AppStrings.strWoMen,
+  AppStrings.strNoneOfThem
+];
+
+List<String> gendersForRequest = ["male", "female"];
 List<String> maritalStatus = [
   AppStrings.strIronNotebook,
   AppStrings.strWomenNotebook,

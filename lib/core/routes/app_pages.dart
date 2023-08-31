@@ -3,6 +3,7 @@ import 'package:uni_hostel_admin/core/routes/app_routes.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/presentation/view/auth/login_screen.dart';
 import 'package:uni_hostel_admin/presentation/view/splash/splash_screen.dart';
+import 'package:uni_hostel_admin/presentation/view/tabs/in_dormitory/in_dormitory_screen.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/payment_monitoring/payment_monitoring_screen.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/rejected/rejected_screen.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/requests/request_screen.dart';
@@ -22,28 +23,30 @@ RouteFactory generateRoute() {
     }
     switch (routeName) {
       case RouteName.requests:
-        return _createPageRoute( RequestsScreen(), routeName);
+        return _createPageRoute(RequestsScreen(), routeName);
       case RouteName.login:
-        return _createPageRoute( LoginPage(), routeName);
+        return _createPageRoute(LoginPage(), routeName);
       case RouteName.splash:
         return _createPageRoute(const SplashPage(), routeName);
       case RouteName.students:
         return _createPageRoute(StudentsScreen(), routeName);
       case RouteName.waiting:
-        return _createPageRoute( WaitingScreen(), routeName);
+        return _createPageRoute(WaitingScreen(), routeName);
       case RouteName.rejected:
-        return _createPageRoute( RejectedScreen(), routeName);
+        return _createPageRoute(RejectedScreen(), routeName);
       case RouteName.thoseWhoPaid:
-        return _createPageRoute( PaymentMonitoring(), routeName);
+        return _createPageRoute(PaymentMonitoring(), routeName);
       case RouteName.statistics:
-        return _createPageRoute( StatisticsScreen(), routeName);
+        return _createPageRoute(StatisticsScreen(), routeName);
+      case RouteName.inDormitory:
+        return _createPageRoute(InDormitoryScreen(), routeName);
     }
   };
 }
 
 // Route? innerNavigation(RouteSettings settings) {
 //   switch (settings.name) {
-    
+
 //     case AppRoutes.apartmentScreen:
 //       return MaterialPageRoute(
 //         builder: (context) =>  ApartmentScreen(),

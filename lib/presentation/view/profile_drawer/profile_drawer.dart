@@ -13,8 +13,6 @@ import 'package:uni_hostel_admin/presentation/cubit/profile/profile_cubit.dart';
 import 'package:uni_hostel_admin/presentation/view/profile_drawer/widget/full_name_information.dart';
 import 'package:uni_hostel_admin/presentation/view/profile_drawer/widget/profile_driwer_item.dart';
 
-import '../../components/responsiveness.dart';
-
 class ProfileDrawer extends StatelessWidget {
   ProfileDrawer({Key? key}) : super(key: key);
 
@@ -36,8 +34,6 @@ class ProfileDrawer extends StatelessWidget {
                 : Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                          height: ResponsiveWidget.isMobile(context) ? 40 : 0),
                       FullNameInformation(
                         title:
                             "${state.response?.firstName} ${state.response?.lastName}",

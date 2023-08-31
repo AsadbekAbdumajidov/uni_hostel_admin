@@ -11,6 +11,8 @@ class AppIcons {
   static const iconSearch = "assets/icons/ic_search.svg";
   static const iconClose = "assets/icons/ic_close.svg";
   static const iconStatistics = "assets/icons/ic_statistics.svg";
+  static const iconApproved = "assets/icons/ic_approved.svg";
+
 
 
 

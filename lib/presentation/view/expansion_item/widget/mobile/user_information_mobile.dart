@@ -4,8 +4,8 @@ import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel_admin/core/themes/app_colors.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
 
-class userInformationMobile extends StatelessWidget {
-  const userInformationMobile(
+class UserInformationMobile extends StatelessWidget {
+  const UserInformationMobile(
       {super.key, required this.title, required this.subTitle, this.onTap});
   final String title;
   final String subTitle;

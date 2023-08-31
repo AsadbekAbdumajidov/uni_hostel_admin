@@ -14,45 +14,45 @@ class ItemListMobile extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        userInformationMobile(
+        UserInformationMobile(
           title: AppStrings.strPassportSeries,
           subTitle: response?.passportSeries ?? "-",
         ),
-        userInformationMobile(
+        UserInformationMobile(
           title: AppStrings.strPhoneNumber,
           subTitle: response?.phoneNumber ?? "-",
         ),
-        userInformationMobile(
+        UserInformationMobile(
           title: AppStrings.strJSH,
           subTitle: response?.jshir ?? "-",
         ),
-        userInformationMobile(
+        UserInformationMobile(
           title: AppStrings.strRegion,
           subTitle: response?.region ?? "-",
         ),
-        userInformationMobile(
+        UserInformationMobile(
           title: AppStrings.strDistrict,
           subTitle: response?.district ?? "-",
         ),
-        userInformationMobile(
+        UserInformationMobile(
           title: AppStrings.strStreetAndHouseNumber,
           subTitle: response?.neighborhood ?? "-",
         ),
-        userInformationMobile(
+        UserInformationMobile(
           title: AppStrings.strFaculty,
           subTitle: response?.faculty ?? "-",
         ),
-        userInformationMobile(
+        UserInformationMobile(
           title: AppStrings.strCourse,
           subTitle: response?.course ?? "-",
         ),
-        userInformationMobile(
+        UserInformationMobile(
           title: AppStrings.strGroup,
           subTitle: response?.group ?? "-",
         ),
         file == null
             ? SizedBox.shrink()
-            : userInformationMobile(
+            : UserInformationMobile(
                 onTap: () {
                   ServiceUrl.launchInBrow(file ?? "-");
                 },

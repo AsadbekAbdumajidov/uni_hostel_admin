@@ -102,7 +102,7 @@ class ExpansionItemWidget extends StatelessWidget {
                       ),
             state.orderResponse?.checkedAdmin == null
                 ? SizedBox.shrink()
-                : userInformationMobile(
+                : UserInformationMobile(
                     title: AppStrings.strChecked,
                     subTitle:
                         "${responseAdmin?.firstName} ${responseAdmin?.lastName}",

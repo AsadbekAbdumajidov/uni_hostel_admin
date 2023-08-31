@@ -8,6 +8,7 @@ import 'package:uni_hostel_admin/presentation/cubit/accepted_order/accepted_orde
 import 'package:uni_hostel_admin/presentation/cubit/auth/auth_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/cancelled_order/cancelled_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/edit_status/edit_status_cubit.dart';
+import 'package:uni_hostel_admin/presentation/cubit/in_dormitory_cubit/in_dormitory_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/new_order/get_new_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/profile/profile_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/queue_order/queue_order_cubit.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (context) => inject<SideBarCubit>()),
           BlocProvider(
               create: (context) => inject<AuthCubit>()..checkUserToAuth()),
-                BlocProvider(
+          BlocProvider(
               create: (context) => inject<ProfileCubit>()..getProfile()),
           BlocProvider(create: (context) => inject<EditStatusCubit>()),
           BlocProvider(create: (context) => inject<SelectedOrderCubit>()),
@@ -42,6 +43,8 @@ class MyApp extends StatelessWidget {
               create: (context) =>
                   inject<AcceptedOrderCubit>()..getFaculties()),
           BlocProvider(
+              create: (context) => inject<InDormitoryCubit>()..getFaculties()),
+          BlocProvider(
               create: (context) =>
                   inject<CancelledOrderCubit>()..getFaculties()),
           BlocProvider(
@@ -50,22 +53,11 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Uni hostel admin',
+          themeAnimationDuration: Duration(seconds: 0),
           onGenerateRoute: generateRoute(),
-          builder: (context, child) {
-            return ScrollConfiguration(
-              behavior: MyBehavior(),
-              child: child!,
-            );
-          },
           initialRoute: RouteName.splash.route,
           home: const SplashPage(),
           theme: appThemeData,
         ));
   }
-}
-
-class MyBehavior extends ScrollBehavior {
-  @override
-  ScrollPhysics getScrollPhysics(BuildContext context) =>
-      const ClampingScrollPhysics();
 }

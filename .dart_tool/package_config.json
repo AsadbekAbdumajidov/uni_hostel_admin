@@ -176,6 +176,18 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "contained_tab_bar_view",
+      "rootUri": "file:///Users/abrorsamurai/.pub-cache/hosted/pub.dev/contained_tab_bar_view-0.8.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "container_tab_indicator",
+      "rootUri": "file:///Users/abrorsamurai/.pub-cache/hosted/pub.dev/container_tab_indicator-0.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "convert",
       "rootUri": "file:///Users/abrorsamurai/.pub-cache/hosted/pub.dev/convert-3.1.1",
       "packageUri": "lib/",
@@ -264,6 +276,12 @@
       "rootUri": "file:///Users/abrorsamurai/.pub-cache/hosted/pub.dev/fixnum-1.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.19"
+    },
+    {
+      "name": "fl_chart",
+      "rootUri": "file:///Users/abrorsamurai/.pub-cache/hosted/pub.dev/fl_chart-0.63.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "flutter",
@@ -686,6 +704,18 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "syncfusion_flutter_charts",
+      "rootUri": "file:///Users/abrorsamurai/.pub-cache/hosted/pub.dev/syncfusion_flutter_charts-22.2.10",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "syncfusion_flutter_core",
+      "rootUri": "file:///Users/abrorsamurai/.pub-cache/hosted/pub.dev/syncfusion_flutter_core-22.2.10",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "synchronized",
       "rootUri": "file:///Users/abrorsamurai/.pub-cache/hosted/pub.dev/synchronized-3.1.0",
       "packageUri": "lib/",
@@ -848,7 +878,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-08-24T16:41:30.772149Z",
+  "generated": "2023-08-28T21:34:18.313219Z",
   "generator": "pub",
   "generatorVersion": "3.0.6"
 }

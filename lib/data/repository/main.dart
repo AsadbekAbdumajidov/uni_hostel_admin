@@ -7,6 +7,7 @@ import 'package:uni_hostel_admin/core/error/error.dart';
 import 'package:uni_hostel_admin/data/data_source/provider.dart';
 import 'package:uni_hostel_admin/data/domain/repository/main.dart';
 import 'package:uni_hostel_admin/data/models/download_orders_list/download_orders_list_response.dart';
+import 'package:uni_hostel_admin/data/models/in_dormitory/in_dormitory_response.dart';
 import 'package:uni_hostel_admin/data/models/order/get_faculties/get_faculties_response.dart';
 import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.dart';
 import 'package:uni_hostel_admin/data/models/order/post_order/request/edit_status_request.dart';
@@ -220,6 +221,71 @@ class MainRepository implements IMainRepository {
   Future<Either<Failure, ProfileResponse>> getProfile() async {
     try {
       final response = await _apiClient.getProfile();
+      return Right(response);
+    } on DioError catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      if (e.error is SocketException) {
+        return const Left(ConnectionFailure());
+      }
+      return Left(
+        (e.response?.statusCode == 400)
+            ? const UserNotFound()
+            : ServerFailure(e.response?.statusCode),
+      );
+    } on Object catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      rethrow;
+    }
+  }
+
+  @override
+  Future<Either<Failure, GetInDormitoryResponse>> getInDormitory(
+    int page,
+    String course,
+    int? facultyId,
+    String search,
+    String? gender,
+    String? dormitory,
+  ) async {
+    try {
+      final response = await _apiClient.getInDormitory(
+          page, course, facultyId, search, gender, dormitory);
+      return Right(response);
+    } on DioError catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      if (e.error is SocketException) {
+        return const Left(ConnectionFailure());
+      }
+      return Left(
+        (e.response?.statusCode == 400)
+            ? const UserNotFound()
+            : ServerFailure(e.response?.statusCode),
+      );
+    } on Object catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      rethrow;
+    }
+  }
+
+  @override
+  Future<Either<Failure, DownloadOrdersListResponse>> getInDormitoryList(
+    String search,
+    String? course,
+    int? facultyId,
+    String? gender,
+    String? dormitoryId,
+  ) async {
+    try {
+      final response = await _apiClient.downloadIndormitory(
+          search, course, facultyId, gender, dormitoryId);
       return Right(response);
     } on DioError catch (e) {
       if (kDebugMode) {

@@ -9,7 +9,6 @@ import 'package:uni_hostel_admin/core/routes/app_routes.dart';
 import 'package:uni_hostel_admin/core/themes/app_colors.dart';
 import 'package:uni_hostel_admin/core/themes/app_icons.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
-import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
 import 'package:uni_hostel_admin/presentation/cubit/side_bar/side_bar_cubit.dart';
 import 'package:uni_hostel_admin/presentation/view/menu_drawer/widget/side_menu_item.dart';
 
@@ -26,7 +25,6 @@ class MenuDrawer extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               SizedBox(height: ResponsiveWidget.isMobile(context) ? 40 : 0),
               SvgPicture.asset(AppIcons.iconWhiteLogo, height: 53, width: 53),
               SizedBox(height: 50),
               SideMenuItem(
@@ -43,9 +41,9 @@ class MenuDrawer extends StatelessWidget {
                   }),
               SideMenuItem(
                   index: 1,
-                  title: AppStrings.strStudents,
+                  title: AppStrings.strApproved,
                   currentIndex: state.currentIndex,
-                  icon: AppIcons.iconStudent,
+                  icon: AppIcons.iconApproved,
                   onTap: () {
                     if (state.currentIndex != 1) {
                       context.read<SideBarCubit>().changeIndex(1);
@@ -77,8 +75,21 @@ class MenuDrawer extends StatelessWidget {
                   }
                 },
               ),
-              SideMenuItem(
+               SideMenuItem(
                 index: 4,
+                title: AppStrings.strInDormitory,
+                currentIndex: state.currentIndex,
+                icon: AppIcons.iconStudent,
+                onTap: () {
+                  if (state.currentIndex != 4) {
+                    context.read<SideBarCubit>().changeIndex(4);
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, RouteName.inDormitory.route);
+                  }
+                },
+              ),
+              SideMenuItem(
+                index: 5,
                 title: AppStrings.strThoseWhoPaid,
                 currentIndex: state.currentIndex,
                 icon: AppIcons.iconPaymentMonitoring,
@@ -91,13 +102,13 @@ class MenuDrawer extends StatelessWidget {
                 },
               ),
               SideMenuItem(
-                index: 5,
+                index:6,
                 title: AppStrings.strStatistics,
                 currentIndex: state.currentIndex,
                 icon: AppIcons.iconStatistics,
                 onTap: () {
-                  if (state.currentIndex != 5) {
-                    context.read<SideBarCubit>().changeIndex(5);
+                  if (state.currentIndex != 6) {
+                    context.read<SideBarCubit>().changeIndex(6);
                     Navigator.pop(context);
                     Navigator.pushNamed(context, RouteName.statistics.route);
                   }

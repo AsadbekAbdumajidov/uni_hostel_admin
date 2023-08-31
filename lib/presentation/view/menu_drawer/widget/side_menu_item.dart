@@ -39,7 +39,7 @@ class SideMenuItem extends StatelessWidget {
                       icon == null
                           ? Container(
                               child: LoadingWidget(color: AppColors.whiteColor))
-                          : SvgPicture.asset(icon ?? ""),
+                          : SvgPicture.asset(icon ?? "",height: 25),
                       SizedBox(width: 10),
                       Text(title,
                           style: Theme.of(context)
@@ -61,7 +61,7 @@ class SideMenuItem extends StatelessWidget {
                       icon == null
                           ? Container(
                               child: LoadingWidget(color: AppColors.whiteColor))
-                          : SvgPicture.asset(icon ?? ""),
+                          : SvgPicture.asset(icon ?? "",height: 25),
                       SizedBox(width: 10),
                       Text(title,
                           style: Theme.of(context)

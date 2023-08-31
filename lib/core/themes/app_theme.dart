@@ -58,8 +58,11 @@ final appThemeData = ThemeData(
   visualDensity: VisualDensity.adaptivePlatformDensity,
   primarySwatch: Colors.blueGrey,
   
-  pageTransitionsTheme: const PageTransitionsTheme(builders: {
+  pageTransitionsTheme:  PageTransitionsTheme(
+    
+    builders: {
     TargetPlatform.android: CupertinoPageTransitionsBuilder(),
     TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+    TargetPlatform.windows: CupertinoPageTransitionsBuilder()
   }),
 );

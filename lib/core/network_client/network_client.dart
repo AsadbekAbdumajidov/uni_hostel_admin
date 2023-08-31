@@ -3,7 +3,11 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uni_hostel_admin/core/routes/app_routes.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
+import 'package:uni_hostel_admin/presentation/cubit/auth/auth_cubit.dart';
+
+import '../../di.dart';
 
 class NetworkClient {
   String _token = '';
@@ -45,11 +49,10 @@ class NetworkClient {
         }
 
         if (error.response?.statusCode == 401) {
+          _goToLoginScreen();
           RequestOptions requestOptions = error.requestOptions;
           final options = Options(
-            method: requestOptions.method,
-            headers: requestOptions.headers,
-          );
+              method: requestOptions.method, headers: requestOptions.headers);
           options.headers!['Authorization'] = 'Bearer $_token';
           options.headers!["Accept"] = "application/json";
           options.headers!["Content-type"] = "application/json";
@@ -100,4 +103,10 @@ class NetworkClient {
         err.error != null &&
         err.error is SocketException;
   }
+}
+
+void _goToLoginScreen() {
+  inject<AuthCubit>().logout();
+  Navigator.of(navigatorKey.currentContext!).pushNamedAndRemoveUntil(
+      RouteName.splash.route, (Route<dynamic> route) => false);
 }

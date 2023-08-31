@@ -21,13 +21,13 @@ class UserInformationWeb extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(children: [
       Expanded(
-        child: userInformationMobile(title: title, subTitle: subTitle),
+        child: UserInformationMobile(title: title, subTitle: subTitle),
       ),
       SizedBox(width: subTitle2 == "" ? 0 : 12),
       subTitle2 == ""
           ? SizedBox.shrink()
           : Expanded(
-              child: userInformationMobile(
+              child: UserInformationMobile(
                   onTap: onTap, title: title2, subTitle: subTitle2 ?? ""),
             )
     ]).paddingOnly(bottom: 14);

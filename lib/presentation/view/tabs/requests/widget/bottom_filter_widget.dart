@@ -9,11 +9,6 @@ import 'package:uni_hostel_admin/presentation/cubit/new_order/get_new_order_cubi
 import 'package:uni_hostel_admin/presentation/view/expansion_item/widget/checkbox_item_widget.dart';
 
 class BottomFilterWidget extends StatelessWidget {
-  const BottomFilterWidget({
-    super.key,
-  
-  });
- 
 
   @override
   Widget build(BuildContext context) {

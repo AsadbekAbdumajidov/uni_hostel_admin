@@ -11,6 +11,8 @@ import 'package:uni_hostel_admin/data/domain/usecases/auth/logout.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/delete_order.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/edit_status.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_faculties.dart';
+import 'package:uni_hostel_admin/data/domain/usecases/main/get_in_dormitory.dart';
+import 'package:uni_hostel_admin/data/domain/usecases/main/get_in_dormitory_list.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_new_order.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_order.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_orders_list.dart';
@@ -22,6 +24,7 @@ import 'package:uni_hostel_admin/presentation/cubit/accepted_order/accepted_orde
 import 'package:uni_hostel_admin/presentation/cubit/auth/auth_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/cancelled_order/cancelled_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/edit_status/edit_status_cubit.dart';
+import 'package:uni_hostel_admin/presentation/cubit/in_dormitory_cubit/in_dormitory_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/login/login_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/new_order/get_new_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/profile/profile_cubit.dart';
@@ -36,15 +39,17 @@ Future<void> initDi() async {
   inject.registerFactory(() => AuthCubit(inject(), inject()));
   inject.registerFactory(() => LoginCubit(inject()));
   inject.registerFactory(() => SideBarCubit());
-  inject.registerFactory(() => GetNewOrderCubit(inject(), inject(),inject()));
+  inject.registerFactory(() => GetNewOrderCubit(inject(), inject(), inject()));
   inject.registerFactory(() => SelectedOrderCubit(inject(), inject()));
   inject.registerFactory(() => EditStatusCubit(inject()));
-  inject.registerFactory(() => AcceptedOrderCubit(inject(), inject(),inject()));
-  inject.registerFactory(() => CancelledOrderCubit(inject(), inject(), inject()));
-  inject.registerFactory(() => QueueOrderCubit(inject(), inject(),inject()));
-  inject.registerFactory(() => ProfileCubit(inject()));
+  inject
+      .registerFactory(() => AcceptedOrderCubit(inject(), inject(), inject()));
+  inject
+      .registerFactory(() => CancelledOrderCubit(inject(), inject(), inject()));
+  inject.registerFactory(() => QueueOrderCubit(inject(), inject(), inject()));
+  inject.registerFactory(() => InDormitoryCubit(inject(), inject(), inject()));
 
-  
+  inject.registerFactory(() => ProfileCubit(inject()));
 
   // use case need to register
   inject.registerFactory(() => LoginUseCase(inject()));
@@ -58,7 +63,8 @@ Future<void> initDi() async {
   inject.registerLazySingleton(() => GetFacultiesUsCase(inject()));
   inject.registerLazySingleton(() => GetOrdersListUseCase(inject()));
   inject.registerLazySingleton(() => GetProfileUsCase(inject()));
-
+  inject.registerLazySingleton(() => GetInDormitoryListUseCase(inject()));
+  inject.registerLazySingleton(() => GetInDormitoryUseCase(inject()));
 
   // repository init
   inject.registerLazySingleton<IAuthRepository>(
