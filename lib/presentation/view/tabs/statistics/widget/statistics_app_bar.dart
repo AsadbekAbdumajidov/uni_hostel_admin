@@ -26,12 +26,26 @@ class StatisticsAppBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-                "TOSHKENT TIBBIYOT AKADEMIYASI TALABALAR \nTURAR JOYI STATISTIKASI",
-                style: Theme.of(context)
-                    .textTheme
-                    .displaySmall
-                    ?.copyWith(color: AppColors.whiteColor)),
+            Row(
+              children: [
+                !ResponsiveWidget.isTablet(context)
+                    ? SizedBox.shrink()
+                    : Builder(
+                        builder: (context) => GestureDetector(
+                          child: Icon(Icons.menu,
+                              color: AppColors.whiteColor, size: 30),
+                          onTap: () => Scaffold.of(context).openDrawer(),
+                        ).paddingOnly(top: 8, left: 6),
+                      ),
+                SizedBox(width: 10),
+                Text(
+                    "TOSHKENT TIBBIYOT AKADEMIYASI TALABALAR \nTURAR JOYI STATISTIKASI",
+                    style: Theme.of(context)
+                        .textTheme
+                        .displaySmall
+                        ?.copyWith(color: AppColors.whiteColor)),
+              ],
+            ),
             BlocBuilder<ProfileCubit, ProfileState>(builder: (context, state) {
               return Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,6 +53,7 @@ class StatisticsAppBar extends StatelessWidget {
                     NetworkImageWidget(
                       onTap: () => Scaffold.of(context).openEndDrawer(),
                       size: 45,
+                      
                       img: state.response?.image,
                     ).paddingSymmetric(horizontal: 12),
                     ResponsiveWidget.isTablet(context)
@@ -55,16 +70,16 @@ class StatisticsAppBar extends StatelessWidget {
                                         .textTheme
                                         .displaySmall
                                         ?.copyWith(
-                                          fontWeight: FontWeight.w500,
-                                          color: AppColors.whiteColor
-                                        )),
+                                            fontWeight: FontWeight.w500,
+                                            color: AppColors.whiteColor)),
                                 SizedBox(height: 4),
                                 Text("@${state.response?.username}",
                                     style: Theme.of(context)
                                         .textTheme
                                         .titleLarge
                                         ?.copyWith(
-                                            color: AppColors.whiteColor.withOpacity(0.8),
+                                            color: AppColors.whiteColor
+                                                .withOpacity(0.8),
                                             fontWeight: FontWeight.w400)),
                               ],
                             ),

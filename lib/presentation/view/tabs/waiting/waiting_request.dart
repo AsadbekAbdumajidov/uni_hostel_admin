@@ -35,6 +35,7 @@ class WaitingScreen extends StatelessWidget {
           child: Column(
             children: [
               CustomAppBar(
+                isSearch: true,
                   textEditingController: searchController,
                   onchange: (v) =>
                       context.read<QueueOrderCubit>().searchQueue(v),

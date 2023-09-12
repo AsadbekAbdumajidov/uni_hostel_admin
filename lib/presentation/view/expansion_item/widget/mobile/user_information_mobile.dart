@@ -6,11 +6,15 @@ import 'package:uni_hostel_admin/core/themes/app_text.dart';
 
 class UserInformationMobile extends StatelessWidget {
   const UserInformationMobile(
-      {super.key, required this.title, required this.subTitle, this.onTap});
+      {super.key,
+      required this.title,
+      required this.subTitle,
+      this.onTap,
+      this.maxLines});
   final String title;
   final String subTitle;
   final Function()? onTap;
-
+  final int? maxLines;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,14 +26,16 @@ class UserInformationMobile extends StatelessWidget {
                 .bodyMedium
                 ?.copyWith(color: AppColors.bodyTextColor)),
         SizedBox(height: 6),
-        onTap == null 
+        onTap == null
             ? Text(subTitle,
+                maxLines: maxLines ?? 1,
+                overflow: TextOverflow.ellipsis,
                 style: Theme.of(context)
                     .textTheme
                     .titleSmall
                     ?.copyWith(fontWeight: FontWeight.w600))
             : FlutterWebButton.textUnderline(
-              lineSpacing: 4,
+                lineSpacing: 4,
                 AppStrings.strToSee,
                 onPressed: onTap,
                 animationDuration: const Duration(milliseconds: 500),
@@ -41,6 +47,6 @@ class UserInformationMobile extends StatelessWidget {
                 ),
               ),
       ],
-    ).paddingOnly(bottom: 18,top: 10);
+    ).paddingOnly(bottom: 18, top: 10);
   }
 }

@@ -88,7 +88,7 @@ class GetNewOrderCubit extends Cubit<GetNewOrderState> {
   void selectFaculty(String index) {
     if (index == AppStrings.strNoneOfThem) {
       emit(state.copyWith(
-          facultyIndex: FacultiesModel(name: "", id: null),
+          facultyIndex: FacultiesModel(name: null, id: null),
           status: Status.UNKNOWN));
       getNewOrder();
     } else {

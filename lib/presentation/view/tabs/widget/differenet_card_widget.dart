@@ -46,8 +46,8 @@ class DifferentCardWidget extends StatelessWidget {
                             ? AppColors.backgroundColour
                             : AppColors.transparent,
                         borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(3),
-                          bottomRight: Radius.circular(3),
+                          topRight: Radius.circular(7),
+                          bottomRight: Radius.circular(7),
                         ),
                       ),
                       child: Theme(

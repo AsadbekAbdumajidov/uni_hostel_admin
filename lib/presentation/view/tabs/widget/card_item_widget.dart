@@ -6,17 +6,18 @@ import 'package:uni_hostel_admin/core/widget/error_img_profile.dart';
 import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
 
 class CardItemWidget extends StatelessWidget {
-  const CardItemWidget(
-      {super.key,
-      required this.userName,
-      this.status,
-      required this.date,
-      required this.time,
-      this.img,
-      this.textStatus,
-      this.statusColor,
-      this.textOverflow,
-      required this.isIcon});
+  const CardItemWidget({
+    super.key,
+    required this.userName,
+    this.status,
+    required this.date,
+    required this.time,
+    this.img,
+    this.textStatus,
+    this.statusColor,
+    this.textOverflow,
+    required this.isIcon,
+  });
   final String userName;
   final String? status;
   final String date;
@@ -26,6 +27,7 @@ class CardItemWidget extends StatelessWidget {
   final Color? statusColor;
   final TextOverflow? textOverflow;
   final bool isIcon;
+
   @override
   Widget build(BuildContext context) {
     double textSize = img == null
@@ -44,7 +46,7 @@ class CardItemWidget extends StatelessWidget {
             children: [
               img == null
                   ? SizedBox.shrink()
-                  :  NetworkImageWidget(onTap: () {}, size: 50, img: img ?? "")
+                  : NetworkImageWidget(onTap: () {}, size: 50, img: img ?? "")
                       .paddingOnly(
                           right: ResponsiveWidget.isMobile(context) ? 4 : 10),
               Expanded(
@@ -97,51 +99,61 @@ class CardItemWidget extends StatelessWidget {
                                   color: statusColor?.withOpacity(0.1) ??
                                       AppColors.redColour.withOpacity(0.1),
                                 ),
-                                child:  Center(
-                                    child: Text(
-                                      textStatus ?? "",
-                                      overflow: TextOverflow.ellipsis,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .displaySmall
-                                          ?.copyWith(
-                                            fontSize: textSize,
-                                            fontWeight: FontWeight.w300,
-                                            color: statusColor ??
-                                                AppColors.redColour,
-                                          ),
-                                    ),
+                                child: Center(
+                                  child: Text(
+                                    textStatus ?? "",
+                                    overflow: TextOverflow.ellipsis,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .displaySmall
+                                        ?.copyWith(
+                                          fontSize: textSize,
+                                          fontWeight: FontWeight.w300,
+                                          color: statusColor ??
+                                              AppColors.redColour,
+                                        ),
+                                  ),
                                 ).paddingSymmetric(vertical: 4, horizontal: 10),
                               ),
                   ],
                 ),
               ),
-      ResponsiveWidget.isMobile(context) ? SizedBox.shrink():  Expanded(
-          flex: 3,
-          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Text(
-              date,
-              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  fontSize: textSize,
-                  fontWeight: img == null ? FontWeight.w500 : FontWeight.w400,
-                  color: AppColors.blackColor),
-            ),
-          ]),
-        ),
-         ResponsiveWidget.isMobile(context) ? SizedBox.shrink(): Expanded(
-          flex: 2,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(time,
-                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      fontSize: textSize,
-                      fontWeight:
-                          img == null ? FontWeight.w500 : FontWeight.w400,
-                      color: AppColors.blackColor)),
-            ],
-          ),
-        ),
+        ResponsiveWidget.isMobile(context)
+            ? SizedBox.shrink()
+            : Expanded(
+                flex: 3,
+                child:
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  Text(
+                    date,
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                        fontSize: textSize,
+                        fontWeight:
+                            img == null ? FontWeight.w500 : FontWeight.w400,
+                        color: AppColors.blackColor),
+                  ),
+                ]),
+              ),
+        ResponsiveWidget.isMobile(context)
+            ? SizedBox.shrink()
+            : Expanded(
+                flex: 2,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(time,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(
+                                fontSize: textSize,
+                                fontWeight: img == null
+                                    ? FontWeight.w500
+                                    : FontWeight.w400,
+                                color: AppColors.blackColor)),
+                  ],
+                ),
+              ),
         isIcon ? SizedBox(width: 50) : SizedBox.shrink()
       ],
     );

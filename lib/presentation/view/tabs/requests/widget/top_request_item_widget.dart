@@ -95,8 +95,4 @@ class TopRequestItemWidget extends StatelessWidget {
     ).paddingOnly(bottom: 40);
   }
 
-  void showFlexibleBottomSheet(
-      {required BuildContext context,
-      required Color backgroundColor,
-      required Widget Function(dynamic context) builder}) {}
 }

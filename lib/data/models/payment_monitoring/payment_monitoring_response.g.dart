@@ -1,0 +1,64 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'payment_monitoring_response.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$_PaymentMonitoringResponse _$$_PaymentMonitoringResponseFromJson(
+        Map<String, dynamic> json) =>
+    _$_PaymentMonitoringResponse(
+      count: json['count'] as int?,
+      next: json['next'] as String?,
+      previous: json['previous'] as String?,
+      results: (json['results'] as List<dynamic>?)
+          ?.map((e) => PaymentsWhoPaidModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$$_PaymentMonitoringResponseToJson(
+        _$_PaymentMonitoringResponse instance) =>
+    <String, dynamic>{
+      'count': instance.count,
+      'next': instance.next,
+      'previous': instance.previous,
+      'results': instance.results,
+    };
+
+_$_WhoPaidModel _$$_WhoPaidModelFromJson(Map<String, dynamic> json) =>
+    _$_WhoPaidModel(
+      id: json['id'] as int?,
+      course: json['course'] as String?,
+      fullName: json['full_name'] as String?,
+      studentId: json['student_id'] as int?,
+      facultyModel: json['faculty_model'] as String?,
+      payments: (json['payments'] as List<dynamic>?)
+          ?.map((e) => Payments.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$$_WhoPaidModelToJson(_$_WhoPaidModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'course': instance.course,
+      'full_name': instance.fullName,
+      'student_id': instance.studentId,
+      'faculty_model': instance.facultyModel,
+      'payments': instance.payments,
+    };
+
+_$_Payments _$$_PaymentsFromJson(Map<String, dynamic> json) => _$_Payments(
+      id: json['id'] as int?,
+      amount: json['amount'] as String?,
+      status: json['status'] as String?,
+      payedAt: json['payed_at'] as String?,
+    );
+
+Map<String, dynamic> _$$_PaymentsToJson(_$_Payments instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'amount': instance.amount,
+      'status': instance.status,
+      'payed_at': instance.payedAt,
+    };

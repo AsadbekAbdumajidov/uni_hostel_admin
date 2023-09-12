@@ -42,9 +42,15 @@ class CheckboxItemWidget extends StatelessWidget {
 
 class CheckboxItemRowWidget extends StatelessWidget {
   const CheckboxItemRowWidget(
-      {super.key, required this.title, required this.value, this.onChange});
+      {super.key,
+      required this.title,
+      required this.value,
+      this.onChange,
+      this.hover = false});
   final String title;
   final bool value;
+  final bool hover;
+
   final Function(bool? v)? onChange;
   @override
   Widget build(BuildContext context) {
@@ -52,8 +58,11 @@ class CheckboxItemRowWidget extends StatelessWidget {
       height: 35,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
-      color: value ? AppColors.primaryColor : AppColors.whiteColor,
-
+        color: value
+            ? AppColors.primaryColor
+            : hover
+                ? AppColors.primaryColor.withOpacity(0.3)
+                : AppColors.whiteColor,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

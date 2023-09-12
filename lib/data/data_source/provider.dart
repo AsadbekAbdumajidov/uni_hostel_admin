@@ -10,6 +10,7 @@ import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.
 import 'package:uni_hostel_admin/data/models/order/post_order/request/edit_status_request.dart';
 import 'package:uni_hostel_admin/data/models/order/post_order/response/edit_status_response.dart';
 import 'package:uni_hostel_admin/data/models/order/select_order/select_order_response.dart';
+import 'package:uni_hostel_admin/data/models/payment_monitoring/payment_monitoring_response.dart';
 import 'package:uni_hostel_admin/data/models/profile/get_profile/profile_response.dart';
 part 'provider.g.dart';
 
@@ -85,8 +86,10 @@ abstract class ApiClient {
     @Query("search_query") String search,
     @Query("course") String? course,
     @Query("faculty") int? facultyId,
-    
     @Query("gender") String? gender,
     @Query("dormitory") String? dormitoryId,
   );
+
+  @GET('admin/payment/monitoring/')
+  Future<PaymentMonitoringResponse> getPayments(@Query("page") int page);
 }

@@ -1,5 +1,7 @@
 class AppStrings {
   AppStrings._();
+  static const strId = "Id";
+  static const strAmount = "Miqdori";
 
   static const strRequests = "Arizalar";
   static const strRejected = "Rad etilgan";
@@ -11,24 +13,19 @@ class AppStrings {
   static const strDelete = "O'chirish";
   static const strOrderListUpload = "Arizalar ro'yxatini yuklash";
   static const strFilters = "Filterlar";
-
-
-
-  static const strThoseWhoPaid = "To'lov qilganlar";
+  static const strThoseWhoPaid = "To'lov monitoringi";
   static const strInDormitory = "Joylashganlar";
   static const strStatistics = "Statistika";
   static const strPaymentHistory = "To'lovlar tarixi";
   static const strAdmin = "Hisobingizga administrator sifatida kiring";
   static const strUserName = "Hisobingiz";
   static const strEnterUserName = "foydalanuvchi hisobingizni kiriting";
-
   static const strPassword = "Parol";
   static const strEnterPassword = "parolingizni kiriting";
   static const strSearch = "Qidirish";
   static const strAcces = "Kirish";
   static const strExit = "Chiqish";
   static const strMaritals = "Toifalar";
-
   static const strQueuingRequirements = "Navbatga qo'yilgan talablar";
   static const strRejectedStudents = "Rad etilgan talablar";
   static const strApproved = "Tasdiqlangan";

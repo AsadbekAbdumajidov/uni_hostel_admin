@@ -34,6 +34,7 @@ class RequestsScreen extends StatelessWidget {
         Expanded(
           child: Column(children: [
             CustomAppBar(
+              isSearch: true,
                 textEditingController: searchController,
                 onchange: (v) =>
                     context.read<GetNewOrderCubit>().searchRequests(v),
@@ -70,8 +71,7 @@ class RequestsScreen extends StatelessWidget {
                               child: Column(
                                 children: [
                                   TopRequestItemWidget(
-                                    count:
-                                        state.orderResponse?.count,
+                                    count: state.orderResponse?.count,
                                     index: state.maritalStatus,
                                     title: AppStrings.strRequests,
                                     list: maritals,
@@ -84,14 +84,10 @@ class RequestsScreen extends StatelessWidget {
                                         bloc.selectFaculty(v),
                                     onChangecourse: (v) => bloc.selectCourse(v),
                                     onTapFilter: () {
-                                      showModalBottomSheet(
+                                      showDialog(
                                           context: context,
-                                          isScrollControlled: true,
-                                          backgroundColor:
-                                              AppColors.transparent,
-                                          builder: (context) {
-                                            return BottomFilterWidget()
-                                                .paddingOnly(top: 80);
+                                          builder: (BuildContext context) {
+                                            return BottomFilterWidget();
                                           });
                                     },
                                   ),
