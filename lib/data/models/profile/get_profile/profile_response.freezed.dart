@@ -21,17 +21,19 @@ ProfileResponse _$ProfileResponseFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ProfileResponse {
   int? get id => throw _privateConstructorUsedError;
-  String? get username => throw _privateConstructorUsedError;
   @JsonKey(name: 'first_name')
   String? get firstName => throw _privateConstructorUsedError;
   @JsonKey(name: 'last_name')
   String? get lastName => throw _privateConstructorUsedError;
+  String? get username => throw _privateConstructorUsedError;
   @JsonKey(name: 'admin_image')
   String? get image => throw _privateConstructorUsedError;
   @JsonKey(name: 'admin_region')
   String? get region => throw _privateConstructorUsedError;
   @JsonKey(name: 'user_type')
   String? get type => throw _privateConstructorUsedError;
+  @JsonKey(name: 'faculty_admin')
+  String? get facultyAdmin => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,12 +49,13 @@ abstract class $ProfileResponseCopyWith<$Res> {
   @useResult
   $Res call(
       {int? id,
-      String? username,
       @JsonKey(name: 'first_name') String? firstName,
       @JsonKey(name: 'last_name') String? lastName,
+      String? username,
       @JsonKey(name: 'admin_image') String? image,
       @JsonKey(name: 'admin_region') String? region,
-      @JsonKey(name: 'user_type') String? type});
+      @JsonKey(name: 'user_type') String? type,
+      @JsonKey(name: 'faculty_admin') String? facultyAdmin});
 }
 
 /// @nodoc
@@ -69,22 +72,19 @@ class _$ProfileResponseCopyWithImpl<$Res, $Val extends ProfileResponse>
   @override
   $Res call({
     Object? id = freezed,
-    Object? username = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
+    Object? username = freezed,
     Object? image = freezed,
     Object? region = freezed,
     Object? type = freezed,
+    Object? facultyAdmin = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      username: freezed == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String?,
       firstName: freezed == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
@@ -92,6 +92,10 @@ class _$ProfileResponseCopyWithImpl<$Res, $Val extends ProfileResponse>
       lastName: freezed == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      username: freezed == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
               as String?,
       image: freezed == image
           ? _value.image
@@ -104,6 +108,10 @@ class _$ProfileResponseCopyWithImpl<$Res, $Val extends ProfileResponse>
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      facultyAdmin: freezed == facultyAdmin
+          ? _value.facultyAdmin
+          : facultyAdmin // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -119,12 +127,13 @@ abstract class _$$_ProfileResponseCopyWith<$Res>
   @useResult
   $Res call(
       {int? id,
-      String? username,
       @JsonKey(name: 'first_name') String? firstName,
       @JsonKey(name: 'last_name') String? lastName,
+      String? username,
       @JsonKey(name: 'admin_image') String? image,
       @JsonKey(name: 'admin_region') String? region,
-      @JsonKey(name: 'user_type') String? type});
+      @JsonKey(name: 'user_type') String? type,
+      @JsonKey(name: 'faculty_admin') String? facultyAdmin});
 }
 
 /// @nodoc
@@ -139,22 +148,19 @@ class __$$_ProfileResponseCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? username = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
+    Object? username = freezed,
     Object? image = freezed,
     Object? region = freezed,
     Object? type = freezed,
+    Object? facultyAdmin = freezed,
   }) {
     return _then(_$_ProfileResponse(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      username: freezed == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String?,
       firstName: freezed == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
@@ -162,6 +168,10 @@ class __$$_ProfileResponseCopyWithImpl<$Res>
       lastName: freezed == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      username: freezed == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
               as String?,
       image: freezed == image
           ? _value.image
@@ -175,6 +185,10 @@ class __$$_ProfileResponseCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
+      facultyAdmin: freezed == facultyAdmin
+          ? _value.facultyAdmin
+          : facultyAdmin // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -184,12 +198,13 @@ class __$$_ProfileResponseCopyWithImpl<$Res>
 class _$_ProfileResponse implements _ProfileResponse {
   const _$_ProfileResponse(
       {this.id,
-      this.username,
       @JsonKey(name: 'first_name') this.firstName,
       @JsonKey(name: 'last_name') this.lastName,
+      this.username,
       @JsonKey(name: 'admin_image') this.image,
       @JsonKey(name: 'admin_region') this.region,
-      @JsonKey(name: 'user_type') this.type});
+      @JsonKey(name: 'user_type') this.type,
+      @JsonKey(name: 'faculty_admin') this.facultyAdmin});
 
   factory _$_ProfileResponse.fromJson(Map<String, dynamic> json) =>
       _$$_ProfileResponseFromJson(json);
@@ -197,13 +212,13 @@ class _$_ProfileResponse implements _ProfileResponse {
   @override
   final int? id;
   @override
-  final String? username;
-  @override
   @JsonKey(name: 'first_name')
   final String? firstName;
   @override
   @JsonKey(name: 'last_name')
   final String? lastName;
+  @override
+  final String? username;
   @override
   @JsonKey(name: 'admin_image')
   final String? image;
@@ -213,10 +228,13 @@ class _$_ProfileResponse implements _ProfileResponse {
   @override
   @JsonKey(name: 'user_type')
   final String? type;
+  @override
+  @JsonKey(name: 'faculty_admin')
+  final String? facultyAdmin;
 
   @override
   String toString() {
-    return 'ProfileResponse(id: $id, username: $username, firstName: $firstName, lastName: $lastName, image: $image, region: $region, type: $type)';
+    return 'ProfileResponse(id: $id, firstName: $firstName, lastName: $lastName, username: $username, image: $image, region: $region, type: $type, facultyAdmin: $facultyAdmin)';
   }
 
   @override
@@ -225,21 +243,23 @@ class _$_ProfileResponse implements _ProfileResponse {
         (other.runtimeType == runtimeType &&
             other is _$_ProfileResponse &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.username, username) ||
-                other.username == username) &&
             (identical(other.firstName, firstName) ||
                 other.firstName == firstName) &&
             (identical(other.lastName, lastName) ||
                 other.lastName == lastName) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.region, region) || other.region == region) &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.facultyAdmin, facultyAdmin) ||
+                other.facultyAdmin == facultyAdmin));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, username, firstName, lastName, image, region, type);
+  int get hashCode => Object.hash(runtimeType, id, firstName, lastName,
+      username, image, region, type, facultyAdmin);
 
   @JsonKey(ignore: true)
   @override
@@ -257,13 +277,15 @@ class _$_ProfileResponse implements _ProfileResponse {
 
 abstract class _ProfileResponse implements ProfileResponse {
   const factory _ProfileResponse(
-      {final int? id,
-      final String? username,
-      @JsonKey(name: 'first_name') final String? firstName,
-      @JsonKey(name: 'last_name') final String? lastName,
-      @JsonKey(name: 'admin_image') final String? image,
-      @JsonKey(name: 'admin_region') final String? region,
-      @JsonKey(name: 'user_type') final String? type}) = _$_ProfileResponse;
+          {final int? id,
+          @JsonKey(name: 'first_name') final String? firstName,
+          @JsonKey(name: 'last_name') final String? lastName,
+          final String? username,
+          @JsonKey(name: 'admin_image') final String? image,
+          @JsonKey(name: 'admin_region') final String? region,
+          @JsonKey(name: 'user_type') final String? type,
+          @JsonKey(name: 'faculty_admin') final String? facultyAdmin}) =
+      _$_ProfileResponse;
 
   factory _ProfileResponse.fromJson(Map<String, dynamic> json) =
       _$_ProfileResponse.fromJson;
@@ -271,13 +293,13 @@ abstract class _ProfileResponse implements ProfileResponse {
   @override
   int? get id;
   @override
-  String? get username;
-  @override
   @JsonKey(name: 'first_name')
   String? get firstName;
   @override
   @JsonKey(name: 'last_name')
   String? get lastName;
+  @override
+  String? get username;
   @override
   @JsonKey(name: 'admin_image')
   String? get image;
@@ -287,6 +309,9 @@ abstract class _ProfileResponse implements ProfileResponse {
   @override
   @JsonKey(name: 'user_type')
   String? get type;
+  @override
+  @JsonKey(name: 'faculty_admin')
+  String? get facultyAdmin;
   @override
   @JsonKey(ignore: true)
   _$$_ProfileResponseCopyWith<_$_ProfileResponse> get copyWith =>

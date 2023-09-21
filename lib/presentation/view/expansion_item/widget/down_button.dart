@@ -20,7 +20,7 @@ class DownButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double buttonsize = ResponsiveWidget.isMobile(context) ? 90 : 120;
+    double buttonsize = ResponsiveWidget.isMobile(context) ? 80 : 120;
     double paddinSize = ResponsiveWidget.isMobileLarge(context) ? 10 : 20;
 
     return Row(

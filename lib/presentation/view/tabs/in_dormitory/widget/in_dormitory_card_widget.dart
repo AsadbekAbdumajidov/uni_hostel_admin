@@ -25,7 +25,7 @@ class InDormitoryCardWidget extends StatelessWidget {
                   CardItemInDormitoryWidget(
                     isIcon: true,
                     title1: AppStrings.strSN,
-                    title2: AppStrings.strTTJ,
+                    title2: AppStrings.strFaculty,
                     title3:  AppStrings.strFloor,
                     title4:  AppStrings.strRoom,
 
@@ -47,8 +47,8 @@ class InDormitoryCardWidget extends StatelessWidget {
                             ? AppColors.backgroundColour
                             : AppColors.transparent,
                         borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(3),
-                          bottomRight: Radius.circular(3),
+                          topRight: Radius.circular(7),
+                          bottomRight: Radius.circular(7),
                         ),
                       ),
                       child: Theme(
@@ -58,12 +58,12 @@ class InDormitoryCardWidget extends StatelessWidget {
                           tilePadding: EdgeInsets.only(right: 12),
                           title: CardItemInDormitoryWidget(
                             textOverflow: TextOverflow.ellipsis,
-                            title1: "${__+1}.${orderList?[__].fullName}",
+                            title1: "${orderList?[__].fullName}",
                             title2: orderList?[__].facultyModel ?? "-",
                             title3:"${orderList?[__].floor} - ${AppStrings.strFloor.toLowerCase()}",
                             title4:"${orderList?[__].room} - ${AppStrings.strRoom.toLowerCase()}",
                             isIcon: false,
-                          ).paddingSymmetric(horizontal: 8,vertical: 20),
+                          ).paddingSymmetric(horizontal: 8,vertical: 12),
                           children: [
                             ExpansionItemInDormitoryWidget(response: orderList?[__])
                           ],

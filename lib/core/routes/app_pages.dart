@@ -3,6 +3,7 @@ import 'package:uni_hostel_admin/core/routes/app_routes.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/presentation/view/auth/login_screen.dart';
 import 'package:uni_hostel_admin/presentation/view/splash/splash_screen.dart';
+import 'package:uni_hostel_admin/presentation/view/tabs/admins/admin_screen.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/in_dormitory/in_dormitory_screen.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/payment_monitoring/payment_monitoring_screen.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/rejected/rejected_screen.dart';
@@ -40,6 +41,8 @@ RouteFactory generateRoute() {
         return _createPageRoute(StatisticsScreen(), routeName);
       case RouteName.inDormitory:
         return _createPageRoute(InDormitoryScreen(), routeName);
+      case RouteName.isAdmin:
+        return _createPageRoute(AdminsScreen(), routeName);
     }
   };
 }

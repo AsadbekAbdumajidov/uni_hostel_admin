@@ -54,6 +54,7 @@ class EditStatusAlertDialog extends StatelessWidget {
     final datePaymentController = TextEditingController();
     final reasonController = TextEditingController();
     return FadeInUp(
+      duration: Duration(milliseconds: 300),
       child: Dialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         child: BlocBuilder<EditStatusCubit, EditStatusState>(

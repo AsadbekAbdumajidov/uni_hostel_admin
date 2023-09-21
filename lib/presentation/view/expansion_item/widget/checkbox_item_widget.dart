@@ -12,24 +12,22 @@ class CheckboxItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Theme(
-          data: ThemeData(),
-          child: Checkbox(
-            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
-            activeColor: AppColors.primaryColor,
-            fillColor: MaterialStateProperty.resolveWith<Color>(
-                (Set<MaterialState> states) {
-              if (states.contains(MaterialState.disabled)) {
-                return AppColors.primaryColor;
-              }
-              return AppColors.primaryColor;
-            }),
-            value: value,
-            onChanged: onChange,
+        Transform.scale(
+            scale: 1,
+            child: Theme(
+              data: ThemeData(),
+              child: Checkbox(
+                checkColor: AppColors.whiteColor,
+                activeColor: AppColors.primaryColor,
+                side: BorderSide(color:AppColors.primaryColor,width: 2),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5)),
+                value: value,
+                onChanged: onChange,
+              ),
+            ),
           ),
-        ),
+        
         Expanded(
           child: Text(title,
               overflow: TextOverflow.ellipsis,
@@ -70,6 +68,7 @@ class CheckboxItemRowWidget extends StatelessWidget {
           Expanded(
             child: Text(title,
                 overflow: TextOverflow.ellipsis,
+                maxLines: 2,
                 style: Theme.of(context).textTheme.displaySmall?.copyWith(
                     color:
                         value ? AppColors.whiteColor : AppColors.blackColor)),

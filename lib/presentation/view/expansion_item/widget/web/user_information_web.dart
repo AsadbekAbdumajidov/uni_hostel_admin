@@ -9,25 +9,30 @@ class UserInformationWeb extends StatelessWidget {
     required this.subTitle,
     required this.title2,
     required this.subTitle2,
-    this.onTap,
+    this.onTap, this.maxLines,
   });
   final String title;
   final String subTitle;
   final String title2;
   final String? subTitle2;
   final Function()? onTap;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
     return Row(children: [
       Expanded(
-        child: UserInformationMobile(title: title, subTitle: subTitle),
+        child: UserInformationMobile(
+          maxLines: maxLines ?? 1,
+          title: title, subTitle: subTitle),
       ),
       SizedBox(width: subTitle2 == "" ? 0 : 12),
       subTitle2 == ""
           ? SizedBox.shrink()
           : Expanded(
               child: UserInformationMobile(
+          maxLines: maxLines ?? 1,
+
                   onTap: onTap, title: title2, subTitle: subTitle2 ?? ""),
             )
     ]).paddingOnly(bottom: 14);

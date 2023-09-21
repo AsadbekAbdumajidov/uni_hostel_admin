@@ -12,7 +12,9 @@ class DropDownWidget extends StatelessWidget {
       required this.index,
       required this.list,
       required this.onChanged,
-      required this.isEmptyText, this.buttonWidth, this.drobDownWidth});
+      required this.isEmptyText,
+      this.buttonWidth,
+      this.drobDownWidth});
   final String index;
   final String isEmptyText;
 
@@ -39,7 +41,8 @@ class DropDownWidget extends StatelessWidget {
                   style: Theme.of(context).textTheme.displaySmall?.copyWith(
                       color: item == index
                           ? AppColors.whiteColor
-                          : AppColors.blackColor),
+                          : AppColors.blackColor,
+                      fontSize: ResponsiveWidget.isTablet(context) ? 14 : 16),
                   textAlign: TextAlign.right,
                   selectable: true,
                 ))))
@@ -50,10 +53,9 @@ class DropDownWidget extends StatelessWidget {
           velocity: Velocity(pixelsPerSecond: Offset(50, 0)),
           pauseBetween: Duration(milliseconds: 1000),
           mode: TextScrollMode.bouncing,
-          style: Theme.of(context)
-              .textTheme
-              .displaySmall
-              ?.copyWith(color: AppColors.whiteColor),
+          style: Theme.of(context).textTheme.displaySmall?.copyWith(
+              color: AppColors.whiteColor,
+              fontSize: ResponsiveWidget.isTablet(context) ? 14 : 16),
           textAlign: TextAlign.right,
           selectable: true,
         )),
@@ -82,7 +84,7 @@ class DropDownWidget extends StatelessWidget {
         buttonStyleData: ButtonStyleData(
           padding: EdgeInsets.all(0),
           height: 35,
-          width:buttonWidth ?? 200,
+          width: buttonWidth ?? 200,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
               color: AppColors.primaryColor),
@@ -96,7 +98,7 @@ class DropDownWidget extends StatelessWidget {
         ),
         dropdownStyleData: DropdownStyleData(
           padding: EdgeInsets.all(0),
-          width:drobDownWidth ?? 300,
+          width: drobDownWidth ?? 300,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
             color: AppColors.whiteColor,
@@ -108,10 +110,9 @@ class DropDownWidget extends StatelessWidget {
             thumbVisibility: MaterialStateProperty.all(true),
           ),
         ),
-        style: Theme.of(context)
-            .textTheme
-            .displaySmall
-            ?.copyWith(color: AppColors.whiteColor),
+        style: Theme.of(context).textTheme.displaySmall?.copyWith(
+            color: AppColors.whiteColor,
+            fontSize: ResponsiveWidget.isTablet(context) ? 14 : 16),
         menuItemStyleData: MenuItemStyleData(
             height: 35,
             selectedMenuItemBuilder: (context, child) {

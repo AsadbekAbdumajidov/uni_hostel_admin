@@ -5,6 +5,8 @@ import 'package:uni_hostel_admin/core/routes/app_routes.dart';
 import 'package:uni_hostel_admin/core/themes/app_theme.dart';
 import 'package:uni_hostel_admin/di.dart';
 import 'package:uni_hostel_admin/presentation/cubit/accepted_order/accepted_order_cubit.dart';
+import 'package:uni_hostel_admin/presentation/cubit/admin_edit/admin_edit_cubit.dart';
+import 'package:uni_hostel_admin/presentation/cubit/admins/admins_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/auth/auth_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/cancelled_order/cancelled_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/edit_status/edit_status_cubit.dart';
@@ -31,6 +33,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider(create: (context) => inject<SideBarCubit>()),
+          BlocProvider(create: (context) => inject<AdminEditCubit>()),
           BlocProvider(
               create: (context) => inject<AuthCubit>()..checkUserToAuth()),
           BlocProvider(
@@ -49,6 +52,8 @@ class MyApp extends StatelessWidget {
                   inject<CancelledOrderCubit>()..getFaculties()),
           BlocProvider(
               create: (context) => inject<QueueOrderCubit>()..getFaculties()),
+          BlocProvider(
+              create: (context) => inject<AdminsCubit>()..getAdmins()),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

@@ -16,8 +16,8 @@ class CheckDeleteAlertDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
     return FadeInUp(
+      duration: Duration(milliseconds: 300),
       child: Dialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         child: Container(
@@ -44,7 +44,6 @@ class CheckDeleteAlertDialog extends StatelessWidget {
                 title,
                 style: Theme.of(context).textTheme.headlineSmall,
                 textAlign: TextAlign.center,
-                
               ),
               Spacer(),
               Divider(color: AppColors.bodyTextColor.withOpacity(0.2)),

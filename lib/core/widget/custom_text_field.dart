@@ -29,7 +29,7 @@ class CustomTextField extends StatelessWidget {
       this.textInputFormatter,
       this.maxLength,
       this.borderColor,
-      this.maxLines})
+      this.maxLines, this.onTap})
       : super(key: key);
 
   final TextEditingController? textEditingController;
@@ -55,13 +55,14 @@ class CustomTextField extends StatelessWidget {
   final String? errorText;
   final int? maxLength;
   final int? maxLines;
-
+  final Function()? onTap;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? textInputFormatter;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap: onTap,
       validator: validator,
       style: Theme.of(context)
           .textTheme
@@ -88,7 +89,7 @@ class CustomTextField extends StatelessWidget {
         errorText: errorText,
         hintStyle: Theme.of(context).textTheme.displaySmall?.copyWith(
             color: hintTextColor ?? AppColors.bodyTextColor.withOpacity(0.6),
-            fontSize: 16),
+            fontSize: 14),
         hintText: hintText,
         filled: false,
         labelText: labelText,
@@ -98,7 +99,7 @@ class CustomTextField extends StatelessWidget {
             ?.copyWith(color: labelColor, fontSize: 15),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         fillColor: fillColor,
-        contentPadding: const EdgeInsets.fromLTRB(16, 6, 6, 16),
+        contentPadding: const EdgeInsets.fromLTRB(12, 6, 6, 12),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(5)),
           borderSide: BorderSide(

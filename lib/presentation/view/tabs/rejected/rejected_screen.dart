@@ -32,21 +32,19 @@ class RejectedScreen extends StatelessWidget {
       endDrawer: ProfileDrawer(),
       body: Row(
         children: [
-          ResponsiveWidget.isTablet(context)
-              ? SizedBox.shrink()
-              : MenuDrawer(),
+          ResponsiveWidget.isTablet(context) ? SizedBox.shrink() : MenuDrawer(),
           Expanded(
             child: Column(
               children: [
                 CustomAppBar(
-                  isSearch: true,
-                  textEditingController: searchController,
-                  onchange: (v) =>
-                      context.read<CancelledOrderCubit>().searchCancelled(v),
-                  onCancel: () {
-                  context.read<CancelledOrderCubit>().searchCancelled('');
-                  searchController.text = "";
-                }),
+                    isSearch: true,
+                    textEditingController: searchController,
+                    onchange: (v) =>
+                        context.read<CancelledOrderCubit>().searchCancelled(v),
+                    onCancel: () {
+                      context.read<CancelledOrderCubit>().searchCancelled('');
+                      searchController.text = "";
+                    }),
                 Expanded(
                   child: Container(
                     height: 700,
@@ -77,40 +75,49 @@ class RejectedScreen extends StatelessWidget {
                                     physics: ClampingScrollPhysics(),
                                     children: [
                                       TopRequestItemWidget(
-                                         count:
-                                        state.orderResponse?.count,
-                                        index: state.maritalStatus,
-                                        title: AppStrings.strRequests,
-                                        list: maritals,
-                                        courses: courseList,
-                                        coursIndex: state.courseIndex,
-                                        faculties: state.facultiesList,
-                                        facultyIndex:
-                                            state.facultyIndex?.name,
-                                        onChanged: (v) =>
-                                            bloc.selectMaritals(v),
-                                        onChangeFaculty: (v) =>
-                                            bloc.selectFaculty(v),
-                                        onChangecourse: (v) =>
-                                            bloc.selectCourse(v), onTapFilter: () {
-                                    showModalBottomSheet(
-                                        context: context,
-                                        isScrollControlled: true,
-                                        backgroundColor:
-                                            AppColors.transparent,
-                                        builder: (context) {
-                                          return BottomFilterCancelledWidget(
-                                            indexM: state.maritalStatus,
-                                            list: maritals,
-                                            courses: courseList,
-                                            coursIndex: state.courseIndex,
-                                            faculties: state.facultiesList,
-                                            facultyIndex:
-                                                state.facultyIndex?.name,
-                                            
-                                          ).paddingOnly(top: 80);
-                                        });
-                                            }),
+                                          count: state.orderResponse?.count,
+                                          index: state.maritalStatus,
+                                          title: AppStrings.strRequests,
+                                          list: maritals,
+                                          courses: courseList,
+                                          coursIndex: state.courseIndex,
+                                          faculties: state.facultiesList,
+                                          facultyIndex:
+                                              state.facultyIndex?.name,
+                                          onChanged: (v) =>
+                                              bloc.selectMaritals(v),
+                                          onChangeFaculty: (v) =>
+                                              bloc.selectFaculty(v),
+                                          onChangecourse: (v) =>
+                                              bloc.selectCourse(v),
+                                          onTapFilter: () {
+                                            showDialog(
+                                                context: context,
+                                                builder:
+                                                    (BuildContext context) {
+                                                  return BottomFilterCancelledWidget(
+                                                   
+                                                  );
+                                                });
+                                            // showModalBottomSheet(
+                                            //     context: context,
+                                            //     isScrollControlled: true,
+                                            //     backgroundColor:
+                                            //         AppColors.transparent,
+                                            //     builder: (context) {
+                                            //       return BottomFilterCancelledWidget(
+                                            //         indexM: state.maritalStatus,
+                                            //         list: maritals,
+                                            //         courses: courseList,
+                                            //         coursIndex:
+                                            //             state.courseIndex,
+                                            //         faculties:
+                                            //             state.facultiesList,
+                                            //         facultyIndex: state
+                                            //             .facultyIndex?.name,
+                                            //       ).paddingOnly(top: 80);
+                                            //     });
+                                          }),
                                       CustomCardWidget(
                                           notButtonIndex: 1,
                                           list: state.orderList,
@@ -137,16 +144,15 @@ class RejectedScreen extends StatelessWidget {
                                       await context
                                           .read<CancelledOrderCubit>()
                                           .getOrdersList();
-                                     
                                     },
-                                  ).paddingOnly(
-                                      right: paddingSize, bottom: 16),
+                                  ).paddingOnly(right: paddingSize, bottom: 16),
                                 ],
                               ),
                             ],
                           ));
                     }),
-                  ).paddingAll(ResponsiveWidget.isMobileLarge(context) ? 10 : 20),
+                  ).paddingAll(
+                      ResponsiveWidget.isMobileLarge(context) ? 10 : 20),
                 ),
               ],
             ),

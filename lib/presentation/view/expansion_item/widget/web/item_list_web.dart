@@ -20,6 +20,7 @@ class ItemListWeb extends StatelessWidget {
           subTitle2: response?.phoneNumber ?? "-",
         ),
         UserInformationWeb(
+          maxLines: 3,
           title: AppStrings.strStreetAndHouseNumber,
           subTitle: response?.neighborhood ?? "-",
           title2: AppStrings.strFaculty,

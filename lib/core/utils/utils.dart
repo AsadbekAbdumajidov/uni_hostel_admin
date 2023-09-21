@@ -21,6 +21,12 @@ List<String> checkBoxList = [
   "has_many_children_family",
 ];
 
+List<String> typeList = [
+  'admin',
+  'order_admin',
+  'payment_admin',
+];
+
 List<String> maritals = [
   AppStrings.strIronNotebook,
   AppStrings.strWomenNotebook,

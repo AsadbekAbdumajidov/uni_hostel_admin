@@ -95,7 +95,7 @@ class CustomOutlineButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double textsize = ResponsiveWidget.isMobile(context) ? 13 : 14;
+    double textsize = ResponsiveWidget.isMobile(context) ? 12 : 14;
     double padding = ResponsiveWidget.isMobile(context) ? 2 : 12;
 
     return BlocProvider(

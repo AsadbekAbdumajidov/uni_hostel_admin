@@ -25,7 +25,7 @@ class PaymentHistoryCardWidget extends StatelessWidget {
                   CardItemWidget(
                     isIcon: true,
                     userName: AppStrings.strSN,
-                    date: AppStrings.strTTJ,
+                    date: AppStrings.strFaculty,
                     time: AppStrings.strCourse,
                   ),
                   Divider()
@@ -55,13 +55,12 @@ class PaymentHistoryCardWidget extends StatelessWidget {
                         child: ExpansionTile(
                           tilePadding: EdgeInsets.only(right: 12),
                           title: CardItemWidget(
-                            textOverflow: TextOverflow.ellipsis,
-                            userName: "${__ + 1}. ${response?[__].fullName}",
+                            userName: "${response?[__].fullName}",
                             img: null,
                             date: response?[__].facultyModel ?? "-",
                             time: response?[__].course ?? "-",
                             isIcon: false,
-                          ).paddingSymmetric(horizontal: 8, vertical: 20),
+                          ).paddingSymmetric(horizontal: 8, vertical: 12),
                           children: [
                             ExpansionPayments(
                               user: response?[__],

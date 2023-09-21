@@ -84,23 +84,14 @@ class StudentsScreen extends StatelessWidget {
                                         onChangecourse: (v) =>
                                             bloc.selectCourse(v),
                                         onTapFilter: () {
-                                          showModalBottomSheet(
-                                              context: context,
-                                              isScrollControlled: true,
-                                              backgroundColor:
-                                                  AppColors.transparent,
-                                              builder: (context) {
-                                                return BottomFilterAccWidget(
-                                                  indexM: state.maritalStatus,
-                                                  list: maritals,
-                                                  courses: courseList,
-                                                  coursIndex: state.courseIndex,
-                                                  faculties:
-                                                      state.facultiesList,
-                                                  facultyIndex:
-                                                      state.facultyIndex?.name,
-                                                ).paddingOnly(top: 80);
-                                              });
+                                           showDialog(
+                                                context: context,
+                                                builder:
+                                                    (BuildContext context) {
+                                                  return BottomFilterAccWidget(
+                                                   
+                                                  );
+                                                });
                                         },
                                       ),
                                       CustomCardWidget(

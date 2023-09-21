@@ -19,6 +19,7 @@ class ExpansionItemInDormitoryWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   UserInformationMobile(
+                    maxLines: 2,
                     title: AppStrings.strSN,
                     subTitle: response?.fullName ?? "-",
                   ),
@@ -27,6 +28,7 @@ class ExpansionItemInDormitoryWidget extends StatelessWidget {
                     subTitle: response?.dormitory ?? "-",
                   ),
                   UserInformationMobile(
+                    maxLines: 3,
                     title: AppStrings.strFaculty,
                     subTitle: response?.facultyModel ?? "-",
                   ),
@@ -53,6 +55,7 @@ class ExpansionItemInDormitoryWidget extends StatelessWidget {
                     subTitle2: response?.dormitory ?? "-",
                   ),
                   UserInformationWeb(
+                    maxLines: 3,
                     title: AppStrings.strFaculty,
                     subTitle: response?.facultyModel ?? "-",
                     title2: AppStrings.strCourse,

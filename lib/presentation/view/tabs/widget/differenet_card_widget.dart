@@ -56,7 +56,6 @@ class DifferentCardWidget extends StatelessWidget {
                         child: ExpansionTile(
                           tilePadding: EdgeInsets.only(right: 12),
                           title: CardItemWidget(
-                            textOverflow: TextOverflow.ellipsis,
                             userName: orderList?[__].student?.name ?? "-",
                             img: orderList?[__].student?.image ?? "",
                             date: localDateFormat(orderList?[__].createdAt),

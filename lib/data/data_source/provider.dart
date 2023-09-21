@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
+import 'package:uni_hostel_admin/data/models/admin/admins_get/admins_response.dart';
 import 'package:uni_hostel_admin/data/models/download_orders_list/download_orders_list_response.dart';
 import 'package:uni_hostel_admin/data/models/in_dormitory/in_dormitory_response.dart';
 import 'package:uni_hostel_admin/data/models/login/request/login_request_model.dart';
@@ -81,6 +82,7 @@ abstract class ApiClient {
     @Query("gender") String? gender,
     @Query("dormitory") String? dormitoryId,
   );
+
   @GET('admin/download/students/in/dormitory/')
   Future<DownloadOrdersListResponse> downloadIndormitory(
     @Query("search_query") String search,
@@ -92,4 +94,10 @@ abstract class ApiClient {
 
   @GET('admin/payment/monitoring/')
   Future<PaymentMonitoringResponse> getPayments(@Query("page") int page);
+
+  @GET('admin/administrator/')
+  Future<GetAdminsResponse> getAdmins();
+
+  @DELETE('admin/administrator/{id}')
+  Future<bool> deleteAdmin(@Path('id') int id);
 }

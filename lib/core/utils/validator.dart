@@ -30,4 +30,12 @@ class Validator {
 
     return null;
   }
+
+ static String? notEmpty({required String value}) {
+    if (value.toString().trim().isEmpty) {
+      return AppStrings.strIsNotEmpty;
+    }
+    return null;
+  }
+
 }

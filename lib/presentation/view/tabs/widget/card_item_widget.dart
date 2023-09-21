@@ -53,7 +53,7 @@ class CardItemWidget extends StatelessWidget {
                 child: Text(
                   userName,
                   maxLines: textOverflow == null ? 2 : 1,
-                  overflow: textOverflow,
+                  overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                       fontSize: textSize,
                       fontWeight:
@@ -67,7 +67,7 @@ class CardItemWidget extends StatelessWidget {
         status == null && textStatus == null
             ? SizedBox.shrink()
             : Expanded(
-                flex: ResponsiveWidget.isMobile(context) ? 2 : 4,
+                flex: ResponsiveWidget.isMobile(context) ? 2 : 3,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

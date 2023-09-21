@@ -35,10 +35,12 @@ class ItemListMobile extends StatelessWidget {
           subTitle: response?.district ?? "-",
         ),
         UserInformationMobile(
+          maxLines: 3,
           title: AppStrings.strStreetAndHouseNumber,
           subTitle: response?.neighborhood ?? "-",
         ),
         UserInformationMobile(
+          maxLines: 3,
           title: AppStrings.strFaculty,
           subTitle: response?.faculty ?? "-",
         ),

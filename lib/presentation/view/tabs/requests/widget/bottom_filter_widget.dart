@@ -18,6 +18,7 @@ class BottomFilterWidget extends StatelessWidget {
         builder: (context, state) {
       var bloc = context.read<GetNewOrderCubit>();
       return FadeInUp(
+        duration: Duration(milliseconds: 300),
           child: Dialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         child: Container(
@@ -51,6 +52,7 @@ class BottomFilterWidget extends StatelessWidget {
                     ),
                     children: [
                       ListView.builder(
+                        physics: NeverScrollableScrollPhysics(),
                         padding: EdgeInsets.symmetric(vertical: 10),
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
@@ -94,6 +96,7 @@ class BottomFilterWidget extends StatelessWidget {
                     children: [
                       ListView.builder(
                         shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
                         padding: EdgeInsets.symmetric(vertical: 10),
                         itemBuilder: (context, index) {
                           return BlocProvider(
@@ -139,6 +142,7 @@ class BottomFilterWidget extends StatelessWidget {
                     ),
                     children: [
                       ListView.builder(
+                        physics: NeverScrollableScrollPhysics(),
                         padding: EdgeInsets.symmetric(vertical: 10),
                         shrinkWrap: true,
                         itemBuilder: (context, index) {

@@ -1,5 +1,8 @@
 import 'package:dartz/dartz.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:uni_hostel_admin/core/error/error.dart';
+import 'package:uni_hostel_admin/data/models/admin/admin_post/add_admin_request.dart';
+import 'package:uni_hostel_admin/data/models/admin/admins_get/admins_response.dart';
 import 'package:uni_hostel_admin/data/models/download_orders_list/download_orders_list_response.dart';
 import 'package:uni_hostel_admin/data/models/in_dormitory/in_dormitory_response.dart';
 import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.dart';
@@ -64,4 +67,14 @@ abstract class IMainRepository {
   );
 
   Future<Either<Failure, PaymentMonitoringResponse>> getPayments(int page);
+
+  Future<Either<Failure, GetAdminsResponse>> getAdmins();
+
+  Future<Either<Failure, ProfileResponse>> addAdmin(
+      AddAdminRequest? request, PlatformFile? file);
+
+  Future<Either<Failure, ProfileResponse>> editAdmin(
+      AddAdminRequest? request, int id, PlatformFile? file);
+      
+  Future<Either<Failure, bool>> deleteAdmin(int id);
 }

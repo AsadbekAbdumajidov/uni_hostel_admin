@@ -35,7 +35,7 @@ class ExpansionPayments extends StatelessWidget {
                           subTitle: user?.fullName ?? "-",
                         ),
                         UserInformationMobile(
-                          maxLines: 2,
+                          maxLines: 3,
                           title: AppStrings.strFaculty,
                           subTitle: user?.facultyModel ?? "-",
                         ),

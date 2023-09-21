@@ -1,5 +1,12 @@
 class AppStrings {
   AppStrings._();
+
+  static const strFirstName = "Ism";
+  static const strSave = "Saqlash";
+
+  static const strLastName = "Familiya";
+
+
   static const strId = "Id";
   static const strAmount = "Miqdori";
 
@@ -12,16 +19,28 @@ class AppStrings {
   static const strDeleteOrder = "Arizani o'chirish";
   static const strDelete = "O'chirish";
   static const strOrderListUpload = "Arizalar ro'yxatini yuklash";
+  static const strAddAdmin = "Admin qo'shish";
+
   static const strFilters = "Filterlar";
   static const strThoseWhoPaid = "To'lov monitoringi";
   static const strInDormitory = "Joylashganlar";
   static const strStatistics = "Statistika";
   static const strPaymentHistory = "To'lovlar tarixi";
+  static const strAdmins = "Adminlar";
+  static const strAdminAddSuccesfully = "Admin muvaffaqaiyatli qo'shildi";
+  static const strAdminDeletedSuccesfully = "Admin muvaffaqaiyatli o'chirildi";
+
+  static const strAdminEditSuccesfully = "Admin shaxsiy ma'lumotlari muvaffaqaiyatli yangilandi";
+
+
+  static const strAdminTypeEmpty = "Admin turini tanlashni unutdingiz !";
   static const strAdmin = "Hisobingizga administrator sifatida kiring";
   static const strUserName = "Hisobingiz";
   static const strEnterUserName = "foydalanuvchi hisobingizni kiriting";
   static const strPassword = "Parol";
   static const strEnterPassword = "parolingizni kiriting";
+  static const strEnter = "kiriting";
+
   static const strSearch = "Qidirish";
   static const strAcces = "Kirish";
   static const strExit = "Chiqish";
@@ -40,6 +59,7 @@ class AppStrings {
   static const strRequestDeleted = "Ariza muvaffaqiyatli o'chirildi";
  static const strWouldYouDelete = "Ushbu arizani o'chirib yuborishini hohlaysizmi ?";
   static const strDate = "Sanasi";
+  static const strType = "Turi";
   static const strPay = "To'lash";
   static const strApplicationEmpty = "Arizalar mavjud emas";
   static const strHasManyChildrenFamily =
@@ -47,6 +67,8 @@ class AppStrings {
 
   static const strFiskalChekNumber = "Fiskal chek raqami";
   static const strTime = "Vaqti";
+  static const strUser = "user";
+
   static const strQuantity = "Miqdor";
   static const strCardNumber = "Karta raqami";
   static const strCheckNumber = "Chek raqami";

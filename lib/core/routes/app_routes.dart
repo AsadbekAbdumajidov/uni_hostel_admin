@@ -9,6 +9,8 @@ enum RouteName {
   thoseWhoPaid(route: "/${AppStrings.strThoseWhoPaid}"),
   statistics(route: "/${AppStrings.strStatistics}"),
   inDormitory(route: "/${AppStrings.strInDormitory}"),
+  isAdmin(route: "/${AppStrings.strAdmins}"),
+
 
   login(route: "/kirish"),
   splash(route: "/splash"),

@@ -53,8 +53,7 @@ class StatisticsAppBar extends StatelessWidget {
                     NetworkImageWidget(
                       onTap: () => Scaffold.of(context).openEndDrawer(),
                       size: 45,
-                      
-                      img: state.response?.image,
+                      img: state.response?.image ?? "",
                     ).paddingSymmetric(horizontal: 12),
                     ResponsiveWidget.isTablet(context)
                         ? const SizedBox.shrink()

@@ -16,12 +16,14 @@ class CustomAppBar extends StatelessWidget {
     this.textEditingController,
     required this.isSearch,
     this.text,
-    this.index,
+    this.index, this.widget,
   });
   final Function(dynamic v)? onchange;
   final Function()? onCancel;
   final bool isSearch;
   final String? text;
+  final Widget? widget;
+
   final int? index;
 
   final TextEditingController? textEditingController;
@@ -55,6 +57,8 @@ class CustomAppBar extends StatelessWidget {
                     onChange: onchange,
                   ))
               : TopItemWithoutSearchWidget(title: text, count: index),
+          
+          
           Expanded(
               flex: ResponsiveWidget.isTablet(context)
                   ? 0
@@ -62,6 +66,7 @@ class CustomAppBar extends StatelessWidget {
                       ? 4
                       : 2,
               child: SizedBox.shrink()),
+          widget ?? SizedBox.shrink(),
           BlocBuilder<ProfileCubit, ProfileState>(builder: (context, state) {
             return Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -69,7 +74,7 @@ class CustomAppBar extends StatelessWidget {
                   NetworkImageWidget(
                     onTap: () => Scaffold.of(context).openEndDrawer(),
                     size: 45,
-                    img: state.response?.image,
+                    img: state.response?.image ?? "",
                   ).paddingSymmetric(horizontal: 12),
                   ResponsiveWidget.isTablet(context)
                       ? const SizedBox.shrink()
