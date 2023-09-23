@@ -1,6 +1,5 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
@@ -36,21 +35,22 @@ class AdminsScreen extends StatelessWidget {
               CustomAppBar(
                 isSearch: false,
                 text: AppStrings.strAdmins,
-                widget: CustomOutlineButton(
-                  width: responsiveSize,
-                  icon: CupertinoIcons.person_add,
-                  text: AppStrings.strAddAdmin,
-                  ounLineColour: AppColors.primaryColor,
-                  onTap: () {
-                    showModalBottomSheet(
-                        context: context,
-                        isScrollControlled: true,
-                        backgroundColor: AppColors.transparent,
-                        builder: (context) {
-                          return AddAdminAlertDialog().paddingOnly(top: 80);
-                        });
-                  },
-                ).paddingOnly(right: paddingSize, top: 10),
+                widget:CustomOutlineButton(
+                        width: responsiveSize,
+                        icon: Icons.person_add,
+                        text: AppStrings.strAddAdmin,
+                        ounLineColour: AppColors.primaryColor,
+                        onTap: () {
+                          showModalBottomSheet(
+                              context: context,
+                              isScrollControlled: true,
+                              backgroundColor: AppColors.transparent,
+                              builder: (context) {
+                                return AddAdminAlertDialog()
+                                    .paddingOnly(top: 80);
+                              });
+                        },
+                      ).paddingOnly(right: paddingSize, top: 10),
               ),
               Expanded(
                 child: Container(

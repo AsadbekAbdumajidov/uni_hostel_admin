@@ -95,7 +95,9 @@ class StudentsScreen extends StatelessWidget {
                                         },
                                       ),
                                       CustomCardWidget(
+                                        
                                         notButtonIndex: 0,
+
                                         list: state.orderList,
                                         statusColor: AppColors.greenColour,
                                         textStatus: AppStrings.strApproved,

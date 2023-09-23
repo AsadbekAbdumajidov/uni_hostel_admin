@@ -63,6 +63,7 @@ class CustomCardWidget extends StatelessWidget {
                         tilePadding: EdgeInsets.only(right: 12),
                         title: CardItemWidget(
                           isIcon: false,
+                          imageBakgColour:  AppColors.whiteColor,
                           userName: response?.name ?? "-",
                           img: response?.image ?? "-",
                           statusColor: statusColor,

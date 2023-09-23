@@ -19,14 +19,21 @@ import 'package:uni_hostel_admin/presentation/cubit/on_hover/on_hover_cubit.dart
 import 'package:uni_hostel_admin/presentation/view/tabs/admins/widget/mobile_form_fields.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/admins/widget/web_form_fields.dart';
 
-class AddAdminAlertDialog extends StatelessWidget {
+class AddAdminAlertDialog extends StatefulWidget {
   AddAdminAlertDialog({super.key, this.response});
   final ProfileResponse? response;
+
+  @override
+  State<AddAdminAlertDialog> createState() => _AddAdminAlertDialogState();
+}
+
+class _AddAdminAlertDialogState extends State<AddAdminAlertDialog> {
   final formGlobalKey = GlobalKey<FormState>();
   final controllerFN = TextEditingController();
   final controllerLN = TextEditingController();
   final controllerUN = TextEditingController();
   final controllerR = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     double rSize = ResponsiveWidget.isMobileLarge(context) ? 140 : 200;
@@ -50,6 +57,7 @@ class AddAdminAlertDialog extends StatelessWidget {
                   color: AppColors.whiteColor,
                   borderRadius: BorderRadius.circular(12)),
               child: SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
                 child: Form(
                   key: formGlobalKey,
                   child: Column(

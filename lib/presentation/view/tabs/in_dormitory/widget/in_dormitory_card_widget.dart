@@ -57,6 +57,7 @@ class InDormitoryCardWidget extends StatelessWidget {
                         child: ExpansionTile(
                           tilePadding: EdgeInsets.only(right: 12),
                           title: CardItemInDormitoryWidget(
+                            maxLines: 2,
                             textOverflow: TextOverflow.ellipsis,
                             title1: "${orderList?[__].fullName}",
                             title2: orderList?[__].facultyModel ?? "-",

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
@@ -14,7 +13,8 @@ class MobileFormFields extends StatelessWidget {
     required this.controllerUN,
     required this.controllerR,
     required this.onchangeT,
-    required this.type, this.style,
+    required this.type,
+    this.style,
   });
   final TextEditingController controllerFN;
   final TextEditingController controllerLN;
@@ -22,7 +22,6 @@ class MobileFormFields extends StatelessWidget {
   final TextEditingController controllerR;
   final String type;
   final TextStyle? style;
-
 
   final Function(dynamic v) onchangeT;
 
@@ -43,7 +42,8 @@ class MobileFormFields extends StatelessWidget {
         Row(
           children: [
             TextItemWidget(
-              flex: 5,style: style,
+              flex: 5,
+              style: style,
               hintText: AppStrings.strLastName,
               textEditingController: controllerLN,
             ),
@@ -52,7 +52,8 @@ class MobileFormFields extends StatelessWidget {
         Row(
           children: [
             TextItemWidget(
-              flex: 5,style: style,
+              flex: 5,
+              style: style,
               hintText: AppStrings.strUser,
               textEditingController: controllerUN,
             ),
@@ -61,18 +62,21 @@ class MobileFormFields extends StatelessWidget {
         Row(
           children: [
             TextItemWidget(
-                flex: 5,style: style,
-                hintText: AppStrings.strRegion,
-                textEditingController: controllerR),
+              flex: 5,
+              style: style,
+              hintText: AppStrings.strRegion,
+              textEditingController: controllerR,
+              textInputAction: TextInputAction.done,
+            ),
           ],
         ).paddingSymmetric(vertical: 20),
-         Row(
+        Row(
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(AppStrings.strType,
-                    style:style?? Theme.of(context).textTheme.titleMedium),
+                    style: style ?? Theme.of(context).textTheme.titleMedium),
                 SizedBox(height: 10),
                 DropDownWidget(
                   buttonWidth: 200,
@@ -88,6 +92,6 @@ class MobileFormFields extends StatelessWidget {
           ],
         ),
       ],
-    ).paddingOnly(left: 10, right: 30);
+    ).paddingOnly(right: 10);
   }
 }

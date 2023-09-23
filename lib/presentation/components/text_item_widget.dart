@@ -13,7 +13,8 @@ class TextItemWidget extends StatelessWidget {
       this.initialValue,
       this.onchange,
       this.onTap,
-      this.textEditingController, this.style});
+      this.textEditingController,
+      this.style, this.textInputAction});
   final String hintText;
   final String? initialValue;
   final Function(dynamic v)? onchange;
@@ -22,6 +23,7 @@ class TextItemWidget extends StatelessWidget {
   final Function()? onTap;
   final TextEditingController? textEditingController;
   final TextStyle? style;
+  final TextInputAction? textInputAction;
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +32,12 @@ class TextItemWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(hintText, style:style ?? Theme.of(context).textTheme.titleMedium),
+          Text(hintText,
+              style: style ?? Theme.of(context).textTheme.titleMedium),
           SizedBox(height: 10),
           CustomTextField(
             onChange: onchange,
+            textInputAction:textInputAction?? TextInputAction.next,
             readOnly: isReadOnly ?? false,
             initialValue: initialValue,
             textColor: AppColors.blackColor,

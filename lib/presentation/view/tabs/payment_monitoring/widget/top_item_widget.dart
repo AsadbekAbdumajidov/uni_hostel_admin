@@ -11,6 +11,8 @@ class TopItemWithoutSearchWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double textSize = ResponsiveWidget.isMobileLarge(context) ? 22 : 24;
+    double resSize = ResponsiveWidget.isMobile(context) ? 0 : 10;
+
     return Expanded(
       flex: 6,
       child: Row(
@@ -27,7 +29,7 @@ class TopItemWithoutSearchWidget extends StatelessWidget {
             style: Theme.of(context).textTheme.titleLarge,
           ).paddingOnly(top: 4),
         ],
-      ).paddingOnly(top: 10, left: 10),
+      ).paddingOnly(top: 10, left: resSize),
     );
   }
 }

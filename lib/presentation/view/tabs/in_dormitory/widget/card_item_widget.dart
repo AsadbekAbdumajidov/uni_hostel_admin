@@ -12,12 +12,12 @@ class CardItemInDormitoryWidget extends StatelessWidget {
       this.statusColor,
       this.textOverflow,
       required this.isIcon,
-      required this.title4});
+      required this.title4, this.maxLines});
   final String title1;
   final String title2;
   final String title3;
   final String title4;
-
+  final int? maxLines;
   final Color? statusColor;
   final TextOverflow? textOverflow;
   final bool isIcon;
@@ -34,11 +34,11 @@ class CardItemInDormitoryWidget extends StatelessWidget {
               Expanded(
                 child: Text(
                   title1,
-                  maxLines: textOverflow == null ? 2 : 1,
+                  maxLines: maxLines ?? 1,
                   overflow: textOverflow,
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                       fontSize: textSize,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w400,
                       color: AppColors.blackColor),
                 ).paddingOnly(left: 4),
               ),
@@ -55,14 +55,14 @@ class CardItemInDormitoryWidget extends StatelessWidget {
                   Expanded(
                     child: Text(
                       title2,
-                      maxLines: textOverflow == null ? 2 : 1,
+                      maxLines: maxLines ?? 1,
                       overflow: textOverflow,
                       style: Theme.of(context)
                           .textTheme
                           .headlineMedium
                           ?.copyWith(
                               fontSize: textSize,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w400,
                               color: AppColors.blackColor),
                     ),
                   ),
@@ -82,7 +82,7 @@ class CardItemInDormitoryWidget extends StatelessWidget {
                             .headlineMedium
                             ?.copyWith(
                                 fontSize: textSize,
-                                fontWeight: FontWeight.w500,
+                                fontWeight: FontWeight.w400,
                                 color: AppColors.blackColor)),
                   ],
                 ),
@@ -101,7 +101,7 @@ class CardItemInDormitoryWidget extends StatelessWidget {
                             .headlineMedium
                             ?.copyWith(
                                 fontSize: textSize,
-                                fontWeight: FontWeight.w500,
+                                fontWeight: FontWeight.w400,
                                 color: AppColors.blackColor)),
                   ],
                 ),

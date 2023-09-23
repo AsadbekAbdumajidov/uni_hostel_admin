@@ -21,6 +21,8 @@ import 'package:uni_hostel_admin/data/models/order/post_order/response/edit_stat
 import 'package:uni_hostel_admin/data/models/order/select_order/select_order_response.dart';
 import 'package:uni_hostel_admin/data/models/payment_monitoring/payment_monitoring_response.dart';
 import 'package:uni_hostel_admin/data/models/profile/get_profile/profile_response.dart';
+import 'package:uni_hostel_admin/data/models/statistics/admin_statistics/admin_statistics_response.dart';
+import 'package:uni_hostel_admin/data/models/statistics/student_statistics/student_statistics_response.dart';
 
 class MainRepository implements IMainRepository {
   final ApiClient _apiClient;
@@ -484,6 +486,56 @@ class MainRepository implements IMainRepository {
   Future<Either<Failure, bool>> deleteAdmin(int id) async {
     try {
       final response = await _apiClient.deleteAdmin(id);
+      return Right(response);
+    } on DioError catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      if (e.error is SocketException) {
+        return const Left(ConnectionFailure());
+      }
+      return Left(
+        (e.response?.statusCode == 400)
+            ? const UnknownFailure()
+            : ServerFailure(e.response?.statusCode),
+      );
+    } on Object catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      rethrow;
+    }
+  }
+
+  @override
+  Future<Either<Failure, MainStatisticsResponse>> getMainStatistics() async{
+    try {
+      final response = await _apiClient.getMainStatistics();
+      return Right(response);
+    } on DioError catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      if (e.error is SocketException) {
+        return const Left(ConnectionFailure());
+      }
+      return Left(
+        (e.response?.statusCode == 400)
+            ? const UnknownFailure()
+            : ServerFailure(e.response?.statusCode),
+      );
+    } on Object catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      rethrow;
+    }
+  }
+
+  @override
+  Future<Either<Failure, StudentStatisticsResponse>> getStudentStatistics() async{
+    try {
+      final response = await _apiClient.getStudentStatistics();
       return Right(response);
     } on DioError catch (e) {
       if (kDebugMode) {

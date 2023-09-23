@@ -122,18 +122,18 @@ class NetworkImageWidget extends StatelessWidget {
                       radius: radius ?? 20,
                       errorIcon:
                           (isEdit == true && ResponsiveWidget.isMobile(context))
-                              ? CupertinoIcons.add
+                              ? Icons.add
                               : (isEdit == true && state.hover)
-                                  ? CupertinoIcons.add
+                                  ? Icons.add
                                   : Icons.person_outline,
                     ),
                   )),
               Positioned.fill(
-                child: isEdit == true && ResponsiveWidget.isMobile(context)
-                    ? Icon(CupertinoIcons.add,
+                child: (isEdit == true && ResponsiveWidget.isMobile(context))
+                    ? Icon(Icons.add,
                         color: lineColour ?? AppColors.primaryColor)
                     : isEdit == true && state.hover
-                        ? Icon(CupertinoIcons.add,
+                        ? Icon(Icons.add,
                             color: lineColour ?? AppColors.whiteColor)
                         : SizedBox.shrink(),
               )
@@ -170,7 +170,7 @@ class ErrorImageProfile extends StatelessWidget {
         child: CircleAvatar(
             backgroundColor: backgroundColor ?? AppColors.whiteColor,
             child: Icon(errorIcon ?? Icons.person_outline,
-                color: lineColour ?? AppColors.blackColor)),
+                color: lineColour ?? AppColors.blackColor,size: 20)),
       ),
     );
   }

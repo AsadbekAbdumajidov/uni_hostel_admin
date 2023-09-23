@@ -56,6 +56,9 @@ class DifferentCardWidget extends StatelessWidget {
                         child: ExpansionTile(
                           tilePadding: EdgeInsets.only(right: 12),
                           title: CardItemWidget(
+                            imageBakgColour: __.isEven
+                            ? AppColors.backgroundColour
+                            : AppColors.whiteColor,
                             userName: orderList?[__].student?.name ?? "-",
                             img: orderList?[__].student?.image ?? "",
                             date: localDateFormat(orderList?[__].createdAt),

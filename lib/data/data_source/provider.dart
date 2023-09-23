@@ -13,6 +13,8 @@ import 'package:uni_hostel_admin/data/models/order/post_order/response/edit_stat
 import 'package:uni_hostel_admin/data/models/order/select_order/select_order_response.dart';
 import 'package:uni_hostel_admin/data/models/payment_monitoring/payment_monitoring_response.dart';
 import 'package:uni_hostel_admin/data/models/profile/get_profile/profile_response.dart';
+import 'package:uni_hostel_admin/data/models/statistics/admin_statistics/admin_statistics_response.dart';
+import 'package:uni_hostel_admin/data/models/statistics/student_statistics/student_statistics_response.dart';
 part 'provider.g.dart';
 
 //flutter packages pub run build_runner build --delete-conflicting-outputs
@@ -100,4 +102,10 @@ abstract class ApiClient {
 
   @DELETE('admin/administrator/{id}')
   Future<bool> deleteAdmin(@Path('id') int id);
+
+  @GET('admin/orders/main/statistics/')
+  Future<MainStatisticsResponse> getMainStatistics();
+
+  @GET('admin/students/main/statistics/')
+  Future<StudentStatisticsResponse> getStudentStatistics();
 }

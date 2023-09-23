@@ -16,9 +16,15 @@ import 'package:uni_hostel_admin/presentation/view/tabs/admins/widget/mobile_for
 import 'package:uni_hostel_admin/presentation/view/tabs/admins/widget/web_form_fields.dart';
 import '../../../../../core/themes/app_text.dart';
 
-class EditExpantionItem extends StatelessWidget {
-  EditExpantionItem({super.key, this.response});
+class EditExpantionItem extends StatefulWidget {
+  EditExpantionItem({super.key, this.response, required this.imageBakgColour});
   final ProfileResponse? response;
+  final Color imageBakgColour;
+  @override
+  State<EditExpantionItem> createState() => _EditExpantionItemState();
+}
+
+class _EditExpantionItemState extends State<EditExpantionItem> {
   final formGlobalKey = GlobalKey<FormState>();
   final controllerFN = TextEditingController();
   final controllerLN = TextEditingController();
@@ -29,12 +35,12 @@ class EditExpantionItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double rSize = ResponsiveWidget.isMobileLarge(context) ? 140 : 200;
-    context.read<AdminEditCubit>().getType(response?.type);
-    controllerFN.text = response?.firstName ?? "";
-    controllerLN.text = response?.lastName ?? "";
-    controllerUN.text = response?.username ?? "";
-    controllerR.text = response?.region ?? "";
-    controllerTP.text = response?.type ?? "";
+    context.read<AdminEditCubit>().getType(widget.response?.type);
+    controllerFN.text = widget.response?.firstName ?? "";
+    controllerLN.text = widget.response?.lastName ?? "";
+    controllerUN.text = widget.response?.username ?? "";
+    controllerR.text = widget.response?.region ?? "";
+    controllerTP.text = widget.response?.type ?? "";
     return BlocBuilder<AdminEditCubit, AdminEditState>(
       builder: (context, state) {
         var bloc = context.read<AdminEditCubit>();
@@ -51,10 +57,10 @@ class EditExpantionItem extends StatelessWidget {
                   isEdit: true,
                   radius: 80,
                   size: 80,
-                  img: response?.image ?? "",
+                  img: widget.response?.image ?? "",
                   onTap: () async {
                     await bloc.pickFile(
-                      id: response?.id ?? 0,
+                      id: widget.response?.id ?? 0,
                       firstName: controllerFN.text,
                       lastName: controllerLN.text,
                       userName: controllerUN.text,
@@ -63,8 +69,8 @@ class EditExpantionItem extends StatelessWidget {
                     context.read<AdminsCubit>().getAdmins(false);
                     debugPrint("AAAA => ${state.pickedImg?.bytes}");
                   },
-                  backgroundColor: AppColors.whiteColor,
-                  lineColour: response?.image == null
+                  backgroundColor: widget.imageBakgColour,
+                  lineColour: widget.response?.image == null
                       ? AppColors.primaryColor
                       : AppColors.whiteColor,
                 ).paddingOnly(bottom: 30, top: 16),
@@ -101,7 +107,8 @@ class EditExpantionItem extends StatelessWidget {
                           text: AppStrings.strDelete,
                           isLoading: state.status == Status.OTHER,
                           onTap: () async {
-                            await bloc.deleteAdmin(id: response?.id ?? 0);
+                            await bloc.deleteAdmin(
+                                id: widget.response?.id ?? 0);
                             await context.read<AdminsCubit>().getAdmins(false);
                             showErrorMessage(
                                 context, AppStrings.strAdminDeletedSuccesfully);
@@ -115,7 +122,7 @@ class EditExpantionItem extends StatelessWidget {
                           onTap: () async {
                             if (formGlobalKey.currentState!.validate()) {
                               await bloc.editAdmin(
-                                id: response?.id ?? 0,
+                                id: widget.response?.id ?? 0,
                                 firstName: controllerFN.text,
                                 lastName: controllerLN.text,
                                 userName: controllerUN.text,
@@ -128,7 +135,7 @@ class EditExpantionItem extends StatelessWidget {
                           },
                         )
                       ],
-                    ).paddingOnly(bottom: 20, left: 10, right: 10)
+                    ).paddingOnly(bottom: 20)
                   ],
                 )
               ],

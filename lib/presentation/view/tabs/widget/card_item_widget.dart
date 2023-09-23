@@ -16,7 +16,7 @@ class CardItemWidget extends StatelessWidget {
     this.textStatus,
     this.statusColor,
     this.textOverflow,
-    required this.isIcon,
+    required this.isIcon,  this.imageBakgColour,
   });
   final String userName;
   final String? status;
@@ -25,6 +25,8 @@ class CardItemWidget extends StatelessWidget {
   final String? img;
   final String? textStatus;
   final Color? statusColor;
+  final Color? imageBakgColour;
+
   final TextOverflow? textOverflow;
   final bool isIcon;
 
@@ -46,9 +48,13 @@ class CardItemWidget extends StatelessWidget {
             children: [
               img == null
                   ? SizedBox.shrink()
-                  : NetworkImageWidget(onTap: () {}, size: 50, img: img ?? "")
-                      .paddingOnly(
-                          right: ResponsiveWidget.isMobile(context) ? 4 : 10),
+                  : NetworkImageWidget(
+                      onTap: () {},
+                      size: 50,
+                      img: img ?? "",
+                      backgroundColor: imageBakgColour,
+                    ).paddingOnly(
+                      right: ResponsiveWidget.isMobile(context) ? 4 : 10),
               Expanded(
                 child: Text(
                   userName,
@@ -57,7 +63,7 @@ class CardItemWidget extends StatelessWidget {
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                       fontSize: textSize,
                       fontWeight:
-                          img == null ? FontWeight.w500 : FontWeight.w400,
+                           FontWeight.w400,
                       color: AppColors.blackColor),
                 ),
               ),
@@ -128,8 +134,7 @@ class CardItemWidget extends StatelessWidget {
                     date,
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         fontSize: textSize,
-                        fontWeight:
-                            img == null ? FontWeight.w500 : FontWeight.w400,
+                        fontWeight: FontWeight.w400,
                         color: AppColors.blackColor),
                   ),
                 ]),
@@ -147,9 +152,7 @@ class CardItemWidget extends StatelessWidget {
                             .headlineMedium
                             ?.copyWith(
                                 fontSize: textSize,
-                                fontWeight: img == null
-                                    ? FontWeight.w500
-                                    : FontWeight.w400,
+                                fontWeight:  FontWeight.w400,
                                 color: AppColors.blackColor)),
                   ],
                 ),

@@ -11,6 +11,8 @@ import 'package:uni_hostel_admin/data/models/order/post_order/response/edit_stat
 import 'package:uni_hostel_admin/data/models/order/select_order/select_order_response.dart';
 import 'package:uni_hostel_admin/data/models/payment_monitoring/payment_monitoring_response.dart';
 import 'package:uni_hostel_admin/data/models/profile/get_profile/profile_response.dart';
+import 'package:uni_hostel_admin/data/models/statistics/admin_statistics/admin_statistics_response.dart';
+import 'package:uni_hostel_admin/data/models/statistics/student_statistics/student_statistics_response.dart';
 
 import '../../models/order/get_faculties/get_faculties_response.dart';
 
@@ -77,4 +79,8 @@ abstract class IMainRepository {
       AddAdminRequest? request, int id, PlatformFile? file);
       
   Future<Either<Failure, bool>> deleteAdmin(int id);
+  Future<Either<Failure, MainStatisticsResponse>> getMainStatistics();
+  Future<Either<Failure, StudentStatisticsResponse>> getStudentStatistics();
+
+
 }

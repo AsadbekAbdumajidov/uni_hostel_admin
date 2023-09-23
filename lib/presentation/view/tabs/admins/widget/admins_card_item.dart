@@ -24,6 +24,8 @@ class AdminsCardItem extends StatelessWidget {
         child: ExpansionTile(
           tilePadding: EdgeInsets.only(right: 12),
           title: CardItemWidget(
+            imageBakgColour:
+                isEven ? AppColors.backgroundColour : AppColors.whiteColor,
             userName: "${user?.firstName ?? "-"} ${user?.lastName ?? "-"}",
             img: user?.image ?? "",
             date: user?.username ?? "-",
@@ -31,7 +33,11 @@ class AdminsCardItem extends StatelessWidget {
             isIcon: false,
           ).paddingAll(4),
           children: [
-            EditExpantionItem(response: user)
+            EditExpantionItem(
+              response: user,
+              imageBakgColour:
+                  isEven ? AppColors.backgroundColour : AppColors.whiteColor,
+            )
           ],
         ),
       ),

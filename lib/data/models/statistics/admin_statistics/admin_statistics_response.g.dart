@@ -1,0 +1,78 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'admin_statistics_response.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$_MainStatisticsResponse _$$_MainStatisticsResponseFromJson(
+        Map<String, dynamic> json) =>
+    _$_MainStatisticsResponse(
+      all: json['all'] as int?,
+      accepted: json['accepted'] as int?,
+      inQueue: json['in_queue'] as int?,
+      cancelled: json['cancelled'] as int?,
+      male: json['male'] as int?,
+      female: json['female'] as int?,
+      disabled: json['disabled'] as int?,
+      ironNotebook: json['iron_notebook'] as int?,
+      womensBook: json['womens_book'] as int?,
+      youthsNotebook: json['youths_notebook'] as int?,
+      fosterHome: json['foster_home'] as int?,
+      noBreadwinner: json['no_breadwinner'] as int?,
+      oneParentsIsDead: json['one_parents_is_dead'] as int?,
+      hasManyChildrenFamily: json['has_many_children_family'] as int?,
+      giftedStudent: json['gifted_student'] as int?,
+      basedOnPaymentContract: json['based_on_payment_contract'] as int?,
+      faculty: (json['faculty'] as List<dynamic>?)
+          ?.map((e) => Faculty.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      kurs1: json['1-kurs'] as int?,
+      kurs2: json['2-kurs'] as int?,
+      kurs3: json['3-kurs'] as int?,
+      kurs4: json['4-kurs'] as int?,
+      kurs5: json['5-kurs'] as int?,
+      kurs6: json['6-kurs'] as int?,
+      kurs7: json['7-kurs'] as int?,
+    );
+
+Map<String, dynamic> _$$_MainStatisticsResponseToJson(
+        _$_MainStatisticsResponse instance) =>
+    <String, dynamic>{
+      'all': instance.all,
+      'accepted': instance.accepted,
+      'in_queue': instance.inQueue,
+      'cancelled': instance.cancelled,
+      'male': instance.male,
+      'female': instance.female,
+      'disabled': instance.disabled,
+      'iron_notebook': instance.ironNotebook,
+      'womens_book': instance.womensBook,
+      'youths_notebook': instance.youthsNotebook,
+      'foster_home': instance.fosterHome,
+      'no_breadwinner': instance.noBreadwinner,
+      'one_parents_is_dead': instance.oneParentsIsDead,
+      'has_many_children_family': instance.hasManyChildrenFamily,
+      'gifted_student': instance.giftedStudent,
+      'based_on_payment_contract': instance.basedOnPaymentContract,
+      'faculty': instance.faculty,
+      '1-kurs': instance.kurs1,
+      '2-kurs': instance.kurs2,
+      '3-kurs': instance.kurs3,
+      '4-kurs': instance.kurs4,
+      '5-kurs': instance.kurs5,
+      '6-kurs': instance.kurs6,
+      '7-kurs': instance.kurs7,
+    };
+
+_$_Faculty _$$_FacultyFromJson(Map<String, dynamic> json) => _$_Faculty(
+      name: json['name'] as String?,
+      count: json['count'] as int?,
+    );
+
+Map<String, dynamic> _$$_FacultyToJson(_$_Faculty instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'count': instance.count,
+    };

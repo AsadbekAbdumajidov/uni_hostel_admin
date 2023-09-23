@@ -22,6 +22,8 @@ import 'package:uni_hostel_admin/data/domain/usecases/main/get_order.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_orders_list.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_selected_order.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/payments_uscase.dart';
+import 'package:uni_hostel_admin/data/domain/usecases/main/statistics_uscase.dart';
+import 'package:uni_hostel_admin/data/domain/usecases/main/student_statistics_uscase.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/profile/get_profile.dart';
 import 'package:uni_hostel_admin/data/repository/authorization.dart';
 import 'package:uni_hostel_admin/data/repository/main.dart';
@@ -31,6 +33,7 @@ import 'package:uni_hostel_admin/presentation/cubit/admins/admins_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/auth/auth_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/cancelled_order/cancelled_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/edit_status/edit_status_cubit.dart';
+import 'package:uni_hostel_admin/presentation/cubit/get_statistics/statistics_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/in_dormitory_cubit/in_dormitory_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/login/login_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/new_order/get_new_order_cubit.dart';
@@ -59,6 +62,8 @@ Future<void> initDi() async {
 
   inject.registerFactory(() => ProfileCubit(inject()));
   inject.registerFactory(() => PaymentsCubit(inject()));
+  inject.registerFactory(() => StatisticsCubit(inject(),inject()));
+
   inject.registerFactory(() => AdminEditCubit(inject(),inject()));
   inject.registerFactory(() => AdminsCubit(inject(), inject()));
 
@@ -81,6 +86,8 @@ Future<void> initDi() async {
   inject.registerLazySingleton(() => AddAdminUseCase(inject()));
   inject.registerLazySingleton(() => EditAdminUseCase(inject()));
   inject.registerLazySingleton(() => DeleteAdminUseCase(inject()));
+  inject.registerLazySingleton(() => StatisticsUseCase(inject()));
+  inject.registerLazySingleton(() => StudentStatisticsUseCase(inject()));
 
 
   // repository init

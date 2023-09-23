@@ -75,7 +75,7 @@ class CustomAppBar extends StatelessWidget {
                     onTap: () => Scaffold.of(context).openEndDrawer(),
                     size: 45,
                     img: state.response?.image ?? "",
-                  ).paddingSymmetric(horizontal: 12),
+                  ).paddingOnly(right: 12),
                   ResponsiveWidget.isTablet(context)
                       ? const SizedBox.shrink()
                       : Container(

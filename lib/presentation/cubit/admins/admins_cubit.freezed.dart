@@ -22,7 +22,6 @@ mixin _$AdminsState {
   GetAdminsResponse? get response => throw _privateConstructorUsedError;
   ProfileResponse? get adminResponse => throw _privateConstructorUsedError;
   PlatformFile? get pickedImg => throw _privateConstructorUsedError;
-  String? get file => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -43,7 +42,6 @@ abstract class $AdminsStateCopyWith<$Res> {
       GetAdminsResponse? response,
       ProfileResponse? adminResponse,
       PlatformFile? pickedImg,
-      String? file,
       String type});
 
   $GetAdminsResponseCopyWith<$Res>? get response;
@@ -69,7 +67,6 @@ class _$AdminsStateCopyWithImpl<$Res, $Val extends AdminsState>
     Object? response = freezed,
     Object? adminResponse = freezed,
     Object? pickedImg = freezed,
-    Object? file = freezed,
     Object? type = null,
   }) {
     return _then(_value.copyWith(
@@ -97,10 +94,6 @@ class _$AdminsStateCopyWithImpl<$Res, $Val extends AdminsState>
           ? _value.pickedImg
           : pickedImg // ignore: cast_nullable_to_non_nullable
               as PlatformFile?,
-      file: freezed == file
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as String?,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -148,7 +141,6 @@ abstract class _$$_AdminsStateCopyWith<$Res>
       GetAdminsResponse? response,
       ProfileResponse? adminResponse,
       PlatformFile? pickedImg,
-      String? file,
       String type});
 
   @override
@@ -174,7 +166,6 @@ class __$$_AdminsStateCopyWithImpl<$Res>
     Object? response = freezed,
     Object? adminResponse = freezed,
     Object? pickedImg = freezed,
-    Object? file = freezed,
     Object? type = null,
   }) {
     return _then(_$_AdminsState(
@@ -202,10 +193,6 @@ class __$$_AdminsStateCopyWithImpl<$Res>
           ? _value.pickedImg
           : pickedImg // ignore: cast_nullable_to_non_nullable
               as PlatformFile?,
-      file: freezed == file
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as String?,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -224,7 +211,6 @@ class _$_AdminsState implements _AdminsState {
       this.response,
       this.adminResponse,
       this.pickedImg,
-      this.file,
       this.type = ""})
       : _adminList = adminList;
 
@@ -250,14 +236,12 @@ class _$_AdminsState implements _AdminsState {
   @override
   final PlatformFile? pickedImg;
   @override
-  final String? file;
-  @override
   @JsonKey()
   final String type;
 
   @override
   String toString() {
-    return 'AdminsState(status: $status, failure: $failure, adminList: $adminList, response: $response, adminResponse: $adminResponse, pickedImg: $pickedImg, file: $file, type: $type)';
+    return 'AdminsState(status: $status, failure: $failure, adminList: $adminList, response: $response, adminResponse: $adminResponse, pickedImg: $pickedImg, type: $type)';
   }
 
   @override
@@ -275,7 +259,6 @@ class _$_AdminsState implements _AdminsState {
                 other.adminResponse == adminResponse) &&
             (identical(other.pickedImg, pickedImg) ||
                 other.pickedImg == pickedImg) &&
-            (identical(other.file, file) || other.file == file) &&
             (identical(other.type, type) || other.type == type));
   }
 
@@ -288,7 +271,6 @@ class _$_AdminsState implements _AdminsState {
       response,
       adminResponse,
       pickedImg,
-      file,
       type);
 
   @JsonKey(ignore: true)
@@ -306,7 +288,6 @@ abstract class _AdminsState implements AdminsState {
       final GetAdminsResponse? response,
       final ProfileResponse? adminResponse,
       final PlatformFile? pickedImg,
-      final String? file,
       final String type}) = _$_AdminsState;
 
   @override
@@ -321,8 +302,6 @@ abstract class _AdminsState implements AdminsState {
   ProfileResponse? get adminResponse;
   @override
   PlatformFile? get pickedImg;
-  @override
-  String? get file;
   @override
   String get type;
   @override
