@@ -19,6 +19,15 @@ class MenuDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SideBarCubit, SideBarState>(builder: (context, state) {
       var status = context.watch<ProfileCubit>().state.response?.type;
+      var index;
+      if (status == "payment_admin" && state.currentIndex == 0) {
+        index = 5;
+        context.read<SideBarCubit>().changeIndex(index);
+        Future.delayed(Duration(milliseconds: 300), () {
+          Navigator.pushNamed(context, RouteName.thoseWhoPaid.route);
+        });
+      }
+
       debugPrint("$status STATUS");
       return Container(
         height: context.h,
@@ -29,7 +38,9 @@ class MenuDrawer extends StatelessWidget {
           children: [
             SvgPicture.asset(AppIcons.iconWhiteLogo, height: 53, width: 53),
             SizedBox(height: 50),
-            (status == "order_admin" || status == "admin")
+            (status == "faculty_admin" ||
+                    status == "order_admin" ||
+                    status == "admin")
                 ? SideMenuItem(
                     index: 0,
                     title: AppStrings.strRequests,
@@ -43,7 +54,9 @@ class MenuDrawer extends StatelessWidget {
                       }
                     })
                 : SizedBox.shrink(),
-            (status == "order_admin" || status == "admin")
+            (status == "faculty_admin" ||
+                    status == "order_admin" ||
+                    status == "admin")
                 ? SideMenuItem(
                     index: 1,
                     title: AppStrings.strApproved,
@@ -57,7 +70,9 @@ class MenuDrawer extends StatelessWidget {
                       }
                     })
                 : SizedBox.shrink(),
-            (status == "order_admin" || status == "admin")
+            (status == "faculty_admin" ||
+                    status == "order_admin" ||
+                    status == "admin")
                 ? SideMenuItem(
                     index: 2,
                     title: AppStrings.strWaiting,
@@ -70,7 +85,9 @@ class MenuDrawer extends StatelessWidget {
                       }
                     })
                 : SizedBox.shrink(),
-            (status == "order_admin" || status == "admin")
+            (status == "faculty_admin" ||
+                    status == "order_admin" ||
+                    status == "admin")
                 ? SideMenuItem(
                     index: 3,
                     title: AppStrings.strRejected,
@@ -85,7 +102,7 @@ class MenuDrawer extends StatelessWidget {
                     },
                   )
                 : SizedBox.shrink(),
-            (status == "payment_admin" || status == "admin")
+            (status == "faculty_admin" || status == "admin")
                 ? SideMenuItem(
                     index: 4,
                     title: AppStrings.strInDormitory,

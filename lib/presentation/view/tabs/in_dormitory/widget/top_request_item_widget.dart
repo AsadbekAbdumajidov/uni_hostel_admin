@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel_admin/core/themes/app_colors.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
+import 'package:uni_hostel_admin/presentation/cubit/profile/profile_cubit.dart';
 
 import '../../../../components/drobdown_widget.dart';
 
@@ -38,6 +40,7 @@ class TopInDormitoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double textSize = ResponsiveWidget.isMobileLarge(context) ? 22 : 24;
+     var status = context.watch<ProfileCubit>().state.response?.type;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -80,7 +83,7 @@ class TopInDormitoryWidget extends StatelessWidget {
                     onChanged: onChangeGender,
                     isEmptyText: AppStrings.strGender,
                   ).paddingSymmetric(horizontal: 6),
-                  DropDownWidget(
+                 status == "faculty_admin" ? SizedBox.shrink(): DropDownWidget(
                     buttonWidth: 150,
                     drobDownWidth: 250,
                     index: facultyIndex ?? "",

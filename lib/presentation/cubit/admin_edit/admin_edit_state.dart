@@ -7,6 +7,7 @@ class AdminEditState with _$AdminEditState {
     @Default(UnknownFailure()) Failure failure,
     ProfileResponse? adminResponse,
     PlatformFile? pickedImg,
+    FacultiesModel? facultyIndex,
     String? file,
     String? type,
   }) = _AdminEditState;

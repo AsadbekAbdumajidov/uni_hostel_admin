@@ -31,8 +31,7 @@ class StudentStatistics extends StatelessWidget {
           child: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
-            child: Expanded(
-              child: Column(
+            child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -48,7 +47,6 @@ class StudentStatistics extends StatelessWidget {
               ),
             ),
           ),
-        ),
         SizedBox(height: 12),
         Container(
           height: 400,
@@ -59,8 +57,7 @@ class StudentStatistics extends StatelessWidget {
           child: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
-            child: Expanded(
-              child: Row(
+            child:  Row(
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,7 +115,6 @@ class StudentStatistics extends StatelessWidget {
                 ],
               ),
             ),
-          ),
         ),
         SizedBox(height: 12),
         Container(

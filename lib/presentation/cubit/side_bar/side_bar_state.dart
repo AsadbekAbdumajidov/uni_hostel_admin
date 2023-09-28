@@ -4,9 +4,7 @@ class SideBarState extends Equatable {
   const SideBarState({this.currentIndex = 0});
   final int currentIndex;
 
-  SideBarState copyWith({
-    int? currentIndex,
-  }) {
+  SideBarState copyWith({int? currentIndex}) {
     return SideBarState(
       currentIndex: currentIndex ?? this.currentIndex,
     );

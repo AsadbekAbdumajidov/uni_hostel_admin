@@ -20,6 +20,7 @@ mixin _$AdminEditState {
   Failure get failure => throw _privateConstructorUsedError;
   ProfileResponse? get adminResponse => throw _privateConstructorUsedError;
   PlatformFile? get pickedImg => throw _privateConstructorUsedError;
+  FacultiesModel? get facultyIndex => throw _privateConstructorUsedError;
   String? get file => throw _privateConstructorUsedError;
   String? get type => throw _privateConstructorUsedError;
 
@@ -39,10 +40,12 @@ abstract class $AdminEditStateCopyWith<$Res> {
       Failure failure,
       ProfileResponse? adminResponse,
       PlatformFile? pickedImg,
+      FacultiesModel? facultyIndex,
       String? file,
       String? type});
 
   $ProfileResponseCopyWith<$Res>? get adminResponse;
+  $FacultiesModelCopyWith<$Res>? get facultyIndex;
 }
 
 /// @nodoc
@@ -62,6 +65,7 @@ class _$AdminEditStateCopyWithImpl<$Res, $Val extends AdminEditState>
     Object? failure = null,
     Object? adminResponse = freezed,
     Object? pickedImg = freezed,
+    Object? facultyIndex = freezed,
     Object? file = freezed,
     Object? type = freezed,
   }) {
@@ -82,6 +86,10 @@ class _$AdminEditStateCopyWithImpl<$Res, $Val extends AdminEditState>
           ? _value.pickedImg
           : pickedImg // ignore: cast_nullable_to_non_nullable
               as PlatformFile?,
+      facultyIndex: freezed == facultyIndex
+          ? _value.facultyIndex
+          : facultyIndex // ignore: cast_nullable_to_non_nullable
+              as FacultiesModel?,
       file: freezed == file
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
@@ -104,6 +112,18 @@ class _$AdminEditStateCopyWithImpl<$Res, $Val extends AdminEditState>
       return _then(_value.copyWith(adminResponse: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FacultiesModelCopyWith<$Res>? get facultyIndex {
+    if (_value.facultyIndex == null) {
+      return null;
+    }
+
+    return $FacultiesModelCopyWith<$Res>(_value.facultyIndex!, (value) {
+      return _then(_value.copyWith(facultyIndex: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -119,11 +139,14 @@ abstract class _$$_AdminEditStateCopyWith<$Res>
       Failure failure,
       ProfileResponse? adminResponse,
       PlatformFile? pickedImg,
+      FacultiesModel? facultyIndex,
       String? file,
       String? type});
 
   @override
   $ProfileResponseCopyWith<$Res>? get adminResponse;
+  @override
+  $FacultiesModelCopyWith<$Res>? get facultyIndex;
 }
 
 /// @nodoc
@@ -141,6 +164,7 @@ class __$$_AdminEditStateCopyWithImpl<$Res>
     Object? failure = null,
     Object? adminResponse = freezed,
     Object? pickedImg = freezed,
+    Object? facultyIndex = freezed,
     Object? file = freezed,
     Object? type = freezed,
   }) {
@@ -161,6 +185,10 @@ class __$$_AdminEditStateCopyWithImpl<$Res>
           ? _value.pickedImg
           : pickedImg // ignore: cast_nullable_to_non_nullable
               as PlatformFile?,
+      facultyIndex: freezed == facultyIndex
+          ? _value.facultyIndex
+          : facultyIndex // ignore: cast_nullable_to_non_nullable
+              as FacultiesModel?,
       file: freezed == file
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
@@ -181,6 +209,7 @@ class _$_AdminEditState implements _AdminEditState {
       this.failure = const UnknownFailure(),
       this.adminResponse,
       this.pickedImg,
+      this.facultyIndex,
       this.file,
       this.type});
 
@@ -195,13 +224,15 @@ class _$_AdminEditState implements _AdminEditState {
   @override
   final PlatformFile? pickedImg;
   @override
+  final FacultiesModel? facultyIndex;
+  @override
   final String? file;
   @override
   final String? type;
 
   @override
   String toString() {
-    return 'AdminEditState(status: $status, failure: $failure, adminResponse: $adminResponse, pickedImg: $pickedImg, file: $file, type: $type)';
+    return 'AdminEditState(status: $status, failure: $failure, adminResponse: $adminResponse, pickedImg: $pickedImg, facultyIndex: $facultyIndex, file: $file, type: $type)';
   }
 
   @override
@@ -215,13 +246,15 @@ class _$_AdminEditState implements _AdminEditState {
                 other.adminResponse == adminResponse) &&
             (identical(other.pickedImg, pickedImg) ||
                 other.pickedImg == pickedImg) &&
+            (identical(other.facultyIndex, facultyIndex) ||
+                other.facultyIndex == facultyIndex) &&
             (identical(other.file, file) || other.file == file) &&
             (identical(other.type, type) || other.type == type));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, status, failure, adminResponse, pickedImg, file, type);
+  int get hashCode => Object.hash(runtimeType, status, failure, adminResponse,
+      pickedImg, facultyIndex, file, type);
 
   @JsonKey(ignore: true)
   @override
@@ -236,6 +269,7 @@ abstract class _AdminEditState implements AdminEditState {
       final Failure failure,
       final ProfileResponse? adminResponse,
       final PlatformFile? pickedImg,
+      final FacultiesModel? facultyIndex,
       final String? file,
       final String? type}) = _$_AdminEditState;
 
@@ -247,6 +281,8 @@ abstract class _AdminEditState implements AdminEditState {
   ProfileResponse? get adminResponse;
   @override
   PlatformFile? get pickedImg;
+  @override
+  FacultiesModel? get facultyIndex;
   @override
   String? get file;
   @override

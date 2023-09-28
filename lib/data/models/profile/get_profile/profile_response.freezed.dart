@@ -33,7 +33,7 @@ mixin _$ProfileResponse {
   @JsonKey(name: 'user_type')
   String? get type => throw _privateConstructorUsedError;
   @JsonKey(name: 'faculty_admin')
-  String? get facultyAdmin => throw _privateConstructorUsedError;
+  int? get facultyAdmin => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -55,7 +55,7 @@ abstract class $ProfileResponseCopyWith<$Res> {
       @JsonKey(name: 'admin_image') String? image,
       @JsonKey(name: 'admin_region') String? region,
       @JsonKey(name: 'user_type') String? type,
-      @JsonKey(name: 'faculty_admin') String? facultyAdmin});
+      @JsonKey(name: 'faculty_admin') int? facultyAdmin});
 }
 
 /// @nodoc
@@ -112,7 +112,7 @@ class _$ProfileResponseCopyWithImpl<$Res, $Val extends ProfileResponse>
       facultyAdmin: freezed == facultyAdmin
           ? _value.facultyAdmin
           : facultyAdmin // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
     ) as $Val);
   }
 }
@@ -133,7 +133,7 @@ abstract class _$$_ProfileResponseCopyWith<$Res>
       @JsonKey(name: 'admin_image') String? image,
       @JsonKey(name: 'admin_region') String? region,
       @JsonKey(name: 'user_type') String? type,
-      @JsonKey(name: 'faculty_admin') String? facultyAdmin});
+      @JsonKey(name: 'faculty_admin') int? facultyAdmin});
 }
 
 /// @nodoc
@@ -188,7 +188,7 @@ class __$$_ProfileResponseCopyWithImpl<$Res>
       facultyAdmin: freezed == facultyAdmin
           ? _value.facultyAdmin
           : facultyAdmin // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
     ));
   }
 }
@@ -230,7 +230,7 @@ class _$_ProfileResponse implements _ProfileResponse {
   final String? type;
   @override
   @JsonKey(name: 'faculty_admin')
-  final String? facultyAdmin;
+  final int? facultyAdmin;
 
   @override
   String toString() {
@@ -284,7 +284,7 @@ abstract class _ProfileResponse implements ProfileResponse {
           @JsonKey(name: 'admin_image') final String? image,
           @JsonKey(name: 'admin_region') final String? region,
           @JsonKey(name: 'user_type') final String? type,
-          @JsonKey(name: 'faculty_admin') final String? facultyAdmin}) =
+          @JsonKey(name: 'faculty_admin') final int? facultyAdmin}) =
       _$_ProfileResponse;
 
   factory _ProfileResponse.fromJson(Map<String, dynamic> json) =
@@ -311,7 +311,7 @@ abstract class _ProfileResponse implements ProfileResponse {
   String? get type;
   @override
   @JsonKey(name: 'faculty_admin')
-  String? get facultyAdmin;
+  int? get facultyAdmin;
   @override
   @JsonKey(ignore: true)
   _$$_ProfileResponseCopyWith<_$_ProfileResponse> get copyWith =>

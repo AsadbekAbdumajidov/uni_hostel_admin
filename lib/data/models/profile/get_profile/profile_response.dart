@@ -14,7 +14,7 @@ class ProfileResponse with _$ProfileResponse {
     @JsonKey(name: 'admin_image') String? image,
     @JsonKey(name: 'admin_region') String? region,
     @JsonKey(name: 'user_type') String? type,
-    @JsonKey(name: 'faculty_admin') String? facultyAdmin,
+    @JsonKey(name: 'faculty_admin') int? facultyAdmin,
 
   }) = _ProfileResponse;
 

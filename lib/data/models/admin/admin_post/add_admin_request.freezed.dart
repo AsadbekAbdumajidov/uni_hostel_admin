@@ -30,7 +30,7 @@ mixin _$AddAdminRequest {
   @JsonKey(name: 'user_type')
   String? get type => throw _privateConstructorUsedError;
   @JsonKey(name: 'faculty_admin')
-  String? get facultyAdmin => throw _privateConstructorUsedError;
+  int? get facultyAdmin => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,7 +50,7 @@ abstract class $AddAdminRequestCopyWith<$Res> {
       @JsonKey(name: 'last_name') String? lastName,
       @JsonKey(name: 'admin_region') String? region,
       @JsonKey(name: 'user_type') String? type,
-      @JsonKey(name: 'faculty_admin') String? facultyAdmin});
+      @JsonKey(name: 'faculty_admin') int? facultyAdmin});
 }
 
 /// @nodoc
@@ -97,7 +97,7 @@ class _$AddAdminRequestCopyWithImpl<$Res, $Val extends AddAdminRequest>
       facultyAdmin: freezed == facultyAdmin
           ? _value.facultyAdmin
           : facultyAdmin // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
     ) as $Val);
   }
 }
@@ -116,7 +116,7 @@ abstract class _$$_AddAdminRequestCopyWith<$Res>
       @JsonKey(name: 'last_name') String? lastName,
       @JsonKey(name: 'admin_region') String? region,
       @JsonKey(name: 'user_type') String? type,
-      @JsonKey(name: 'faculty_admin') String? facultyAdmin});
+      @JsonKey(name: 'faculty_admin') int? facultyAdmin});
 }
 
 /// @nodoc
@@ -161,7 +161,7 @@ class __$$_AddAdminRequestCopyWithImpl<$Res>
       facultyAdmin: freezed == facultyAdmin
           ? _value.facultyAdmin
           : facultyAdmin // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
     ));
   }
 }
@@ -196,7 +196,7 @@ class _$_AddAdminRequest implements _AddAdminRequest {
   final String? type;
   @override
   @JsonKey(name: 'faculty_admin')
-  final String? facultyAdmin;
+  final int? facultyAdmin;
 
   @override
   String toString() {
@@ -246,7 +246,7 @@ abstract class _AddAdminRequest implements AddAdminRequest {
           @JsonKey(name: 'last_name') final String? lastName,
           @JsonKey(name: 'admin_region') final String? region,
           @JsonKey(name: 'user_type') final String? type,
-          @JsonKey(name: 'faculty_admin') final String? facultyAdmin}) =
+          @JsonKey(name: 'faculty_admin') final int? facultyAdmin}) =
       _$_AddAdminRequest;
 
   factory _AddAdminRequest.fromJson(Map<String, dynamic> json) =
@@ -268,7 +268,7 @@ abstract class _AddAdminRequest implements AddAdminRequest {
   String? get type;
   @override
   @JsonKey(name: 'faculty_admin')
-  String? get facultyAdmin;
+  int? get facultyAdmin;
   @override
   @JsonKey(ignore: true)
   _$$_AddAdminRequestCopyWith<_$_AddAdminRequest> get copyWith =>

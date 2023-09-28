@@ -13,7 +13,7 @@ _$_AddAdminRequest _$$_AddAdminRequestFromJson(Map<String, dynamic> json) =>
       lastName: json['last_name'] as String?,
       region: json['admin_region'] as String?,
       type: json['user_type'] as String?,
-      facultyAdmin: json['faculty_admin'] as String?,
+      facultyAdmin: json['faculty_admin'] as int?,
     );
 
 Map<String, dynamic> _$$_AddAdminRequestToJson(_$_AddAdminRequest instance) =>

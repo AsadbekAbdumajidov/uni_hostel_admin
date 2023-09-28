@@ -25,6 +25,8 @@ class AdminsScreen extends StatelessWidget {
     double responsiveSize = ResponsiveWidget.isMobile(context) ? 130 : 180;
 
     return BlocBuilder<AdminsCubit, AdminsState>(builder: (context, state) {
+
+      
       return Scaffold(
         drawer: Drawer(child: MenuDrawer()),
         endDrawer: ProfileDrawer(),
@@ -35,22 +37,21 @@ class AdminsScreen extends StatelessWidget {
               CustomAppBar(
                 isSearch: false,
                 text: AppStrings.strAdmins,
-                widget:CustomOutlineButton(
-                        width: responsiveSize,
-                        icon: Icons.person_add,
-                        text: AppStrings.strAddAdmin,
-                        ounLineColour: AppColors.primaryColor,
-                        onTap: () {
-                          showModalBottomSheet(
-                              context: context,
-                              isScrollControlled: true,
-                              backgroundColor: AppColors.transparent,
-                              builder: (context) {
-                                return AddAdminAlertDialog()
-                                    .paddingOnly(top: 80);
-                              });
-                        },
-                      ).paddingOnly(right: paddingSize, top: 10),
+                widget: CustomOutlineButton(
+                  width: responsiveSize,
+                  icon: Icons.person_add,
+                  text: AppStrings.strAddAdmin,
+                  ounLineColour: AppColors.primaryColor,
+                  onTap: () {
+                    showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        backgroundColor: AppColors.transparent,
+                        builder: (context) {
+                          return AddAdminAlertDialog().paddingOnly(top: 80);
+                        });
+                  },
+                ).paddingOnly(right: paddingSize, top: 10),
               ),
               Expanded(
                 child: Container(

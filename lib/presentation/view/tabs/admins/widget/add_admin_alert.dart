@@ -15,6 +15,7 @@ import 'package:uni_hostel_admin/data/models/profile/get_profile/profile_respons
 import 'package:uni_hostel_admin/presentation/components/flush_bars.dart';
 import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
 import 'package:uni_hostel_admin/presentation/cubit/admins/admins_cubit.dart';
+import 'package:uni_hostel_admin/presentation/cubit/in_dormitory_cubit/in_dormitory_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/on_hover/on_hover_cubit.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/admins/widget/mobile_form_fields.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/admins/widget/web_form_fields.dart';
@@ -44,6 +45,7 @@ class _AddAdminAlertDialogState extends State<AddAdminAlertDialog> {
 
     return BlocBuilder<AdminsCubit, AdminsState>(builder: (context, state) {
       var bloc = context.read<AdminsCubit>();
+      var stateF = context.watch<InDormitoryCubit>().state;
       return FadeInUp(
           duration: Duration(milliseconds: 300),
           child: Dialog(
@@ -121,6 +123,11 @@ class _AddAdminAlertDialogState extends State<AddAdminAlertDialog> {
                                         controllerLN: controllerLN,
                                         controllerUN: controllerUN,
                                         onchangeT: (v) => bloc.getType(v),
+                                        list: stateF.facultiesList,
+                                        onChangeFaculty: (v) =>
+                                            bloc.selectFaculty(
+                                                v, stateF.facultiesResponse),
+                                        facultyIndex: state.facultyIndex?.name,
                                       ),
                               ],
                             ),

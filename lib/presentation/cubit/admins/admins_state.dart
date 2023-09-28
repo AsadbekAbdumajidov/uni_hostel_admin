@@ -9,6 +9,7 @@ class AdminsState with _$AdminsState {
     GetAdminsResponse? response,
     ProfileResponse? adminResponse,
     PlatformFile? pickedImg,
+    FacultiesModel? facultyIndex,
     @Default("") String type,
   }) = _AdminsState;
 }

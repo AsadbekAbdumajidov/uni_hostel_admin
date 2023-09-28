@@ -22,6 +22,7 @@ mixin _$AdminsState {
   GetAdminsResponse? get response => throw _privateConstructorUsedError;
   ProfileResponse? get adminResponse => throw _privateConstructorUsedError;
   PlatformFile? get pickedImg => throw _privateConstructorUsedError;
+  FacultiesModel? get facultyIndex => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -42,10 +43,12 @@ abstract class $AdminsStateCopyWith<$Res> {
       GetAdminsResponse? response,
       ProfileResponse? adminResponse,
       PlatformFile? pickedImg,
+      FacultiesModel? facultyIndex,
       String type});
 
   $GetAdminsResponseCopyWith<$Res>? get response;
   $ProfileResponseCopyWith<$Res>? get adminResponse;
+  $FacultiesModelCopyWith<$Res>? get facultyIndex;
 }
 
 /// @nodoc
@@ -67,6 +70,7 @@ class _$AdminsStateCopyWithImpl<$Res, $Val extends AdminsState>
     Object? response = freezed,
     Object? adminResponse = freezed,
     Object? pickedImg = freezed,
+    Object? facultyIndex = freezed,
     Object? type = null,
   }) {
     return _then(_value.copyWith(
@@ -94,6 +98,10 @@ class _$AdminsStateCopyWithImpl<$Res, $Val extends AdminsState>
           ? _value.pickedImg
           : pickedImg // ignore: cast_nullable_to_non_nullable
               as PlatformFile?,
+      facultyIndex: freezed == facultyIndex
+          ? _value.facultyIndex
+          : facultyIndex // ignore: cast_nullable_to_non_nullable
+              as FacultiesModel?,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -124,6 +132,18 @@ class _$AdminsStateCopyWithImpl<$Res, $Val extends AdminsState>
       return _then(_value.copyWith(adminResponse: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FacultiesModelCopyWith<$Res>? get facultyIndex {
+    if (_value.facultyIndex == null) {
+      return null;
+    }
+
+    return $FacultiesModelCopyWith<$Res>(_value.facultyIndex!, (value) {
+      return _then(_value.copyWith(facultyIndex: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -141,12 +161,15 @@ abstract class _$$_AdminsStateCopyWith<$Res>
       GetAdminsResponse? response,
       ProfileResponse? adminResponse,
       PlatformFile? pickedImg,
+      FacultiesModel? facultyIndex,
       String type});
 
   @override
   $GetAdminsResponseCopyWith<$Res>? get response;
   @override
   $ProfileResponseCopyWith<$Res>? get adminResponse;
+  @override
+  $FacultiesModelCopyWith<$Res>? get facultyIndex;
 }
 
 /// @nodoc
@@ -166,6 +189,7 @@ class __$$_AdminsStateCopyWithImpl<$Res>
     Object? response = freezed,
     Object? adminResponse = freezed,
     Object? pickedImg = freezed,
+    Object? facultyIndex = freezed,
     Object? type = null,
   }) {
     return _then(_$_AdminsState(
@@ -193,6 +217,10 @@ class __$$_AdminsStateCopyWithImpl<$Res>
           ? _value.pickedImg
           : pickedImg // ignore: cast_nullable_to_non_nullable
               as PlatformFile?,
+      facultyIndex: freezed == facultyIndex
+          ? _value.facultyIndex
+          : facultyIndex // ignore: cast_nullable_to_non_nullable
+              as FacultiesModel?,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -211,6 +239,7 @@ class _$_AdminsState implements _AdminsState {
       this.response,
       this.adminResponse,
       this.pickedImg,
+      this.facultyIndex,
       this.type = ""})
       : _adminList = adminList;
 
@@ -236,12 +265,14 @@ class _$_AdminsState implements _AdminsState {
   @override
   final PlatformFile? pickedImg;
   @override
+  final FacultiesModel? facultyIndex;
+  @override
   @JsonKey()
   final String type;
 
   @override
   String toString() {
-    return 'AdminsState(status: $status, failure: $failure, adminList: $adminList, response: $response, adminResponse: $adminResponse, pickedImg: $pickedImg, type: $type)';
+    return 'AdminsState(status: $status, failure: $failure, adminList: $adminList, response: $response, adminResponse: $adminResponse, pickedImg: $pickedImg, facultyIndex: $facultyIndex, type: $type)';
   }
 
   @override
@@ -259,6 +290,8 @@ class _$_AdminsState implements _AdminsState {
                 other.adminResponse == adminResponse) &&
             (identical(other.pickedImg, pickedImg) ||
                 other.pickedImg == pickedImg) &&
+            (identical(other.facultyIndex, facultyIndex) ||
+                other.facultyIndex == facultyIndex) &&
             (identical(other.type, type) || other.type == type));
   }
 
@@ -271,6 +304,7 @@ class _$_AdminsState implements _AdminsState {
       response,
       adminResponse,
       pickedImg,
+      facultyIndex,
       type);
 
   @JsonKey(ignore: true)
@@ -288,6 +322,7 @@ abstract class _AdminsState implements AdminsState {
       final GetAdminsResponse? response,
       final ProfileResponse? adminResponse,
       final PlatformFile? pickedImg,
+      final FacultiesModel? facultyIndex,
       final String type}) = _$_AdminsState;
 
   @override
@@ -302,6 +337,8 @@ abstract class _AdminsState implements AdminsState {
   ProfileResponse? get adminResponse;
   @override
   PlatformFile? get pickedImg;
+  @override
+  FacultiesModel? get facultyIndex;
   @override
   String get type;
   @override

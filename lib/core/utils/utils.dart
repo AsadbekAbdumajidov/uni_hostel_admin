@@ -25,6 +25,7 @@ List<String> typeList = [
   'admin',
   'order_admin',
   'payment_admin',
+  'faculty_admin',
 ];
 
 List<String> maritals = [

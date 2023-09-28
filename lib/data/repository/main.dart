@@ -384,6 +384,7 @@ class MainRepository implements IMainRepository {
         "username": request?.username,
         "admin_region": request?.region,
         "user_type": request?.type,
+        "faculty_admin": request?.facultyAdmin,
         'admin_image': image
       });
       debugPrint(formData.fields.toString());
@@ -436,6 +437,7 @@ class MainRepository implements IMainRepository {
         "username": request?.username,
         "admin_region": request?.region,
         "user_type": request?.type,
+        "faculty_admin": request?.facultyAdmin,
       });
 
       FormData withoutImgFormData = FormData.fromMap({
@@ -444,6 +446,7 @@ class MainRepository implements IMainRepository {
         "username": request?.username,
         "admin_region": request?.region,
         "user_type": request?.type,
+        "faculty_admin": request?.facultyAdmin,
       });
 
       final response = await dio.patch(
@@ -508,7 +511,7 @@ class MainRepository implements IMainRepository {
   }
 
   @override
-  Future<Either<Failure, MainStatisticsResponse>> getMainStatistics() async{
+  Future<Either<Failure, MainStatisticsResponse>> getMainStatistics() async {
     try {
       final response = await _apiClient.getMainStatistics();
       return Right(response);
@@ -533,7 +536,8 @@ class MainRepository implements IMainRepository {
   }
 
   @override
-  Future<Either<Failure, StudentStatisticsResponse>> getStudentStatistics() async{
+  Future<Either<Failure, StudentStatisticsResponse>>
+      getStudentStatistics() async {
     try {
       final response = await _apiClient.getStudentStatistics();
       return Right(response);

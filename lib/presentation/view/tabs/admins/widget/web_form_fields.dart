@@ -15,15 +15,19 @@ class WebFormFields extends StatelessWidget {
     required this.onchangeT,
     required this.type,
     this.style,
+    required this.list,
+    required this.onChangeFaculty, required this.facultyIndex,
   });
   final TextEditingController controllerFN;
   final TextEditingController controllerLN;
   final TextEditingController controllerUN;
   final TextEditingController controllerR;
+  final Function(dynamic v) onChangeFaculty;
   final String type;
   final TextStyle? style;
   final Function(dynamic v) onchangeT;
-
+  final List<String> list;
+  final String? facultyIndex;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -85,9 +89,26 @@ class WebFormFields extends StatelessWidget {
                   onChanged: onchangeT,
                   isEmptyText: AppStrings.strType,
                 ),
-                SizedBox(width: 20),
+                
               ],
-            )
+            ),
+            SizedBox(width: 20),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(AppStrings.strFaculty,
+                    style: style ?? Theme.of(context).textTheme.titleMedium),
+                SizedBox(height: 10),
+                DropDownWidget(
+                  buttonWidth: 200,
+                  drobDownWidth: 300,
+                  index: facultyIndex ?? "",
+                  list: list,
+                  onChanged: onChangeFaculty,
+                  isEmptyText: AppStrings.strFaculty,
+                ),
+              ],
+            ),
           ],
         ),
       ],

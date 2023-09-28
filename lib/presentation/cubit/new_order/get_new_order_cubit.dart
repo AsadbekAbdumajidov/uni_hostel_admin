@@ -77,9 +77,7 @@ class GetNewOrderCubit extends Cubit<GetNewOrderState> {
         }
         list.add(AppStrings.strNoneOfThem);
         emit(state.copyWith(
-          facultiesList: list,
-          facultiesResponse: success.response ?? [],
-        ));
+            facultiesList: list, facultiesResponse: success.response ?? []));
         getNewOrder();
       },
     );
@@ -132,7 +130,6 @@ class GetNewOrderCubit extends Cubit<GetNewOrderState> {
     emit(state.copyWith(search: search, status: Status.UNKNOWN));
     getNewOrder();
   }
-
 
   void selectMaritals(String index) {
     if (index == AppStrings.strNoneOfThem) {

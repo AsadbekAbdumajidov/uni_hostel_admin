@@ -15,7 +15,7 @@ _$_ProfileResponse _$$_ProfileResponseFromJson(Map<String, dynamic> json) =>
       image: json['admin_image'] as String?,
       region: json['admin_region'] as String?,
       type: json['user_type'] as String?,
-      facultyAdmin: json['faculty_admin'] as String?,
+      facultyAdmin: json['faculty_admin'] as int?,
     );
 
 Map<String, dynamic> _$$_ProfileResponseToJson(_$_ProfileResponse instance) =>

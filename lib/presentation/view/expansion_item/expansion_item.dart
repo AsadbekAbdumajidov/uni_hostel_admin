@@ -13,6 +13,7 @@ import 'package:uni_hostel_admin/presentation/components/loading_widget.dart';
 import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
 import 'package:uni_hostel_admin/presentation/cubit/cancelled_order/cancelled_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/new_order/get_new_order_cubit.dart';
+import 'package:uni_hostel_admin/presentation/cubit/profile/profile_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/queue_order/queue_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/selected_order/selected_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/view/expansion_item/widget/checkbox_item_widget.dart';
@@ -39,12 +40,12 @@ class ExpansionItemWidget extends StatelessWidget {
         }
         var responseStudent = state.orderResponse?.student;
         var responseAdmin = state.orderResponse?.checkedAdmin;
-
+        var status = context.watch<ProfileCubit>().state.response?.type;
         var bloc = context.read<SelectedOrderCubit>();
         return Container(
           width: context.w,
           height: ResponsiveWidget.isMobile(context) ? 400 : 450,
-          padding: EdgeInsets.symmetric(vertical: 16,horizontal: 8),
+          padding: EdgeInsets.symmetric(vertical: 16, horizontal: 8),
           child: ListView(children: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,29 +78,49 @@ class ExpansionItemWidget extends StatelessWidget {
               ],
             ),
             SizedBox(height: 10),
-            index != 0
-                ? context.read<SelectedOrderCubit>().cheack()
-                    ? CheckboxListWidget()
-                    : SizedBox.shrink()
-                : state.trueProperties.isEmpty
-                    ? SizedBox.shrink()
-                    : GridView.builder(
-                        shrinkWrap: true,
-                        padding: EdgeInsets.only(bottom: 14),
-                        physics: NeverScrollableScrollPhysics(),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          mainAxisSpacing: 2,
-                          mainAxisExtent: 20,
-                        ),
-                        itemCount: state.trueProperties.length,
-                        itemBuilder: (BuildContext ctx, index) {
-                          var response = state.trueProperties[index];
+            status == "faculty_admin" 
+                ? GridView.builder(
+                            shrinkWrap: true,
+                            padding: EdgeInsets.only(bottom: 14),
+                            physics: NeverScrollableScrollPhysics(),
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              mainAxisSpacing: 2,
+                              mainAxisExtent: 20,
+                            ),
+                            itemCount: state.trueProperties.length,
+                            itemBuilder: (BuildContext ctx, index) {
+                              var response = state.trueProperties[index];
 
-                          return CheckboxItemWidget(
-                              title: response, value: true);
-                        },
-                      ),
+                              return CheckboxItemWidget(
+                                  title: response, value: true);
+                            },
+                          )
+                : index != 0
+                    ? context.read<SelectedOrderCubit>().cheack()
+                        ? CheckboxListWidget()
+                        : SizedBox.shrink()
+                    : state.trueProperties.isEmpty
+                        ? SizedBox.shrink()
+                        : GridView.builder(
+                            shrinkWrap: true,
+                            padding: EdgeInsets.only(bottom: 14),
+                            physics: NeverScrollableScrollPhysics(),
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              mainAxisSpacing: 2,
+                              mainAxisExtent: 20,
+                            ),
+                            itemCount: state.trueProperties.length,
+                            itemBuilder: (BuildContext ctx, index) {
+                              var response = state.trueProperties[index];
+
+                              return CheckboxItemWidget(
+                                  title: response, value: true);
+                            },
+                          ),
             state.orderResponse?.checkedAdmin == null
                 ? SizedBox.shrink()
                 : UserInformationMobile(
@@ -111,7 +132,7 @@ class ExpansionItemWidget extends StatelessWidget {
                 ? SizedBox.shrink()
                 : Divider(color: AppColors.bodyTextColor.withOpacity(0.2))
                     .paddingOnly(bottom: 6, top: 10),
-            index == 0
+            (status == "faculty_admin" || index == 0)
                 ? SizedBox.shrink()
                 : DownButtonWidget(
                     onTapDeleteOrder: () {

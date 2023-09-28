@@ -12,7 +12,7 @@ class AddAdminRequest with _$AddAdminRequest {
     @JsonKey(name: 'last_name') String? lastName,
     @JsonKey(name: 'admin_region') String? region,
     @JsonKey(name: 'user_type') String? type,
-    @JsonKey(name: 'faculty_admin') String? facultyAdmin,
+    @JsonKey(name: 'faculty_admin') int? facultyAdmin,
     
   }) = _AddAdminRequest;
 

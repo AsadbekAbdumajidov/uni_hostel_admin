@@ -4,10 +4,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uni_hostel_admin/core/error/error.dart';
+import 'package:uni_hostel_admin/core/themes/app_text.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/delete_admin_uscase.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/edit_admin_uscase.dart';
 import 'package:uni_hostel_admin/data/models/admin/admin_post/add_admin_request.dart';
+import 'package:uni_hostel_admin/data/models/order/get_faculties/get_faculties_response.dart';
 import 'package:uni_hostel_admin/data/models/profile/get_profile/profile_response.dart';
 part 'admin_edit_state.dart';
 part 'admin_edit_cubit.freezed.dart';
@@ -57,6 +59,7 @@ class AdminEditCubit extends Cubit<AdminEditState> {
         lastName: lastName,
         userName: userName,
         region: region,
+        
       );
     } on PlatformException catch (e) {
       debugPrint("Unsopperted operation $e");
@@ -84,6 +87,7 @@ class AdminEditCubit extends Cubit<AdminEditState> {
           username: userName,
           type: state.type,
           region: region,
+          facultyAdmin: state.facultyIndex?.id
         ),
       ),
     );
@@ -92,12 +96,43 @@ class AdminEditCubit extends Cubit<AdminEditState> {
             emit(state.copyWith(failure: failure, status: Status.ERROR)),
         (success) async {
       emit(state.copyWith(
-          adminResponse: success, status: Status.SUCCESS));
+          adminResponse: success,facultyIndex: FacultiesModel(name: '',id: null), status: Status.SUCCESS));
     });
   }
 
   void getType(String? getType) {
     debugPrint("AAAAAA1= $getType");
     emit(state.copyWith(type: getType));
+  }
+  /// -----------------------------------------///
+   void selectFaculty(String index, List<FacultiesModel> facultiesResponse) {
+    if (index == AppStrings.strNoneOfThem) {
+      emit(state.copyWith(facultyIndex: FacultiesModel(name: "", id: null)));
+    } else {
+      for (var i = 0; i < facultiesResponse.length; i++) {
+        if (index == facultiesResponse[i].name) {
+          emit(state.copyWith(
+            facultyIndex: FacultiesModel(
+                name: facultiesResponse[i].name, id: facultiesResponse[i].id),
+          ));
+        }
+      }
+    }
+  }
+  void initialFaculty(
+    int index,
+    List<FacultiesModel> facultiesResponse,
+  ) {
+    debugPrint("Index => ${index}");
+
+    for (var i = 0; i < facultiesResponse.length; i++) {
+      debugPrint("Index A => ${index} == ${facultiesResponse[i].id}");
+      if (index == facultiesResponse[i].id) {
+       return emit(state.copyWith(
+          facultyIndex: FacultiesModel(
+              name: facultiesResponse[i].name, id: facultiesResponse[i].id),
+        ));
+      }
+    }
   }
 }

@@ -12,6 +12,7 @@ import 'package:uni_hostel_admin/presentation/components/flush_bars.dart';
 import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
 import 'package:uni_hostel_admin/presentation/cubit/admin_edit/admin_edit_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/admins/admins_cubit.dart';
+import 'package:uni_hostel_admin/presentation/cubit/in_dormitory_cubit/in_dormitory_cubit.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/admins/widget/mobile_form_fields.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/admins/widget/web_form_fields.dart';
 import '../../../../../core/themes/app_text.dart';
@@ -44,7 +45,12 @@ class _EditExpantionItemState extends State<EditExpantionItem> {
     return BlocBuilder<AdminEditCubit, AdminEditState>(
       builder: (context, state) {
         var bloc = context.read<AdminEditCubit>();
-
+        var stateF = context.watch<InDormitoryCubit>().state;
+        if (state.facultyIndex?.id == null) {
+          bloc.initialFaculty(
+              widget.response?.facultyAdmin ?? 0, stateF.facultiesResponse);
+        }
+        debugPrint("Index Screen ==> ${state.facultyIndex?.name}");
         return Container(
           width: context.w,
           padding: EdgeInsets.symmetric(
@@ -92,6 +98,10 @@ class _EditExpantionItemState extends State<EditExpantionItem> {
                             controllerLN: controllerLN,
                             controllerUN: controllerUN,
                             onchangeT: (v) => bloc.getType(v),
+                            list: stateF.facultiesList,
+                            onChangeFaculty: (v) =>
+                                bloc.selectFaculty(v, stateF.facultiesResponse),
+                            facultyIndex: state.facultyIndex?.name,
                           ),
                     Divider(
                       height: 1,

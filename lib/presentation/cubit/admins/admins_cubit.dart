@@ -7,12 +7,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uni_hostel_admin/core/error/error.dart';
+import 'package:uni_hostel_admin/core/themes/app_text.dart';
 import 'package:uni_hostel_admin/core/usecase/usecase.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/add_admin_uscase.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_admins_uscase.dart';
 import 'package:uni_hostel_admin/data/models/admin/admin_post/add_admin_request.dart';
 import 'package:uni_hostel_admin/data/models/admin/admins_get/admins_response.dart';
+import 'package:uni_hostel_admin/data/models/order/get_faculties/get_faculties_response.dart';
 import 'package:uni_hostel_admin/data/models/profile/get_profile/profile_response.dart';
 part 'admins_state.dart';
 part 'admins_cubit.freezed.dart';
@@ -55,19 +57,24 @@ class AdminsCubit extends Cubit<AdminsState> {
       AddAdminParams(
         state.pickedImg,
         request: AddAdminRequest(
-          firstName: firstName,
-          lastName: lastName,
-          username: userName,
-          type: state.type,
-          region: region,
-        ),
+            firstName: firstName,
+            lastName: lastName,
+            username: userName,
+            type: state.type,
+            region: region,
+            facultyAdmin: state.facultyIndex?.id),
       ),
     );
     result.fold(
         (failure) =>
             emit(state.copyWith(failure: failure, status: Status.ERROR)),
         (success) async {
-      emit(state.copyWith(adminResponse: success, pickedImg: null,type: "", status: Status.SUCCESS));
+      emit(state.copyWith(
+          adminResponse: success,
+          pickedImg: null,
+          type: "",
+          facultyIndex: FacultiesModel(name: "", id: null),
+          status: Status.SUCCESS));
     });
   }
 
@@ -92,4 +99,20 @@ class AdminsCubit extends Cubit<AdminsState> {
   }
 
   /// -------------------------------- ///
+  void selectFaculty(String index, List<FacultiesModel> facultiesResponse) {
+    if (index == AppStrings.strNoneOfThem) {
+      emit(state.copyWith(facultyIndex: FacultiesModel(name: "", id: null)));
+    } else {
+      for (var i = 0; i < facultiesResponse.length; i++) {
+        if (index == facultiesResponse[i].name) {
+          emit(state.copyWith(
+            facultyIndex: FacultiesModel(
+                name: facultiesResponse[i].name, id: facultiesResponse[i].id),
+          ));
+        }
+      }
+    }
+  }
+
+  
 }

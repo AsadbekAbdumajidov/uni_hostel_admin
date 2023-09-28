@@ -28,8 +28,7 @@ class StatisTicsView extends StatelessWidget {
           child: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
-            child: Expanded(
-              child: Row(
+            child:  Row(
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -105,7 +104,6 @@ class StatisTicsView extends StatelessWidget {
               ),
             ),
           ),
-        ),
         SizedBox(height: 12),
         Container(
           height: 400,
@@ -117,8 +115,7 @@ class StatisTicsView extends StatelessWidget {
           child: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
-            child: Expanded(
-              child: Column(
+            child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -130,7 +127,6 @@ class StatisTicsView extends StatelessWidget {
                       .paddingOnly(left: 10, bottom: 16),
                   BarChartSample2(response: response),
                 ],
-              ),
             ),
           ),
         )
