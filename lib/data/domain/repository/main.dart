@@ -24,6 +24,8 @@ abstract class IMainRepository {
     String course,
     int? facultyId,
     String maritalStatus,
+    String? inDormitory,
+
   );
   Future<Either<Failure, GetInDormitoryResponse>> getInDormitory(
     int page,
@@ -66,9 +68,11 @@ abstract class IMainRepository {
     String? course,
     int? facultyId,
     String search,
+    String? waitingS,
+    String? inDormitory,
   );
 
-  Future<Either<Failure, PaymentMonitoringResponse>> getPayments(int page);
+  Future<Either<Failure, PaymentMonitoringResponse>> getPayments(int page, String search,);
 
   Future<Either<Failure, GetAdminsResponse>> getAdmins();
 

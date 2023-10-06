@@ -13,7 +13,10 @@ class PaymentsCubit extends Cubit<PaymentsState> {
 
   Future<void> payments() async {
     emit(state.copyWith(status: Status.LOADING));
-    var result = await _paymentsUsCase.call(PaymentsParams(page: 1));
+    var result = await _paymentsUsCase.call(PaymentsParams(
+      page: 1,
+      state.search,
+    ));
     result.fold(
         (failure) =>
             emit(state.copyWith(failure: failure, status: Status.ERROR)),
@@ -27,12 +30,17 @@ class PaymentsCubit extends Cubit<PaymentsState> {
     });
   }
 
+  void searchRequests(String search) {
+    emit(state.copyWith(search: search, status: Status.UNKNOWN));
+    payments();
+  }
+
   Future<void> paymentsInfinite() async {
     if (state.hasReachedMax) {
       return;
     }
     emit(state.copyWith(loadingPagination: true));
-    var result = await  await _paymentsUsCase.call(PaymentsParams(page: 1));
+    var result = await await _paymentsUsCase.call(PaymentsParams(page: 1,state.search));
     result.fold(
       (failure) => emit(state.copyWith(failure: failure, status: Status.ERROR)),
       (response) => emit(
@@ -40,7 +48,8 @@ class PaymentsCubit extends Cubit<PaymentsState> {
           hasReachedMax: response.next == null,
           page: state.page + 1,
           response: response,
-          whoPaidList: List.of(state.whoPaidList)..addAll(response.results ?? []),
+          whoPaidList: List.of(state.whoPaidList)
+            ..addAll(response.results ?? []),
           loadingPagination: false,
         ),
       ),

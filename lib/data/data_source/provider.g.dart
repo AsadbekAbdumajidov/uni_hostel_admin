@@ -51,6 +51,7 @@ class _ApiClient implements ApiClient {
     course,
     facultyId,
     maritalStatus,
+    inDormitory,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -60,6 +61,7 @@ class _ApiClient implements ApiClient {
       r'course': course,
       r'faculty': facultyId,
       r'marital_status': maritalStatus,
+      r'in_the_dormitory': inDormitory,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
@@ -218,6 +220,8 @@ class _ApiClient implements ApiClient {
     course,
     facultyId,
     search,
+    waitingS,
+    inDormitory,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -226,6 +230,8 @@ class _ApiClient implements ApiClient {
       r'course': course,
       r'faculty': facultyId,
       r'search_query': search,
+      r'waiting_status': waitingS,
+      r'in_the_dormitory': inDormitory,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
@@ -345,9 +351,15 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<PaymentMonitoringResponse> getPayments(page) async {
+  Future<PaymentMonitoringResponse> getPayments(
+    page,
+    search,
+  ) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'page': page};
+    final queryParameters = <String, dynamic>{
+      r'page': page,
+      r'search_query': search,
+    };
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(

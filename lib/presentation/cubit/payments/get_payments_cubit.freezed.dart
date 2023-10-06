@@ -22,6 +22,7 @@ mixin _$PaymentsState {
   List<PaymentsWhoPaidModel> get whoPaidList =>
       throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
+  String get search => throw _privateConstructorUsedError;
   bool get hasReachedMax => throw _privateConstructorUsedError;
   bool get loadingPagination => throw _privateConstructorUsedError;
 
@@ -42,6 +43,7 @@ abstract class $PaymentsStateCopyWith<$Res> {
       PaymentMonitoringResponse? response,
       List<PaymentsWhoPaidModel> whoPaidList,
       int page,
+      String search,
       bool hasReachedMax,
       bool loadingPagination});
 
@@ -66,6 +68,7 @@ class _$PaymentsStateCopyWithImpl<$Res, $Val extends PaymentsState>
     Object? response = freezed,
     Object? whoPaidList = null,
     Object? page = null,
+    Object? search = null,
     Object? hasReachedMax = null,
     Object? loadingPagination = null,
   }) {
@@ -90,6 +93,10 @@ class _$PaymentsStateCopyWithImpl<$Res, $Val extends PaymentsState>
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
+      search: null == search
+          ? _value.search
+          : search // ignore: cast_nullable_to_non_nullable
+              as String,
       hasReachedMax: null == hasReachedMax
           ? _value.hasReachedMax
           : hasReachedMax // ignore: cast_nullable_to_non_nullable
@@ -128,6 +135,7 @@ abstract class _$$_PaymentsStateCopyWith<$Res>
       PaymentMonitoringResponse? response,
       List<PaymentsWhoPaidModel> whoPaidList,
       int page,
+      String search,
       bool hasReachedMax,
       bool loadingPagination});
 
@@ -151,6 +159,7 @@ class __$$_PaymentsStateCopyWithImpl<$Res>
     Object? response = freezed,
     Object? whoPaidList = null,
     Object? page = null,
+    Object? search = null,
     Object? hasReachedMax = null,
     Object? loadingPagination = null,
   }) {
@@ -175,6 +184,10 @@ class __$$_PaymentsStateCopyWithImpl<$Res>
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
+      search: null == search
+          ? _value.search
+          : search // ignore: cast_nullable_to_non_nullable
+              as String,
       hasReachedMax: null == hasReachedMax
           ? _value.hasReachedMax
           : hasReachedMax // ignore: cast_nullable_to_non_nullable
@@ -196,6 +209,7 @@ class _$_PaymentsState implements _PaymentsState {
       this.response,
       final List<PaymentsWhoPaidModel> whoPaidList = const [],
       this.page = 1,
+      this.search = "",
       this.hasReachedMax = false,
       this.loadingPagination = false})
       : _whoPaidList = whoPaidList;
@@ -222,6 +236,9 @@ class _$_PaymentsState implements _PaymentsState {
   final int page;
   @override
   @JsonKey()
+  final String search;
+  @override
+  @JsonKey()
   final bool hasReachedMax;
   @override
   @JsonKey()
@@ -229,7 +246,7 @@ class _$_PaymentsState implements _PaymentsState {
 
   @override
   String toString() {
-    return 'PaymentsState(status: $status, failure: $failure, response: $response, whoPaidList: $whoPaidList, page: $page, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination)';
+    return 'PaymentsState(status: $status, failure: $failure, response: $response, whoPaidList: $whoPaidList, page: $page, search: $search, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination)';
   }
 
   @override
@@ -244,6 +261,7 @@ class _$_PaymentsState implements _PaymentsState {
             const DeepCollectionEquality()
                 .equals(other._whoPaidList, _whoPaidList) &&
             (identical(other.page, page) || other.page == page) &&
+            (identical(other.search, search) || other.search == search) &&
             (identical(other.hasReachedMax, hasReachedMax) ||
                 other.hasReachedMax == hasReachedMax) &&
             (identical(other.loadingPagination, loadingPagination) ||
@@ -258,6 +276,7 @@ class _$_PaymentsState implements _PaymentsState {
       response,
       const DeepCollectionEquality().hash(_whoPaidList),
       page,
+      search,
       hasReachedMax,
       loadingPagination);
 
@@ -275,6 +294,7 @@ abstract class _PaymentsState implements PaymentsState {
       final PaymentMonitoringResponse? response,
       final List<PaymentsWhoPaidModel> whoPaidList,
       final int page,
+      final String search,
       final bool hasReachedMax,
       final bool loadingPagination}) = _$_PaymentsState;
 
@@ -288,6 +308,8 @@ abstract class _PaymentsState implements PaymentsState {
   List<PaymentsWhoPaidModel> get whoPaidList;
   @override
   int get page;
+  @override
+  String get search;
   @override
   bool get hasReachedMax;
   @override

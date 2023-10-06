@@ -31,6 +31,7 @@ mixin _$AcceptedOrderState {
   FacultiesModel? get facultyIndex => throw _privateConstructorUsedError;
   String get maritalStatus => throw _privateConstructorUsedError;
   String? get ordersList => throw _privateConstructorUsedError;
+  String? get inDormitory => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AcceptedOrderStateCopyWith<AcceptedOrderState> get copyWith =>
@@ -57,7 +58,8 @@ abstract class $AcceptedOrderStateCopyWith<$Res> {
       String courseIndex,
       FacultiesModel? facultyIndex,
       String maritalStatus,
-      String? ordersList});
+      String? ordersList,
+      String? inDormitory});
 
   $GetOrderResponseCopyWith<$Res>? get orderResponse;
   $FacultiesModelCopyWith<$Res>? get facultyIndex;
@@ -90,6 +92,7 @@ class _$AcceptedOrderStateCopyWithImpl<$Res, $Val extends AcceptedOrderState>
     Object? facultyIndex = freezed,
     Object? maritalStatus = null,
     Object? ordersList = freezed,
+    Object? inDormitory = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -148,6 +151,10 @@ class _$AcceptedOrderStateCopyWithImpl<$Res, $Val extends AcceptedOrderState>
           ? _value.ordersList
           : ordersList // ignore: cast_nullable_to_non_nullable
               as String?,
+      inDormitory: freezed == inDormitory
+          ? _value.inDormitory
+          : inDormitory // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -198,7 +205,8 @@ abstract class _$$_AcceptedOrderStateCopyWith<$Res>
       String courseIndex,
       FacultiesModel? facultyIndex,
       String maritalStatus,
-      String? ordersList});
+      String? ordersList,
+      String? inDormitory});
 
   @override
   $GetOrderResponseCopyWith<$Res>? get orderResponse;
@@ -231,6 +239,7 @@ class __$$_AcceptedOrderStateCopyWithImpl<$Res>
     Object? facultyIndex = freezed,
     Object? maritalStatus = null,
     Object? ordersList = freezed,
+    Object? inDormitory = freezed,
   }) {
     return _then(_$_AcceptedOrderState(
       status: null == status
@@ -289,6 +298,10 @@ class __$$_AcceptedOrderStateCopyWithImpl<$Res>
           ? _value.ordersList
           : ordersList // ignore: cast_nullable_to_non_nullable
               as String?,
+      inDormitory: freezed == inDormitory
+          ? _value.inDormitory
+          : inDormitory // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -310,7 +323,8 @@ class _$_AcceptedOrderState implements _AcceptedOrderState {
       this.courseIndex = "",
       this.facultyIndex,
       this.maritalStatus = "",
-      this.ordersList = ""})
+      this.ordersList = "",
+      this.inDormitory = ""})
       : _orderList = orderList,
         _facultiesResponse = facultiesResponse,
         _facultiesList = facultiesList;
@@ -374,10 +388,13 @@ class _$_AcceptedOrderState implements _AcceptedOrderState {
   @override
   @JsonKey()
   final String? ordersList;
+  @override
+  @JsonKey()
+  final String? inDormitory;
 
   @override
   String toString() {
-    return 'AcceptedOrderState(status: $status, failure: $failure, orderResponse: $orderResponse, orderList: $orderList, search: $search, page: $page, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination, facultiesResponse: $facultiesResponse, facultiesList: $facultiesList, courseIndex: $courseIndex, facultyIndex: $facultyIndex, maritalStatus: $maritalStatus, ordersList: $ordersList)';
+    return 'AcceptedOrderState(status: $status, failure: $failure, orderResponse: $orderResponse, orderList: $orderList, search: $search, page: $page, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination, facultiesResponse: $facultiesResponse, facultiesList: $facultiesList, courseIndex: $courseIndex, facultyIndex: $facultyIndex, maritalStatus: $maritalStatus, ordersList: $ordersList, inDormitory: $inDormitory)';
   }
 
   @override
@@ -408,7 +425,9 @@ class _$_AcceptedOrderState implements _AcceptedOrderState {
             (identical(other.maritalStatus, maritalStatus) ||
                 other.maritalStatus == maritalStatus) &&
             (identical(other.ordersList, ordersList) ||
-                other.ordersList == ordersList));
+                other.ordersList == ordersList) &&
+            (identical(other.inDormitory, inDormitory) ||
+                other.inDormitory == inDormitory));
   }
 
   @override
@@ -427,7 +446,8 @@ class _$_AcceptedOrderState implements _AcceptedOrderState {
       courseIndex,
       facultyIndex,
       maritalStatus,
-      ordersList);
+      ordersList,
+      inDormitory);
 
   @JsonKey(ignore: true)
   @override
@@ -452,7 +472,8 @@ abstract class _AcceptedOrderState implements AcceptedOrderState {
       final String courseIndex,
       final FacultiesModel? facultyIndex,
       final String maritalStatus,
-      final String? ordersList}) = _$_AcceptedOrderState;
+      final String? ordersList,
+      final String? inDormitory}) = _$_AcceptedOrderState;
 
   @override
   Status get status;
@@ -482,6 +503,8 @@ abstract class _AcceptedOrderState implements AcceptedOrderState {
   String get maritalStatus;
   @override
   String? get ordersList;
+  @override
+  String? get inDormitory;
   @override
   @JsonKey(ignore: true)
   _$$_AcceptedOrderStateCopyWith<_$_AcceptedOrderState> get copyWith =>

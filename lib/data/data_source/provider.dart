@@ -37,6 +37,7 @@ abstract class ApiClient {
     @Query("course") String course,
     @Query("faculty") int? facultyId,
     @Query("marital_status") String maritalStatus,
+    @Query("in_the_dormitory") String? inDormitory,
   );
 
   @GET('admin/new/orders/')
@@ -70,6 +71,8 @@ abstract class ApiClient {
     @Query("course") String? course,
     @Query("faculty") int? facultyId,
     @Query("search_query") String search,
+    @Query("waiting_status") String? waitingS,
+    @Query("in_the_dormitory") String? inDormitory,
   );
 
   @GET('admin/profile/')
@@ -95,7 +98,7 @@ abstract class ApiClient {
   );
 
   @GET('admin/payment/monitoring/')
-  Future<PaymentMonitoringResponse> getPayments(@Query("page") int page);
+  Future<PaymentMonitoringResponse> getPayments(@Query("page") int page,@Query("search_query") String search,);
 
   @GET('admin/administrator/')
   Future<GetAdminsResponse> getAdmins();

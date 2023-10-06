@@ -30,6 +30,7 @@ class AcceptedOrderCubit extends Cubit<AcceptedOrderState> {
       course: state.courseIndex,
       facultyId: state.facultyIndex?.id,
       maritalStatus: getStatus(),
+      inDormitory: state.inDormitory,
     ));
     result.fold(
         (failure) =>
@@ -51,12 +52,12 @@ class AcceptedOrderCubit extends Cubit<AcceptedOrderState> {
     emit(state.copyWith(status: Status.UNKNOWN));
     var result = await _getOrdersListUseCase.call(
       GetOrdersListParams(
-        search: "",
-        status: "accepted",
-        maritalStatus: getStatus(),
-        facultyId: state.facultyIndex?.id,
-        course: state.courseIndex,
-      ),
+          search: "",
+          status: "accepted",
+          maritalStatus: getStatus(),
+          facultyId: state.facultyIndex?.id,
+          course: state.courseIndex,
+          inDormitory: state.inDormitory),
     );
     result.fold(
         (failure) =>
@@ -78,6 +79,20 @@ class AcceptedOrderCubit extends Cubit<AcceptedOrderState> {
       }
     }
     return "";
+  }
+
+  void selectInDormitory(String index) {
+    if (index == AppStrings.strNoneOfThem) {
+      emit(state.copyWith(inDormitory: ""));
+      getAcceptedOrder();
+    } else {
+      if (index == "ha") {
+        emit(state.copyWith(inDormitory: "yes"));
+      } else {
+        emit(state.copyWith(inDormitory: "no"));
+        getAcceptedOrder();
+      }
+    }
   }
 
   void selectMaritals(String index) {

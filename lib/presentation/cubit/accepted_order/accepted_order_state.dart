@@ -17,5 +17,6 @@ class AcceptedOrderState with _$AcceptedOrderState {
     FacultiesModel? facultyIndex,
     @Default("") String maritalStatus,
     @Default("") String? ordersList,
+    @Default("") String? inDormitory,
   }) = _AcceptedOrderState;
 }

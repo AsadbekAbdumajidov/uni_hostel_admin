@@ -18,6 +18,8 @@ class GetOrdersListUseCase
         params.course,
         params.facultyId,
         params.search,
+        params.waitingS,
+        params.inDormitory
       );
 }
 
@@ -27,11 +29,17 @@ class GetOrdersListParams {
   final String? course;
   final String search;
   final int? facultyId;
-  GetOrdersListParams({
+  final String? waitingS;
+  final String? inDormitory;
+
+
+  GetOrdersListParams( {
     required this.status,
     required this.maritalStatus,
     this.course,
     required this.search,
     this.facultyId,
+    this.waitingS,
+    this.inDormitory
   });
 }

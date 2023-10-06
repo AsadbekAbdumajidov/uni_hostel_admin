@@ -30,6 +30,7 @@ class GetNewOrderCubit extends Cubit<GetNewOrderState> {
         maritalStatus: getStatus(),
         faculty: state.facultyIndex?.id,
         course: state.courseIndex ?? null,
+        
       ),
     );
     result.fold(
@@ -54,6 +55,7 @@ class GetNewOrderCubit extends Cubit<GetNewOrderState> {
         maritalStatus: getStatus(),
         facultyId: state.facultyIndex?.id,
         course: state.courseIndex ?? "",
+        waitingS: "in_expertise"
       ),
     );
     result.fold(

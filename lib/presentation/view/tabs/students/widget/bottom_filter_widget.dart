@@ -48,6 +48,44 @@ class BottomFilterAccWidget extends StatelessWidget {
                       ExpansionTile(
                         tilePadding: EdgeInsets.all(0),
                         title: Text(
+                          state.inDormitory == ""
+                              ? AppStrings.strInDormitory
+                              : state.inDormitory ?? "",
+                          style: Theme.of(context).textTheme.displaySmall,
+                        ),
+                        children: [
+                          ListView.builder(
+                            physics: NeverScrollableScrollPhysics(),
+                            padding: EdgeInsets.symmetric(vertical: 10),
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) {
+                              return BlocProvider(
+                                create: (context) => OnHoverCubit(),
+                                child: BlocBuilder<OnHoverCubit, OnHoverState>(
+                                    builder: (context, hoverState) {
+                                  return InkWell(
+                                    onHover: (v) => context
+                                        .read<OnHoverCubit>()
+                                        .getHover(v),
+                                    onTap: () =>
+                                        bloc.selectInDormitory(inDormitoryList[index]),
+                                    child: CheckboxItemRowWidget(
+                                      hover: hoverState.hover,
+                                      title: inDormitoryList[index],
+                                      value: state.inDormitory ==
+                                          inDormitoryList[index],
+                                    ),
+                                  ).paddingOnly(bottom: 4);
+                                }),
+                              );
+                            },
+                            itemCount: inDormitoryList.length,
+                          )
+                        ],
+                      ),
+                      ExpansionTile(
+                        tilePadding: EdgeInsets.all(0),
+                        title: Text(
                           state.courseIndex == ""
                               ? AppStrings.strCourse
                               : state.courseIndex,

@@ -8,6 +8,7 @@ class PaymentsState with _$PaymentsState {
     PaymentMonitoringResponse? response,
     @Default([]) List<PaymentsWhoPaidModel> whoPaidList,
     @Default(1) int page,
+    @Default("") String search,
     @Default(false) bool hasReachedMax,
     @Default(false) bool loadingPagination,
   }) = _PaymentsState;

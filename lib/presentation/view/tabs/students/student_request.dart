@@ -36,8 +36,8 @@ class StudentsScreen extends StatelessWidget {
             child: Column(
               children: [
                 CustomAppBar(
-                  isSearch: true,
-                  textEditingController: searchController,
+                    isSearch: true,
+                    textEditingController: searchController,
                     onchange: (v) =>
                         context.read<AcceptedOrderCubit>().searchAccepted(v),
                     onCancel: () {
@@ -68,8 +68,7 @@ class StudentsScreen extends StatelessWidget {
                                     physics: BouncingScrollPhysics(),
                                     children: [
                                       TopRequestItemWidget(
-                                         count:
-                                        state.orderResponse?.count,
+                                        count: state.orderResponse?.count,
                                         index: state.maritalStatus,
                                         title: AppStrings.strRequests,
                                         list: maritals,
@@ -83,21 +82,20 @@ class StudentsScreen extends StatelessWidget {
                                             bloc.selectFaculty(v),
                                         onChangecourse: (v) =>
                                             bloc.selectCourse(v),
+                                            otherAddFilter: true,
+                                            onChangeIndormitory:  (v) =>
+                                            bloc.selectInDormitory(v),
+                                            inDormitoryIndex: state.inDormitory,
                                         onTapFilter: () {
-                                           showDialog(
-                                                context: context,
-                                                builder:
-                                                    (BuildContext context) {
-                                                  return BottomFilterAccWidget(
-                                                   
-                                                  );
-                                                });
+                                          showDialog(
+                                              context: context,
+                                              builder: (BuildContext context) {
+                                                return BottomFilterAccWidget();
+                                              });
                                         },
                                       ),
                                       CustomCardWidget(
-                                        
                                         notButtonIndex: 0,
-
                                         list: state.orderList,
                                         statusColor: AppColors.greenColour,
                                         textStatus: AppStrings.strApproved,

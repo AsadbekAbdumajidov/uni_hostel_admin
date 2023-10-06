@@ -38,10 +38,11 @@ class MainRepository implements IMainRepository {
     String course,
     int? facultyId,
     String maritalStatus,
+    String? inDormitory,
   ) async {
     try {
-      final response = await _apiClient.getOrder(
-          page, status, search, course, facultyId ?? null, maritalStatus);
+      final response = await _apiClient.getOrder(page, status, search, course,
+          facultyId ?? null, maritalStatus, inDormitory);
       return Right(response);
     } on DioError catch (e) {
       if (kDebugMode) {
@@ -198,15 +199,18 @@ class MainRepository implements IMainRepository {
     String? course,
     int? facultyId,
     String search,
+    String? waitingS,
+    String? inDormitory,
   ) async {
     try {
       final response = await _apiClient.downloadOrdersList(
-        maritalStatus,
-        status,
-        course ?? "",
-        facultyId ?? null,
-        search,
-      );
+          maritalStatus,
+          status,
+          course ?? "",
+          facultyId ?? null,
+          search,
+          waitingS ?? "",
+          inDormitory);
       return Right(response);
     } on DioError catch (e) {
       if (kDebugMode) {
@@ -320,9 +324,11 @@ class MainRepository implements IMainRepository {
 
   @override
   Future<Either<Failure, PaymentMonitoringResponse>> getPayments(
-      int page) async {
+    int page,
+    String search,
+  ) async {
     try {
-      final response = await _apiClient.getPayments(page);
+      final response = await _apiClient.getPayments(page, search);
       return Right(response);
     } on DioError catch (e) {
       if (kDebugMode) {

@@ -28,6 +28,8 @@ List<String> typeList = [
   'faculty_admin',
 ];
 
+List<String> inDormitoryList = ["ha", "yo'q", AppStrings.strNoneOfThem];
+
 List<String> maritals = [
   AppStrings.strIronNotebook,
   AppStrings.strWomenNotebook,
