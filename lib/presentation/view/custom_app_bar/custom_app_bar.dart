@@ -6,7 +6,7 @@ import 'package:uni_hostel_admin/core/widget/error_img_profile.dart';
 import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
 import 'package:uni_hostel_admin/presentation/components/search_bar.dart';
 import 'package:uni_hostel_admin/presentation/cubit/profile/profile_cubit.dart';
-import 'package:uni_hostel_admin/presentation/view/tabs/payment_monitoring/widget/top_item_widget.dart';
+import 'package:uni_hostel_admin/presentation/view/tabs/widget/top_item_without_search.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({

@@ -354,12 +354,15 @@ class _ApiClient implements ApiClient {
   Future<PaymentMonitoringResponse> getPayments(
     page,
     search,
+    dormitoryId,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'page': page,
       r'search_query': search,
+      r'dormitory_id': dormitoryId,
     };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -467,6 +470,32 @@ class _ApiClient implements ApiClient {
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = StudentStatisticsResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<List<GetDormitoryResponse>> getDormitories() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<List<GetDormitoryResponse>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'admin/dormitory/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) =>
+            GetDormitoryResponse.fromJson(i as Map<String, dynamic>))
+        .toList();
     return value;
   }
 

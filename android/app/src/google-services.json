@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "990901318482",
+    "project_id": "melek-51b24",
+    "storage_bucket": "melek-51b24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:990901318482:android:ed16cb7c87aa7efa41408b",
+        "android_client_info": {
+          "package_name": "com.example.melek_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNpjAHtVngTxH4qINjveIJD7FEzH9fQik"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

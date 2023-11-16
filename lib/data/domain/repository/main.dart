@@ -4,6 +4,7 @@ import 'package:uni_hostel_admin/core/error/error.dart';
 import 'package:uni_hostel_admin/data/models/admin/admin_post/add_admin_request.dart';
 import 'package:uni_hostel_admin/data/models/admin/admins_get/admins_response.dart';
 import 'package:uni_hostel_admin/data/models/download_orders_list/download_orders_list_response.dart';
+import 'package:uni_hostel_admin/data/models/get_dormitory/get_dormitory_response.dart';
 import 'package:uni_hostel_admin/data/models/in_dormitory/in_dormitory_response.dart';
 import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.dart';
 import 'package:uni_hostel_admin/data/models/order/post_order/request/edit_status_request.dart';
@@ -25,7 +26,6 @@ abstract class IMainRepository {
     int? facultyId,
     String maritalStatus,
     String? inDormitory,
-
   );
   Future<Either<Failure, GetInDormitoryResponse>> getInDormitory(
     int page,
@@ -72,7 +72,11 @@ abstract class IMainRepository {
     String? inDormitory,
   );
 
-  Future<Either<Failure, PaymentMonitoringResponse>> getPayments(int page, String search,);
+  Future<Either<Failure, PaymentMonitoringResponse>> getPayments(
+    int page,
+    String search,
+    int? dormitoryId,
+  );
 
   Future<Either<Failure, GetAdminsResponse>> getAdmins();
 
@@ -81,10 +85,10 @@ abstract class IMainRepository {
 
   Future<Either<Failure, ProfileResponse>> editAdmin(
       AddAdminRequest? request, int id, PlatformFile? file);
-      
+
   Future<Either<Failure, bool>> deleteAdmin(int id);
   Future<Either<Failure, MainStatisticsResponse>> getMainStatistics();
   Future<Either<Failure, StudentStatisticsResponse>> getStudentStatistics();
-
+  Future<Either<Failure, List<GetDormitoryResponse>>> getDormitories();
 
 }

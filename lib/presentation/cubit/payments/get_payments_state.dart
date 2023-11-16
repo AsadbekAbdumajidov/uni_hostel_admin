@@ -7,8 +7,13 @@ class PaymentsState with _$PaymentsState {
     @Default(UnknownFailure()) Failure failure,
     PaymentMonitoringResponse? response,
     @Default([]) List<PaymentsWhoPaidModel> whoPaidList,
+    @Default([]) List<GetDormitoryResponse> responseDormitories,
+    @Default([]) List<String> dormitoryList,
     @Default(1) int page,
     @Default("") String search,
+    @Default("") String dormitoryIndex,
+    int? dormitoryId,
+    @Default("") String? paymentList,
     @Default(false) bool hasReachedMax,
     @Default(false) bool loadingPagination,
   }) = _PaymentsState;

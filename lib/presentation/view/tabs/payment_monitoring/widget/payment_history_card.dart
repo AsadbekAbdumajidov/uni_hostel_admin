@@ -31,7 +31,7 @@ class PaymentHistoryCardWidget extends StatelessWidget {
                   Divider()
                 ],
               ).paddingOnly(bottom: 4),
-              ListView.separated(
+               ListView.separated(
                   padding: EdgeInsets.all(0),
                   physics: BouncingScrollPhysics(),
                   itemCount: response?.length ?? 0,
@@ -65,6 +65,7 @@ class PaymentHistoryCardWidget extends StatelessWidget {
                             ExpansionPayments(
                               user: response?[__],
                               userPayments: response?[__].payments ?? [],
+                              schedules: response?[__].schedules ?? [],
                             )
                           ],
                         ),

@@ -3,6 +3,7 @@ import 'package:retrofit/http.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/data/models/admin/admins_get/admins_response.dart';
 import 'package:uni_hostel_admin/data/models/download_orders_list/download_orders_list_response.dart';
+import 'package:uni_hostel_admin/data/models/get_dormitory/get_dormitory_response.dart';
 import 'package:uni_hostel_admin/data/models/in_dormitory/in_dormitory_response.dart';
 import 'package:uni_hostel_admin/data/models/login/request/login_request_model.dart';
 import 'package:uni_hostel_admin/data/models/login/response/login_response_model.dart';
@@ -98,7 +99,11 @@ abstract class ApiClient {
   );
 
   @GET('admin/payment/monitoring/')
-  Future<PaymentMonitoringResponse> getPayments(@Query("page") int page,@Query("search_query") String search,);
+  Future<PaymentMonitoringResponse> getPayments(
+    @Query("page") int page,
+    @Query("search_query") String search,
+    @Query("dormitory_id") int? dormitoryId,
+  );
 
   @GET('admin/administrator/')
   Future<GetAdminsResponse> getAdmins();
@@ -111,4 +116,7 @@ abstract class ApiClient {
 
   @GET('admin/students/main/statistics/')
   Future<StudentStatisticsResponse> getStudentStatistics();
+
+  @GET('admin/dormitory/')
+  Future<List<GetDormitoryResponse>> getDormitories();
 }

@@ -1,6 +1,0 @@
-framework module open_app_file {
-  umbrella header "open_app_file-umbrella.h"
-
-  export *
-  module * { export * }
-}

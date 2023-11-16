@@ -246,6 +246,10 @@ mixin _$PaymentsWhoPaidModel {
   @JsonKey(name: 'faculty_model')
   String? get facultyModel => throw _privateConstructorUsedError;
   List<Payments>? get payments => throw _privateConstructorUsedError;
+  List<Schedules>? get schedules => throw _privateConstructorUsedError;
+  int? get total => throw _privateConstructorUsedError;
+  int? get paid => throw _privateConstructorUsedError;
+  int? get duty => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -265,7 +269,11 @@ abstract class $PaymentsWhoPaidModelCopyWith<$Res> {
       @JsonKey(name: 'full_name') String? fullName,
       @JsonKey(name: 'student_id') int? studentId,
       @JsonKey(name: 'faculty_model') String? facultyModel,
-      List<Payments>? payments});
+      List<Payments>? payments,
+      List<Schedules>? schedules,
+      int? total,
+      int? paid,
+      int? duty});
 }
 
 /// @nodoc
@@ -288,6 +296,10 @@ class _$PaymentsWhoPaidModelCopyWithImpl<$Res,
     Object? studentId = freezed,
     Object? facultyModel = freezed,
     Object? payments = freezed,
+    Object? schedules = freezed,
+    Object? total = freezed,
+    Object? paid = freezed,
+    Object? duty = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -314,6 +326,22 @@ class _$PaymentsWhoPaidModelCopyWithImpl<$Res,
           ? _value.payments
           : payments // ignore: cast_nullable_to_non_nullable
               as List<Payments>?,
+      schedules: freezed == schedules
+          ? _value.schedules
+          : schedules // ignore: cast_nullable_to_non_nullable
+              as List<Schedules>?,
+      total: freezed == total
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
+              as int?,
+      paid: freezed == paid
+          ? _value.paid
+          : paid // ignore: cast_nullable_to_non_nullable
+              as int?,
+      duty: freezed == duty
+          ? _value.duty
+          : duty // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -332,7 +360,11 @@ abstract class _$$_WhoPaidModelCopyWith<$Res>
       @JsonKey(name: 'full_name') String? fullName,
       @JsonKey(name: 'student_id') int? studentId,
       @JsonKey(name: 'faculty_model') String? facultyModel,
-      List<Payments>? payments});
+      List<Payments>? payments,
+      List<Schedules>? schedules,
+      int? total,
+      int? paid,
+      int? duty});
 }
 
 /// @nodoc
@@ -352,6 +384,10 @@ class __$$_WhoPaidModelCopyWithImpl<$Res>
     Object? studentId = freezed,
     Object? facultyModel = freezed,
     Object? payments = freezed,
+    Object? schedules = freezed,
+    Object? total = freezed,
+    Object? paid = freezed,
+    Object? duty = freezed,
   }) {
     return _then(_$_WhoPaidModel(
       id: freezed == id
@@ -378,6 +414,22 @@ class __$$_WhoPaidModelCopyWithImpl<$Res>
           ? _value._payments
           : payments // ignore: cast_nullable_to_non_nullable
               as List<Payments>?,
+      schedules: freezed == schedules
+          ? _value._schedules
+          : schedules // ignore: cast_nullable_to_non_nullable
+              as List<Schedules>?,
+      total: freezed == total
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
+              as int?,
+      paid: freezed == paid
+          ? _value.paid
+          : paid // ignore: cast_nullable_to_non_nullable
+              as int?,
+      duty: freezed == duty
+          ? _value.duty
+          : duty // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -391,8 +443,13 @@ class _$_WhoPaidModel implements _WhoPaidModel {
       @JsonKey(name: 'full_name') this.fullName,
       @JsonKey(name: 'student_id') this.studentId,
       @JsonKey(name: 'faculty_model') this.facultyModel,
-      final List<Payments>? payments})
-      : _payments = payments;
+      final List<Payments>? payments,
+      final List<Schedules>? schedules,
+      this.total,
+      this.paid,
+      this.duty})
+      : _payments = payments,
+        _schedules = schedules;
 
   factory _$_WhoPaidModel.fromJson(Map<String, dynamic> json) =>
       _$$_WhoPaidModelFromJson(json);
@@ -420,9 +477,26 @@ class _$_WhoPaidModel implements _WhoPaidModel {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<Schedules>? _schedules;
+  @override
+  List<Schedules>? get schedules {
+    final value = _schedules;
+    if (value == null) return null;
+    if (_schedules is EqualUnmodifiableListView) return _schedules;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  final int? total;
+  @override
+  final int? paid;
+  @override
+  final int? duty;
+
   @override
   String toString() {
-    return 'PaymentsWhoPaidModel(id: $id, course: $course, fullName: $fullName, studentId: $studentId, facultyModel: $facultyModel, payments: $payments)';
+    return 'PaymentsWhoPaidModel(id: $id, course: $course, fullName: $fullName, studentId: $studentId, facultyModel: $facultyModel, payments: $payments, schedules: $schedules, total: $total, paid: $paid, duty: $duty)';
   }
 
   @override
@@ -438,13 +512,28 @@ class _$_WhoPaidModel implements _WhoPaidModel {
                 other.studentId == studentId) &&
             (identical(other.facultyModel, facultyModel) ||
                 other.facultyModel == facultyModel) &&
-            const DeepCollectionEquality().equals(other._payments, _payments));
+            const DeepCollectionEquality().equals(other._payments, _payments) &&
+            const DeepCollectionEquality()
+                .equals(other._schedules, _schedules) &&
+            (identical(other.total, total) || other.total == total) &&
+            (identical(other.paid, paid) || other.paid == paid) &&
+            (identical(other.duty, duty) || other.duty == duty));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, course, fullName, studentId,
-      facultyModel, const DeepCollectionEquality().hash(_payments));
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      course,
+      fullName,
+      studentId,
+      facultyModel,
+      const DeepCollectionEquality().hash(_payments),
+      const DeepCollectionEquality().hash(_schedules),
+      total,
+      paid,
+      duty);
 
   @JsonKey(ignore: true)
   @override
@@ -467,7 +556,11 @@ abstract class _WhoPaidModel implements PaymentsWhoPaidModel {
       @JsonKey(name: 'full_name') final String? fullName,
       @JsonKey(name: 'student_id') final int? studentId,
       @JsonKey(name: 'faculty_model') final String? facultyModel,
-      final List<Payments>? payments}) = _$_WhoPaidModel;
+      final List<Payments>? payments,
+      final List<Schedules>? schedules,
+      final int? total,
+      final int? paid,
+      final int? duty}) = _$_WhoPaidModel;
 
   factory _WhoPaidModel.fromJson(Map<String, dynamic> json) =
       _$_WhoPaidModel.fromJson;
@@ -487,6 +580,14 @@ abstract class _WhoPaidModel implements PaymentsWhoPaidModel {
   String? get facultyModel;
   @override
   List<Payments>? get payments;
+  @override
+  List<Schedules>? get schedules;
+  @override
+  int? get total;
+  @override
+  int? get paid;
+  @override
+  int? get duty;
   @override
   @JsonKey(ignore: true)
   _$$_WhoPaidModelCopyWith<_$_WhoPaidModel> get copyWith =>
@@ -690,5 +791,281 @@ abstract class _Payments implements Payments {
   @override
   @JsonKey(ignore: true)
   _$$_PaymentsCopyWith<_$_Payments> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Schedules _$SchedulesFromJson(Map<String, dynamic> json) {
+  return _Schedules.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Schedules {
+  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'monthly_payment_price')
+  int? get monthlyPrice => throw _privateConstructorUsedError;
+  @JsonKey(name: 'payed_amount')
+  int? get payedAmount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'payment_date')
+  String get paymentDate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'payed_date')
+  String? get payedDate => throw _privateConstructorUsedError;
+  bool get payed => throw _privateConstructorUsedError;
+  int? get residual => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SchedulesCopyWith<Schedules> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SchedulesCopyWith<$Res> {
+  factory $SchedulesCopyWith(Schedules value, $Res Function(Schedules) then) =
+      _$SchedulesCopyWithImpl<$Res, Schedules>;
+  @useResult
+  $Res call(
+      {int? id,
+      @JsonKey(name: 'monthly_payment_price') int? monthlyPrice,
+      @JsonKey(name: 'payed_amount') int? payedAmount,
+      @JsonKey(name: 'payment_date') String paymentDate,
+      @JsonKey(name: 'payed_date') String? payedDate,
+      bool payed,
+      int? residual});
+}
+
+/// @nodoc
+class _$SchedulesCopyWithImpl<$Res, $Val extends Schedules>
+    implements $SchedulesCopyWith<$Res> {
+  _$SchedulesCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? monthlyPrice = freezed,
+    Object? payedAmount = freezed,
+    Object? paymentDate = null,
+    Object? payedDate = freezed,
+    Object? payed = null,
+    Object? residual = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      monthlyPrice: freezed == monthlyPrice
+          ? _value.monthlyPrice
+          : monthlyPrice // ignore: cast_nullable_to_non_nullable
+              as int?,
+      payedAmount: freezed == payedAmount
+          ? _value.payedAmount
+          : payedAmount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      paymentDate: null == paymentDate
+          ? _value.paymentDate
+          : paymentDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      payedDate: freezed == payedDate
+          ? _value.payedDate
+          : payedDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      payed: null == payed
+          ? _value.payed
+          : payed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      residual: freezed == residual
+          ? _value.residual
+          : residual // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_SchedulesCopyWith<$Res> implements $SchedulesCopyWith<$Res> {
+  factory _$$_SchedulesCopyWith(
+          _$_Schedules value, $Res Function(_$_Schedules) then) =
+      __$$_SchedulesCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {int? id,
+      @JsonKey(name: 'monthly_payment_price') int? monthlyPrice,
+      @JsonKey(name: 'payed_amount') int? payedAmount,
+      @JsonKey(name: 'payment_date') String paymentDate,
+      @JsonKey(name: 'payed_date') String? payedDate,
+      bool payed,
+      int? residual});
+}
+
+/// @nodoc
+class __$$_SchedulesCopyWithImpl<$Res>
+    extends _$SchedulesCopyWithImpl<$Res, _$_Schedules>
+    implements _$$_SchedulesCopyWith<$Res> {
+  __$$_SchedulesCopyWithImpl(
+      _$_Schedules _value, $Res Function(_$_Schedules) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? monthlyPrice = freezed,
+    Object? payedAmount = freezed,
+    Object? paymentDate = null,
+    Object? payedDate = freezed,
+    Object? payed = null,
+    Object? residual = freezed,
+  }) {
+    return _then(_$_Schedules(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      monthlyPrice: freezed == monthlyPrice
+          ? _value.monthlyPrice
+          : monthlyPrice // ignore: cast_nullable_to_non_nullable
+              as int?,
+      payedAmount: freezed == payedAmount
+          ? _value.payedAmount
+          : payedAmount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      paymentDate: null == paymentDate
+          ? _value.paymentDate
+          : paymentDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      payedDate: freezed == payedDate
+          ? _value.payedDate
+          : payedDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      payed: null == payed
+          ? _value.payed
+          : payed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      residual: freezed == residual
+          ? _value.residual
+          : residual // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Schedules implements _Schedules {
+  const _$_Schedules(
+      {this.id,
+      @JsonKey(name: 'monthly_payment_price') this.monthlyPrice,
+      @JsonKey(name: 'payed_amount') this.payedAmount,
+      @JsonKey(name: 'payment_date') required this.paymentDate,
+      @JsonKey(name: 'payed_date') this.payedDate,
+      required this.payed,
+      this.residual});
+
+  factory _$_Schedules.fromJson(Map<String, dynamic> json) =>
+      _$$_SchedulesFromJson(json);
+
+  @override
+  final int? id;
+  @override
+  @JsonKey(name: 'monthly_payment_price')
+  final int? monthlyPrice;
+  @override
+  @JsonKey(name: 'payed_amount')
+  final int? payedAmount;
+  @override
+  @JsonKey(name: 'payment_date')
+  final String paymentDate;
+  @override
+  @JsonKey(name: 'payed_date')
+  final String? payedDate;
+  @override
+  final bool payed;
+  @override
+  final int? residual;
+
+  @override
+  String toString() {
+    return 'Schedules(id: $id, monthlyPrice: $monthlyPrice, payedAmount: $payedAmount, paymentDate: $paymentDate, payedDate: $payedDate, payed: $payed, residual: $residual)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Schedules &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.monthlyPrice, monthlyPrice) ||
+                other.monthlyPrice == monthlyPrice) &&
+            (identical(other.payedAmount, payedAmount) ||
+                other.payedAmount == payedAmount) &&
+            (identical(other.paymentDate, paymentDate) ||
+                other.paymentDate == paymentDate) &&
+            (identical(other.payedDate, payedDate) ||
+                other.payedDate == payedDate) &&
+            (identical(other.payed, payed) || other.payed == payed) &&
+            (identical(other.residual, residual) ||
+                other.residual == residual));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, monthlyPrice, payedAmount,
+      paymentDate, payedDate, payed, residual);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SchedulesCopyWith<_$_Schedules> get copyWith =>
+      __$$_SchedulesCopyWithImpl<_$_Schedules>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_SchedulesToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Schedules implements Schedules {
+  const factory _Schedules(
+      {final int? id,
+      @JsonKey(name: 'monthly_payment_price') final int? monthlyPrice,
+      @JsonKey(name: 'payed_amount') final int? payedAmount,
+      @JsonKey(name: 'payment_date') required final String paymentDate,
+      @JsonKey(name: 'payed_date') final String? payedDate,
+      required final bool payed,
+      final int? residual}) = _$_Schedules;
+
+  factory _Schedules.fromJson(Map<String, dynamic> json) =
+      _$_Schedules.fromJson;
+
+  @override
+  int? get id;
+  @override
+  @JsonKey(name: 'monthly_payment_price')
+  int? get monthlyPrice;
+  @override
+  @JsonKey(name: 'payed_amount')
+  int? get payedAmount;
+  @override
+  @JsonKey(name: 'payment_date')
+  String get paymentDate;
+  @override
+  @JsonKey(name: 'payed_date')
+  String? get payedDate;
+  @override
+  bool get payed;
+  @override
+  int? get residual;
+  @override
+  @JsonKey(ignore: true)
+  _$$_SchedulesCopyWith<_$_Schedules> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -36,6 +36,12 @@ _$_WhoPaidModel _$$_WhoPaidModelFromJson(Map<String, dynamic> json) =>
       payments: (json['payments'] as List<dynamic>?)
           ?.map((e) => Payments.fromJson(e as Map<String, dynamic>))
           .toList(),
+      schedules: (json['schedules'] as List<dynamic>?)
+          ?.map((e) => Schedules.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      total: json['total'] as int?,
+      paid: json['paid'] as int?,
+      duty: json['duty'] as int?,
     );
 
 Map<String, dynamic> _$$_WhoPaidModelToJson(_$_WhoPaidModel instance) =>
@@ -46,6 +52,10 @@ Map<String, dynamic> _$$_WhoPaidModelToJson(_$_WhoPaidModel instance) =>
       'student_id': instance.studentId,
       'faculty_model': instance.facultyModel,
       'payments': instance.payments,
+      'schedules': instance.schedules,
+      'total': instance.total,
+      'paid': instance.paid,
+      'duty': instance.duty,
     };
 
 _$_Payments _$$_PaymentsFromJson(Map<String, dynamic> json) => _$_Payments(
@@ -61,4 +71,25 @@ Map<String, dynamic> _$$_PaymentsToJson(_$_Payments instance) =>
       'amount': instance.amount,
       'status': instance.status,
       'payed_at': instance.payedAt,
+    };
+
+_$_Schedules _$$_SchedulesFromJson(Map<String, dynamic> json) => _$_Schedules(
+      id: json['id'] as int?,
+      monthlyPrice: json['monthly_payment_price'] as int?,
+      payedAmount: json['payed_amount'] as int?,
+      paymentDate: json['payment_date'] as String,
+      payedDate: json['payed_date'] as String?,
+      payed: json['payed'] as bool,
+      residual: json['residual'] as int?,
+    );
+
+Map<String, dynamic> _$$_SchedulesToJson(_$_Schedules instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'monthly_payment_price': instance.monthlyPrice,
+      'payed_amount': instance.payedAmount,
+      'payment_date': instance.paymentDate,
+      'payed_date': instance.payedDate,
+      'payed': instance.payed,
+      'residual': instance.residual,
     };

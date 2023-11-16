@@ -12,14 +12,19 @@ class GetInDormitoryListUseCase
   @override
   Future<Either<Failure, DownloadOrdersListResponse>> call(
           GetInDormitoryListParams params) =>
-      _iMainRepository.getInDormitoryList(params.search, params.course,params.facultyId,
-          params.gender, params.dormitory, );
+      _iMainRepository.getInDormitoryList(
+        params.search,
+        params.course,
+        params.facultyId,
+        params.gender,
+        params.dormitory,
+      );
 }
 
 class GetInDormitoryListParams {
-   final String search;
+  final String search;
   final String? course;
- 
+
   final int? facultyId;
   final String? gender;
   final String? dormitory;
@@ -31,4 +36,3 @@ class GetInDormitoryListParams {
     this.dormitory,
   });
 }
- 

@@ -17,6 +17,7 @@ class ExpansionPaymentsItem extends StatelessWidget {
   final String title3;
   final String title4;
 
+
   @override
   Widget build(BuildContext context) {
     double textSize = ResponsiveWidget.isMobileLarge(context) ? 14 : 16;
@@ -39,7 +40,7 @@ class ExpansionPaymentsItem extends StatelessWidget {
           ),
         ),
         Expanded(
-          flex:ResponsiveWidget.isMobile(context) ? 4: 3,
+          flex:ResponsiveWidget.isMobile(context) ? 3 : 2,
           child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(
               title2,

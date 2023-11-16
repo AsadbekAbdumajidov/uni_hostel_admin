@@ -21,8 +21,14 @@ mixin _$PaymentsState {
   PaymentMonitoringResponse? get response => throw _privateConstructorUsedError;
   List<PaymentsWhoPaidModel> get whoPaidList =>
       throw _privateConstructorUsedError;
+  List<GetDormitoryResponse> get responseDormitories =>
+      throw _privateConstructorUsedError;
+  List<String> get dormitoryList => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
   String get search => throw _privateConstructorUsedError;
+  String get dormitoryIndex => throw _privateConstructorUsedError;
+  int? get dormitoryId => throw _privateConstructorUsedError;
+  String? get paymentList => throw _privateConstructorUsedError;
   bool get hasReachedMax => throw _privateConstructorUsedError;
   bool get loadingPagination => throw _privateConstructorUsedError;
 
@@ -42,8 +48,13 @@ abstract class $PaymentsStateCopyWith<$Res> {
       Failure failure,
       PaymentMonitoringResponse? response,
       List<PaymentsWhoPaidModel> whoPaidList,
+      List<GetDormitoryResponse> responseDormitories,
+      List<String> dormitoryList,
       int page,
       String search,
+      String dormitoryIndex,
+      int? dormitoryId,
+      String? paymentList,
       bool hasReachedMax,
       bool loadingPagination});
 
@@ -67,8 +78,13 @@ class _$PaymentsStateCopyWithImpl<$Res, $Val extends PaymentsState>
     Object? failure = null,
     Object? response = freezed,
     Object? whoPaidList = null,
+    Object? responseDormitories = null,
+    Object? dormitoryList = null,
     Object? page = null,
     Object? search = null,
+    Object? dormitoryIndex = null,
+    Object? dormitoryId = freezed,
+    Object? paymentList = freezed,
     Object? hasReachedMax = null,
     Object? loadingPagination = null,
   }) {
@@ -89,6 +105,14 @@ class _$PaymentsStateCopyWithImpl<$Res, $Val extends PaymentsState>
           ? _value.whoPaidList
           : whoPaidList // ignore: cast_nullable_to_non_nullable
               as List<PaymentsWhoPaidModel>,
+      responseDormitories: null == responseDormitories
+          ? _value.responseDormitories
+          : responseDormitories // ignore: cast_nullable_to_non_nullable
+              as List<GetDormitoryResponse>,
+      dormitoryList: null == dormitoryList
+          ? _value.dormitoryList
+          : dormitoryList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -97,6 +121,18 @@ class _$PaymentsStateCopyWithImpl<$Res, $Val extends PaymentsState>
           ? _value.search
           : search // ignore: cast_nullable_to_non_nullable
               as String,
+      dormitoryIndex: null == dormitoryIndex
+          ? _value.dormitoryIndex
+          : dormitoryIndex // ignore: cast_nullable_to_non_nullable
+              as String,
+      dormitoryId: freezed == dormitoryId
+          ? _value.dormitoryId
+          : dormitoryId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      paymentList: freezed == paymentList
+          ? _value.paymentList
+          : paymentList // ignore: cast_nullable_to_non_nullable
+              as String?,
       hasReachedMax: null == hasReachedMax
           ? _value.hasReachedMax
           : hasReachedMax // ignore: cast_nullable_to_non_nullable
@@ -134,8 +170,13 @@ abstract class _$$_PaymentsStateCopyWith<$Res>
       Failure failure,
       PaymentMonitoringResponse? response,
       List<PaymentsWhoPaidModel> whoPaidList,
+      List<GetDormitoryResponse> responseDormitories,
+      List<String> dormitoryList,
       int page,
       String search,
+      String dormitoryIndex,
+      int? dormitoryId,
+      String? paymentList,
       bool hasReachedMax,
       bool loadingPagination});
 
@@ -158,8 +199,13 @@ class __$$_PaymentsStateCopyWithImpl<$Res>
     Object? failure = null,
     Object? response = freezed,
     Object? whoPaidList = null,
+    Object? responseDormitories = null,
+    Object? dormitoryList = null,
     Object? page = null,
     Object? search = null,
+    Object? dormitoryIndex = null,
+    Object? dormitoryId = freezed,
+    Object? paymentList = freezed,
     Object? hasReachedMax = null,
     Object? loadingPagination = null,
   }) {
@@ -180,6 +226,14 @@ class __$$_PaymentsStateCopyWithImpl<$Res>
           ? _value._whoPaidList
           : whoPaidList // ignore: cast_nullable_to_non_nullable
               as List<PaymentsWhoPaidModel>,
+      responseDormitories: null == responseDormitories
+          ? _value._responseDormitories
+          : responseDormitories // ignore: cast_nullable_to_non_nullable
+              as List<GetDormitoryResponse>,
+      dormitoryList: null == dormitoryList
+          ? _value._dormitoryList
+          : dormitoryList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -188,6 +242,18 @@ class __$$_PaymentsStateCopyWithImpl<$Res>
           ? _value.search
           : search // ignore: cast_nullable_to_non_nullable
               as String,
+      dormitoryIndex: null == dormitoryIndex
+          ? _value.dormitoryIndex
+          : dormitoryIndex // ignore: cast_nullable_to_non_nullable
+              as String,
+      dormitoryId: freezed == dormitoryId
+          ? _value.dormitoryId
+          : dormitoryId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      paymentList: freezed == paymentList
+          ? _value.paymentList
+          : paymentList // ignore: cast_nullable_to_non_nullable
+              as String?,
       hasReachedMax: null == hasReachedMax
           ? _value.hasReachedMax
           : hasReachedMax // ignore: cast_nullable_to_non_nullable
@@ -208,11 +274,18 @@ class _$_PaymentsState implements _PaymentsState {
       this.failure = const UnknownFailure(),
       this.response,
       final List<PaymentsWhoPaidModel> whoPaidList = const [],
+      final List<GetDormitoryResponse> responseDormitories = const [],
+      final List<String> dormitoryList = const [],
       this.page = 1,
       this.search = "",
+      this.dormitoryIndex = "",
+      this.dormitoryId,
+      this.paymentList = "",
       this.hasReachedMax = false,
       this.loadingPagination = false})
-      : _whoPaidList = whoPaidList;
+      : _whoPaidList = whoPaidList,
+        _responseDormitories = responseDormitories,
+        _dormitoryList = dormitoryList;
 
   @override
   @JsonKey()
@@ -231,12 +304,39 @@ class _$_PaymentsState implements _PaymentsState {
     return EqualUnmodifiableListView(_whoPaidList);
   }
 
+  final List<GetDormitoryResponse> _responseDormitories;
+  @override
+  @JsonKey()
+  List<GetDormitoryResponse> get responseDormitories {
+    if (_responseDormitories is EqualUnmodifiableListView)
+      return _responseDormitories;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_responseDormitories);
+  }
+
+  final List<String> _dormitoryList;
+  @override
+  @JsonKey()
+  List<String> get dormitoryList {
+    if (_dormitoryList is EqualUnmodifiableListView) return _dormitoryList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_dormitoryList);
+  }
+
   @override
   @JsonKey()
   final int page;
   @override
   @JsonKey()
   final String search;
+  @override
+  @JsonKey()
+  final String dormitoryIndex;
+  @override
+  final int? dormitoryId;
+  @override
+  @JsonKey()
+  final String? paymentList;
   @override
   @JsonKey()
   final bool hasReachedMax;
@@ -246,7 +346,7 @@ class _$_PaymentsState implements _PaymentsState {
 
   @override
   String toString() {
-    return 'PaymentsState(status: $status, failure: $failure, response: $response, whoPaidList: $whoPaidList, page: $page, search: $search, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination)';
+    return 'PaymentsState(status: $status, failure: $failure, response: $response, whoPaidList: $whoPaidList, responseDormitories: $responseDormitories, dormitoryList: $dormitoryList, page: $page, search: $search, dormitoryIndex: $dormitoryIndex, dormitoryId: $dormitoryId, paymentList: $paymentList, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination)';
   }
 
   @override
@@ -260,8 +360,18 @@ class _$_PaymentsState implements _PaymentsState {
                 other.response == response) &&
             const DeepCollectionEquality()
                 .equals(other._whoPaidList, _whoPaidList) &&
+            const DeepCollectionEquality()
+                .equals(other._responseDormitories, _responseDormitories) &&
+            const DeepCollectionEquality()
+                .equals(other._dormitoryList, _dormitoryList) &&
             (identical(other.page, page) || other.page == page) &&
             (identical(other.search, search) || other.search == search) &&
+            (identical(other.dormitoryIndex, dormitoryIndex) ||
+                other.dormitoryIndex == dormitoryIndex) &&
+            (identical(other.dormitoryId, dormitoryId) ||
+                other.dormitoryId == dormitoryId) &&
+            (identical(other.paymentList, paymentList) ||
+                other.paymentList == paymentList) &&
             (identical(other.hasReachedMax, hasReachedMax) ||
                 other.hasReachedMax == hasReachedMax) &&
             (identical(other.loadingPagination, loadingPagination) ||
@@ -275,8 +385,13 @@ class _$_PaymentsState implements _PaymentsState {
       failure,
       response,
       const DeepCollectionEquality().hash(_whoPaidList),
+      const DeepCollectionEquality().hash(_responseDormitories),
+      const DeepCollectionEquality().hash(_dormitoryList),
       page,
       search,
+      dormitoryIndex,
+      dormitoryId,
+      paymentList,
       hasReachedMax,
       loadingPagination);
 
@@ -293,8 +408,13 @@ abstract class _PaymentsState implements PaymentsState {
       final Failure failure,
       final PaymentMonitoringResponse? response,
       final List<PaymentsWhoPaidModel> whoPaidList,
+      final List<GetDormitoryResponse> responseDormitories,
+      final List<String> dormitoryList,
       final int page,
       final String search,
+      final String dormitoryIndex,
+      final int? dormitoryId,
+      final String? paymentList,
       final bool hasReachedMax,
       final bool loadingPagination}) = _$_PaymentsState;
 
@@ -307,9 +427,19 @@ abstract class _PaymentsState implements PaymentsState {
   @override
   List<PaymentsWhoPaidModel> get whoPaidList;
   @override
+  List<GetDormitoryResponse> get responseDormitories;
+  @override
+  List<String> get dormitoryList;
+  @override
   int get page;
   @override
   String get search;
+  @override
+  String get dormitoryIndex;
+  @override
+  int? get dormitoryId;
+  @override
+  String? get paymentList;
   @override
   bool get hasReachedMax;
   @override

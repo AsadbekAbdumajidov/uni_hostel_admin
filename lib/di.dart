@@ -14,6 +14,7 @@ import 'package:uni_hostel_admin/data/domain/usecases/main/delete_order.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/edit_admin_uscase.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/edit_status.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_admins_uscase.dart';
+import 'package:uni_hostel_admin/data/domain/usecases/main/get_dormitories_uscase.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_faculties.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_in_dormitory.dart';
 import 'package:uni_hostel_admin/data/domain/usecases/main/get_in_dormitory_list.dart';
@@ -61,7 +62,7 @@ Future<void> initDi() async {
   inject.registerFactory(() => InDormitoryCubit(inject(), inject(), inject()));
 
   inject.registerFactory(() => ProfileCubit(inject()));
-  inject.registerFactory(() => PaymentsCubit(inject()));
+  inject.registerFactory(() => PaymentsCubit(inject(),inject(),inject()));
   inject.registerFactory(() => StatisticsCubit(inject(),inject()));
 
   inject.registerFactory(() => AdminEditCubit(inject(),inject()));
@@ -88,6 +89,8 @@ Future<void> initDi() async {
   inject.registerLazySingleton(() => DeleteAdminUseCase(inject()));
   inject.registerLazySingleton(() => StatisticsUseCase(inject()));
   inject.registerLazySingleton(() => StudentStatisticsUseCase(inject()));
+  inject.registerLazySingleton(() => GetDormitoriesUsCase(inject()));
+
 
 
   // repository init

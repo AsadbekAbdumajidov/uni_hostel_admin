@@ -13,6 +13,7 @@ import 'package:uni_hostel_admin/data/domain/repository/main.dart';
 import 'package:uni_hostel_admin/data/models/admin/admin_post/add_admin_request.dart';
 import 'package:uni_hostel_admin/data/models/admin/admins_get/admins_response.dart';
 import 'package:uni_hostel_admin/data/models/download_orders_list/download_orders_list_response.dart';
+import 'package:uni_hostel_admin/data/models/get_dormitory/get_dormitory_response.dart';
 import 'package:uni_hostel_admin/data/models/in_dormitory/in_dormitory_response.dart';
 import 'package:uni_hostel_admin/data/models/order/get_faculties/get_faculties_response.dart';
 import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.dart';
@@ -326,9 +327,10 @@ class MainRepository implements IMainRepository {
   Future<Either<Failure, PaymentMonitoringResponse>> getPayments(
     int page,
     String search,
+    int? dormitoryId,
   ) async {
     try {
-      final response = await _apiClient.getPayments(page, search);
+      final response = await _apiClient.getPayments(page, search,dormitoryId);
       return Right(response);
     } on DioError catch (e) {
       if (kDebugMode) {
@@ -546,6 +548,31 @@ class MainRepository implements IMainRepository {
       getStudentStatistics() async {
     try {
       final response = await _apiClient.getStudentStatistics();
+      return Right(response);
+    } on DioError catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      if (e.error is SocketException) {
+        return const Left(ConnectionFailure());
+      }
+      return Left(
+        (e.response?.statusCode == 400)
+            ? const UnknownFailure()
+            : ServerFailure(e.response?.statusCode),
+      );
+    } on Object catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      rethrow;
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<GetDormitoryResponse>>> getDormitories()async{
+     try {
+      final response = await _apiClient.getDormitories();
       return Right(response);
     } on DioError catch (e) {
       if (kDebugMode) {

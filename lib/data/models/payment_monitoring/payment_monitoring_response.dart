@@ -26,6 +26,10 @@ class PaymentsWhoPaidModel with _$PaymentsWhoPaidModel {
     @JsonKey(name: 'student_id') int? studentId,
     @JsonKey(name: 'faculty_model') String? facultyModel,
     List<Payments>? payments,
+    List<Schedules>? schedules,
+    int? total,
+    int? paid,
+    int? duty,
   }) = _WhoPaidModel;
 
   factory PaymentsWhoPaidModel.fromJson(Map<String, dynamic> json) =>
@@ -43,4 +47,20 @@ class Payments with _$Payments {
 
   factory Payments.fromJson(Map<String, dynamic> json) =>
       _$PaymentsFromJson(json);
+}
+
+@freezed
+class Schedules with _$Schedules {
+  const factory Schedules({
+    int? id,
+    @JsonKey(name: 'monthly_payment_price') int? monthlyPrice,
+    @JsonKey(name: 'payed_amount') int? payedAmount,
+    @JsonKey(name: 'payment_date') required String paymentDate,
+    @JsonKey(name: 'payed_date') String? payedDate,
+    required bool payed,
+    int? residual,
+  }) = _Schedules;
+
+  factory Schedules.fromJson(Map<String, dynamic> json) =>
+      _$SchedulesFromJson(json);
 }

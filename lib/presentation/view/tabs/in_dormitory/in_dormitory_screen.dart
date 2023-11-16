@@ -36,7 +36,7 @@ class InDormitoryScreen extends StatelessWidget {
             child: Column(
               children: [
                 CustomAppBar(
-                  isSearch: true,
+                    isSearch: true,
                     textEditingController: searchController,
                     onchange: (v) =>
                         context.read<InDormitoryCubit>().searchInDormitory(v),
@@ -88,9 +88,8 @@ class InDormitoryScreen extends StatelessWidget {
                                               backgroundColor:
                                                   AppColors.transparent,
                                               builder: (context) {
-                                                return BottomIndormitoryFilterWidget(
-                                                  
-                                                ).paddingOnly(top: 80);
+                                                return BottomIndormitoryFilterWidget()
+                                                    .paddingOnly(top: 80);
                                               });
                                         },
                                       ),
