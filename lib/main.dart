@@ -12,6 +12,7 @@ import 'package:uni_hostel_admin/presentation/cubit/cancelled_order/cancelled_or
 import 'package:uni_hostel_admin/presentation/cubit/edit_status/edit_status_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/in_dormitory_cubit/in_dormitory_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/new_order/get_new_order_cubit.dart';
+import 'package:uni_hostel_admin/presentation/cubit/payments/get_payments_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/profile/profile_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/queue_order/queue_order_cubit.dart';
 import 'package:uni_hostel_admin/presentation/cubit/selected_order/selected_order_cubit.dart';
@@ -47,6 +48,8 @@ class MyApp extends StatelessWidget {
                   inject<AcceptedOrderCubit>()..getFaculties()),
           BlocProvider(
               create: (context) => inject<InDormitoryCubit>()..getFaculties()),
+          BlocProvider(
+              create: (context) => inject<PaymentsCubit>()..getFaculties()),
           BlocProvider(
               create: (context) =>
                   inject<CancelledOrderCubit>()..getFaculties()),

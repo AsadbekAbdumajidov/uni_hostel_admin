@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel_admin/core/extension/for_context.dart';
 import 'package:uni_hostel_admin/core/themes/app_colors.dart';
@@ -6,7 +7,10 @@ import 'package:uni_hostel_admin/core/themes/app_text.dart';
 import 'package:uni_hostel_admin/core/utils/general_functions.dart';
 import 'package:uni_hostel_admin/data/models/payment_monitoring/payment_monitoring_response.dart';
 import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
+import 'package:uni_hostel_admin/presentation/cubit/on_hover/on_hover_cubit.dart';
+import 'package:uni_hostel_admin/presentation/cubit/profile/profile_cubit.dart';
 import 'package:uni_hostel_admin/presentation/view/expansion_item/widget/mobile/user_information_mobile.dart';
+import 'package:uni_hostel_admin/presentation/view/tabs/payment_monitoring/widget/edit_monthly_alert_dialog.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/payment_monitoring/widget/expansion_items.dart';
 
 class ExpansionPayments extends StatelessWidget {
@@ -18,6 +22,7 @@ class ExpansionPayments extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var status = context.watch<ProfileCubit>().state.response?.type;
     return Container(
         width: context.w,
         padding: EdgeInsets.symmetric(
@@ -47,7 +52,6 @@ class ExpansionPayments extends StatelessWidget {
                       ],
                     ).paddingOnly(left: 10)
                   : SizedBox.shrink(),
-              
               ResponsiveWidget.isMobile(context)
                   ? Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,7 +75,7 @@ class ExpansionPayments extends StatelessWidget {
                   : Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                         UserInformationMobile(
+                        UserInformationMobile(
                           maxLines: 2,
                           title: AppStrings.strTotalPayment,
                           subTitle: "${user?.total} ${AppStrings.strSum}",
@@ -91,11 +95,54 @@ class ExpansionPayments extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(AppStrings.strGeneralfeeSchedule,
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleSmall
-                          ?.copyWith(fontWeight: FontWeight.w600)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(AppStrings.strGeneralfeeSchedule,
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall
+                              ?.copyWith(fontWeight: FontWeight.w600)),
+                    (status == "payment_super_admin" || status == "admin") ?  BlocProvider(
+                        create: (context) => OnHoverCubit(),
+                        child: BlocBuilder<OnHoverCubit, OnHoverState>(
+                            builder: (context, state) {
+                          return InkWell(
+                            onHover: (v) =>
+                                context.read<OnHoverCubit>().getHover(v),
+                            onTap: () {showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return EditMonthlyAlertDialog(
+                                    
+                                    title: AppStrings.strApprove,
+                                     name:AppStrings.strMonthlyPaymentUpdate,
+                                  );
+                                });},
+                            child: Row(
+                              children: [
+                                Text(AppStrings.strMonthlyPaymentUpdate,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleSmall
+                                        ?.copyWith(
+                                            fontWeight: FontWeight.w600,
+                                            color: state.hover
+                                                ? AppColors.primaryColor
+                                                : AppColors.blackColor)),
+                                SizedBox(width: 2),
+                                Icon(Icons.edit,
+                                    size: 20,
+                                    color: state.hover
+                                        ? AppColors.primaryColor
+                                        : AppColors.blackColor),
+                              ],
+                            ),
+                          );
+                        }),
+                      ) : SizedBox.shrink()
+                    ],
+                  ),
                   SizedBox(height: 10),
                   Container(
                     decoration: BoxDecoration(

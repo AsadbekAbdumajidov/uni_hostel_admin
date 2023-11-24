@@ -16,5 +16,9 @@ class PaymentsState with _$PaymentsState {
     @Default("") String? paymentList,
     @Default(false) bool hasReachedMax,
     @Default(false) bool loadingPagination,
+    @Default([]) List<FacultiesModel> facultiesResponse,
+    @Default([]) List<String> facultiesList,
+    FacultiesModel? facultyIndex,
+     @Default("") String maritalStatus,
   }) = _PaymentsState;
 }

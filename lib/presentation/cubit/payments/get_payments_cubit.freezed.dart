@@ -31,6 +31,11 @@ mixin _$PaymentsState {
   String? get paymentList => throw _privateConstructorUsedError;
   bool get hasReachedMax => throw _privateConstructorUsedError;
   bool get loadingPagination => throw _privateConstructorUsedError;
+  List<FacultiesModel> get facultiesResponse =>
+      throw _privateConstructorUsedError;
+  List<String> get facultiesList => throw _privateConstructorUsedError;
+  FacultiesModel? get facultyIndex => throw _privateConstructorUsedError;
+  String get maritalStatus => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PaymentsStateCopyWith<PaymentsState> get copyWith =>
@@ -56,9 +61,14 @@ abstract class $PaymentsStateCopyWith<$Res> {
       int? dormitoryId,
       String? paymentList,
       bool hasReachedMax,
-      bool loadingPagination});
+      bool loadingPagination,
+      List<FacultiesModel> facultiesResponse,
+      List<String> facultiesList,
+      FacultiesModel? facultyIndex,
+      String maritalStatus});
 
   $PaymentMonitoringResponseCopyWith<$Res>? get response;
+  $FacultiesModelCopyWith<$Res>? get facultyIndex;
 }
 
 /// @nodoc
@@ -87,6 +97,10 @@ class _$PaymentsStateCopyWithImpl<$Res, $Val extends PaymentsState>
     Object? paymentList = freezed,
     Object? hasReachedMax = null,
     Object? loadingPagination = null,
+    Object? facultiesResponse = null,
+    Object? facultiesList = null,
+    Object? facultyIndex = freezed,
+    Object? maritalStatus = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -141,6 +155,22 @@ class _$PaymentsStateCopyWithImpl<$Res, $Val extends PaymentsState>
           ? _value.loadingPagination
           : loadingPagination // ignore: cast_nullable_to_non_nullable
               as bool,
+      facultiesResponse: null == facultiesResponse
+          ? _value.facultiesResponse
+          : facultiesResponse // ignore: cast_nullable_to_non_nullable
+              as List<FacultiesModel>,
+      facultiesList: null == facultiesList
+          ? _value.facultiesList
+          : facultiesList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      facultyIndex: freezed == facultyIndex
+          ? _value.facultyIndex
+          : facultyIndex // ignore: cast_nullable_to_non_nullable
+              as FacultiesModel?,
+      maritalStatus: null == maritalStatus
+          ? _value.maritalStatus
+          : maritalStatus // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -153,6 +183,18 @@ class _$PaymentsStateCopyWithImpl<$Res, $Val extends PaymentsState>
 
     return $PaymentMonitoringResponseCopyWith<$Res>(_value.response!, (value) {
       return _then(_value.copyWith(response: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FacultiesModelCopyWith<$Res>? get facultyIndex {
+    if (_value.facultyIndex == null) {
+      return null;
+    }
+
+    return $FacultiesModelCopyWith<$Res>(_value.facultyIndex!, (value) {
+      return _then(_value.copyWith(facultyIndex: value) as $Val);
     });
   }
 }
@@ -178,10 +220,16 @@ abstract class _$$_PaymentsStateCopyWith<$Res>
       int? dormitoryId,
       String? paymentList,
       bool hasReachedMax,
-      bool loadingPagination});
+      bool loadingPagination,
+      List<FacultiesModel> facultiesResponse,
+      List<String> facultiesList,
+      FacultiesModel? facultyIndex,
+      String maritalStatus});
 
   @override
   $PaymentMonitoringResponseCopyWith<$Res>? get response;
+  @override
+  $FacultiesModelCopyWith<$Res>? get facultyIndex;
 }
 
 /// @nodoc
@@ -208,6 +256,10 @@ class __$$_PaymentsStateCopyWithImpl<$Res>
     Object? paymentList = freezed,
     Object? hasReachedMax = null,
     Object? loadingPagination = null,
+    Object? facultiesResponse = null,
+    Object? facultiesList = null,
+    Object? facultyIndex = freezed,
+    Object? maritalStatus = null,
   }) {
     return _then(_$_PaymentsState(
       status: null == status
@@ -262,6 +314,22 @@ class __$$_PaymentsStateCopyWithImpl<$Res>
           ? _value.loadingPagination
           : loadingPagination // ignore: cast_nullable_to_non_nullable
               as bool,
+      facultiesResponse: null == facultiesResponse
+          ? _value._facultiesResponse
+          : facultiesResponse // ignore: cast_nullable_to_non_nullable
+              as List<FacultiesModel>,
+      facultiesList: null == facultiesList
+          ? _value._facultiesList
+          : facultiesList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      facultyIndex: freezed == facultyIndex
+          ? _value.facultyIndex
+          : facultyIndex // ignore: cast_nullable_to_non_nullable
+              as FacultiesModel?,
+      maritalStatus: null == maritalStatus
+          ? _value.maritalStatus
+          : maritalStatus // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -282,10 +350,16 @@ class _$_PaymentsState implements _PaymentsState {
       this.dormitoryId,
       this.paymentList = "",
       this.hasReachedMax = false,
-      this.loadingPagination = false})
+      this.loadingPagination = false,
+      final List<FacultiesModel> facultiesResponse = const [],
+      final List<String> facultiesList = const [],
+      this.facultyIndex,
+      this.maritalStatus = ""})
       : _whoPaidList = whoPaidList,
         _responseDormitories = responseDormitories,
-        _dormitoryList = dormitoryList;
+        _dormitoryList = dormitoryList,
+        _facultiesResponse = facultiesResponse,
+        _facultiesList = facultiesList;
 
   @override
   @JsonKey()
@@ -343,10 +417,34 @@ class _$_PaymentsState implements _PaymentsState {
   @override
   @JsonKey()
   final bool loadingPagination;
+  final List<FacultiesModel> _facultiesResponse;
+  @override
+  @JsonKey()
+  List<FacultiesModel> get facultiesResponse {
+    if (_facultiesResponse is EqualUnmodifiableListView)
+      return _facultiesResponse;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_facultiesResponse);
+  }
+
+  final List<String> _facultiesList;
+  @override
+  @JsonKey()
+  List<String> get facultiesList {
+    if (_facultiesList is EqualUnmodifiableListView) return _facultiesList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_facultiesList);
+  }
+
+  @override
+  final FacultiesModel? facultyIndex;
+  @override
+  @JsonKey()
+  final String maritalStatus;
 
   @override
   String toString() {
-    return 'PaymentsState(status: $status, failure: $failure, response: $response, whoPaidList: $whoPaidList, responseDormitories: $responseDormitories, dormitoryList: $dormitoryList, page: $page, search: $search, dormitoryIndex: $dormitoryIndex, dormitoryId: $dormitoryId, paymentList: $paymentList, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination)';
+    return 'PaymentsState(status: $status, failure: $failure, response: $response, whoPaidList: $whoPaidList, responseDormitories: $responseDormitories, dormitoryList: $dormitoryList, page: $page, search: $search, dormitoryIndex: $dormitoryIndex, dormitoryId: $dormitoryId, paymentList: $paymentList, hasReachedMax: $hasReachedMax, loadingPagination: $loadingPagination, facultiesResponse: $facultiesResponse, facultiesList: $facultiesList, facultyIndex: $facultyIndex, maritalStatus: $maritalStatus)';
   }
 
   @override
@@ -375,7 +473,15 @@ class _$_PaymentsState implements _PaymentsState {
             (identical(other.hasReachedMax, hasReachedMax) ||
                 other.hasReachedMax == hasReachedMax) &&
             (identical(other.loadingPagination, loadingPagination) ||
-                other.loadingPagination == loadingPagination));
+                other.loadingPagination == loadingPagination) &&
+            const DeepCollectionEquality()
+                .equals(other._facultiesResponse, _facultiesResponse) &&
+            const DeepCollectionEquality()
+                .equals(other._facultiesList, _facultiesList) &&
+            (identical(other.facultyIndex, facultyIndex) ||
+                other.facultyIndex == facultyIndex) &&
+            (identical(other.maritalStatus, maritalStatus) ||
+                other.maritalStatus == maritalStatus));
   }
 
   @override
@@ -393,7 +499,11 @@ class _$_PaymentsState implements _PaymentsState {
       dormitoryId,
       paymentList,
       hasReachedMax,
-      loadingPagination);
+      loadingPagination,
+      const DeepCollectionEquality().hash(_facultiesResponse),
+      const DeepCollectionEquality().hash(_facultiesList),
+      facultyIndex,
+      maritalStatus);
 
   @JsonKey(ignore: true)
   @override
@@ -416,7 +526,11 @@ abstract class _PaymentsState implements PaymentsState {
       final int? dormitoryId,
       final String? paymentList,
       final bool hasReachedMax,
-      final bool loadingPagination}) = _$_PaymentsState;
+      final bool loadingPagination,
+      final List<FacultiesModel> facultiesResponse,
+      final List<String> facultiesList,
+      final FacultiesModel? facultyIndex,
+      final String maritalStatus}) = _$_PaymentsState;
 
   @override
   Status get status;
@@ -444,6 +558,14 @@ abstract class _PaymentsState implements PaymentsState {
   bool get hasReachedMax;
   @override
   bool get loadingPagination;
+  @override
+  List<FacultiesModel> get facultiesResponse;
+  @override
+  List<String> get facultiesList;
+  @override
+  FacultiesModel? get facultyIndex;
+  @override
+  String get maritalStatus;
   @override
   @JsonKey(ignore: true)
   _$$_PaymentsStateCopyWith<_$_PaymentsState> get copyWith =>

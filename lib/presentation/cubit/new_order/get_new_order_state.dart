@@ -17,6 +17,7 @@ class GetNewOrderState with _$GetNewOrderState {
     FacultiesModel? facultyIndex,
     @Default(null) String? courseIndex,
     @Default("") String? ordersList,
+    
 
   }) = _GetNewOrderState;
 }

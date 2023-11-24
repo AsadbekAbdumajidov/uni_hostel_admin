@@ -91,6 +91,9 @@ class AppStrings {
   static const strSum = "so'm";
   static const strGeneralfeeSchedule = "Umumiy to'lov jadvali";
   static const strDatesPaid = "To'langan sanalar";
+  static const strMonthlyPaymentUpdate = "Oylik to'lovni yangilash";
+
+
 
 // ------------- //
   static const strIronNotebook = "Temir daftar";

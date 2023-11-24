@@ -10,7 +10,6 @@ import 'package:uni_hostel_admin/core/themes/app_decoration.dart';
 import 'package:uni_hostel_admin/core/themes/app_text.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/core/widget/custom_button.dart';
-import 'package:uni_hostel_admin/di.dart';
 import 'package:uni_hostel_admin/presentation/components/loading_widget.dart';
 import 'package:uni_hostel_admin/presentation/components/pagination.dart';
 import 'package:uni_hostel_admin/presentation/components/responsiveness.dart';
@@ -26,9 +25,7 @@ class PaymentMonitoring extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double paddingSize = ResponsiveWidget.isMobileLarge(context) ? 14 : 30;
-    return BlocProvider<PaymentsCubit>(
-      create: (context) => inject<PaymentsCubit>()..payments(),
-      child:
+    return 
           BlocBuilder<PaymentsCubit, PaymentsState>(builder: (context, state) {
         var bloc = context.read<PaymentsCubit>();
         return Scaffold(
@@ -71,13 +68,25 @@ class PaymentMonitoring extends StatelessWidget {
                                           physics: BouncingScrollPhysics(),
                                           children: [
                                             TopItemPaymentMonitoringWidget(
-                                              title: AppStrings.strPaymentHistory,
+                                              title:
+                                                  AppStrings.strPaymentHistory,
                                               count: state.response?.count,
-                                              dormitoryIndex: state.dormitoryIndex,
-                                              dormitoryList: state.dormitoryList,
-                                              onchangedormitory: (v) =>bloc.selectDormitory(v),
+                                              dormitoryIndex:
+                                                  state.dormitoryIndex,
+                                              dormitoryList:
+                                                  state.dormitoryList,
+                                              onchangedormitory: (v) =>
+                                                  bloc.selectDormitory(v),
+                                              index: state.maritalStatus,
+                                              list: maritals,
+                                              faculties: state.facultiesList,
+                                              facultyIndex:
+                                                  state.facultyIndex?.name,
+                                              onChanged: (v) =>
+                                                  bloc.selectMaritals(v),
+                                              onChangeFaculty: (v) =>
+                                                  bloc.selectFaculty(v),
                                             ),
-                                           
                                             PaymentHistoryCardWidget(
                                                 response: state.whoPaidList),
                                           ],
@@ -117,7 +126,7 @@ class PaymentMonitoring extends StatelessWidget {
             ],
           ),
         );
-      }),
+      }
     );
   }
 }

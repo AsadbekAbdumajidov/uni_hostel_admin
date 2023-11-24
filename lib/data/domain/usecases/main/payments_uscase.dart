@@ -12,14 +12,22 @@ class PaymentsUsCase
   @override
   Future<Either<Failure, PaymentMonitoringResponse>> call(
           PaymentsParams params) =>
-      _iMainRepository.getPayments(params.page,params.search,params.dormitoryId);
+      _iMainRepository.getPayments(
+          params.page, params.search, params.dormitoryId,params.maritalStatus,params.facultyId);
 }
 
 class PaymentsParams {
   final int page;
   final String search;
   final int? dormitoryId;
+  final String maritalStatus;
+  final int? facultyId;
 
-
-  PaymentsParams(this.search, this.dormitoryId, {required this.page});
+  PaymentsParams({
+    required this.page,
+    required this.search,
+    this.dormitoryId,
+    required this.maritalStatus,
+    this.facultyId,
+  });
 }

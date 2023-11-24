@@ -26,6 +26,7 @@ List<String> typeList = [
   'order_admin',
   'payment_admin',
   'faculty_admin',
+  "payment_super_admin",
 ];
 
 List<String> inDormitoryList = ["ha", "yo'q", AppStrings.strNoneOfThem];

@@ -3,6 +3,7 @@ import 'package:retrofit/http.dart';
 import 'package:uni_hostel_admin/core/utils/utils.dart';
 import 'package:uni_hostel_admin/data/models/admin/admins_get/admins_response.dart';
 import 'package:uni_hostel_admin/data/models/download_orders_list/download_orders_list_response.dart';
+import 'package:uni_hostel_admin/data/models/edit_mothly_price/edit_mothly_price_request.dart';
 import 'package:uni_hostel_admin/data/models/get_dormitory/get_dormitory_response.dart';
 import 'package:uni_hostel_admin/data/models/in_dormitory/in_dormitory_response.dart';
 import 'package:uni_hostel_admin/data/models/login/request/login_request_model.dart';
@@ -103,6 +104,8 @@ abstract class ApiClient {
     @Query("page") int page,
     @Query("search_query") String search,
     @Query("dormitory_id") int? dormitoryId,
+    @Query("marital_status") String maritalStatus,
+    @Query("faculty_id") int? facultyId,
   );
 
   @GET('admin/administrator/')
@@ -119,4 +122,9 @@ abstract class ApiClient {
 
   @GET('admin/dormitory/')
   Future<List<GetDormitoryResponse>> getDormitories();
+
+  @PATCH('admin/update/student/monthly/payment/')
+  Future<bool> editMonthlyPrice(
+    @Body() EditMonthlyPriceRequest request,
+  );
 }

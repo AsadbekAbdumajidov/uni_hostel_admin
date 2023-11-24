@@ -118,7 +118,9 @@ class MenuDrawer extends StatelessWidget {
                     },
                   )
                 : SizedBox.shrink(),
-            (status == "payment_admin" || status == "admin")
+            (status == "payment_admin" ||
+                    status == "admin" ||
+                    status == "payment_super_admin")
                 ? SideMenuItem(
                     index: 5,
                     title: AppStrings.strThoseWhoPaid,

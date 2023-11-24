@@ -4,6 +4,7 @@ import 'package:uni_hostel_admin/core/error/error.dart';
 import 'package:uni_hostel_admin/data/models/admin/admin_post/add_admin_request.dart';
 import 'package:uni_hostel_admin/data/models/admin/admins_get/admins_response.dart';
 import 'package:uni_hostel_admin/data/models/download_orders_list/download_orders_list_response.dart';
+import 'package:uni_hostel_admin/data/models/edit_mothly_price/edit_mothly_price_request.dart';
 import 'package:uni_hostel_admin/data/models/get_dormitory/get_dormitory_response.dart';
 import 'package:uni_hostel_admin/data/models/in_dormitory/in_dormitory_response.dart';
 import 'package:uni_hostel_admin/data/models/order/get_order/get_order_response.dart';
@@ -76,6 +77,8 @@ abstract class IMainRepository {
     int page,
     String search,
     int? dormitoryId,
+    String maritalStatus,
+    int? facultyId,
   );
 
   Future<Either<Failure, GetAdminsResponse>> getAdmins();
@@ -90,5 +93,6 @@ abstract class IMainRepository {
   Future<Either<Failure, MainStatisticsResponse>> getMainStatistics();
   Future<Either<Failure, StudentStatisticsResponse>> getStudentStatistics();
   Future<Either<Failure, List<GetDormitoryResponse>>> getDormitories();
+  Future<Either<Failure, bool>> editMonthlyPrice(EditMonthlyPriceRequest request);
 
 }
