@@ -91,9 +91,7 @@ class AppStrings {
   static const strSum = "so'm";
   static const strGeneralfeeSchedule = "Umumiy to'lov jadvali";
   static const strDatesPaid = "To'langan sanalar";
-  static const strMonthlyPaymentUpdate = "Oylik to'lovni yangilash";
-
-
+  static const strMonthlyPaymentUpdate = "To'lovni tasdiqlash";
 
 // ------------- //
   static const strIronNotebook = "Temir daftar";
@@ -105,8 +103,8 @@ class AppStrings {
   static const strDisabledGroup = "1-2 guruh nogironi";
   static const strGiftedStudent = "Iqtidorli talaba";
 // ------------- //
-  static const strOneMonthPay = "1 oylik to'lov";
-  static const strOneMonthPayHint = "1 oylik to'lov kiriting";
+  static const strOneMonthPay = "To'lov miqdori";
+  static const strOneMonthPayHint = "To'lov miqdori kiriting";
   static const strPaymentDate = "To'lov sanasi";
   static const strPaymentDateHint =
       "To'lov sanasini kiriting (oyning qaysi kunida ?)";
@@ -116,6 +114,7 @@ class AppStrings {
   static const strIsNotEmpty = "maydon bo'sh bo'lishi mumkin emas";
   static const strReasonforRejection = "Rad etilish sababi";
   static const strQueuingReason = "Navbatga qo'yilish sababi";
+  static const strOperationCompleted = "Amaliyot muvaffaqiyatli bajarildi";
 
   /// --------------------------- Failure Text ------------------------------- ///
   static const strUserNotFound = "Foydalanuvchi topilmadi";

@@ -6,9 +6,9 @@ part of 'select_order_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SelectOrderResponse _$$_SelectOrderResponseFromJson(
+_$SelectOrderResponseImpl _$$SelectOrderResponseImplFromJson(
         Map<String, dynamic> json) =>
-    _$_SelectOrderResponse(
+    _$SelectOrderResponseImpl(
       id: json['id'] as int?,
       status: json['status'] as String?,
       student: json['student'] == null
@@ -36,8 +36,8 @@ _$_SelectOrderResponse _$$_SelectOrderResponseFromJson(
           : CheackAdmin.fromJson(json['checked_admin'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_SelectOrderResponseToJson(
-        _$_SelectOrderResponse instance) =>
+Map<String, dynamic> _$$SelectOrderResponseImplToJson(
+        _$SelectOrderResponseImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'status': instance.status,
@@ -61,9 +61,9 @@ Map<String, dynamic> _$$_SelectOrderResponseToJson(
       'checked_admin': instance.checkedAdmin,
     };
 
-_$_StudentInfoResponse _$$_StudentInfoResponseFromJson(
+_$StudentInfoResponseImpl _$$StudentInfoResponseImplFromJson(
         Map<String, dynamic> json) =>
-    _$_StudentInfoResponse(
+    _$StudentInfoResponseImpl(
       id: json['id'] as int?,
       fullName: json['full_name'] as String?,
       studentId: json['student_id'] as int?,
@@ -80,8 +80,8 @@ _$_StudentInfoResponse _$$_StudentInfoResponseFromJson(
       image: json['image'] as String?,
     );
 
-Map<String, dynamic> _$$_StudentInfoResponseToJson(
-        _$_StudentInfoResponse instance) =>
+Map<String, dynamic> _$$StudentInfoResponseImplToJson(
+        _$StudentInfoResponseImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'full_name': instance.fullName,
@@ -99,13 +99,13 @@ Map<String, dynamic> _$$_StudentInfoResponseToJson(
       'image': instance.image,
     };
 
-_$_CheackAdmin _$$_CheackAdminFromJson(Map<String, dynamic> json) =>
-    _$_CheackAdmin(
+_$CheackAdminImpl _$$CheackAdminImplFromJson(Map<String, dynamic> json) =>
+    _$CheackAdminImpl(
       firstName: json['first_name'] as String?,
       lastName: json['last_name'] as String?,
     );
 
-Map<String, dynamic> _$$_CheackAdminToJson(_$_CheackAdmin instance) =>
+Map<String, dynamic> _$$CheackAdminImplToJson(_$CheackAdminImpl instance) =>
     <String, dynamic>{
       'first_name': instance.firstName,
       'last_name': instance.lastName,

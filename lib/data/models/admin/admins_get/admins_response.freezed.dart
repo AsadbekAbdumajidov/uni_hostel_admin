@@ -62,22 +62,22 @@ class _$GetAdminsResponseCopyWithImpl<$Res, $Val extends GetAdminsResponse>
 }
 
 /// @nodoc
-abstract class _$$_GetAdminsResponseCopyWith<$Res>
+abstract class _$$GetAdminsResponseImplCopyWith<$Res>
     implements $GetAdminsResponseCopyWith<$Res> {
-  factory _$$_GetAdminsResponseCopyWith(_$_GetAdminsResponse value,
-          $Res Function(_$_GetAdminsResponse) then) =
-      __$$_GetAdminsResponseCopyWithImpl<$Res>;
+  factory _$$GetAdminsResponseImplCopyWith(_$GetAdminsResponseImpl value,
+          $Res Function(_$GetAdminsResponseImpl) then) =
+      __$$GetAdminsResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<ProfileResponse>? response});
 }
 
 /// @nodoc
-class __$$_GetAdminsResponseCopyWithImpl<$Res>
-    extends _$GetAdminsResponseCopyWithImpl<$Res, _$_GetAdminsResponse>
-    implements _$$_GetAdminsResponseCopyWith<$Res> {
-  __$$_GetAdminsResponseCopyWithImpl(
-      _$_GetAdminsResponse _value, $Res Function(_$_GetAdminsResponse) _then)
+class __$$GetAdminsResponseImplCopyWithImpl<$Res>
+    extends _$GetAdminsResponseCopyWithImpl<$Res, _$GetAdminsResponseImpl>
+    implements _$$GetAdminsResponseImplCopyWith<$Res> {
+  __$$GetAdminsResponseImplCopyWithImpl(_$GetAdminsResponseImpl _value,
+      $Res Function(_$GetAdminsResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_GetAdminsResponseCopyWithImpl<$Res>
   $Res call({
     Object? response = freezed,
   }) {
-    return _then(_$_GetAdminsResponse(
+    return _then(_$GetAdminsResponseImpl(
       response: freezed == response
           ? _value._response
           : response // ignore: cast_nullable_to_non_nullable
@@ -96,12 +96,12 @@ class __$$_GetAdminsResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GetAdminsResponse implements _GetAdminsResponse {
-  const _$_GetAdminsResponse({final List<ProfileResponse>? response})
+class _$GetAdminsResponseImpl implements _GetAdminsResponse {
+  const _$GetAdminsResponseImpl({final List<ProfileResponse>? response})
       : _response = response;
 
-  factory _$_GetAdminsResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_GetAdminsResponseFromJson(json);
+  factory _$GetAdminsResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GetAdminsResponseImplFromJson(json);
 
   final List<ProfileResponse>? _response;
   @override
@@ -122,7 +122,7 @@ class _$_GetAdminsResponse implements _GetAdminsResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GetAdminsResponse &&
+            other is _$GetAdminsResponseImpl &&
             const DeepCollectionEquality().equals(other._response, _response));
   }
 
@@ -134,13 +134,13 @@ class _$_GetAdminsResponse implements _GetAdminsResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GetAdminsResponseCopyWith<_$_GetAdminsResponse> get copyWith =>
-      __$$_GetAdminsResponseCopyWithImpl<_$_GetAdminsResponse>(
+  _$$GetAdminsResponseImplCopyWith<_$GetAdminsResponseImpl> get copyWith =>
+      __$$GetAdminsResponseImplCopyWithImpl<_$GetAdminsResponseImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GetAdminsResponseToJson(
+    return _$$GetAdminsResponseImplToJson(
       this,
     );
   }
@@ -148,15 +148,15 @@ class _$_GetAdminsResponse implements _GetAdminsResponse {
 
 abstract class _GetAdminsResponse implements GetAdminsResponse {
   const factory _GetAdminsResponse({final List<ProfileResponse>? response}) =
-      _$_GetAdminsResponse;
+      _$GetAdminsResponseImpl;
 
   factory _GetAdminsResponse.fromJson(Map<String, dynamic> json) =
-      _$_GetAdminsResponse.fromJson;
+      _$GetAdminsResponseImpl.fromJson;
 
   @override
   List<ProfileResponse>? get response;
   @override
   @JsonKey(ignore: true)
-  _$$_GetAdminsResponseCopyWith<_$_GetAdminsResponse> get copyWith =>
+  _$$GetAdminsResponseImplCopyWith<_$GetAdminsResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

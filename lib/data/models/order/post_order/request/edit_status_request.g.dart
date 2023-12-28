@@ -6,8 +6,9 @@ part of 'edit_status_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EditStatusRequest _$$_EditStatusRequestFromJson(Map<String, dynamic> json) =>
-    _$_EditStatusRequest(
+_$EditStatusRequestImpl _$$EditStatusRequestImplFromJson(
+        Map<String, dynamic> json) =>
+    _$EditStatusRequestImpl(
       status: json['status'] as String?,
       monthlyPaymentPrice: json['monthly_payment_price'] as int?,
       cancelReason: json['cancel_reason'] as String?,
@@ -24,8 +25,8 @@ _$_EditStatusRequest _$$_EditStatusRequestFromJson(Map<String, dynamic> json) =>
       hasManyChildrenFamily: json['has_many_children_family'] as bool?,
     );
 
-Map<String, dynamic> _$$_EditStatusRequestToJson(
-        _$_EditStatusRequest instance) =>
+Map<String, dynamic> _$$EditStatusRequestImplToJson(
+        _$EditStatusRequestImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'monthly_payment_price': instance.monthlyPaymentPrice,

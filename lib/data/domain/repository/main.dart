@@ -93,6 +93,6 @@ abstract class IMainRepository {
   Future<Either<Failure, MainStatisticsResponse>> getMainStatistics();
   Future<Either<Failure, StudentStatisticsResponse>> getStudentStatistics();
   Future<Either<Failure, List<GetDormitoryResponse>>> getDormitories();
-  Future<Either<Failure, bool>> editMonthlyPrice(EditMonthlyPriceRequest request);
+  Future<Either<Failure, EditStatusResponse>> editMonthlyPrice(EditMonthlyPriceRequest request);
 
 }

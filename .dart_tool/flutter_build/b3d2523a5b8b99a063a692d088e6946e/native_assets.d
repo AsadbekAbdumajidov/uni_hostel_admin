@@ -1,0 +1,1 @@
+ /Users/asadbek/my\ projects/uni_hostel_admin/.dart_tool/flutter_build/b3d2523a5b8b99a063a692d088e6946e/native_assets.yaml: 

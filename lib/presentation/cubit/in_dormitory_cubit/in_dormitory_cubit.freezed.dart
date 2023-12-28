@@ -179,11 +179,11 @@ class _$InDormitoryStateCopyWithImpl<$Res, $Val extends InDormitoryState>
 }
 
 /// @nodoc
-abstract class _$$_InDormitoryStateCopyWith<$Res>
+abstract class _$$InDormitoryStateImplCopyWith<$Res>
     implements $InDormitoryStateCopyWith<$Res> {
-  factory _$$_InDormitoryStateCopyWith(
-          _$_InDormitoryState value, $Res Function(_$_InDormitoryState) then) =
-      __$$_InDormitoryStateCopyWithImpl<$Res>;
+  factory _$$InDormitoryStateImplCopyWith(_$InDormitoryStateImpl value,
+          $Res Function(_$InDormitoryStateImpl) then) =
+      __$$InDormitoryStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -209,11 +209,11 @@ abstract class _$$_InDormitoryStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_InDormitoryStateCopyWithImpl<$Res>
-    extends _$InDormitoryStateCopyWithImpl<$Res, _$_InDormitoryState>
-    implements _$$_InDormitoryStateCopyWith<$Res> {
-  __$$_InDormitoryStateCopyWithImpl(
-      _$_InDormitoryState _value, $Res Function(_$_InDormitoryState) _then)
+class __$$InDormitoryStateImplCopyWithImpl<$Res>
+    extends _$InDormitoryStateCopyWithImpl<$Res, _$InDormitoryStateImpl>
+    implements _$$InDormitoryStateImplCopyWith<$Res> {
+  __$$InDormitoryStateImplCopyWithImpl(_$InDormitoryStateImpl _value,
+      $Res Function(_$InDormitoryStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -234,7 +234,7 @@ class __$$_InDormitoryStateCopyWithImpl<$Res>
     Object? ordersList = freezed,
     Object? genderIndex = null,
   }) {
-    return _then(_$_InDormitoryState(
+    return _then(_$InDormitoryStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -297,8 +297,8 @@ class __$$_InDormitoryStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_InDormitoryState implements _InDormitoryState {
-  const _$_InDormitoryState(
+class _$InDormitoryStateImpl implements _InDormitoryState {
+  const _$InDormitoryStateImpl(
       {this.status = Status.UNKNOWN,
       this.failure = const UnknownFailure(),
       this.orderResponse,
@@ -386,7 +386,7 @@ class _$_InDormitoryState implements _InDormitoryState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_InDormitoryState &&
+            other is _$InDormitoryStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.failure, failure) || other.failure == failure) &&
             (identical(other.orderResponse, orderResponse) ||
@@ -434,8 +434,9 @@ class _$_InDormitoryState implements _InDormitoryState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InDormitoryStateCopyWith<_$_InDormitoryState> get copyWith =>
-      __$$_InDormitoryStateCopyWithImpl<_$_InDormitoryState>(this, _$identity);
+  _$$InDormitoryStateImplCopyWith<_$InDormitoryStateImpl> get copyWith =>
+      __$$InDormitoryStateImplCopyWithImpl<_$InDormitoryStateImpl>(
+          this, _$identity);
 }
 
 abstract class _InDormitoryState implements InDormitoryState {
@@ -453,7 +454,7 @@ abstract class _InDormitoryState implements InDormitoryState {
       final String courseIndex,
       final FacultiesModel? facultyIndex,
       final String? ordersList,
-      final String genderIndex}) = _$_InDormitoryState;
+      final String genderIndex}) = _$InDormitoryStateImpl;
 
   @override
   Status get status;
@@ -485,6 +486,6 @@ abstract class _InDormitoryState implements InDormitoryState {
   String get genderIndex;
   @override
   @JsonKey(ignore: true)
-  _$$_InDormitoryStateCopyWith<_$_InDormitoryState> get copyWith =>
+  _$$InDormitoryStateImplCopyWith<_$InDormitoryStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -68,22 +68,22 @@ class _$EditStatusResponseCopyWithImpl<$Res, $Val extends EditStatusResponse>
 }
 
 /// @nodoc
-abstract class _$$_EditStatusResponseCopyWith<$Res>
+abstract class _$$EditStatusResponseImplCopyWith<$Res>
     implements $EditStatusResponseCopyWith<$Res> {
-  factory _$$_EditStatusResponseCopyWith(_$_EditStatusResponse value,
-          $Res Function(_$_EditStatusResponse) then) =
-      __$$_EditStatusResponseCopyWithImpl<$Res>;
+  factory _$$EditStatusResponseImplCopyWith(_$EditStatusResponseImpl value,
+          $Res Function(_$EditStatusResponseImpl) then) =
+      __$$EditStatusResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? status, String? message});
 }
 
 /// @nodoc
-class __$$_EditStatusResponseCopyWithImpl<$Res>
-    extends _$EditStatusResponseCopyWithImpl<$Res, _$_EditStatusResponse>
-    implements _$$_EditStatusResponseCopyWith<$Res> {
-  __$$_EditStatusResponseCopyWithImpl(
-      _$_EditStatusResponse _value, $Res Function(_$_EditStatusResponse) _then)
+class __$$EditStatusResponseImplCopyWithImpl<$Res>
+    extends _$EditStatusResponseCopyWithImpl<$Res, _$EditStatusResponseImpl>
+    implements _$$EditStatusResponseImplCopyWith<$Res> {
+  __$$EditStatusResponseImplCopyWithImpl(_$EditStatusResponseImpl _value,
+      $Res Function(_$EditStatusResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_EditStatusResponseCopyWithImpl<$Res>
     Object? status = freezed,
     Object? message = freezed,
   }) {
-    return _then(_$_EditStatusResponse(
+    return _then(_$EditStatusResponseImpl(
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -107,11 +107,11 @@ class __$$_EditStatusResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EditStatusResponse implements _EditStatusResponse {
-  const _$_EditStatusResponse({this.status, this.message});
+class _$EditStatusResponseImpl implements _EditStatusResponse {
+  const _$EditStatusResponseImpl({this.status, this.message});
 
-  factory _$_EditStatusResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_EditStatusResponseFromJson(json);
+  factory _$EditStatusResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EditStatusResponseImplFromJson(json);
 
   @override
   final String? status;
@@ -127,7 +127,7 @@ class _$_EditStatusResponse implements _EditStatusResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EditStatusResponse &&
+            other is _$EditStatusResponseImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message));
   }
@@ -139,13 +139,13 @@ class _$_EditStatusResponse implements _EditStatusResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EditStatusResponseCopyWith<_$_EditStatusResponse> get copyWith =>
-      __$$_EditStatusResponseCopyWithImpl<_$_EditStatusResponse>(
+  _$$EditStatusResponseImplCopyWith<_$EditStatusResponseImpl> get copyWith =>
+      __$$EditStatusResponseImplCopyWithImpl<_$EditStatusResponseImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EditStatusResponseToJson(
+    return _$$EditStatusResponseImplToJson(
       this,
     );
   }
@@ -153,10 +153,10 @@ class _$_EditStatusResponse implements _EditStatusResponse {
 
 abstract class _EditStatusResponse implements EditStatusResponse {
   const factory _EditStatusResponse(
-      {final String? status, final String? message}) = _$_EditStatusResponse;
+      {final String? status, final String? message}) = _$EditStatusResponseImpl;
 
   factory _EditStatusResponse.fromJson(Map<String, dynamic> json) =
-      _$_EditStatusResponse.fromJson;
+      _$EditStatusResponseImpl.fromJson;
 
   @override
   String? get status;
@@ -164,6 +164,6 @@ abstract class _EditStatusResponse implements EditStatusResponse {
   String? get message;
   @override
   @JsonKey(ignore: true)
-  _$$_EditStatusResponseCopyWith<_$_EditStatusResponse> get copyWith =>
+  _$$EditStatusResponseImplCopyWith<_$EditStatusResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

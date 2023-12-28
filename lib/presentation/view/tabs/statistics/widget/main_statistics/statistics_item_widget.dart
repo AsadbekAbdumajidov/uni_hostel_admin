@@ -92,7 +92,7 @@ class StatisTicsView extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Talabar bo'yicha - (${response?.all} ta)",
+                      Text("Talabar (Arizalar bo'yicha - ${response?.all} ta)",
                           style: Theme.of(context)
                               .textTheme
                               .headlineSmall

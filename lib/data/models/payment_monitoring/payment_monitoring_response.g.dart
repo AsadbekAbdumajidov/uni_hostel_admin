@@ -6,9 +6,9 @@ part of 'payment_monitoring_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PaymentMonitoringResponse _$$_PaymentMonitoringResponseFromJson(
+_$PaymentMonitoringResponseImpl _$$PaymentMonitoringResponseImplFromJson(
         Map<String, dynamic> json) =>
-    _$_PaymentMonitoringResponse(
+    _$PaymentMonitoringResponseImpl(
       count: json['count'] as int?,
       next: json['next'] as String?,
       previous: json['previous'] as String?,
@@ -17,8 +17,8 @@ _$_PaymentMonitoringResponse _$$_PaymentMonitoringResponseFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$$_PaymentMonitoringResponseToJson(
-        _$_PaymentMonitoringResponse instance) =>
+Map<String, dynamic> _$$PaymentMonitoringResponseImplToJson(
+        _$PaymentMonitoringResponseImpl instance) =>
     <String, dynamic>{
       'count': instance.count,
       'next': instance.next,
@@ -26,8 +26,8 @@ Map<String, dynamic> _$$_PaymentMonitoringResponseToJson(
       'results': instance.results,
     };
 
-_$_WhoPaidModel _$$_WhoPaidModelFromJson(Map<String, dynamic> json) =>
-    _$_WhoPaidModel(
+_$WhoPaidModelImpl _$$WhoPaidModelImplFromJson(Map<String, dynamic> json) =>
+    _$WhoPaidModelImpl(
       id: json['id'] as int?,
       course: json['course'] as String?,
       fullName: json['full_name'] as String?,
@@ -44,7 +44,7 @@ _$_WhoPaidModel _$$_WhoPaidModelFromJson(Map<String, dynamic> json) =>
       duty: json['duty'] as int?,
     );
 
-Map<String, dynamic> _$$_WhoPaidModelToJson(_$_WhoPaidModel instance) =>
+Map<String, dynamic> _$$WhoPaidModelImplToJson(_$WhoPaidModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'course': instance.course,
@@ -58,14 +58,15 @@ Map<String, dynamic> _$$_WhoPaidModelToJson(_$_WhoPaidModel instance) =>
       'duty': instance.duty,
     };
 
-_$_Payments _$$_PaymentsFromJson(Map<String, dynamic> json) => _$_Payments(
+_$PaymentsImpl _$$PaymentsImplFromJson(Map<String, dynamic> json) =>
+    _$PaymentsImpl(
       id: json['id'] as int?,
       amount: json['amount'] as String?,
       status: json['status'] as String?,
       payedAt: json['payed_at'] as String?,
     );
 
-Map<String, dynamic> _$$_PaymentsToJson(_$_Payments instance) =>
+Map<String, dynamic> _$$PaymentsImplToJson(_$PaymentsImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'amount': instance.amount,
@@ -73,7 +74,8 @@ Map<String, dynamic> _$$_PaymentsToJson(_$_Payments instance) =>
       'payed_at': instance.payedAt,
     };
 
-_$_Schedules _$$_SchedulesFromJson(Map<String, dynamic> json) => _$_Schedules(
+_$SchedulesImpl _$$SchedulesImplFromJson(Map<String, dynamic> json) =>
+    _$SchedulesImpl(
       id: json['id'] as int?,
       monthlyPrice: json['monthly_payment_price'] as int?,
       payedAmount: json['payed_amount'] as int?,
@@ -83,7 +85,7 @@ _$_Schedules _$$_SchedulesFromJson(Map<String, dynamic> json) => _$_Schedules(
       residual: json['residual'] as int?,
     );
 
-Map<String, dynamic> _$$_SchedulesToJson(_$_Schedules instance) =>
+Map<String, dynamic> _$$SchedulesImplToJson(_$SchedulesImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'monthly_payment_price': instance.monthlyPrice,

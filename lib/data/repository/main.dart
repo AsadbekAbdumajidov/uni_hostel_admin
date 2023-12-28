@@ -599,11 +599,11 @@ class MainRepository implements IMainRepository {
   }
 
   @override
-  Future<Either<Failure, bool>> editMonthlyPrice(
+  Future<Either<Failure, EditStatusResponse>> editMonthlyPrice(
       EditMonthlyPriceRequest request) async {
     try {
-      await _apiClient.editMonthlyPrice(request);
-      return Right(true);
+      final response = await _apiClient.editMonthlyPrice(request);
+      return Right(response);
     } on DioError catch (e) {
       if (kDebugMode) {
         debugPrint("$e");

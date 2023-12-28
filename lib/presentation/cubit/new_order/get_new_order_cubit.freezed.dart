@@ -177,11 +177,11 @@ class _$GetNewOrderStateCopyWithImpl<$Res, $Val extends GetNewOrderState>
 }
 
 /// @nodoc
-abstract class _$$_GetNewOrderStateCopyWith<$Res>
+abstract class _$$GetNewOrderStateImplCopyWith<$Res>
     implements $GetNewOrderStateCopyWith<$Res> {
-  factory _$$_GetNewOrderStateCopyWith(
-          _$_GetNewOrderState value, $Res Function(_$_GetNewOrderState) then) =
-      __$$_GetNewOrderStateCopyWithImpl<$Res>;
+  factory _$$GetNewOrderStateImplCopyWith(_$GetNewOrderStateImpl value,
+          $Res Function(_$GetNewOrderStateImpl) then) =
+      __$$GetNewOrderStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -207,11 +207,11 @@ abstract class _$$_GetNewOrderStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GetNewOrderStateCopyWithImpl<$Res>
-    extends _$GetNewOrderStateCopyWithImpl<$Res, _$_GetNewOrderState>
-    implements _$$_GetNewOrderStateCopyWith<$Res> {
-  __$$_GetNewOrderStateCopyWithImpl(
-      _$_GetNewOrderState _value, $Res Function(_$_GetNewOrderState) _then)
+class __$$GetNewOrderStateImplCopyWithImpl<$Res>
+    extends _$GetNewOrderStateCopyWithImpl<$Res, _$GetNewOrderStateImpl>
+    implements _$$GetNewOrderStateImplCopyWith<$Res> {
+  __$$GetNewOrderStateImplCopyWithImpl(_$GetNewOrderStateImpl _value,
+      $Res Function(_$GetNewOrderStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -232,7 +232,7 @@ class __$$_GetNewOrderStateCopyWithImpl<$Res>
     Object? courseIndex = freezed,
     Object? ordersList = freezed,
   }) {
-    return _then(_$_GetNewOrderState(
+    return _then(_$GetNewOrderStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -295,8 +295,8 @@ class __$$_GetNewOrderStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GetNewOrderState implements _GetNewOrderState {
-  const _$_GetNewOrderState(
+class _$GetNewOrderStateImpl implements _GetNewOrderState {
+  const _$GetNewOrderStateImpl(
       {this.status = Status.UNKNOWN,
       this.failure = const UnknownFailure(),
       this.orderResponse,
@@ -384,7 +384,7 @@ class _$_GetNewOrderState implements _GetNewOrderState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GetNewOrderState &&
+            other is _$GetNewOrderStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.failure, failure) || other.failure == failure) &&
             (identical(other.orderResponse, orderResponse) ||
@@ -432,8 +432,9 @@ class _$_GetNewOrderState implements _GetNewOrderState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GetNewOrderStateCopyWith<_$_GetNewOrderState> get copyWith =>
-      __$$_GetNewOrderStateCopyWithImpl<_$_GetNewOrderState>(this, _$identity);
+  _$$GetNewOrderStateImplCopyWith<_$GetNewOrderStateImpl> get copyWith =>
+      __$$GetNewOrderStateImplCopyWithImpl<_$GetNewOrderStateImpl>(
+          this, _$identity);
 }
 
 abstract class _GetNewOrderState implements GetNewOrderState {
@@ -451,7 +452,7 @@ abstract class _GetNewOrderState implements GetNewOrderState {
       final List<String> facultiesList,
       final FacultiesModel? facultyIndex,
       final String? courseIndex,
-      final String? ordersList}) = _$_GetNewOrderState;
+      final String? ordersList}) = _$GetNewOrderStateImpl;
 
   @override
   Status get status;
@@ -483,6 +484,6 @@ abstract class _GetNewOrderState implements GetNewOrderState {
   String? get ordersList;
   @override
   @JsonKey(ignore: true)
-  _$$_GetNewOrderStateCopyWith<_$_GetNewOrderState> get copyWith =>
+  _$$GetNewOrderStateImplCopyWith<_$GetNewOrderStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

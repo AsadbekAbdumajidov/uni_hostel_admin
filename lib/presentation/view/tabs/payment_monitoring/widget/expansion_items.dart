@@ -56,7 +56,7 @@ class ExpansionPaymentsItem extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              title3 == "success"
+              (title3 == "To'langan" )
                   ? ResponsiveWidget.isMobile(context)
                       ? Icon(CupertinoIcons.check_mark_circled,
                           color: AppColors.greenColour)

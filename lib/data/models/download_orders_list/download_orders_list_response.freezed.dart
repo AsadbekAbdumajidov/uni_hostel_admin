@@ -65,25 +65,25 @@ class _$DownloadOrdersListResponseCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_DownloadOrdersListResponseCopyWith<$Res>
+abstract class _$$DownloadOrdersListResponseImplCopyWith<$Res>
     implements $DownloadOrdersListResponseCopyWith<$Res> {
-  factory _$$_DownloadOrdersListResponseCopyWith(
-          _$_DownloadOrdersListResponse value,
-          $Res Function(_$_DownloadOrdersListResponse) then) =
-      __$$_DownloadOrdersListResponseCopyWithImpl<$Res>;
+  factory _$$DownloadOrdersListResponseImplCopyWith(
+          _$DownloadOrdersListResponseImpl value,
+          $Res Function(_$DownloadOrdersListResponseImpl) then) =
+      __$$DownloadOrdersListResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? file});
 }
 
 /// @nodoc
-class __$$_DownloadOrdersListResponseCopyWithImpl<$Res>
+class __$$DownloadOrdersListResponseImplCopyWithImpl<$Res>
     extends _$DownloadOrdersListResponseCopyWithImpl<$Res,
-        _$_DownloadOrdersListResponse>
-    implements _$$_DownloadOrdersListResponseCopyWith<$Res> {
-  __$$_DownloadOrdersListResponseCopyWithImpl(
-      _$_DownloadOrdersListResponse _value,
-      $Res Function(_$_DownloadOrdersListResponse) _then)
+        _$DownloadOrdersListResponseImpl>
+    implements _$$DownloadOrdersListResponseImplCopyWith<$Res> {
+  __$$DownloadOrdersListResponseImplCopyWithImpl(
+      _$DownloadOrdersListResponseImpl _value,
+      $Res Function(_$DownloadOrdersListResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -91,7 +91,7 @@ class __$$_DownloadOrdersListResponseCopyWithImpl<$Res>
   $Res call({
     Object? file = freezed,
   }) {
-    return _then(_$_DownloadOrdersListResponse(
+    return _then(_$DownloadOrdersListResponseImpl(
       file: freezed == file
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
@@ -102,11 +102,12 @@ class __$$_DownloadOrdersListResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DownloadOrdersListResponse implements _DownloadOrdersListResponse {
-  const _$_DownloadOrdersListResponse({this.file});
+class _$DownloadOrdersListResponseImpl implements _DownloadOrdersListResponse {
+  const _$DownloadOrdersListResponseImpl({this.file});
 
-  factory _$_DownloadOrdersListResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_DownloadOrdersListResponseFromJson(json);
+  factory _$DownloadOrdersListResponseImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$DownloadOrdersListResponseImplFromJson(json);
 
   @override
   final String? file;
@@ -120,7 +121,7 @@ class _$_DownloadOrdersListResponse implements _DownloadOrdersListResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DownloadOrdersListResponse &&
+            other is _$DownloadOrdersListResponseImpl &&
             (identical(other.file, file) || other.file == file));
   }
 
@@ -131,13 +132,13 @@ class _$_DownloadOrdersListResponse implements _DownloadOrdersListResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DownloadOrdersListResponseCopyWith<_$_DownloadOrdersListResponse>
-      get copyWith => __$$_DownloadOrdersListResponseCopyWithImpl<
-          _$_DownloadOrdersListResponse>(this, _$identity);
+  _$$DownloadOrdersListResponseImplCopyWith<_$DownloadOrdersListResponseImpl>
+      get copyWith => __$$DownloadOrdersListResponseImplCopyWithImpl<
+          _$DownloadOrdersListResponseImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DownloadOrdersListResponseToJson(
+    return _$$DownloadOrdersListResponseImplToJson(
       this,
     );
   }
@@ -146,15 +147,15 @@ class _$_DownloadOrdersListResponse implements _DownloadOrdersListResponse {
 abstract class _DownloadOrdersListResponse
     implements DownloadOrdersListResponse {
   const factory _DownloadOrdersListResponse({final String? file}) =
-      _$_DownloadOrdersListResponse;
+      _$DownloadOrdersListResponseImpl;
 
   factory _DownloadOrdersListResponse.fromJson(Map<String, dynamic> json) =
-      _$_DownloadOrdersListResponse.fromJson;
+      _$DownloadOrdersListResponseImpl.fromJson;
 
   @override
   String? get file;
   @override
   @JsonKey(ignore: true)
-  _$$_DownloadOrdersListResponseCopyWith<_$_DownloadOrdersListResponse>
+  _$$DownloadOrdersListResponseImplCopyWith<_$DownloadOrdersListResponseImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

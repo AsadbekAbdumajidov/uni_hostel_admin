@@ -6,9 +6,9 @@ part of 'student_statistics_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_StudentStatisticsResponse _$$_StudentStatisticsResponseFromJson(
+_$StudentStatisticsResponseImpl _$$StudentStatisticsResponseImplFromJson(
         Map<String, dynamic> json) =>
-    _$_StudentStatisticsResponse(
+    _$StudentStatisticsResponseImpl(
       all: json['all'] as int?,
       male: json['male'] as int?,
       female: json['female'] as int?,
@@ -27,8 +27,8 @@ _$_StudentStatisticsResponse _$$_StudentStatisticsResponseFromJson(
       kurs7: json['7-kurs'] as int?,
     );
 
-Map<String, dynamic> _$$_StudentStatisticsResponseToJson(
-        _$_StudentStatisticsResponse instance) =>
+Map<String, dynamic> _$$StudentStatisticsResponseImplToJson(
+        _$StudentStatisticsResponseImpl instance) =>
     <String, dynamic>{
       'all': instance.all,
       'male': instance.male,
@@ -44,7 +44,8 @@ Map<String, dynamic> _$$_StudentStatisticsResponseToJson(
       '7-kurs': instance.kurs7,
     };
 
-_$_Regions _$$_RegionsFromJson(Map<String, dynamic> json) => _$_Regions(
+_$RegionsImpl _$$RegionsImplFromJson(Map<String, dynamic> json) =>
+    _$RegionsImpl(
       toshkentV: json['Toshkent viloyati'] as int?,
       toshkentSh: json['Toshkent shahri'] as int?,
       navoiyV: json['Navoiy viloyati'] as int?,
@@ -61,7 +62,7 @@ _$_Regions _$$_RegionsFromJson(Map<String, dynamic> json) => _$_Regions(
       xorazmV: json['Xorazm viloyati'] as int?,
     );
 
-Map<String, dynamic> _$$_RegionsToJson(_$_Regions instance) =>
+Map<String, dynamic> _$$RegionsImplToJson(_$RegionsImpl instance) =>
     <String, dynamic>{
       'Toshkent viloyati': instance.toshkentV,
       'Toshkent shahri': instance.toshkentSh,

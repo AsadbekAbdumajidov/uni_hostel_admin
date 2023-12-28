@@ -163,11 +163,11 @@ class _$SelectedOrderStateCopyWithImpl<$Res, $Val extends SelectedOrderState>
 }
 
 /// @nodoc
-abstract class _$$_SelectedOrderStateCopyWith<$Res>
+abstract class _$$SelectedOrderStateImplCopyWith<$Res>
     implements $SelectedOrderStateCopyWith<$Res> {
-  factory _$$_SelectedOrderStateCopyWith(_$_SelectedOrderState value,
-          $Res Function(_$_SelectedOrderState) then) =
-      __$$_SelectedOrderStateCopyWithImpl<$Res>;
+  factory _$$SelectedOrderStateImplCopyWith(_$SelectedOrderStateImpl value,
+          $Res Function(_$SelectedOrderStateImpl) then) =
+      __$$SelectedOrderStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -191,11 +191,11 @@ abstract class _$$_SelectedOrderStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SelectedOrderStateCopyWithImpl<$Res>
-    extends _$SelectedOrderStateCopyWithImpl<$Res, _$_SelectedOrderState>
-    implements _$$_SelectedOrderStateCopyWith<$Res> {
-  __$$_SelectedOrderStateCopyWithImpl(
-      _$_SelectedOrderState _value, $Res Function(_$_SelectedOrderState) _then)
+class __$$SelectedOrderStateImplCopyWithImpl<$Res>
+    extends _$SelectedOrderStateCopyWithImpl<$Res, _$SelectedOrderStateImpl>
+    implements _$$SelectedOrderStateImplCopyWith<$Res> {
+  __$$SelectedOrderStateImplCopyWithImpl(_$SelectedOrderStateImpl _value,
+      $Res Function(_$SelectedOrderStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -216,7 +216,7 @@ class __$$_SelectedOrderStateCopyWithImpl<$Res>
     Object? trueProperties = null,
     Object? checkBoxModel = freezed,
   }) {
-    return _then(_$_SelectedOrderState(
+    return _then(_$SelectedOrderStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -279,8 +279,8 @@ class __$$_SelectedOrderStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SelectedOrderState implements _SelectedOrderState {
-  const _$_SelectedOrderState(
+class _$SelectedOrderStateImpl implements _SelectedOrderState {
+  const _$SelectedOrderStateImpl(
       {this.status = Status.UNKNOWN,
       this.failure = const UnknownFailure(),
       this.orderResponse,
@@ -361,7 +361,7 @@ class _$_SelectedOrderState implements _SelectedOrderState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SelectedOrderState &&
+            other is _$SelectedOrderStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.failure, failure) || other.failure == failure) &&
             (identical(other.orderResponse, orderResponse) ||
@@ -411,8 +411,8 @@ class _$_SelectedOrderState implements _SelectedOrderState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SelectedOrderStateCopyWith<_$_SelectedOrderState> get copyWith =>
-      __$$_SelectedOrderStateCopyWithImpl<_$_SelectedOrderState>(
+  _$$SelectedOrderStateImplCopyWith<_$SelectedOrderStateImpl> get copyWith =>
+      __$$SelectedOrderStateImplCopyWithImpl<_$SelectedOrderStateImpl>(
           this, _$identity);
 }
 
@@ -431,7 +431,7 @@ abstract class _SelectedOrderState implements SelectedOrderState {
       final bool giftedStudent,
       final bool hasManyChildrenFamily,
       final List<String> trueProperties,
-      final List<CheckBoxModel>? checkBoxModel}) = _$_SelectedOrderState;
+      final List<CheckBoxModel>? checkBoxModel}) = _$SelectedOrderStateImpl;
 
   @override
   Status get status;
@@ -463,6 +463,6 @@ abstract class _SelectedOrderState implements SelectedOrderState {
   List<CheckBoxModel>? get checkBoxModel;
   @override
   @JsonKey(ignore: true)
-  _$$_SelectedOrderStateCopyWith<_$_SelectedOrderState> get copyWith =>
+  _$$SelectedOrderStateImplCopyWith<_$SelectedOrderStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

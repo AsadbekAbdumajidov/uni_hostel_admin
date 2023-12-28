@@ -6,8 +6,9 @@ part of 'profile_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ProfileResponse _$$_ProfileResponseFromJson(Map<String, dynamic> json) =>
-    _$_ProfileResponse(
+_$ProfileResponseImpl _$$ProfileResponseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ProfileResponseImpl(
       id: json['id'] as int?,
       firstName: json['first_name'] as String?,
       lastName: json['last_name'] as String?,
@@ -18,7 +19,8 @@ _$_ProfileResponse _$$_ProfileResponseFromJson(Map<String, dynamic> json) =>
       facultyAdmin: json['faculty_admin'] as int?,
     );
 
-Map<String, dynamic> _$$_ProfileResponseToJson(_$_ProfileResponse instance) =>
+Map<String, dynamic> _$$ProfileResponseImplToJson(
+        _$ProfileResponseImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'first_name': instance.firstName,

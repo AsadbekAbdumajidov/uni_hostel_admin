@@ -41,7 +41,7 @@ class ExpansionPayments extends StatelessWidget {
                           subTitle: user?.fullName ?? "-",
                         ),
                         UserInformationMobile(
-                          maxLines: 3,
+                          maxLines: 2,
                           title: AppStrings.strFaculty,
                           subTitle: user?.facultyModel ?? "-",
                         ),
@@ -103,44 +103,49 @@ class ExpansionPayments extends StatelessWidget {
                               .textTheme
                               .titleSmall
                               ?.copyWith(fontWeight: FontWeight.w600)),
-                    (status == "payment_super_admin" || status == "admin") ?  BlocProvider(
-                        create: (context) => OnHoverCubit(),
-                        child: BlocBuilder<OnHoverCubit, OnHoverState>(
-                            builder: (context, state) {
-                          return InkWell(
-                            onHover: (v) =>
-                                context.read<OnHoverCubit>().getHover(v),
-                            onTap: () {showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return EditMonthlyAlertDialog(
-                                    
-                                    title: AppStrings.strApprove,
-                                     name:AppStrings.strMonthlyPaymentUpdate,
-                                  );
-                                });},
-                            child: Row(
-                              children: [
-                                Text(AppStrings.strMonthlyPaymentUpdate,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleSmall
-                                        ?.copyWith(
-                                            fontWeight: FontWeight.w600,
-                                            color: state.hover
-                                                ? AppColors.primaryColor
-                                                : AppColors.blackColor)),
-                                SizedBox(width: 2),
-                                Icon(Icons.edit,
-                                    size: 20,
-                                    color: state.hover
-                                        ? AppColors.primaryColor
-                                        : AppColors.blackColor),
-                              ],
-                            ),
-                          );
-                        }),
-                      ) : SizedBox.shrink()
+                      (status == "payment_super_admin" || status == "admin")
+                          ? BlocProvider(
+                              create: (context) => OnHoverCubit(),
+                              child: BlocBuilder<OnHoverCubit, OnHoverState>(
+                                  builder: (context, state) {
+                                return InkWell(
+                                  onHover: (v) =>
+                                      context.read<OnHoverCubit>().getHover(v),
+                                  onTap: () {
+                                    showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) {
+                                          return EditMonthlyAlertDialog(
+                                            id: user?.studentId ?? 0,
+                                            title: AppStrings.strApprove,
+                                            name: AppStrings
+                                                .strMonthlyPaymentUpdate,
+                                          );
+                                        });
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Text(AppStrings.strMonthlyPaymentUpdate,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .titleSmall
+                                              ?.copyWith(
+                                                  fontWeight: FontWeight.w600,
+                                                  color: state.hover
+                                                      ? AppColors.primaryColor
+                                                      : AppColors.blackColor)),
+                                      SizedBox(width: 2),
+                                      Icon(Icons.edit,
+                                          size: 20,
+                                          color: state.hover
+                                              ? AppColors.primaryColor
+                                              : AppColors.blackColor),
+                                    ],
+                                  ),
+                                );
+                              }),
+                            )
+                          : SizedBox.shrink()
                     ],
                   ),
                   SizedBox(height: 10),
@@ -169,7 +174,8 @@ class ExpansionPayments extends StatelessWidget {
                     itemBuilder: (context, index) => ExpansionPaymentsItem(
                       title1: schedules?[index].id.toString() ?? "",
                       title2: schedules?[index].monthlyPrice.toString() ?? "",
-                      title3: schedules![index].payed ? "success" : "rejected",
+                      title3:
+                          schedules![index].payed ? "To'langan" : "To'lanmagan",
                       title4: schedules?[index].paymentDate ?? "",
                     ).paddingAll(8),
                   ),
@@ -213,8 +219,9 @@ class ExpansionPayments extends StatelessWidget {
                               ExpansionPaymentsItem(
                             title1: userPayments?[index].id.toString() ?? "",
                             title2: userPayments?[index].amount ?? "",
-                            title3:
-                                userPayments?[index].status.toString() ?? "",
+                            title3: userPayments?[index].status == "success"
+                                ? "to'langan"
+                                : "to'lanmagan",
                             title4: getFullDateTime(
                                 userPayments?[index].payedAt, context),
                           ).paddingAll(8),

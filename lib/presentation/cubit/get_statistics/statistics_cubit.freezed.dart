@@ -108,11 +108,11 @@ class _$StatisticsStateCopyWithImpl<$Res, $Val extends StatisticsState>
 }
 
 /// @nodoc
-abstract class _$$_StatisticsStateCopyWith<$Res>
+abstract class _$$StatisticsStateImplCopyWith<$Res>
     implements $StatisticsStateCopyWith<$Res> {
-  factory _$$_StatisticsStateCopyWith(
-          _$_StatisticsState value, $Res Function(_$_StatisticsState) then) =
-      __$$_StatisticsStateCopyWithImpl<$Res>;
+  factory _$$StatisticsStateImplCopyWith(_$StatisticsStateImpl value,
+          $Res Function(_$StatisticsStateImpl) then) =
+      __$$StatisticsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -128,11 +128,11 @@ abstract class _$$_StatisticsStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_StatisticsStateCopyWithImpl<$Res>
-    extends _$StatisticsStateCopyWithImpl<$Res, _$_StatisticsState>
-    implements _$$_StatisticsStateCopyWith<$Res> {
-  __$$_StatisticsStateCopyWithImpl(
-      _$_StatisticsState _value, $Res Function(_$_StatisticsState) _then)
+class __$$StatisticsStateImplCopyWithImpl<$Res>
+    extends _$StatisticsStateCopyWithImpl<$Res, _$StatisticsStateImpl>
+    implements _$$StatisticsStateImplCopyWith<$Res> {
+  __$$StatisticsStateImplCopyWithImpl(
+      _$StatisticsStateImpl _value, $Res Function(_$StatisticsStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -143,7 +143,7 @@ class __$$_StatisticsStateCopyWithImpl<$Res>
     Object? response = freezed,
     Object? studentResponse = freezed,
   }) {
-    return _then(_$_StatisticsState(
+    return _then(_$StatisticsStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -166,8 +166,8 @@ class __$$_StatisticsStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StatisticsState implements _StatisticsState {
-  const _$_StatisticsState(
+class _$StatisticsStateImpl implements _StatisticsState {
+  const _$StatisticsStateImpl(
       {this.status = Status.UNKNOWN,
       this.failure = const UnknownFailure(),
       this.response,
@@ -193,7 +193,7 @@ class _$_StatisticsState implements _StatisticsState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_StatisticsState &&
+            other is _$StatisticsStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.failure, failure) || other.failure == failure) &&
             (identical(other.response, response) ||
@@ -209,16 +209,18 @@ class _$_StatisticsState implements _StatisticsState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StatisticsStateCopyWith<_$_StatisticsState> get copyWith =>
-      __$$_StatisticsStateCopyWithImpl<_$_StatisticsState>(this, _$identity);
+  _$$StatisticsStateImplCopyWith<_$StatisticsStateImpl> get copyWith =>
+      __$$StatisticsStateImplCopyWithImpl<_$StatisticsStateImpl>(
+          this, _$identity);
 }
 
 abstract class _StatisticsState implements StatisticsState {
   const factory _StatisticsState(
-      {final Status status,
-      final Failure failure,
-      final MainStatisticsResponse? response,
-      final StudentStatisticsResponse? studentResponse}) = _$_StatisticsState;
+          {final Status status,
+          final Failure failure,
+          final MainStatisticsResponse? response,
+          final StudentStatisticsResponse? studentResponse}) =
+      _$StatisticsStateImpl;
 
   @override
   Status get status;
@@ -230,6 +232,6 @@ abstract class _StatisticsState implements StatisticsState {
   StudentStatisticsResponse? get studentResponse;
   @override
   @JsonKey(ignore: true)
-  _$$_StatisticsStateCopyWith<_$_StatisticsState> get copyWith =>
+  _$$StatisticsStateImplCopyWith<_$StatisticsStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

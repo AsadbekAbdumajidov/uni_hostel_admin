@@ -6,9 +6,9 @@ part of 'get_dormitory_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_GetDormitoryResponse _$$_GetDormitoryResponseFromJson(
+_$GetDormitoryResponseImpl _$$GetDormitoryResponseImplFromJson(
         Map<String, dynamic> json) =>
-    _$_GetDormitoryResponse(
+    _$GetDormitoryResponseImpl(
       faculityName: json['faculity__name'] as String?,
       id: json['id'] as int?,
       image: json['image'] as String?,
@@ -17,8 +17,8 @@ _$_GetDormitoryResponse _$$_GetDormitoryResponseFromJson(
       faculity: json['faculity'] as int?,
     );
 
-Map<String, dynamic> _$$_GetDormitoryResponseToJson(
-        _$_GetDormitoryResponse instance) =>
+Map<String, dynamic> _$$GetDormitoryResponseImplToJson(
+        _$GetDormitoryResponseImpl instance) =>
     <String, dynamic>{
       'faculity__name': instance.faculityName,
       'id': instance.id,

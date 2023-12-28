@@ -2,16 +2,16 @@
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EditMonthlyPriceRequest _$$_EditMonthlyPriceRequestFromJson(
+_$EditMonthlyPriceRequestImpl _$$EditMonthlyPriceRequestImplFromJson(
         Map<String, dynamic> json) =>
-    _$_EditMonthlyPriceRequest(
-      studentdd: json['student_id'] as int,
+    _$EditMonthlyPriceRequestImpl(
+      studentid: json['student_id'] as int,
       amount: json['amount'] as int,
     );
 
-Map<String, dynamic> _$$_EditMonthlyPriceRequestToJson(
-        _$_EditMonthlyPriceRequest instance) =>
+Map<String, dynamic> _$$EditMonthlyPriceRequestImplToJson(
+        _$EditMonthlyPriceRequestImpl instance) =>
     <String, dynamic>{
-      'student_id': instance.studentdd,
+      'student_id': instance.studentid,
       'amount': instance.amount,
     };

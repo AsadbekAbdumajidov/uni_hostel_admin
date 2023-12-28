@@ -15,7 +15,7 @@ class EditMonthlyPriceCubit extends Cubit<EditMonthlyPriceState> {
   Future<void> editMontlhyPrice({required int id,required int amount}) async {
     emit(state.copyWith(status: Status.OTHER));
     var result = await _editMonthlyPriceUseCase.call(
-      EditMonthlyPriceParams(request: EditMonthlyPriceRequest(studentdd: id, amount: amount)),
+      EditMonthlyPriceParams(request: EditMonthlyPriceRequest(studentid: id, amount: amount)),
     );
     result.fold(
         (failure) =>

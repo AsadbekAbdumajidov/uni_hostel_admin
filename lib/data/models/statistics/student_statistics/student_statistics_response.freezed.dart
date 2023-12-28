@@ -163,12 +163,12 @@ class _$StudentStatisticsResponseCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_StudentStatisticsResponseCopyWith<$Res>
+abstract class _$$StudentStatisticsResponseImplCopyWith<$Res>
     implements $StudentStatisticsResponseCopyWith<$Res> {
-  factory _$$_StudentStatisticsResponseCopyWith(
-          _$_StudentStatisticsResponse value,
-          $Res Function(_$_StudentStatisticsResponse) then) =
-      __$$_StudentStatisticsResponseCopyWithImpl<$Res>;
+  factory _$$StudentStatisticsResponseImplCopyWith(
+          _$StudentStatisticsResponseImpl value,
+          $Res Function(_$StudentStatisticsResponseImpl) then) =
+      __$$StudentStatisticsResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -190,13 +190,13 @@ abstract class _$$_StudentStatisticsResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_StudentStatisticsResponseCopyWithImpl<$Res>
+class __$$StudentStatisticsResponseImplCopyWithImpl<$Res>
     extends _$StudentStatisticsResponseCopyWithImpl<$Res,
-        _$_StudentStatisticsResponse>
-    implements _$$_StudentStatisticsResponseCopyWith<$Res> {
-  __$$_StudentStatisticsResponseCopyWithImpl(
-      _$_StudentStatisticsResponse _value,
-      $Res Function(_$_StudentStatisticsResponse) _then)
+        _$StudentStatisticsResponseImpl>
+    implements _$$StudentStatisticsResponseImplCopyWith<$Res> {
+  __$$StudentStatisticsResponseImplCopyWithImpl(
+      _$StudentStatisticsResponseImpl _value,
+      $Res Function(_$StudentStatisticsResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -215,7 +215,7 @@ class __$$_StudentStatisticsResponseCopyWithImpl<$Res>
     Object? kurs6 = freezed,
     Object? kurs7 = freezed,
   }) {
-    return _then(_$_StudentStatisticsResponse(
+    return _then(_$StudentStatisticsResponseImpl(
       all: freezed == all
           ? _value.all
           : all // ignore: cast_nullable_to_non_nullable
@@ -270,8 +270,8 @@ class __$$_StudentStatisticsResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_StudentStatisticsResponse implements _StudentStatisticsResponse {
-  const _$_StudentStatisticsResponse(
+class _$StudentStatisticsResponseImpl implements _StudentStatisticsResponse {
+  const _$StudentStatisticsResponseImpl(
       {this.all,
       this.male,
       this.female,
@@ -286,8 +286,8 @@ class _$_StudentStatisticsResponse implements _StudentStatisticsResponse {
       @JsonKey(name: '7-kurs') this.kurs7})
       : _faculty = faculty;
 
-  factory _$_StudentStatisticsResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_StudentStatisticsResponseFromJson(json);
+  factory _$StudentStatisticsResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$StudentStatisticsResponseImplFromJson(json);
 
   @override
   final int? all;
@@ -338,7 +338,7 @@ class _$_StudentStatisticsResponse implements _StudentStatisticsResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_StudentStatisticsResponse &&
+            other is _$StudentStatisticsResponseImpl &&
             (identical(other.all, all) || other.all == all) &&
             (identical(other.male, male) || other.male == male) &&
             (identical(other.female, female) || other.female == female) &&
@@ -373,13 +373,13 @@ class _$_StudentStatisticsResponse implements _StudentStatisticsResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StudentStatisticsResponseCopyWith<_$_StudentStatisticsResponse>
-      get copyWith => __$$_StudentStatisticsResponseCopyWithImpl<
-          _$_StudentStatisticsResponse>(this, _$identity);
+  _$$StudentStatisticsResponseImplCopyWith<_$StudentStatisticsResponseImpl>
+      get copyWith => __$$StudentStatisticsResponseImplCopyWithImpl<
+          _$StudentStatisticsResponseImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_StudentStatisticsResponseToJson(
+    return _$$StudentStatisticsResponseImplToJson(
       this,
     );
   }
@@ -399,10 +399,10 @@ abstract class _StudentStatisticsResponse implements StudentStatisticsResponse {
           @JsonKey(name: '5-kurs') final int? kurs5,
           @JsonKey(name: '6-kurs') final int? kurs6,
           @JsonKey(name: '7-kurs') final int? kurs7}) =
-      _$_StudentStatisticsResponse;
+      _$StudentStatisticsResponseImpl;
 
   factory _StudentStatisticsResponse.fromJson(Map<String, dynamic> json) =
-      _$_StudentStatisticsResponse.fromJson;
+      _$StudentStatisticsResponseImpl.fromJson;
 
   @override
   int? get all;
@@ -437,7 +437,7 @@ abstract class _StudentStatisticsResponse implements StudentStatisticsResponse {
   int? get kurs7;
   @override
   @JsonKey(ignore: true)
-  _$$_StudentStatisticsResponseCopyWith<_$_StudentStatisticsResponse>
+  _$$StudentStatisticsResponseImplCopyWith<_$StudentStatisticsResponseImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -593,10 +593,10 @@ class _$RegionsCopyWithImpl<$Res, $Val extends Regions>
 }
 
 /// @nodoc
-abstract class _$$_RegionsCopyWith<$Res> implements $RegionsCopyWith<$Res> {
-  factory _$$_RegionsCopyWith(
-          _$_Regions value, $Res Function(_$_Regions) then) =
-      __$$_RegionsCopyWithImpl<$Res>;
+abstract class _$$RegionsImplCopyWith<$Res> implements $RegionsCopyWith<$Res> {
+  factory _$$RegionsImplCopyWith(
+          _$RegionsImpl value, $Res Function(_$RegionsImpl) then) =
+      __$$RegionsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -617,10 +617,11 @@ abstract class _$$_RegionsCopyWith<$Res> implements $RegionsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_RegionsCopyWithImpl<$Res>
-    extends _$RegionsCopyWithImpl<$Res, _$_Regions>
-    implements _$$_RegionsCopyWith<$Res> {
-  __$$_RegionsCopyWithImpl(_$_Regions _value, $Res Function(_$_Regions) _then)
+class __$$RegionsImplCopyWithImpl<$Res>
+    extends _$RegionsCopyWithImpl<$Res, _$RegionsImpl>
+    implements _$$RegionsImplCopyWith<$Res> {
+  __$$RegionsImplCopyWithImpl(
+      _$RegionsImpl _value, $Res Function(_$RegionsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -641,7 +642,7 @@ class __$$_RegionsCopyWithImpl<$Res>
     Object? buxoroV = freezed,
     Object? xorazmV = freezed,
   }) {
-    return _then(_$_Regions(
+    return _then(_$RegionsImpl(
       toshkentV: freezed == toshkentV
           ? _value.toshkentV
           : toshkentV // ignore: cast_nullable_to_non_nullable
@@ -704,8 +705,8 @@ class __$$_RegionsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Regions implements _Regions {
-  const _$_Regions(
+class _$RegionsImpl implements _Regions {
+  const _$RegionsImpl(
       {@JsonKey(name: 'Toshkent viloyati') this.toshkentV,
       @JsonKey(name: 'Toshkent shahri') this.toshkentSh,
       @JsonKey(name: 'Navoiy viloyati') this.navoiyV,
@@ -721,8 +722,8 @@ class _$_Regions implements _Regions {
       @JsonKey(name: 'Buxoro viloyati') this.buxoroV,
       @JsonKey(name: 'Xorazm viloyati') this.xorazmV});
 
-  factory _$_Regions.fromJson(Map<String, dynamic> json) =>
-      _$$_RegionsFromJson(json);
+  factory _$RegionsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RegionsImplFromJson(json);
 
   @override
   @JsonKey(name: 'Toshkent viloyati')
@@ -776,7 +777,7 @@ class _$_Regions implements _Regions {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Regions &&
+            other is _$RegionsImpl &&
             (identical(other.toshkentV, toshkentV) ||
                 other.toshkentV == toshkentV) &&
             (identical(other.toshkentSh, toshkentSh) ||
@@ -825,12 +826,12 @@ class _$_Regions implements _Regions {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RegionsCopyWith<_$_Regions> get copyWith =>
-      __$$_RegionsCopyWithImpl<_$_Regions>(this, _$identity);
+  _$$RegionsImplCopyWith<_$RegionsImpl> get copyWith =>
+      __$$RegionsImplCopyWithImpl<_$RegionsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RegionsToJson(
+    return _$$RegionsImplToJson(
       this,
     );
   }
@@ -851,9 +852,9 @@ abstract class _Regions implements Regions {
       @JsonKey(name: 'Andijon viloyati') final int? andijonV,
       @JsonKey(name: 'Qoraqalpog‘iston Resp.') final int? qoraqalpogV,
       @JsonKey(name: 'Buxoro viloyati') final int? buxoroV,
-      @JsonKey(name: 'Xorazm viloyati') final int? xorazmV}) = _$_Regions;
+      @JsonKey(name: 'Xorazm viloyati') final int? xorazmV}) = _$RegionsImpl;
 
-  factory _Regions.fromJson(Map<String, dynamic> json) = _$_Regions.fromJson;
+  factory _Regions.fromJson(Map<String, dynamic> json) = _$RegionsImpl.fromJson;
 
   @override
   @JsonKey(name: 'Toshkent viloyati')
@@ -899,6 +900,6 @@ abstract class _Regions implements Regions {
   int? get xorazmV;
   @override
   @JsonKey(ignore: true)
-  _$$_RegionsCopyWith<_$_Regions> get copyWith =>
+  _$$RegionsImplCopyWith<_$RegionsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -6,9 +6,9 @@ part of 'in_dormitory_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_GetInDormitoryResponse _$$_GetInDormitoryResponseFromJson(
+_$GetInDormitoryResponseImpl _$$GetInDormitoryResponseImplFromJson(
         Map<String, dynamic> json) =>
-    _$_GetInDormitoryResponse(
+    _$GetInDormitoryResponseImpl(
       count: json['count'] as int?,
       next: json['next'] as String?,
       previous: json['previous'] as String?,
@@ -17,8 +17,8 @@ _$_GetInDormitoryResponse _$$_GetInDormitoryResponseFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$$_GetInDormitoryResponseToJson(
-        _$_GetInDormitoryResponse instance) =>
+Map<String, dynamic> _$$GetInDormitoryResponseImplToJson(
+        _$GetInDormitoryResponseImpl instance) =>
     <String, dynamic>{
       'count': instance.count,
       'next': instance.next,
@@ -26,8 +26,9 @@ Map<String, dynamic> _$$_GetInDormitoryResponseToJson(
       'results': instance.results,
     };
 
-_$_InDormitoryUser _$$_InDormitoryUserFromJson(Map<String, dynamic> json) =>
-    _$_InDormitoryUser(
+_$InDormitoryUserImpl _$$InDormitoryUserImplFromJson(
+        Map<String, dynamic> json) =>
+    _$InDormitoryUserImpl(
       studentId: json['student_id'] as int?,
       fullName: json['full_name'] as String?,
       facultyModel: json['faculty_model'] as String?,
@@ -38,7 +39,8 @@ _$_InDormitoryUser _$$_InDormitoryUserFromJson(Map<String, dynamic> json) =>
       bed: json['bed'] as int?,
     );
 
-Map<String, dynamic> _$$_InDormitoryUserToJson(_$_InDormitoryUser instance) =>
+Map<String, dynamic> _$$InDormitoryUserImplToJson(
+        _$InDormitoryUserImpl instance) =>
     <String, dynamic>{
       'student_id': instance.studentId,
       'full_name': instance.fullName,

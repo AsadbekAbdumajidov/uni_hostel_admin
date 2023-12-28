@@ -103,11 +103,11 @@ class _$AddAdminRequestCopyWithImpl<$Res, $Val extends AddAdminRequest>
 }
 
 /// @nodoc
-abstract class _$$_AddAdminRequestCopyWith<$Res>
+abstract class _$$AddAdminRequestImplCopyWith<$Res>
     implements $AddAdminRequestCopyWith<$Res> {
-  factory _$$_AddAdminRequestCopyWith(
-          _$_AddAdminRequest value, $Res Function(_$_AddAdminRequest) then) =
-      __$$_AddAdminRequestCopyWithImpl<$Res>;
+  factory _$$AddAdminRequestImplCopyWith(_$AddAdminRequestImpl value,
+          $Res Function(_$AddAdminRequestImpl) then) =
+      __$$AddAdminRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -120,11 +120,11 @@ abstract class _$$_AddAdminRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AddAdminRequestCopyWithImpl<$Res>
-    extends _$AddAdminRequestCopyWithImpl<$Res, _$_AddAdminRequest>
-    implements _$$_AddAdminRequestCopyWith<$Res> {
-  __$$_AddAdminRequestCopyWithImpl(
-      _$_AddAdminRequest _value, $Res Function(_$_AddAdminRequest) _then)
+class __$$AddAdminRequestImplCopyWithImpl<$Res>
+    extends _$AddAdminRequestCopyWithImpl<$Res, _$AddAdminRequestImpl>
+    implements _$$AddAdminRequestImplCopyWith<$Res> {
+  __$$AddAdminRequestImplCopyWithImpl(
+      _$AddAdminRequestImpl _value, $Res Function(_$AddAdminRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -137,7 +137,7 @@ class __$$_AddAdminRequestCopyWithImpl<$Res>
     Object? type = freezed,
     Object? facultyAdmin = freezed,
   }) {
-    return _then(_$_AddAdminRequest(
+    return _then(_$AddAdminRequestImpl(
       username: freezed == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -168,8 +168,8 @@ class __$$_AddAdminRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AddAdminRequest implements _AddAdminRequest {
-  const _$_AddAdminRequest(
+class _$AddAdminRequestImpl implements _AddAdminRequest {
+  const _$AddAdminRequestImpl(
       {this.username,
       @JsonKey(name: 'first_name') this.firstName,
       @JsonKey(name: 'last_name') this.lastName,
@@ -177,8 +177,8 @@ class _$_AddAdminRequest implements _AddAdminRequest {
       @JsonKey(name: 'user_type') this.type,
       @JsonKey(name: 'faculty_admin') this.facultyAdmin});
 
-  factory _$_AddAdminRequest.fromJson(Map<String, dynamic> json) =>
-      _$$_AddAdminRequestFromJson(json);
+  factory _$AddAdminRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AddAdminRequestImplFromJson(json);
 
   @override
   final String? username;
@@ -207,7 +207,7 @@ class _$_AddAdminRequest implements _AddAdminRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AddAdminRequest &&
+            other is _$AddAdminRequestImpl &&
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.firstName, firstName) ||
@@ -228,12 +228,13 @@ class _$_AddAdminRequest implements _AddAdminRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AddAdminRequestCopyWith<_$_AddAdminRequest> get copyWith =>
-      __$$_AddAdminRequestCopyWithImpl<_$_AddAdminRequest>(this, _$identity);
+  _$$AddAdminRequestImplCopyWith<_$AddAdminRequestImpl> get copyWith =>
+      __$$AddAdminRequestImplCopyWithImpl<_$AddAdminRequestImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AddAdminRequestToJson(
+    return _$$AddAdminRequestImplToJson(
       this,
     );
   }
@@ -247,10 +248,10 @@ abstract class _AddAdminRequest implements AddAdminRequest {
           @JsonKey(name: 'admin_region') final String? region,
           @JsonKey(name: 'user_type') final String? type,
           @JsonKey(name: 'faculty_admin') final int? facultyAdmin}) =
-      _$_AddAdminRequest;
+      _$AddAdminRequestImpl;
 
   factory _AddAdminRequest.fromJson(Map<String, dynamic> json) =
-      _$_AddAdminRequest.fromJson;
+      _$AddAdminRequestImpl.fromJson;
 
   @override
   String? get username;
@@ -271,6 +272,6 @@ abstract class _AddAdminRequest implements AddAdminRequest {
   int? get facultyAdmin;
   @override
   @JsonKey(ignore: true)
-  _$$_AddAdminRequestCopyWith<_$_AddAdminRequest> get copyWith =>
+  _$$AddAdminRequestImplCopyWith<_$AddAdminRequestImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -239,11 +239,11 @@ class _$SelectOrderResponseCopyWithImpl<$Res, $Val extends SelectOrderResponse>
 }
 
 /// @nodoc
-abstract class _$$_SelectOrderResponseCopyWith<$Res>
+abstract class _$$SelectOrderResponseImplCopyWith<$Res>
     implements $SelectOrderResponseCopyWith<$Res> {
-  factory _$$_SelectOrderResponseCopyWith(_$_SelectOrderResponse value,
-          $Res Function(_$_SelectOrderResponse) then) =
-      __$$_SelectOrderResponseCopyWithImpl<$Res>;
+  factory _$$SelectOrderResponseImplCopyWith(_$SelectOrderResponseImpl value,
+          $Res Function(_$SelectOrderResponseImpl) then) =
+      __$$SelectOrderResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -275,11 +275,11 @@ abstract class _$$_SelectOrderResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SelectOrderResponseCopyWithImpl<$Res>
-    extends _$SelectOrderResponseCopyWithImpl<$Res, _$_SelectOrderResponse>
-    implements _$$_SelectOrderResponseCopyWith<$Res> {
-  __$$_SelectOrderResponseCopyWithImpl(_$_SelectOrderResponse _value,
-      $Res Function(_$_SelectOrderResponse) _then)
+class __$$SelectOrderResponseImplCopyWithImpl<$Res>
+    extends _$SelectOrderResponseCopyWithImpl<$Res, _$SelectOrderResponseImpl>
+    implements _$$SelectOrderResponseImplCopyWith<$Res> {
+  __$$SelectOrderResponseImplCopyWithImpl(_$SelectOrderResponseImpl _value,
+      $Res Function(_$SelectOrderResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -306,7 +306,7 @@ class __$$_SelectOrderResponseCopyWithImpl<$Res>
     Object? updatedAt = freezed,
     Object? checkedAdmin = freezed,
   }) {
-    return _then(_$_SelectOrderResponse(
+    return _then(_$SelectOrderResponseImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -393,8 +393,8 @@ class __$$_SelectOrderResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SelectOrderResponse implements _SelectOrderResponse {
-  const _$_SelectOrderResponse(
+class _$SelectOrderResponseImpl implements _SelectOrderResponse {
+  const _$SelectOrderResponseImpl(
       {this.id,
       this.status,
       this.student,
@@ -417,8 +417,8 @@ class _$_SelectOrderResponse implements _SelectOrderResponse {
       @JsonKey(name: 'updated_at') this.updatedAt,
       @JsonKey(name: 'checked_admin') this.checkedAdmin});
 
-  factory _$_SelectOrderResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_SelectOrderResponseFromJson(json);
+  factory _$SelectOrderResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SelectOrderResponseImplFromJson(json);
 
   @override
   final int? id;
@@ -486,7 +486,7 @@ class _$_SelectOrderResponse implements _SelectOrderResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SelectOrderResponse &&
+            other is _$SelectOrderResponseImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.student, student) || other.student == student) &&
@@ -555,13 +555,13 @@ class _$_SelectOrderResponse implements _SelectOrderResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SelectOrderResponseCopyWith<_$_SelectOrderResponse> get copyWith =>
-      __$$_SelectOrderResponseCopyWithImpl<_$_SelectOrderResponse>(
+  _$$SelectOrderResponseImplCopyWith<_$SelectOrderResponseImpl> get copyWith =>
+      __$$SelectOrderResponseImplCopyWithImpl<_$SelectOrderResponseImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SelectOrderResponseToJson(
+    return _$$SelectOrderResponseImplToJson(
       this,
     );
   }
@@ -591,10 +591,10 @@ abstract class _SelectOrderResponse implements SelectOrderResponse {
       @JsonKey(name: 'payment_date') final int? paymentDate,
       @JsonKey(name: 'updated_at') final String? updatedAt,
       @JsonKey(name: 'checked_admin')
-      final CheackAdmin? checkedAdmin}) = _$_SelectOrderResponse;
+      final CheackAdmin? checkedAdmin}) = _$SelectOrderResponseImpl;
 
   factory _SelectOrderResponse.fromJson(Map<String, dynamic> json) =
-      _$_SelectOrderResponse.fromJson;
+      _$SelectOrderResponseImpl.fromJson;
 
   @override
   int? get id;
@@ -654,7 +654,7 @@ abstract class _SelectOrderResponse implements SelectOrderResponse {
   CheackAdmin? get checkedAdmin;
   @override
   @JsonKey(ignore: true)
-  _$$_SelectOrderResponseCopyWith<_$_SelectOrderResponse> get copyWith =>
+  _$$SelectOrderResponseImplCopyWith<_$SelectOrderResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -803,11 +803,11 @@ class _$StudentInfoResponseCopyWithImpl<$Res, $Val extends StudentInfoResponse>
 }
 
 /// @nodoc
-abstract class _$$_StudentInfoResponseCopyWith<$Res>
+abstract class _$$StudentInfoResponseImplCopyWith<$Res>
     implements $StudentInfoResponseCopyWith<$Res> {
-  factory _$$_StudentInfoResponseCopyWith(_$_StudentInfoResponse value,
-          $Res Function(_$_StudentInfoResponse) then) =
-      __$$_StudentInfoResponseCopyWithImpl<$Res>;
+  factory _$$StudentInfoResponseImplCopyWith(_$StudentInfoResponseImpl value,
+          $Res Function(_$StudentInfoResponseImpl) then) =
+      __$$StudentInfoResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -828,11 +828,11 @@ abstract class _$$_StudentInfoResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_StudentInfoResponseCopyWithImpl<$Res>
-    extends _$StudentInfoResponseCopyWithImpl<$Res, _$_StudentInfoResponse>
-    implements _$$_StudentInfoResponseCopyWith<$Res> {
-  __$$_StudentInfoResponseCopyWithImpl(_$_StudentInfoResponse _value,
-      $Res Function(_$_StudentInfoResponse) _then)
+class __$$StudentInfoResponseImplCopyWithImpl<$Res>
+    extends _$StudentInfoResponseCopyWithImpl<$Res, _$StudentInfoResponseImpl>
+    implements _$$StudentInfoResponseImplCopyWith<$Res> {
+  __$$StudentInfoResponseImplCopyWithImpl(_$StudentInfoResponseImpl _value,
+      $Res Function(_$StudentInfoResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -853,7 +853,7 @@ class __$$_StudentInfoResponseCopyWithImpl<$Res>
     Object? group = freezed,
     Object? image = freezed,
   }) {
-    return _then(_$_StudentInfoResponse(
+    return _then(_$StudentInfoResponseImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -916,8 +916,8 @@ class __$$_StudentInfoResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_StudentInfoResponse implements _StudentInfoResponse {
-  const _$_StudentInfoResponse(
+class _$StudentInfoResponseImpl implements _StudentInfoResponse {
+  const _$StudentInfoResponseImpl(
       {this.id,
       @JsonKey(name: 'full_name') this.fullName,
       @JsonKey(name: 'student_id') this.studentId,
@@ -933,8 +933,8 @@ class _$_StudentInfoResponse implements _StudentInfoResponse {
       this.group,
       this.image});
 
-  factory _$_StudentInfoResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_StudentInfoResponseFromJson(json);
+  factory _$StudentInfoResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$StudentInfoResponseImplFromJson(json);
 
   @override
   final int? id;
@@ -979,7 +979,7 @@ class _$_StudentInfoResponse implements _StudentInfoResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_StudentInfoResponse &&
+            other is _$StudentInfoResponseImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.fullName, fullName) ||
                 other.fullName == fullName) &&
@@ -1025,13 +1025,13 @@ class _$_StudentInfoResponse implements _StudentInfoResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StudentInfoResponseCopyWith<_$_StudentInfoResponse> get copyWith =>
-      __$$_StudentInfoResponseCopyWithImpl<_$_StudentInfoResponse>(
+  _$$StudentInfoResponseImplCopyWith<_$StudentInfoResponseImpl> get copyWith =>
+      __$$StudentInfoResponseImplCopyWithImpl<_$StudentInfoResponseImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_StudentInfoResponseToJson(
+    return _$$StudentInfoResponseImplToJson(
       this,
     );
   }
@@ -1052,10 +1052,10 @@ abstract class _StudentInfoResponse implements StudentInfoResponse {
       final String? faculty,
       final String? course,
       final String? group,
-      final String? image}) = _$_StudentInfoResponse;
+      final String? image}) = _$StudentInfoResponseImpl;
 
   factory _StudentInfoResponse.fromJson(Map<String, dynamic> json) =
-      _$_StudentInfoResponse.fromJson;
+      _$StudentInfoResponseImpl.fromJson;
 
   @override
   int? get id;
@@ -1092,7 +1092,7 @@ abstract class _StudentInfoResponse implements StudentInfoResponse {
   String? get image;
   @override
   @JsonKey(ignore: true)
-  _$$_StudentInfoResponseCopyWith<_$_StudentInfoResponse> get copyWith =>
+  _$$StudentInfoResponseImplCopyWith<_$StudentInfoResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1154,11 +1154,11 @@ class _$CheackAdminCopyWithImpl<$Res, $Val extends CheackAdmin>
 }
 
 /// @nodoc
-abstract class _$$_CheackAdminCopyWith<$Res>
+abstract class _$$CheackAdminImplCopyWith<$Res>
     implements $CheackAdminCopyWith<$Res> {
-  factory _$$_CheackAdminCopyWith(
-          _$_CheackAdmin value, $Res Function(_$_CheackAdmin) then) =
-      __$$_CheackAdminCopyWithImpl<$Res>;
+  factory _$$CheackAdminImplCopyWith(
+          _$CheackAdminImpl value, $Res Function(_$CheackAdminImpl) then) =
+      __$$CheackAdminImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1167,11 +1167,11 @@ abstract class _$$_CheackAdminCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_CheackAdminCopyWithImpl<$Res>
-    extends _$CheackAdminCopyWithImpl<$Res, _$_CheackAdmin>
-    implements _$$_CheackAdminCopyWith<$Res> {
-  __$$_CheackAdminCopyWithImpl(
-      _$_CheackAdmin _value, $Res Function(_$_CheackAdmin) _then)
+class __$$CheackAdminImplCopyWithImpl<$Res>
+    extends _$CheackAdminCopyWithImpl<$Res, _$CheackAdminImpl>
+    implements _$$CheackAdminImplCopyWith<$Res> {
+  __$$CheackAdminImplCopyWithImpl(
+      _$CheackAdminImpl _value, $Res Function(_$CheackAdminImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1180,7 +1180,7 @@ class __$$_CheackAdminCopyWithImpl<$Res>
     Object? firstName = freezed,
     Object? lastName = freezed,
   }) {
-    return _then(_$_CheackAdmin(
+    return _then(_$CheackAdminImpl(
       firstName: freezed == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
@@ -1195,13 +1195,13 @@ class __$$_CheackAdminCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CheackAdmin implements _CheackAdmin {
-  const _$_CheackAdmin(
+class _$CheackAdminImpl implements _CheackAdmin {
+  const _$CheackAdminImpl(
       {@JsonKey(name: 'first_name') this.firstName,
       @JsonKey(name: 'last_name') this.lastName});
 
-  factory _$_CheackAdmin.fromJson(Map<String, dynamic> json) =>
-      _$$_CheackAdminFromJson(json);
+  factory _$CheackAdminImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CheackAdminImplFromJson(json);
 
   @override
   @JsonKey(name: 'first_name')
@@ -1219,7 +1219,7 @@ class _$_CheackAdmin implements _CheackAdmin {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CheackAdmin &&
+            other is _$CheackAdminImpl &&
             (identical(other.firstName, firstName) ||
                 other.firstName == firstName) &&
             (identical(other.lastName, lastName) ||
@@ -1233,12 +1233,12 @@ class _$_CheackAdmin implements _CheackAdmin {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CheackAdminCopyWith<_$_CheackAdmin> get copyWith =>
-      __$$_CheackAdminCopyWithImpl<_$_CheackAdmin>(this, _$identity);
+  _$$CheackAdminImplCopyWith<_$CheackAdminImpl> get copyWith =>
+      __$$CheackAdminImplCopyWithImpl<_$CheackAdminImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CheackAdminToJson(
+    return _$$CheackAdminImplToJson(
       this,
     );
   }
@@ -1247,10 +1247,10 @@ class _$_CheackAdmin implements _CheackAdmin {
 abstract class _CheackAdmin implements CheackAdmin {
   const factory _CheackAdmin(
       {@JsonKey(name: 'first_name') final String? firstName,
-      @JsonKey(name: 'last_name') final String? lastName}) = _$_CheackAdmin;
+      @JsonKey(name: 'last_name') final String? lastName}) = _$CheackAdminImpl;
 
   factory _CheackAdmin.fromJson(Map<String, dynamic> json) =
-      _$_CheackAdmin.fromJson;
+      _$CheackAdminImpl.fromJson;
 
   @override
   @JsonKey(name: 'first_name')
@@ -1260,6 +1260,6 @@ abstract class _CheackAdmin implements CheackAdmin {
   String? get lastName;
   @override
   @JsonKey(ignore: true)
-  _$$_CheackAdminCopyWith<_$_CheackAdmin> get copyWith =>
+  _$$CheackAdminImplCopyWith<_$CheackAdminImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

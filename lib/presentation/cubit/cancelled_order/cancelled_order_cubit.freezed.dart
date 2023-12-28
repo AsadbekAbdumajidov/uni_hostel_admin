@@ -177,11 +177,11 @@ class _$CancelledOrderStateCopyWithImpl<$Res, $Val extends CancelledOrderState>
 }
 
 /// @nodoc
-abstract class _$$_CancelledOrderStateCopyWith<$Res>
+abstract class _$$CancelledOrderStateImplCopyWith<$Res>
     implements $CancelledOrderStateCopyWith<$Res> {
-  factory _$$_CancelledOrderStateCopyWith(_$_CancelledOrderState value,
-          $Res Function(_$_CancelledOrderState) then) =
-      __$$_CancelledOrderStateCopyWithImpl<$Res>;
+  factory _$$CancelledOrderStateImplCopyWith(_$CancelledOrderStateImpl value,
+          $Res Function(_$CancelledOrderStateImpl) then) =
+      __$$CancelledOrderStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -207,11 +207,11 @@ abstract class _$$_CancelledOrderStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_CancelledOrderStateCopyWithImpl<$Res>
-    extends _$CancelledOrderStateCopyWithImpl<$Res, _$_CancelledOrderState>
-    implements _$$_CancelledOrderStateCopyWith<$Res> {
-  __$$_CancelledOrderStateCopyWithImpl(_$_CancelledOrderState _value,
-      $Res Function(_$_CancelledOrderState) _then)
+class __$$CancelledOrderStateImplCopyWithImpl<$Res>
+    extends _$CancelledOrderStateCopyWithImpl<$Res, _$CancelledOrderStateImpl>
+    implements _$$CancelledOrderStateImplCopyWith<$Res> {
+  __$$CancelledOrderStateImplCopyWithImpl(_$CancelledOrderStateImpl _value,
+      $Res Function(_$CancelledOrderStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -232,7 +232,7 @@ class __$$_CancelledOrderStateCopyWithImpl<$Res>
     Object? maritalStatus = null,
     Object? ordersList = freezed,
   }) {
-    return _then(_$_CancelledOrderState(
+    return _then(_$CancelledOrderStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -295,8 +295,8 @@ class __$$_CancelledOrderStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CancelledOrderState implements _CancelledOrderState {
-  const _$_CancelledOrderState(
+class _$CancelledOrderStateImpl implements _CancelledOrderState {
+  const _$CancelledOrderStateImpl(
       {this.status = Status.UNKNOWN,
       this.failure = const UnknownFailure(),
       this.orderResponse,
@@ -384,7 +384,7 @@ class _$_CancelledOrderState implements _CancelledOrderState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CancelledOrderState &&
+            other is _$CancelledOrderStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.failure, failure) || other.failure == failure) &&
             (identical(other.orderResponse, orderResponse) ||
@@ -432,8 +432,8 @@ class _$_CancelledOrderState implements _CancelledOrderState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CancelledOrderStateCopyWith<_$_CancelledOrderState> get copyWith =>
-      __$$_CancelledOrderStateCopyWithImpl<_$_CancelledOrderState>(
+  _$$CancelledOrderStateImplCopyWith<_$CancelledOrderStateImpl> get copyWith =>
+      __$$CancelledOrderStateImplCopyWithImpl<_$CancelledOrderStateImpl>(
           this, _$identity);
 }
 
@@ -452,7 +452,7 @@ abstract class _CancelledOrderState implements CancelledOrderState {
       final String courseIndex,
       final FacultiesModel? facultyIndex,
       final String maritalStatus,
-      final String? ordersList}) = _$_CancelledOrderState;
+      final String? ordersList}) = _$CancelledOrderStateImpl;
 
   @override
   Status get status;
@@ -484,6 +484,6 @@ abstract class _CancelledOrderState implements CancelledOrderState {
   String? get ordersList;
   @override
   @JsonKey(ignore: true)
-  _$$_CancelledOrderStateCopyWith<_$_CancelledOrderState> get copyWith =>
+  _$$CancelledOrderStateImplCopyWith<_$CancelledOrderStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

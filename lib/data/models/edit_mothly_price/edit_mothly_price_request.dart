@@ -7,7 +7,7 @@ part 'edit_mothly_price_request.g.dart';
 @freezed
 class EditMonthlyPriceRequest with _$EditMonthlyPriceRequest {
   const factory EditMonthlyPriceRequest({
-    @JsonKey(name: 'student_id') required int studentdd,
+    @JsonKey(name: 'student_id') required int studentid,
     required int amount,
   }) = _EditMonthlyPriceRequest;
 

@@ -83,11 +83,11 @@ class _$EditStatusStateCopyWithImpl<$Res, $Val extends EditStatusState>
 }
 
 /// @nodoc
-abstract class _$$_EditStatusStateCopyWith<$Res>
+abstract class _$$EditStatusStateImplCopyWith<$Res>
     implements $EditStatusStateCopyWith<$Res> {
-  factory _$$_EditStatusStateCopyWith(
-          _$_EditStatusState value, $Res Function(_$_EditStatusState) then) =
-      __$$_EditStatusStateCopyWithImpl<$Res>;
+  factory _$$EditStatusStateImplCopyWith(_$EditStatusStateImpl value,
+          $Res Function(_$EditStatusStateImpl) then) =
+      __$$EditStatusStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Status status, Failure failure, EditStatusResponse? response});
@@ -97,11 +97,11 @@ abstract class _$$_EditStatusStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EditStatusStateCopyWithImpl<$Res>
-    extends _$EditStatusStateCopyWithImpl<$Res, _$_EditStatusState>
-    implements _$$_EditStatusStateCopyWith<$Res> {
-  __$$_EditStatusStateCopyWithImpl(
-      _$_EditStatusState _value, $Res Function(_$_EditStatusState) _then)
+class __$$EditStatusStateImplCopyWithImpl<$Res>
+    extends _$EditStatusStateCopyWithImpl<$Res, _$EditStatusStateImpl>
+    implements _$$EditStatusStateImplCopyWith<$Res> {
+  __$$EditStatusStateImplCopyWithImpl(
+      _$EditStatusStateImpl _value, $Res Function(_$EditStatusStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +111,7 @@ class __$$_EditStatusStateCopyWithImpl<$Res>
     Object? failure = null,
     Object? response = freezed,
   }) {
-    return _then(_$_EditStatusState(
+    return _then(_$EditStatusStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -130,8 +130,8 @@ class __$$_EditStatusStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_EditStatusState implements _EditStatusState {
-  const _$_EditStatusState(
+class _$EditStatusStateImpl implements _EditStatusState {
+  const _$EditStatusStateImpl(
       {this.status = Status.UNKNOWN,
       this.failure = const UnknownFailure(),
       this.response});
@@ -154,7 +154,7 @@ class _$_EditStatusState implements _EditStatusState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EditStatusState &&
+            other is _$EditStatusStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.failure, failure) || other.failure == failure) &&
             (identical(other.response, response) ||
@@ -167,15 +167,16 @@ class _$_EditStatusState implements _EditStatusState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EditStatusStateCopyWith<_$_EditStatusState> get copyWith =>
-      __$$_EditStatusStateCopyWithImpl<_$_EditStatusState>(this, _$identity);
+  _$$EditStatusStateImplCopyWith<_$EditStatusStateImpl> get copyWith =>
+      __$$EditStatusStateImplCopyWithImpl<_$EditStatusStateImpl>(
+          this, _$identity);
 }
 
 abstract class _EditStatusState implements EditStatusState {
   const factory _EditStatusState(
       {final Status status,
       final Failure failure,
-      final EditStatusResponse? response}) = _$_EditStatusState;
+      final EditStatusResponse? response}) = _$EditStatusStateImpl;
 
   @override
   Status get status;
@@ -185,6 +186,6 @@ abstract class _EditStatusState implements EditStatusState {
   EditStatusResponse? get response;
   @override
   @JsonKey(ignore: true)
-  _$$_EditStatusStateCopyWith<_$_EditStatusState> get copyWith =>
+  _$$EditStatusStateImplCopyWith<_$EditStatusStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

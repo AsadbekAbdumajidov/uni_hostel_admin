@@ -21,7 +21,7 @@ class StudentStatistics extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 10),
       children: [
         Container(
-          height: 400,
+          height: 410,
           width: context.w,
           padding:
               EdgeInsets.symmetric(vertical: 14, horizontal: responsivePadding),

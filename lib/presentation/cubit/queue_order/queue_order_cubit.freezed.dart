@@ -177,11 +177,11 @@ class _$QueueOrderStateCopyWithImpl<$Res, $Val extends QueueOrderState>
 }
 
 /// @nodoc
-abstract class _$$_QueueOrderStateCopyWith<$Res>
+abstract class _$$QueueOrderStateImplCopyWith<$Res>
     implements $QueueOrderStateCopyWith<$Res> {
-  factory _$$_QueueOrderStateCopyWith(
-          _$_QueueOrderState value, $Res Function(_$_QueueOrderState) then) =
-      __$$_QueueOrderStateCopyWithImpl<$Res>;
+  factory _$$QueueOrderStateImplCopyWith(_$QueueOrderStateImpl value,
+          $Res Function(_$QueueOrderStateImpl) then) =
+      __$$QueueOrderStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -207,11 +207,11 @@ abstract class _$$_QueueOrderStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_QueueOrderStateCopyWithImpl<$Res>
-    extends _$QueueOrderStateCopyWithImpl<$Res, _$_QueueOrderState>
-    implements _$$_QueueOrderStateCopyWith<$Res> {
-  __$$_QueueOrderStateCopyWithImpl(
-      _$_QueueOrderState _value, $Res Function(_$_QueueOrderState) _then)
+class __$$QueueOrderStateImplCopyWithImpl<$Res>
+    extends _$QueueOrderStateCopyWithImpl<$Res, _$QueueOrderStateImpl>
+    implements _$$QueueOrderStateImplCopyWith<$Res> {
+  __$$QueueOrderStateImplCopyWithImpl(
+      _$QueueOrderStateImpl _value, $Res Function(_$QueueOrderStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -232,7 +232,7 @@ class __$$_QueueOrderStateCopyWithImpl<$Res>
     Object? maritalStatus = null,
     Object? ordersList = freezed,
   }) {
-    return _then(_$_QueueOrderState(
+    return _then(_$QueueOrderStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -295,8 +295,8 @@ class __$$_QueueOrderStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_QueueOrderState implements _QueueOrderState {
-  const _$_QueueOrderState(
+class _$QueueOrderStateImpl implements _QueueOrderState {
+  const _$QueueOrderStateImpl(
       {this.status = Status.UNKNOWN,
       this.failure = const UnknownFailure(),
       this.orderResponse,
@@ -384,7 +384,7 @@ class _$_QueueOrderState implements _QueueOrderState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_QueueOrderState &&
+            other is _$QueueOrderStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.failure, failure) || other.failure == failure) &&
             (identical(other.orderResponse, orderResponse) ||
@@ -432,8 +432,9 @@ class _$_QueueOrderState implements _QueueOrderState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_QueueOrderStateCopyWith<_$_QueueOrderState> get copyWith =>
-      __$$_QueueOrderStateCopyWithImpl<_$_QueueOrderState>(this, _$identity);
+  _$$QueueOrderStateImplCopyWith<_$QueueOrderStateImpl> get copyWith =>
+      __$$QueueOrderStateImplCopyWithImpl<_$QueueOrderStateImpl>(
+          this, _$identity);
 }
 
 abstract class _QueueOrderState implements QueueOrderState {
@@ -451,7 +452,7 @@ abstract class _QueueOrderState implements QueueOrderState {
       final String courseIndex,
       final FacultiesModel? facultyIndex,
       final String maritalStatus,
-      final String? ordersList}) = _$_QueueOrderState;
+      final String? ordersList}) = _$QueueOrderStateImpl;
 
   @override
   Status get status;
@@ -483,6 +484,6 @@ abstract class _QueueOrderState implements QueueOrderState {
   String? get ordersList;
   @override
   @JsonKey(ignore: true)
-  _$$_QueueOrderStateCopyWith<_$_QueueOrderState> get copyWith =>
+  _$$QueueOrderStateImplCopyWith<_$QueueOrderStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

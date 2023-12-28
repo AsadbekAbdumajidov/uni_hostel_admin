@@ -200,11 +200,11 @@ class _$PaymentsStateCopyWithImpl<$Res, $Val extends PaymentsState>
 }
 
 /// @nodoc
-abstract class _$$_PaymentsStateCopyWith<$Res>
+abstract class _$$PaymentsStateImplCopyWith<$Res>
     implements $PaymentsStateCopyWith<$Res> {
-  factory _$$_PaymentsStateCopyWith(
-          _$_PaymentsState value, $Res Function(_$_PaymentsState) then) =
-      __$$_PaymentsStateCopyWithImpl<$Res>;
+  factory _$$PaymentsStateImplCopyWith(
+          _$PaymentsStateImpl value, $Res Function(_$PaymentsStateImpl) then) =
+      __$$PaymentsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -233,11 +233,11 @@ abstract class _$$_PaymentsStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PaymentsStateCopyWithImpl<$Res>
-    extends _$PaymentsStateCopyWithImpl<$Res, _$_PaymentsState>
-    implements _$$_PaymentsStateCopyWith<$Res> {
-  __$$_PaymentsStateCopyWithImpl(
-      _$_PaymentsState _value, $Res Function(_$_PaymentsState) _then)
+class __$$PaymentsStateImplCopyWithImpl<$Res>
+    extends _$PaymentsStateCopyWithImpl<$Res, _$PaymentsStateImpl>
+    implements _$$PaymentsStateImplCopyWith<$Res> {
+  __$$PaymentsStateImplCopyWithImpl(
+      _$PaymentsStateImpl _value, $Res Function(_$PaymentsStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -261,7 +261,7 @@ class __$$_PaymentsStateCopyWithImpl<$Res>
     Object? facultyIndex = freezed,
     Object? maritalStatus = null,
   }) {
-    return _then(_$_PaymentsState(
+    return _then(_$PaymentsStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -336,8 +336,8 @@ class __$$_PaymentsStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PaymentsState implements _PaymentsState {
-  const _$_PaymentsState(
+class _$PaymentsStateImpl implements _PaymentsState {
+  const _$PaymentsStateImpl(
       {this.status = Status.UNKNOWN,
       this.failure = const UnknownFailure(),
       this.response,
@@ -451,7 +451,7 @@ class _$_PaymentsState implements _PaymentsState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PaymentsState &&
+            other is _$PaymentsStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.failure, failure) || other.failure == failure) &&
             (identical(other.response, response) ||
@@ -508,8 +508,8 @@ class _$_PaymentsState implements _PaymentsState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PaymentsStateCopyWith<_$_PaymentsState> get copyWith =>
-      __$$_PaymentsStateCopyWithImpl<_$_PaymentsState>(this, _$identity);
+  _$$PaymentsStateImplCopyWith<_$PaymentsStateImpl> get copyWith =>
+      __$$PaymentsStateImplCopyWithImpl<_$PaymentsStateImpl>(this, _$identity);
 }
 
 abstract class _PaymentsState implements PaymentsState {
@@ -530,7 +530,7 @@ abstract class _PaymentsState implements PaymentsState {
       final List<FacultiesModel> facultiesResponse,
       final List<String> facultiesList,
       final FacultiesModel? facultyIndex,
-      final String maritalStatus}) = _$_PaymentsState;
+      final String maritalStatus}) = _$PaymentsStateImpl;
 
   @override
   Status get status;
@@ -568,6 +568,6 @@ abstract class _PaymentsState implements PaymentsState {
   String get maritalStatus;
   @override
   @JsonKey(ignore: true)
-  _$$_PaymentsStateCopyWith<_$_PaymentsState> get copyWith =>
+  _$$PaymentsStateImplCopyWith<_$PaymentsStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

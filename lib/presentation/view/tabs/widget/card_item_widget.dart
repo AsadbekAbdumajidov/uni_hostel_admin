@@ -129,15 +129,16 @@ class CardItemWidget extends StatelessWidget {
             : Expanded(
                 flex: 3,
                 child:
-                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Text(
+                     Text(
                     date,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         fontSize: textSize,
+                        
                         fontWeight: FontWeight.w400,
                         color: AppColors.blackColor),
-                  ),
-                ]),
+             ),
               ),
         ResponsiveWidget.isMobile(context)
             ? SizedBox.shrink()

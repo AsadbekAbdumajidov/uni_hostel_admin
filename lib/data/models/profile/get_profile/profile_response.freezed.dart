@@ -118,11 +118,11 @@ class _$ProfileResponseCopyWithImpl<$Res, $Val extends ProfileResponse>
 }
 
 /// @nodoc
-abstract class _$$_ProfileResponseCopyWith<$Res>
+abstract class _$$ProfileResponseImplCopyWith<$Res>
     implements $ProfileResponseCopyWith<$Res> {
-  factory _$$_ProfileResponseCopyWith(
-          _$_ProfileResponse value, $Res Function(_$_ProfileResponse) then) =
-      __$$_ProfileResponseCopyWithImpl<$Res>;
+  factory _$$ProfileResponseImplCopyWith(_$ProfileResponseImpl value,
+          $Res Function(_$ProfileResponseImpl) then) =
+      __$$ProfileResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -137,11 +137,11 @@ abstract class _$$_ProfileResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ProfileResponseCopyWithImpl<$Res>
-    extends _$ProfileResponseCopyWithImpl<$Res, _$_ProfileResponse>
-    implements _$$_ProfileResponseCopyWith<$Res> {
-  __$$_ProfileResponseCopyWithImpl(
-      _$_ProfileResponse _value, $Res Function(_$_ProfileResponse) _then)
+class __$$ProfileResponseImplCopyWithImpl<$Res>
+    extends _$ProfileResponseCopyWithImpl<$Res, _$ProfileResponseImpl>
+    implements _$$ProfileResponseImplCopyWith<$Res> {
+  __$$ProfileResponseImplCopyWithImpl(
+      _$ProfileResponseImpl _value, $Res Function(_$ProfileResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -156,7 +156,7 @@ class __$$_ProfileResponseCopyWithImpl<$Res>
     Object? type = freezed,
     Object? facultyAdmin = freezed,
   }) {
-    return _then(_$_ProfileResponse(
+    return _then(_$ProfileResponseImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -195,8 +195,8 @@ class __$$_ProfileResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ProfileResponse implements _ProfileResponse {
-  const _$_ProfileResponse(
+class _$ProfileResponseImpl implements _ProfileResponse {
+  const _$ProfileResponseImpl(
       {this.id,
       @JsonKey(name: 'first_name') this.firstName,
       @JsonKey(name: 'last_name') this.lastName,
@@ -206,8 +206,8 @@ class _$_ProfileResponse implements _ProfileResponse {
       @JsonKey(name: 'user_type') this.type,
       @JsonKey(name: 'faculty_admin') this.facultyAdmin});
 
-  factory _$_ProfileResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_ProfileResponseFromJson(json);
+  factory _$ProfileResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProfileResponseImplFromJson(json);
 
   @override
   final int? id;
@@ -241,7 +241,7 @@ class _$_ProfileResponse implements _ProfileResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ProfileResponse &&
+            other is _$ProfileResponseImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.firstName, firstName) ||
                 other.firstName == firstName) &&
@@ -264,12 +264,13 @@ class _$_ProfileResponse implements _ProfileResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProfileResponseCopyWith<_$_ProfileResponse> get copyWith =>
-      __$$_ProfileResponseCopyWithImpl<_$_ProfileResponse>(this, _$identity);
+  _$$ProfileResponseImplCopyWith<_$ProfileResponseImpl> get copyWith =>
+      __$$ProfileResponseImplCopyWithImpl<_$ProfileResponseImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProfileResponseToJson(
+    return _$$ProfileResponseImplToJson(
       this,
     );
   }
@@ -285,10 +286,10 @@ abstract class _ProfileResponse implements ProfileResponse {
           @JsonKey(name: 'admin_region') final String? region,
           @JsonKey(name: 'user_type') final String? type,
           @JsonKey(name: 'faculty_admin') final int? facultyAdmin}) =
-      _$_ProfileResponse;
+      _$ProfileResponseImpl;
 
   factory _ProfileResponse.fromJson(Map<String, dynamic> json) =
-      _$_ProfileResponse.fromJson;
+      _$ProfileResponseImpl.fromJson;
 
   @override
   int? get id;
@@ -314,6 +315,6 @@ abstract class _ProfileResponse implements ProfileResponse {
   int? get facultyAdmin;
   @override
   @JsonKey(ignore: true)
-  _$$_ProfileResponseCopyWith<_$_ProfileResponse> get copyWith =>
+  _$$ProfileResponseImplCopyWith<_$ProfileResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

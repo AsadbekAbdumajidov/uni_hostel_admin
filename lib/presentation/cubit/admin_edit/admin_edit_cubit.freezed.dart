@@ -127,11 +127,11 @@ class _$AdminEditStateCopyWithImpl<$Res, $Val extends AdminEditState>
 }
 
 /// @nodoc
-abstract class _$$_AdminEditStateCopyWith<$Res>
+abstract class _$$AdminEditStateImplCopyWith<$Res>
     implements $AdminEditStateCopyWith<$Res> {
-  factory _$$_AdminEditStateCopyWith(
-          _$_AdminEditState value, $Res Function(_$_AdminEditState) then) =
-      __$$_AdminEditStateCopyWithImpl<$Res>;
+  factory _$$AdminEditStateImplCopyWith(_$AdminEditStateImpl value,
+          $Res Function(_$AdminEditStateImpl) then) =
+      __$$AdminEditStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -150,11 +150,11 @@ abstract class _$$_AdminEditStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AdminEditStateCopyWithImpl<$Res>
-    extends _$AdminEditStateCopyWithImpl<$Res, _$_AdminEditState>
-    implements _$$_AdminEditStateCopyWith<$Res> {
-  __$$_AdminEditStateCopyWithImpl(
-      _$_AdminEditState _value, $Res Function(_$_AdminEditState) _then)
+class __$$AdminEditStateImplCopyWithImpl<$Res>
+    extends _$AdminEditStateCopyWithImpl<$Res, _$AdminEditStateImpl>
+    implements _$$AdminEditStateImplCopyWith<$Res> {
+  __$$AdminEditStateImplCopyWithImpl(
+      _$AdminEditStateImpl _value, $Res Function(_$AdminEditStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -168,7 +168,7 @@ class __$$_AdminEditStateCopyWithImpl<$Res>
     Object? file = freezed,
     Object? type = freezed,
   }) {
-    return _then(_$_AdminEditState(
+    return _then(_$AdminEditStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -203,8 +203,8 @@ class __$$_AdminEditStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AdminEditState implements _AdminEditState {
-  const _$_AdminEditState(
+class _$AdminEditStateImpl implements _AdminEditState {
+  const _$AdminEditStateImpl(
       {this.status = Status.UNKNOWN,
       this.failure = const UnknownFailure(),
       this.adminResponse,
@@ -239,7 +239,7 @@ class _$_AdminEditState implements _AdminEditState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AdminEditState &&
+            other is _$AdminEditStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.failure, failure) || other.failure == failure) &&
             (identical(other.adminResponse, adminResponse) ||
@@ -259,8 +259,9 @@ class _$_AdminEditState implements _AdminEditState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AdminEditStateCopyWith<_$_AdminEditState> get copyWith =>
-      __$$_AdminEditStateCopyWithImpl<_$_AdminEditState>(this, _$identity);
+  _$$AdminEditStateImplCopyWith<_$AdminEditStateImpl> get copyWith =>
+      __$$AdminEditStateImplCopyWithImpl<_$AdminEditStateImpl>(
+          this, _$identity);
 }
 
 abstract class _AdminEditState implements AdminEditState {
@@ -271,7 +272,7 @@ abstract class _AdminEditState implements AdminEditState {
       final PlatformFile? pickedImg,
       final FacultiesModel? facultyIndex,
       final String? file,
-      final String? type}) = _$_AdminEditState;
+      final String? type}) = _$AdminEditStateImpl;
 
   @override
   Status get status;
@@ -289,6 +290,6 @@ abstract class _AdminEditState implements AdminEditState {
   String? get type;
   @override
   @JsonKey(ignore: true)
-  _$$_AdminEditStateCopyWith<_$_AdminEditState> get copyWith =>
+  _$$AdminEditStateImplCopyWith<_$AdminEditStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

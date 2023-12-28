@@ -184,11 +184,11 @@ class _$AcceptedOrderStateCopyWithImpl<$Res, $Val extends AcceptedOrderState>
 }
 
 /// @nodoc
-abstract class _$$_AcceptedOrderStateCopyWith<$Res>
+abstract class _$$AcceptedOrderStateImplCopyWith<$Res>
     implements $AcceptedOrderStateCopyWith<$Res> {
-  factory _$$_AcceptedOrderStateCopyWith(_$_AcceptedOrderState value,
-          $Res Function(_$_AcceptedOrderState) then) =
-      __$$_AcceptedOrderStateCopyWithImpl<$Res>;
+  factory _$$AcceptedOrderStateImplCopyWith(_$AcceptedOrderStateImpl value,
+          $Res Function(_$AcceptedOrderStateImpl) then) =
+      __$$AcceptedOrderStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -215,11 +215,11 @@ abstract class _$$_AcceptedOrderStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AcceptedOrderStateCopyWithImpl<$Res>
-    extends _$AcceptedOrderStateCopyWithImpl<$Res, _$_AcceptedOrderState>
-    implements _$$_AcceptedOrderStateCopyWith<$Res> {
-  __$$_AcceptedOrderStateCopyWithImpl(
-      _$_AcceptedOrderState _value, $Res Function(_$_AcceptedOrderState) _then)
+class __$$AcceptedOrderStateImplCopyWithImpl<$Res>
+    extends _$AcceptedOrderStateCopyWithImpl<$Res, _$AcceptedOrderStateImpl>
+    implements _$$AcceptedOrderStateImplCopyWith<$Res> {
+  __$$AcceptedOrderStateImplCopyWithImpl(_$AcceptedOrderStateImpl _value,
+      $Res Function(_$AcceptedOrderStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -241,7 +241,7 @@ class __$$_AcceptedOrderStateCopyWithImpl<$Res>
     Object? ordersList = freezed,
     Object? inDormitory = freezed,
   }) {
-    return _then(_$_AcceptedOrderState(
+    return _then(_$AcceptedOrderStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -308,8 +308,8 @@ class __$$_AcceptedOrderStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AcceptedOrderState implements _AcceptedOrderState {
-  const _$_AcceptedOrderState(
+class _$AcceptedOrderStateImpl implements _AcceptedOrderState {
+  const _$AcceptedOrderStateImpl(
       {this.status = Status.UNKNOWN,
       this.failure = const UnknownFailure(),
       this.orderResponse,
@@ -401,7 +401,7 @@ class _$_AcceptedOrderState implements _AcceptedOrderState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AcceptedOrderState &&
+            other is _$AcceptedOrderStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.failure, failure) || other.failure == failure) &&
             (identical(other.orderResponse, orderResponse) ||
@@ -452,8 +452,8 @@ class _$_AcceptedOrderState implements _AcceptedOrderState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AcceptedOrderStateCopyWith<_$_AcceptedOrderState> get copyWith =>
-      __$$_AcceptedOrderStateCopyWithImpl<_$_AcceptedOrderState>(
+  _$$AcceptedOrderStateImplCopyWith<_$AcceptedOrderStateImpl> get copyWith =>
+      __$$AcceptedOrderStateImplCopyWithImpl<_$AcceptedOrderStateImpl>(
           this, _$identity);
 }
 
@@ -473,7 +473,7 @@ abstract class _AcceptedOrderState implements AcceptedOrderState {
       final FacultiesModel? facultyIndex,
       final String maritalStatus,
       final String? ordersList,
-      final String? inDormitory}) = _$_AcceptedOrderState;
+      final String? inDormitory}) = _$AcceptedOrderStateImpl;
 
   @override
   Status get status;
@@ -507,6 +507,6 @@ abstract class _AcceptedOrderState implements AcceptedOrderState {
   String? get inDormitory;
   @override
   @JsonKey(ignore: true)
-  _$$_AcceptedOrderStateCopyWith<_$_AcceptedOrderState> get copyWith =>
+  _$$AcceptedOrderStateImplCopyWith<_$AcceptedOrderStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

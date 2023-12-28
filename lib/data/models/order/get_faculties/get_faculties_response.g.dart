@@ -6,27 +6,28 @@ part of 'get_faculties_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_GetFacultiesResponse _$$_GetFacultiesResponseFromJson(
+_$GetFacultiesResponseImpl _$$GetFacultiesResponseImplFromJson(
         Map<String, dynamic> json) =>
-    _$_GetFacultiesResponse(
+    _$GetFacultiesResponseImpl(
       response: (json['response'] as List<dynamic>?)
           ?.map((e) => FacultiesModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_GetFacultiesResponseToJson(
-        _$_GetFacultiesResponse instance) =>
+Map<String, dynamic> _$$GetFacultiesResponseImplToJson(
+        _$GetFacultiesResponseImpl instance) =>
     <String, dynamic>{
       'response': instance.response,
     };
 
-_$_FacultiesModel _$$_FacultiesModelFromJson(Map<String, dynamic> json) =>
-    _$_FacultiesModel(
+_$FacultiesModelImpl _$$FacultiesModelImplFromJson(Map<String, dynamic> json) =>
+    _$FacultiesModelImpl(
       id: json['id'] as int?,
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$$_FacultiesModelToJson(_$_FacultiesModel instance) =>
+Map<String, dynamic> _$$FacultiesModelImplToJson(
+        _$FacultiesModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

@@ -41,13 +41,13 @@ class PaymentsCubit extends Cubit<PaymentsState> {
       emit(state.copyWith(
           dormitoryList: list,
           responseDormitories: success,
-          status: Status.SUCCESS));
+          status: Status.LOADING));
     });
   }
 
   void selectDormitory(String index) {
     if (index == AppStrings.strNoneOfThem) {
-      emit(state.copyWith(dormitoryIndex: "",dormitoryId: null));
+      emit(state.copyWith(dormitoryIndex: "", dormitoryId: null));
       payments();
     } else {
       int? dormitoryId;
@@ -80,7 +80,6 @@ class PaymentsCubit extends Cubit<PaymentsState> {
           response: success,
           whoPaidList: success.results ?? [],
           status: Status.SUCCESS));
-      getdormitories();
     });
   }
 
@@ -182,6 +181,7 @@ class PaymentsCubit extends Cubit<PaymentsState> {
         list.add(AppStrings.strNoneOfThem);
         emit(state.copyWith(
             facultiesList: list, facultiesResponse: success.response ?? []));
+        getdormitories();
         payments();
       },
     );

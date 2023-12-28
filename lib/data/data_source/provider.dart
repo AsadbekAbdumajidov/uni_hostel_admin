@@ -123,8 +123,6 @@ abstract class ApiClient {
   @GET('admin/dormitory/')
   Future<List<GetDormitoryResponse>> getDormitories();
 
-  @PATCH('admin/update/student/monthly/payment/')
-  Future<bool> editMonthlyPrice(
-    @Body() EditMonthlyPriceRequest request,
-  );
+  @POST('admin/update/student/monthly/payment/')
+  Future<EditStatusResponse> editMonthlyPrice(@Body() EditMonthlyPriceRequest request);
 }

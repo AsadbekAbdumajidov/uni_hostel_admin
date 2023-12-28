@@ -17,15 +17,12 @@ class MenuDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var status = context.watch<ProfileCubit>().state.response?.type;
     return BlocBuilder<SideBarCubit, SideBarState>(builder: (context, state) {
-      var status = context.watch<ProfileCubit>().state.response?.type;
-      var index;
-      if (status == "payment_admin" && state.currentIndex == 0) {
-        index = 5;
-        context.read<SideBarCubit>().changeIndex(index);
-        Future.delayed(Duration(milliseconds: 300), () {
-          Navigator.pushNamed(context, RouteName.thoseWhoPaid.route);
-        });
+      if (status == "payment_admin" ||
+          status == "payment_super_admin" && state.currentIndex == 0) {
+        context.read<SideBarCubit>().changeIndex(5).then((value) => Navigator.pushNamed(context, RouteName.thoseWhoPaid.route));
+      
       }
 
       debugPrint("$status STATUS");

@@ -22,7 +22,7 @@ EditMonthlyPriceRequest _$EditMonthlyPriceRequestFromJson(
 /// @nodoc
 mixin _$EditMonthlyPriceRequest {
   @JsonKey(name: 'student_id')
-  int get studentdd => throw _privateConstructorUsedError;
+  int get studentid => throw _privateConstructorUsedError;
   int get amount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $EditMonthlyPriceRequestCopyWith<$Res> {
           $Res Function(EditMonthlyPriceRequest) then) =
       _$EditMonthlyPriceRequestCopyWithImpl<$Res, EditMonthlyPriceRequest>;
   @useResult
-  $Res call({@JsonKey(name: 'student_id') int studentdd, int amount});
+  $Res call({@JsonKey(name: 'student_id') int studentid, int amount});
 }
 
 /// @nodoc
@@ -54,13 +54,13 @@ class _$EditMonthlyPriceRequestCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? studentdd = null,
+    Object? studentid = null,
     Object? amount = null,
   }) {
     return _then(_value.copyWith(
-      studentdd: null == studentdd
-          ? _value.studentdd
-          : studentdd // ignore: cast_nullable_to_non_nullable
+      studentid: null == studentid
+          ? _value.studentid
+          : studentid // ignore: cast_nullable_to_non_nullable
               as int,
       amount: null == amount
           ? _value.amount
@@ -71,35 +71,37 @@ class _$EditMonthlyPriceRequestCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_EditMonthlyPriceRequestCopyWith<$Res>
+abstract class _$$EditMonthlyPriceRequestImplCopyWith<$Res>
     implements $EditMonthlyPriceRequestCopyWith<$Res> {
-  factory _$$_EditMonthlyPriceRequestCopyWith(_$_EditMonthlyPriceRequest value,
-          $Res Function(_$_EditMonthlyPriceRequest) then) =
-      __$$_EditMonthlyPriceRequestCopyWithImpl<$Res>;
+  factory _$$EditMonthlyPriceRequestImplCopyWith(
+          _$EditMonthlyPriceRequestImpl value,
+          $Res Function(_$EditMonthlyPriceRequestImpl) then) =
+      __$$EditMonthlyPriceRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'student_id') int studentdd, int amount});
+  $Res call({@JsonKey(name: 'student_id') int studentid, int amount});
 }
 
 /// @nodoc
-class __$$_EditMonthlyPriceRequestCopyWithImpl<$Res>
+class __$$EditMonthlyPriceRequestImplCopyWithImpl<$Res>
     extends _$EditMonthlyPriceRequestCopyWithImpl<$Res,
-        _$_EditMonthlyPriceRequest>
-    implements _$$_EditMonthlyPriceRequestCopyWith<$Res> {
-  __$$_EditMonthlyPriceRequestCopyWithImpl(_$_EditMonthlyPriceRequest _value,
-      $Res Function(_$_EditMonthlyPriceRequest) _then)
+        _$EditMonthlyPriceRequestImpl>
+    implements _$$EditMonthlyPriceRequestImplCopyWith<$Res> {
+  __$$EditMonthlyPriceRequestImplCopyWithImpl(
+      _$EditMonthlyPriceRequestImpl _value,
+      $Res Function(_$EditMonthlyPriceRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? studentdd = null,
+    Object? studentid = null,
     Object? amount = null,
   }) {
-    return _then(_$_EditMonthlyPriceRequest(
-      studentdd: null == studentdd
-          ? _value.studentdd
-          : studentdd // ignore: cast_nullable_to_non_nullable
+    return _then(_$EditMonthlyPriceRequestImpl(
+      studentid: null == studentid
+          ? _value.studentid
+          : studentid // ignore: cast_nullable_to_non_nullable
               as int,
       amount: null == amount
           ? _value.amount
@@ -111,50 +113,49 @@ class __$$_EditMonthlyPriceRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EditMonthlyPriceRequest implements _EditMonthlyPriceRequest {
-  const _$_EditMonthlyPriceRequest(
-      {@JsonKey(name: 'student_id') required this.studentdd,
+class _$EditMonthlyPriceRequestImpl implements _EditMonthlyPriceRequest {
+  const _$EditMonthlyPriceRequestImpl(
+      {@JsonKey(name: 'student_id') required this.studentid,
       required this.amount});
 
-  factory _$_EditMonthlyPriceRequest.fromJson(Map<String, dynamic> json) =>
-      _$$_EditMonthlyPriceRequestFromJson(json);
+  factory _$EditMonthlyPriceRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EditMonthlyPriceRequestImplFromJson(json);
 
   @override
   @JsonKey(name: 'student_id')
-  final int studentdd;
+  final int studentid;
   @override
   final int amount;
 
   @override
   String toString() {
-    return 'EditMonthlyPriceRequest(studentdd: $studentdd, amount: $amount)';
+    return 'EditMonthlyPriceRequest(studentid: $studentid, amount: $amount)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EditMonthlyPriceRequest &&
-            (identical(other.studentdd, studentdd) ||
-                other.studentdd == studentdd) &&
+            other is _$EditMonthlyPriceRequestImpl &&
+            (identical(other.studentid, studentid) ||
+                other.studentid == studentid) &&
             (identical(other.amount, amount) || other.amount == amount));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, studentdd, amount);
+  int get hashCode => Object.hash(runtimeType, studentid, amount);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EditMonthlyPriceRequestCopyWith<_$_EditMonthlyPriceRequest>
-      get copyWith =>
-          __$$_EditMonthlyPriceRequestCopyWithImpl<_$_EditMonthlyPriceRequest>(
-              this, _$identity);
+  _$$EditMonthlyPriceRequestImplCopyWith<_$EditMonthlyPriceRequestImpl>
+      get copyWith => __$$EditMonthlyPriceRequestImplCopyWithImpl<
+          _$EditMonthlyPriceRequestImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EditMonthlyPriceRequestToJson(
+    return _$$EditMonthlyPriceRequestImplToJson(
       this,
     );
   }
@@ -162,19 +163,19 @@ class _$_EditMonthlyPriceRequest implements _EditMonthlyPriceRequest {
 
 abstract class _EditMonthlyPriceRequest implements EditMonthlyPriceRequest {
   const factory _EditMonthlyPriceRequest(
-      {@JsonKey(name: 'student_id') required final int studentdd,
-      required final int amount}) = _$_EditMonthlyPriceRequest;
+      {@JsonKey(name: 'student_id') required final int studentid,
+      required final int amount}) = _$EditMonthlyPriceRequestImpl;
 
   factory _EditMonthlyPriceRequest.fromJson(Map<String, dynamic> json) =
-      _$_EditMonthlyPriceRequest.fromJson;
+      _$EditMonthlyPriceRequestImpl.fromJson;
 
   @override
   @JsonKey(name: 'student_id')
-  int get studentdd;
+  int get studentid;
   @override
   int get amount;
   @override
   @JsonKey(ignore: true)
-  _$$_EditMonthlyPriceRequestCopyWith<_$_EditMonthlyPriceRequest>
+  _$$EditMonthlyPriceRequestImplCopyWith<_$EditMonthlyPriceRequestImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -64,22 +64,24 @@ class _$EditMonthlyPriceStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_EditMonthlyPriceStateCopyWith<$Res>
+abstract class _$$EditMonthlyPriceStateImplCopyWith<$Res>
     implements $EditMonthlyPriceStateCopyWith<$Res> {
-  factory _$$_EditMonthlyPriceStateCopyWith(_$_EditMonthlyPriceState value,
-          $Res Function(_$_EditMonthlyPriceState) then) =
-      __$$_EditMonthlyPriceStateCopyWithImpl<$Res>;
+  factory _$$EditMonthlyPriceStateImplCopyWith(
+          _$EditMonthlyPriceStateImpl value,
+          $Res Function(_$EditMonthlyPriceStateImpl) then) =
+      __$$EditMonthlyPriceStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Status status, Failure failure});
 }
 
 /// @nodoc
-class __$$_EditMonthlyPriceStateCopyWithImpl<$Res>
-    extends _$EditMonthlyPriceStateCopyWithImpl<$Res, _$_EditMonthlyPriceState>
-    implements _$$_EditMonthlyPriceStateCopyWith<$Res> {
-  __$$_EditMonthlyPriceStateCopyWithImpl(_$_EditMonthlyPriceState _value,
-      $Res Function(_$_EditMonthlyPriceState) _then)
+class __$$EditMonthlyPriceStateImplCopyWithImpl<$Res>
+    extends _$EditMonthlyPriceStateCopyWithImpl<$Res,
+        _$EditMonthlyPriceStateImpl>
+    implements _$$EditMonthlyPriceStateImplCopyWith<$Res> {
+  __$$EditMonthlyPriceStateImplCopyWithImpl(_$EditMonthlyPriceStateImpl _value,
+      $Res Function(_$EditMonthlyPriceStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -88,7 +90,7 @@ class __$$_EditMonthlyPriceStateCopyWithImpl<$Res>
     Object? status = null,
     Object? failure = null,
   }) {
-    return _then(_$_EditMonthlyPriceState(
+    return _then(_$EditMonthlyPriceStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -103,8 +105,8 @@ class __$$_EditMonthlyPriceStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_EditMonthlyPriceState implements _EditMonthlyPriceState {
-  const _$_EditMonthlyPriceState(
+class _$EditMonthlyPriceStateImpl implements _EditMonthlyPriceState {
+  const _$EditMonthlyPriceStateImpl(
       {this.status = Status.UNKNOWN, this.failure = const UnknownFailure()});
 
   @override
@@ -123,7 +125,7 @@ class _$_EditMonthlyPriceState implements _EditMonthlyPriceState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EditMonthlyPriceState &&
+            other is _$EditMonthlyPriceStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.failure, failure) || other.failure == failure));
   }
@@ -134,14 +136,15 @@ class _$_EditMonthlyPriceState implements _EditMonthlyPriceState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EditMonthlyPriceStateCopyWith<_$_EditMonthlyPriceState> get copyWith =>
-      __$$_EditMonthlyPriceStateCopyWithImpl<_$_EditMonthlyPriceState>(
-          this, _$identity);
+  _$$EditMonthlyPriceStateImplCopyWith<_$EditMonthlyPriceStateImpl>
+      get copyWith => __$$EditMonthlyPriceStateImplCopyWithImpl<
+          _$EditMonthlyPriceStateImpl>(this, _$identity);
 }
 
 abstract class _EditMonthlyPriceState implements EditMonthlyPriceState {
   const factory _EditMonthlyPriceState(
-      {final Status status, final Failure failure}) = _$_EditMonthlyPriceState;
+      {final Status status,
+      final Failure failure}) = _$EditMonthlyPriceStateImpl;
 
   @override
   Status get status;
@@ -149,6 +152,6 @@ abstract class _EditMonthlyPriceState implements EditMonthlyPriceState {
   Failure get failure;
   @override
   @JsonKey(ignore: true)
-  _$$_EditMonthlyPriceStateCopyWith<_$_EditMonthlyPriceState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$EditMonthlyPriceStateImplCopyWith<_$EditMonthlyPriceStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

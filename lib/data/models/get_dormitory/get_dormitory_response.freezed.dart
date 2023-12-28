@@ -100,11 +100,11 @@ class _$GetDormitoryResponseCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_GetDormitoryResponseCopyWith<$Res>
+abstract class _$$GetDormitoryResponseImplCopyWith<$Res>
     implements $GetDormitoryResponseCopyWith<$Res> {
-  factory _$$_GetDormitoryResponseCopyWith(_$_GetDormitoryResponse value,
-          $Res Function(_$_GetDormitoryResponse) then) =
-      __$$_GetDormitoryResponseCopyWithImpl<$Res>;
+  factory _$$GetDormitoryResponseImplCopyWith(_$GetDormitoryResponseImpl value,
+          $Res Function(_$GetDormitoryResponseImpl) then) =
+      __$$GetDormitoryResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -117,11 +117,11 @@ abstract class _$$_GetDormitoryResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GetDormitoryResponseCopyWithImpl<$Res>
-    extends _$GetDormitoryResponseCopyWithImpl<$Res, _$_GetDormitoryResponse>
-    implements _$$_GetDormitoryResponseCopyWith<$Res> {
-  __$$_GetDormitoryResponseCopyWithImpl(_$_GetDormitoryResponse _value,
-      $Res Function(_$_GetDormitoryResponse) _then)
+class __$$GetDormitoryResponseImplCopyWithImpl<$Res>
+    extends _$GetDormitoryResponseCopyWithImpl<$Res, _$GetDormitoryResponseImpl>
+    implements _$$GetDormitoryResponseImplCopyWith<$Res> {
+  __$$GetDormitoryResponseImplCopyWithImpl(_$GetDormitoryResponseImpl _value,
+      $Res Function(_$GetDormitoryResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -134,7 +134,7 @@ class __$$_GetDormitoryResponseCopyWithImpl<$Res>
     Object? description = null,
     Object? faculity = freezed,
   }) {
-    return _then(_$_GetDormitoryResponse(
+    return _then(_$GetDormitoryResponseImpl(
       faculityName: freezed == faculityName
           ? _value.faculityName
           : faculityName // ignore: cast_nullable_to_non_nullable
@@ -165,8 +165,8 @@ class __$$_GetDormitoryResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GetDormitoryResponse implements _GetDormitoryResponse {
-  const _$_GetDormitoryResponse(
+class _$GetDormitoryResponseImpl implements _GetDormitoryResponse {
+  const _$GetDormitoryResponseImpl(
       {@JsonKey(name: 'faculity__name') this.faculityName,
       this.id,
       this.image,
@@ -174,8 +174,8 @@ class _$_GetDormitoryResponse implements _GetDormitoryResponse {
       required this.description,
       this.faculity});
 
-  factory _$_GetDormitoryResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_GetDormitoryResponseFromJson(json);
+  factory _$GetDormitoryResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GetDormitoryResponseImplFromJson(json);
 
   @override
   @JsonKey(name: 'faculity__name')
@@ -200,7 +200,7 @@ class _$_GetDormitoryResponse implements _GetDormitoryResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GetDormitoryResponse &&
+            other is _$GetDormitoryResponseImpl &&
             (identical(other.faculityName, faculityName) ||
                 other.faculityName == faculityName) &&
             (identical(other.id, id) || other.id == id) &&
@@ -220,13 +220,14 @@ class _$_GetDormitoryResponse implements _GetDormitoryResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GetDormitoryResponseCopyWith<_$_GetDormitoryResponse> get copyWith =>
-      __$$_GetDormitoryResponseCopyWithImpl<_$_GetDormitoryResponse>(
-          this, _$identity);
+  _$$GetDormitoryResponseImplCopyWith<_$GetDormitoryResponseImpl>
+      get copyWith =>
+          __$$GetDormitoryResponseImplCopyWithImpl<_$GetDormitoryResponseImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GetDormitoryResponseToJson(
+    return _$$GetDormitoryResponseImplToJson(
       this,
     );
   }
@@ -239,10 +240,10 @@ abstract class _GetDormitoryResponse implements GetDormitoryResponse {
       final String? image,
       required final String name,
       required final String description,
-      final int? faculity}) = _$_GetDormitoryResponse;
+      final int? faculity}) = _$GetDormitoryResponseImpl;
 
   factory _GetDormitoryResponse.fromJson(Map<String, dynamic> json) =
-      _$_GetDormitoryResponse.fromJson;
+      _$GetDormitoryResponseImpl.fromJson;
 
   @override
   @JsonKey(name: 'faculity__name')
@@ -259,6 +260,6 @@ abstract class _GetDormitoryResponse implements GetDormitoryResponse {
   int? get faculity;
   @override
   @JsonKey(ignore: true)
-  _$$_GetDormitoryResponseCopyWith<_$_GetDormitoryResponse> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GetDormitoryResponseImplCopyWith<_$GetDormitoryResponseImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -2,9 +2,9 @@
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_MainStatisticsResponse _$$_MainStatisticsResponseFromJson(
+_$MainStatisticsResponseImpl _$$MainStatisticsResponseImplFromJson(
         Map<String, dynamic> json) =>
-    _$_MainStatisticsResponse(
+    _$MainStatisticsResponseImpl(
       all: json['all'] as int?,
       accepted: json['accepted'] as int?,
       inQueue: json['in_queue'] as int?,
@@ -33,8 +33,8 @@ _$_MainStatisticsResponse _$$_MainStatisticsResponseFromJson(
       kurs7: json['7-kurs'] as int?,
     );
 
-Map<String, dynamic> _$$_MainStatisticsResponseToJson(
-        _$_MainStatisticsResponse instance) =>
+Map<String, dynamic> _$$MainStatisticsResponseImplToJson(
+        _$MainStatisticsResponseImpl instance) =>
     <String, dynamic>{
       'all': instance.all,
       'accepted': instance.accepted,
@@ -62,12 +62,13 @@ Map<String, dynamic> _$$_MainStatisticsResponseToJson(
       '7-kurs': instance.kurs7,
     };
 
-_$_Faculty _$$_FacultyFromJson(Map<String, dynamic> json) => _$_Faculty(
+_$FacultyImpl _$$FacultyImplFromJson(Map<String, dynamic> json) =>
+    _$FacultyImpl(
       name: json['name'] as String?,
       count: json['count'] as int?,
     );
 
-Map<String, dynamic> _$$_FacultyToJson(_$_Faculty instance) =>
+Map<String, dynamic> _$$FacultyImplToJson(_$FacultyImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'count': instance.count,

@@ -6,8 +6,9 @@ part of 'get_order_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_GetOrderResponse _$$_GetOrderResponseFromJson(Map<String, dynamic> json) =>
-    _$_GetOrderResponse(
+_$GetOrderResponseImpl _$$GetOrderResponseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$GetOrderResponseImpl(
       count: json['count'] as int?,
       next: json['next'] as String?,
       previous: json['previous'] as String?,
@@ -16,7 +17,8 @@ _$_GetOrderResponse _$$_GetOrderResponseFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$_GetOrderResponseToJson(_$_GetOrderResponse instance) =>
+Map<String, dynamic> _$$GetOrderResponseImplToJson(
+        _$GetOrderResponseImpl instance) =>
     <String, dynamic>{
       'count': instance.count,
       'next': instance.next,
@@ -24,8 +26,8 @@ Map<String, dynamic> _$$_GetOrderResponseToJson(_$_GetOrderResponse instance) =>
       'results': instance.results,
     };
 
-_$_OrderModel _$$_OrderModelFromJson(Map<String, dynamic> json) =>
-    _$_OrderModel(
+_$OrderModelImpl _$$OrderModelImplFromJson(Map<String, dynamic> json) =>
+    _$OrderModelImpl(
       id: json['id'] as int?,
       createdAt: json['created_at'] as String?,
       status: json['waiting_status'] as String?,
@@ -35,7 +37,7 @@ _$_OrderModel _$$_OrderModelFromJson(Map<String, dynamic> json) =>
           : StudentModel.fromJson(json['student'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_OrderModelToJson(_$_OrderModel instance) =>
+Map<String, dynamic> _$$OrderModelImplToJson(_$OrderModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'created_at': instance.createdAt,
@@ -44,13 +46,13 @@ Map<String, dynamic> _$$_OrderModelToJson(_$_OrderModel instance) =>
       'student': instance.student,
     };
 
-_$_StudentModel _$$_StudentModelFromJson(Map<String, dynamic> json) =>
-    _$_StudentModel(
+_$StudentModelImpl _$$StudentModelImplFromJson(Map<String, dynamic> json) =>
+    _$StudentModelImpl(
       image: json['image'] as String?,
       name: json['full_name'] as String?,
     );
 
-Map<String, dynamic> _$$_StudentModelToJson(_$_StudentModel instance) =>
+Map<String, dynamic> _$$StudentModelImplToJson(_$StudentModelImpl instance) =>
     <String, dynamic>{
       'image': instance.image,
       'full_name': instance.name,

@@ -166,11 +166,11 @@ class _$EditStatusRequestCopyWithImpl<$Res, $Val extends EditStatusRequest>
 }
 
 /// @nodoc
-abstract class _$$_EditStatusRequestCopyWith<$Res>
+abstract class _$$EditStatusRequestImplCopyWith<$Res>
     implements $EditStatusRequestCopyWith<$Res> {
-  factory _$$_EditStatusRequestCopyWith(_$_EditStatusRequest value,
-          $Res Function(_$_EditStatusRequest) then) =
-      __$$_EditStatusRequestCopyWithImpl<$Res>;
+  factory _$$EditStatusRequestImplCopyWith(_$EditStatusRequestImpl value,
+          $Res Function(_$EditStatusRequestImpl) then) =
+      __$$EditStatusRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -191,11 +191,11 @@ abstract class _$$_EditStatusRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EditStatusRequestCopyWithImpl<$Res>
-    extends _$EditStatusRequestCopyWithImpl<$Res, _$_EditStatusRequest>
-    implements _$$_EditStatusRequestCopyWith<$Res> {
-  __$$_EditStatusRequestCopyWithImpl(
-      _$_EditStatusRequest _value, $Res Function(_$_EditStatusRequest) _then)
+class __$$EditStatusRequestImplCopyWithImpl<$Res>
+    extends _$EditStatusRequestCopyWithImpl<$Res, _$EditStatusRequestImpl>
+    implements _$$EditStatusRequestImplCopyWith<$Res> {
+  __$$EditStatusRequestImplCopyWithImpl(_$EditStatusRequestImpl _value,
+      $Res Function(_$EditStatusRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -216,7 +216,7 @@ class __$$_EditStatusRequestCopyWithImpl<$Res>
     Object? giftedStudent = freezed,
     Object? hasManyChildrenFamily = freezed,
   }) {
-    return _then(_$_EditStatusRequest(
+    return _then(_$EditStatusRequestImpl(
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -279,8 +279,8 @@ class __$$_EditStatusRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EditStatusRequest implements _EditStatusRequest {
-  const _$_EditStatusRequest(
+class _$EditStatusRequestImpl implements _EditStatusRequest {
+  const _$EditStatusRequestImpl(
       {this.status,
       @JsonKey(name: 'monthly_payment_price') this.monthlyPaymentPrice,
       @JsonKey(name: 'cancel_reason') this.cancelReason,
@@ -296,8 +296,8 @@ class _$_EditStatusRequest implements _EditStatusRequest {
       @JsonKey(name: 'gifted_student') this.giftedStudent,
       @JsonKey(name: 'has_many_children_family') this.hasManyChildrenFamily});
 
-  factory _$_EditStatusRequest.fromJson(Map<String, dynamic> json) =>
-      _$$_EditStatusRequestFromJson(json);
+  factory _$EditStatusRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EditStatusRequestImplFromJson(json);
 
   @override
   final String? status;
@@ -349,7 +349,7 @@ class _$_EditStatusRequest implements _EditStatusRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EditStatusRequest &&
+            other is _$EditStatusRequestImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.monthlyPaymentPrice, monthlyPaymentPrice) ||
                 other.monthlyPaymentPrice == monthlyPaymentPrice) &&
@@ -401,13 +401,13 @@ class _$_EditStatusRequest implements _EditStatusRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EditStatusRequestCopyWith<_$_EditStatusRequest> get copyWith =>
-      __$$_EditStatusRequestCopyWithImpl<_$_EditStatusRequest>(
+  _$$EditStatusRequestImplCopyWith<_$EditStatusRequestImpl> get copyWith =>
+      __$$EditStatusRequestImplCopyWithImpl<_$EditStatusRequestImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EditStatusRequestToJson(
+    return _$$EditStatusRequestImplToJson(
       this,
     );
   }
@@ -430,10 +430,10 @@ abstract class _EditStatusRequest implements EditStatusRequest {
       final bool? disabled,
       @JsonKey(name: 'gifted_student') final bool? giftedStudent,
       @JsonKey(name: 'has_many_children_family')
-      final bool? hasManyChildrenFamily}) = _$_EditStatusRequest;
+      final bool? hasManyChildrenFamily}) = _$EditStatusRequestImpl;
 
   factory _EditStatusRequest.fromJson(Map<String, dynamic> json) =
-      _$_EditStatusRequest.fromJson;
+      _$EditStatusRequestImpl.fromJson;
 
   @override
   String? get status;
@@ -477,6 +477,6 @@ abstract class _EditStatusRequest implements EditStatusRequest {
   bool? get hasManyChildrenFamily;
   @override
   @JsonKey(ignore: true)
-  _$$_EditStatusRequestCopyWith<_$_EditStatusRequest> get copyWith =>
+  _$$EditStatusRequestImplCopyWith<_$EditStatusRequestImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

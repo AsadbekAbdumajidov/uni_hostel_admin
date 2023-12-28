@@ -63,22 +63,22 @@ class _$GetFacultiesResponseCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_GetFacultiesResponseCopyWith<$Res>
+abstract class _$$GetFacultiesResponseImplCopyWith<$Res>
     implements $GetFacultiesResponseCopyWith<$Res> {
-  factory _$$_GetFacultiesResponseCopyWith(_$_GetFacultiesResponse value,
-          $Res Function(_$_GetFacultiesResponse) then) =
-      __$$_GetFacultiesResponseCopyWithImpl<$Res>;
+  factory _$$GetFacultiesResponseImplCopyWith(_$GetFacultiesResponseImpl value,
+          $Res Function(_$GetFacultiesResponseImpl) then) =
+      __$$GetFacultiesResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<FacultiesModel>? response});
 }
 
 /// @nodoc
-class __$$_GetFacultiesResponseCopyWithImpl<$Res>
-    extends _$GetFacultiesResponseCopyWithImpl<$Res, _$_GetFacultiesResponse>
-    implements _$$_GetFacultiesResponseCopyWith<$Res> {
-  __$$_GetFacultiesResponseCopyWithImpl(_$_GetFacultiesResponse _value,
-      $Res Function(_$_GetFacultiesResponse) _then)
+class __$$GetFacultiesResponseImplCopyWithImpl<$Res>
+    extends _$GetFacultiesResponseCopyWithImpl<$Res, _$GetFacultiesResponseImpl>
+    implements _$$GetFacultiesResponseImplCopyWith<$Res> {
+  __$$GetFacultiesResponseImplCopyWithImpl(_$GetFacultiesResponseImpl _value,
+      $Res Function(_$GetFacultiesResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -86,7 +86,7 @@ class __$$_GetFacultiesResponseCopyWithImpl<$Res>
   $Res call({
     Object? response = freezed,
   }) {
-    return _then(_$_GetFacultiesResponse(
+    return _then(_$GetFacultiesResponseImpl(
       response: freezed == response
           ? _value._response
           : response // ignore: cast_nullable_to_non_nullable
@@ -97,12 +97,12 @@ class __$$_GetFacultiesResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GetFacultiesResponse implements _GetFacultiesResponse {
-  const _$_GetFacultiesResponse({final List<FacultiesModel>? response})
+class _$GetFacultiesResponseImpl implements _GetFacultiesResponse {
+  const _$GetFacultiesResponseImpl({final List<FacultiesModel>? response})
       : _response = response;
 
-  factory _$_GetFacultiesResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_GetFacultiesResponseFromJson(json);
+  factory _$GetFacultiesResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GetFacultiesResponseImplFromJson(json);
 
   final List<FacultiesModel>? _response;
   @override
@@ -123,7 +123,7 @@ class _$_GetFacultiesResponse implements _GetFacultiesResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GetFacultiesResponse &&
+            other is _$GetFacultiesResponseImpl &&
             const DeepCollectionEquality().equals(other._response, _response));
   }
 
@@ -135,13 +135,14 @@ class _$_GetFacultiesResponse implements _GetFacultiesResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GetFacultiesResponseCopyWith<_$_GetFacultiesResponse> get copyWith =>
-      __$$_GetFacultiesResponseCopyWithImpl<_$_GetFacultiesResponse>(
-          this, _$identity);
+  _$$GetFacultiesResponseImplCopyWith<_$GetFacultiesResponseImpl>
+      get copyWith =>
+          __$$GetFacultiesResponseImplCopyWithImpl<_$GetFacultiesResponseImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GetFacultiesResponseToJson(
+    return _$$GetFacultiesResponseImplToJson(
       this,
     );
   }
@@ -149,17 +150,17 @@ class _$_GetFacultiesResponse implements _GetFacultiesResponse {
 
 abstract class _GetFacultiesResponse implements GetFacultiesResponse {
   const factory _GetFacultiesResponse({final List<FacultiesModel>? response}) =
-      _$_GetFacultiesResponse;
+      _$GetFacultiesResponseImpl;
 
   factory _GetFacultiesResponse.fromJson(Map<String, dynamic> json) =
-      _$_GetFacultiesResponse.fromJson;
+      _$GetFacultiesResponseImpl.fromJson;
 
   @override
   List<FacultiesModel>? get response;
   @override
   @JsonKey(ignore: true)
-  _$$_GetFacultiesResponseCopyWith<_$_GetFacultiesResponse> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GetFacultiesResponseImplCopyWith<_$GetFacultiesResponseImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 FacultiesModel _$FacultiesModelFromJson(Map<String, dynamic> json) {
@@ -216,22 +217,22 @@ class _$FacultiesModelCopyWithImpl<$Res, $Val extends FacultiesModel>
 }
 
 /// @nodoc
-abstract class _$$_FacultiesModelCopyWith<$Res>
+abstract class _$$FacultiesModelImplCopyWith<$Res>
     implements $FacultiesModelCopyWith<$Res> {
-  factory _$$_FacultiesModelCopyWith(
-          _$_FacultiesModel value, $Res Function(_$_FacultiesModel) then) =
-      __$$_FacultiesModelCopyWithImpl<$Res>;
+  factory _$$FacultiesModelImplCopyWith(_$FacultiesModelImpl value,
+          $Res Function(_$FacultiesModelImpl) then) =
+      __$$FacultiesModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int? id, String? name});
 }
 
 /// @nodoc
-class __$$_FacultiesModelCopyWithImpl<$Res>
-    extends _$FacultiesModelCopyWithImpl<$Res, _$_FacultiesModel>
-    implements _$$_FacultiesModelCopyWith<$Res> {
-  __$$_FacultiesModelCopyWithImpl(
-      _$_FacultiesModel _value, $Res Function(_$_FacultiesModel) _then)
+class __$$FacultiesModelImplCopyWithImpl<$Res>
+    extends _$FacultiesModelCopyWithImpl<$Res, _$FacultiesModelImpl>
+    implements _$$FacultiesModelImplCopyWith<$Res> {
+  __$$FacultiesModelImplCopyWithImpl(
+      _$FacultiesModelImpl _value, $Res Function(_$FacultiesModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -240,7 +241,7 @@ class __$$_FacultiesModelCopyWithImpl<$Res>
     Object? id = freezed,
     Object? name = freezed,
   }) {
-    return _then(_$_FacultiesModel(
+    return _then(_$FacultiesModelImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -255,11 +256,11 @@ class __$$_FacultiesModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FacultiesModel implements _FacultiesModel {
-  const _$_FacultiesModel({this.id, this.name});
+class _$FacultiesModelImpl implements _FacultiesModel {
+  const _$FacultiesModelImpl({this.id, this.name});
 
-  factory _$_FacultiesModel.fromJson(Map<String, dynamic> json) =>
-      _$$_FacultiesModelFromJson(json);
+  factory _$FacultiesModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FacultiesModelImplFromJson(json);
 
   @override
   final int? id;
@@ -275,7 +276,7 @@ class _$_FacultiesModel implements _FacultiesModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FacultiesModel &&
+            other is _$FacultiesModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name));
   }
@@ -287,12 +288,13 @@ class _$_FacultiesModel implements _FacultiesModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FacultiesModelCopyWith<_$_FacultiesModel> get copyWith =>
-      __$$_FacultiesModelCopyWithImpl<_$_FacultiesModel>(this, _$identity);
+  _$$FacultiesModelImplCopyWith<_$FacultiesModelImpl> get copyWith =>
+      __$$FacultiesModelImplCopyWithImpl<_$FacultiesModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FacultiesModelToJson(
+    return _$$FacultiesModelImplToJson(
       this,
     );
   }
@@ -300,10 +302,10 @@ class _$_FacultiesModel implements _FacultiesModel {
 
 abstract class _FacultiesModel implements FacultiesModel {
   const factory _FacultiesModel({final int? id, final String? name}) =
-      _$_FacultiesModel;
+      _$FacultiesModelImpl;
 
   factory _FacultiesModel.fromJson(Map<String, dynamic> json) =
-      _$_FacultiesModel.fromJson;
+      _$FacultiesModelImpl.fromJson;
 
   @override
   int? get id;
@@ -311,6 +313,6 @@ abstract class _FacultiesModel implements FacultiesModel {
   String? get name;
   @override
   @JsonKey(ignore: true)
-  _$$_FacultiesModelCopyWith<_$_FacultiesModel> get copyWith =>
+  _$$FacultiesModelImplCopyWith<_$FacultiesModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

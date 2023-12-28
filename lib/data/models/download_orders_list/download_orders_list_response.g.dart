@@ -6,14 +6,14 @@ part of 'download_orders_list_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DownloadOrdersListResponse _$$_DownloadOrdersListResponseFromJson(
+_$DownloadOrdersListResponseImpl _$$DownloadOrdersListResponseImplFromJson(
         Map<String, dynamic> json) =>
-    _$_DownloadOrdersListResponse(
+    _$DownloadOrdersListResponseImpl(
       file: json['file'] as String?,
     );
 
-Map<String, dynamic> _$$_DownloadOrdersListResponseToJson(
-        _$_DownloadOrdersListResponse instance) =>
+Map<String, dynamic> _$$DownloadOrdersListResponseImplToJson(
+        _$DownloadOrdersListResponseImpl instance) =>
     <String, dynamic>{
       'file': instance.file,
     };

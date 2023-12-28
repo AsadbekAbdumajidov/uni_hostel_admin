@@ -6,8 +6,9 @@ part of 'add_admin_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AddAdminRequest _$$_AddAdminRequestFromJson(Map<String, dynamic> json) =>
-    _$_AddAdminRequest(
+_$AddAdminRequestImpl _$$AddAdminRequestImplFromJson(
+        Map<String, dynamic> json) =>
+    _$AddAdminRequestImpl(
       username: json['username'] as String?,
       firstName: json['first_name'] as String?,
       lastName: json['last_name'] as String?,
@@ -16,7 +17,8 @@ _$_AddAdminRequest _$$_AddAdminRequestFromJson(Map<String, dynamic> json) =>
       facultyAdmin: json['faculty_admin'] as int?,
     );
 
-Map<String, dynamic> _$$_AddAdminRequestToJson(_$_AddAdminRequest instance) =>
+Map<String, dynamic> _$$AddAdminRequestImplToJson(
+        _$AddAdminRequestImpl instance) =>
     <String, dynamic>{
       'username': instance.username,
       'first_name': instance.firstName,

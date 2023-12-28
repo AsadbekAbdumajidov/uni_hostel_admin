@@ -17,6 +17,7 @@ import 'package:uni_hostel_admin/presentation/cubit/payments/get_payments_cubit.
 import 'package:uni_hostel_admin/presentation/view/menu_drawer/menu_drawer.dart';
 import 'package:uni_hostel_admin/presentation/view/profile_drawer/profile_drawer.dart';
 import 'package:uni_hostel_admin/presentation/view/custom_app_bar/custom_app_bar.dart';
+import 'package:uni_hostel_admin/presentation/view/tabs/payment_monitoring/widget/bottom_filter_widget.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/payment_monitoring/widget/payment_history_card.dart';
 import 'package:uni_hostel_admin/presentation/view/tabs/payment_monitoring/widget/top_item_widget.dart';
 
@@ -86,6 +87,17 @@ class PaymentMonitoring extends StatelessWidget {
                                                   bloc.selectMaritals(v),
                                               onChangeFaculty: (v) =>
                                                   bloc.selectFaculty(v),
+                                                  onTapFilter: () {
+                                          showModalBottomSheet(
+                                              context: context,
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  AppColors.transparent,
+                                              builder: (context) {
+                                                return BottomPaymentFilterWidget()
+                                                    .paddingOnly(top: 80);
+                                              });
+                                        },
                                             ),
                                             PaymentHistoryCardWidget(
                                                 response: state.whoPaidList),

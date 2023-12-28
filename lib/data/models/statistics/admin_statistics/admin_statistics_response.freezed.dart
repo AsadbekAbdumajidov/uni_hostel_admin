@@ -243,11 +243,12 @@ class _$MainStatisticsResponseCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_MainStatisticsResponseCopyWith<$Res>
+abstract class _$$MainStatisticsResponseImplCopyWith<$Res>
     implements $MainStatisticsResponseCopyWith<$Res> {
-  factory _$$_MainStatisticsResponseCopyWith(_$_MainStatisticsResponse value,
-          $Res Function(_$_MainStatisticsResponse) then) =
-      __$$_MainStatisticsResponseCopyWithImpl<$Res>;
+  factory _$$MainStatisticsResponseImplCopyWith(
+          _$MainStatisticsResponseImpl value,
+          $Res Function(_$MainStatisticsResponseImpl) then) =
+      __$$MainStatisticsResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -278,12 +279,13 @@ abstract class _$$_MainStatisticsResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_MainStatisticsResponseCopyWithImpl<$Res>
+class __$$MainStatisticsResponseImplCopyWithImpl<$Res>
     extends _$MainStatisticsResponseCopyWithImpl<$Res,
-        _$_MainStatisticsResponse>
-    implements _$$_MainStatisticsResponseCopyWith<$Res> {
-  __$$_MainStatisticsResponseCopyWithImpl(_$_MainStatisticsResponse _value,
-      $Res Function(_$_MainStatisticsResponse) _then)
+        _$MainStatisticsResponseImpl>
+    implements _$$MainStatisticsResponseImplCopyWith<$Res> {
+  __$$MainStatisticsResponseImplCopyWithImpl(
+      _$MainStatisticsResponseImpl _value,
+      $Res Function(_$MainStatisticsResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -314,7 +316,7 @@ class __$$_MainStatisticsResponseCopyWithImpl<$Res>
     Object? kurs6 = freezed,
     Object? kurs7 = freezed,
   }) {
-    return _then(_$_MainStatisticsResponse(
+    return _then(_$MainStatisticsResponseImpl(
       all: freezed == all
           ? _value.all
           : all // ignore: cast_nullable_to_non_nullable
@@ -417,8 +419,8 @@ class __$$_MainStatisticsResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MainStatisticsResponse implements _MainStatisticsResponse {
-  const _$_MainStatisticsResponse(
+class _$MainStatisticsResponseImpl implements _MainStatisticsResponse {
+  const _$MainStatisticsResponseImpl(
       {this.all,
       this.accepted,
       @JsonKey(name: 'in_queue') this.inQueue,
@@ -445,8 +447,8 @@ class _$_MainStatisticsResponse implements _MainStatisticsResponse {
       @JsonKey(name: '7-kurs') this.kurs7})
       : _faculty = faculty;
 
-  factory _$_MainStatisticsResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_MainStatisticsResponseFromJson(json);
+  factory _$MainStatisticsResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MainStatisticsResponseImplFromJson(json);
 
   @override
   final int? all;
@@ -531,7 +533,7 @@ class _$_MainStatisticsResponse implements _MainStatisticsResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MainStatisticsResponse &&
+            other is _$MainStatisticsResponseImpl &&
             (identical(other.all, all) || other.all == all) &&
             (identical(other.accepted, accepted) ||
                 other.accepted == accepted) &&
@@ -603,13 +605,13 @@ class _$_MainStatisticsResponse implements _MainStatisticsResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MainStatisticsResponseCopyWith<_$_MainStatisticsResponse> get copyWith =>
-      __$$_MainStatisticsResponseCopyWithImpl<_$_MainStatisticsResponse>(
-          this, _$identity);
+  _$$MainStatisticsResponseImplCopyWith<_$MainStatisticsResponseImpl>
+      get copyWith => __$$MainStatisticsResponseImplCopyWithImpl<
+          _$MainStatisticsResponseImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MainStatisticsResponseToJson(
+    return _$$MainStatisticsResponseImplToJson(
       this,
     );
   }
@@ -617,35 +619,36 @@ class _$_MainStatisticsResponse implements _MainStatisticsResponse {
 
 abstract class _MainStatisticsResponse implements MainStatisticsResponse {
   const factory _MainStatisticsResponse(
-      {final int? all,
-      final int? accepted,
-      @JsonKey(name: 'in_queue') final int? inQueue,
-      final int? cancelled,
-      final int? male,
-      final int? female,
-      final int? disabled,
-      @JsonKey(name: 'iron_notebook') final int? ironNotebook,
-      @JsonKey(name: 'womens_book') final int? womensBook,
-      @JsonKey(name: 'youths_notebook') final int? youthsNotebook,
-      @JsonKey(name: 'foster_home') final int? fosterHome,
-      @JsonKey(name: 'no_breadwinner') final int? noBreadwinner,
-      @JsonKey(name: 'one_parents_is_dead') final int? oneParentsIsDead,
-      @JsonKey(name: 'has_many_children_family')
-      final int? hasManyChildrenFamily,
-      @JsonKey(name: 'gifted_student') final int? giftedStudent,
-      @JsonKey(name: 'based_on_payment_contract')
-      final int? basedOnPaymentContract,
-      final List<Faculty>? faculty,
-      @JsonKey(name: '1-kurs') final int? kurs1,
-      @JsonKey(name: '2-kurs') final int? kurs2,
-      @JsonKey(name: '3-kurs') final int? kurs3,
-      @JsonKey(name: '4-kurs') final int? kurs4,
-      @JsonKey(name: '5-kurs') final int? kurs5,
-      @JsonKey(name: '6-kurs') final int? kurs6,
-      @JsonKey(name: '7-kurs') final int? kurs7}) = _$_MainStatisticsResponse;
+          {final int? all,
+          final int? accepted,
+          @JsonKey(name: 'in_queue') final int? inQueue,
+          final int? cancelled,
+          final int? male,
+          final int? female,
+          final int? disabled,
+          @JsonKey(name: 'iron_notebook') final int? ironNotebook,
+          @JsonKey(name: 'womens_book') final int? womensBook,
+          @JsonKey(name: 'youths_notebook') final int? youthsNotebook,
+          @JsonKey(name: 'foster_home') final int? fosterHome,
+          @JsonKey(name: 'no_breadwinner') final int? noBreadwinner,
+          @JsonKey(name: 'one_parents_is_dead') final int? oneParentsIsDead,
+          @JsonKey(name: 'has_many_children_family')
+          final int? hasManyChildrenFamily,
+          @JsonKey(name: 'gifted_student') final int? giftedStudent,
+          @JsonKey(name: 'based_on_payment_contract')
+          final int? basedOnPaymentContract,
+          final List<Faculty>? faculty,
+          @JsonKey(name: '1-kurs') final int? kurs1,
+          @JsonKey(name: '2-kurs') final int? kurs2,
+          @JsonKey(name: '3-kurs') final int? kurs3,
+          @JsonKey(name: '4-kurs') final int? kurs4,
+          @JsonKey(name: '5-kurs') final int? kurs5,
+          @JsonKey(name: '6-kurs') final int? kurs6,
+          @JsonKey(name: '7-kurs') final int? kurs7}) =
+      _$MainStatisticsResponseImpl;
 
   factory _MainStatisticsResponse.fromJson(Map<String, dynamic> json) =
-      _$_MainStatisticsResponse.fromJson;
+      _$MainStatisticsResponseImpl.fromJson;
 
   @override
   int? get all;
@@ -714,8 +717,8 @@ abstract class _MainStatisticsResponse implements MainStatisticsResponse {
   int? get kurs7;
   @override
   @JsonKey(ignore: true)
-  _$$_MainStatisticsResponseCopyWith<_$_MainStatisticsResponse> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$MainStatisticsResponseImplCopyWith<_$MainStatisticsResponseImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 Faculty _$FacultyFromJson(Map<String, dynamic> json) {
@@ -770,20 +773,21 @@ class _$FacultyCopyWithImpl<$Res, $Val extends Faculty>
 }
 
 /// @nodoc
-abstract class _$$_FacultyCopyWith<$Res> implements $FacultyCopyWith<$Res> {
-  factory _$$_FacultyCopyWith(
-          _$_Faculty value, $Res Function(_$_Faculty) then) =
-      __$$_FacultyCopyWithImpl<$Res>;
+abstract class _$$FacultyImplCopyWith<$Res> implements $FacultyCopyWith<$Res> {
+  factory _$$FacultyImplCopyWith(
+          _$FacultyImpl value, $Res Function(_$FacultyImpl) then) =
+      __$$FacultyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? name, int? count});
 }
 
 /// @nodoc
-class __$$_FacultyCopyWithImpl<$Res>
-    extends _$FacultyCopyWithImpl<$Res, _$_Faculty>
-    implements _$$_FacultyCopyWith<$Res> {
-  __$$_FacultyCopyWithImpl(_$_Faculty _value, $Res Function(_$_Faculty) _then)
+class __$$FacultyImplCopyWithImpl<$Res>
+    extends _$FacultyCopyWithImpl<$Res, _$FacultyImpl>
+    implements _$$FacultyImplCopyWith<$Res> {
+  __$$FacultyImplCopyWithImpl(
+      _$FacultyImpl _value, $Res Function(_$FacultyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -792,7 +796,7 @@ class __$$_FacultyCopyWithImpl<$Res>
     Object? name = freezed,
     Object? count = freezed,
   }) {
-    return _then(_$_Faculty(
+    return _then(_$FacultyImpl(
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -807,11 +811,11 @@ class __$$_FacultyCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Faculty implements _Faculty {
-  const _$_Faculty({this.name, this.count});
+class _$FacultyImpl implements _Faculty {
+  const _$FacultyImpl({this.name, this.count});
 
-  factory _$_Faculty.fromJson(Map<String, dynamic> json) =>
-      _$$_FacultyFromJson(json);
+  factory _$FacultyImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FacultyImplFromJson(json);
 
   @override
   final String? name;
@@ -827,7 +831,7 @@ class _$_Faculty implements _Faculty {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Faculty &&
+            other is _$FacultyImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.count, count) || other.count == count));
   }
@@ -839,21 +843,22 @@ class _$_Faculty implements _Faculty {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FacultyCopyWith<_$_Faculty> get copyWith =>
-      __$$_FacultyCopyWithImpl<_$_Faculty>(this, _$identity);
+  _$$FacultyImplCopyWith<_$FacultyImpl> get copyWith =>
+      __$$FacultyImplCopyWithImpl<_$FacultyImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FacultyToJson(
+    return _$$FacultyImplToJson(
       this,
     );
   }
 }
 
 abstract class _Faculty implements Faculty {
-  const factory _Faculty({final String? name, final int? count}) = _$_Faculty;
+  const factory _Faculty({final String? name, final int? count}) =
+      _$FacultyImpl;
 
-  factory _Faculty.fromJson(Map<String, dynamic> json) = _$_Faculty.fromJson;
+  factory _Faculty.fromJson(Map<String, dynamic> json) = _$FacultyImpl.fromJson;
 
   @override
   String? get name;
@@ -861,6 +866,6 @@ abstract class _Faculty implements Faculty {
   int? get count;
   @override
   @JsonKey(ignore: true)
-  _$$_FacultyCopyWith<_$_Faculty> get copyWith =>
+  _$$FacultyImplCopyWith<_$FacultyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -147,11 +147,11 @@ class _$AdminsStateCopyWithImpl<$Res, $Val extends AdminsState>
 }
 
 /// @nodoc
-abstract class _$$_AdminsStateCopyWith<$Res>
+abstract class _$$AdminsStateImplCopyWith<$Res>
     implements $AdminsStateCopyWith<$Res> {
-  factory _$$_AdminsStateCopyWith(
-          _$_AdminsState value, $Res Function(_$_AdminsState) then) =
-      __$$_AdminsStateCopyWithImpl<$Res>;
+  factory _$$AdminsStateImplCopyWith(
+          _$AdminsStateImpl value, $Res Function(_$AdminsStateImpl) then) =
+      __$$AdminsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -173,11 +173,11 @@ abstract class _$$_AdminsStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AdminsStateCopyWithImpl<$Res>
-    extends _$AdminsStateCopyWithImpl<$Res, _$_AdminsState>
-    implements _$$_AdminsStateCopyWith<$Res> {
-  __$$_AdminsStateCopyWithImpl(
-      _$_AdminsState _value, $Res Function(_$_AdminsState) _then)
+class __$$AdminsStateImplCopyWithImpl<$Res>
+    extends _$AdminsStateCopyWithImpl<$Res, _$AdminsStateImpl>
+    implements _$$AdminsStateImplCopyWith<$Res> {
+  __$$AdminsStateImplCopyWithImpl(
+      _$AdminsStateImpl _value, $Res Function(_$AdminsStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -192,7 +192,7 @@ class __$$_AdminsStateCopyWithImpl<$Res>
     Object? facultyIndex = freezed,
     Object? type = null,
   }) {
-    return _then(_$_AdminsState(
+    return _then(_$AdminsStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -231,8 +231,8 @@ class __$$_AdminsStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AdminsState implements _AdminsState {
-  const _$_AdminsState(
+class _$AdminsStateImpl implements _AdminsState {
+  const _$AdminsStateImpl(
       {this.status = Status.UNKNOWN,
       this.failure = const UnknownFailure(),
       final List<ProfileResponse?> adminList = const [],
@@ -279,7 +279,7 @@ class _$_AdminsState implements _AdminsState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AdminsState &&
+            other is _$AdminsStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.failure, failure) || other.failure == failure) &&
             const DeepCollectionEquality()
@@ -310,8 +310,8 @@ class _$_AdminsState implements _AdminsState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AdminsStateCopyWith<_$_AdminsState> get copyWith =>
-      __$$_AdminsStateCopyWithImpl<_$_AdminsState>(this, _$identity);
+  _$$AdminsStateImplCopyWith<_$AdminsStateImpl> get copyWith =>
+      __$$AdminsStateImplCopyWithImpl<_$AdminsStateImpl>(this, _$identity);
 }
 
 abstract class _AdminsState implements AdminsState {
@@ -323,7 +323,7 @@ abstract class _AdminsState implements AdminsState {
       final ProfileResponse? adminResponse,
       final PlatformFile? pickedImg,
       final FacultiesModel? facultyIndex,
-      final String type}) = _$_AdminsState;
+      final String type}) = _$AdminsStateImpl;
 
   @override
   Status get status;
@@ -343,6 +343,6 @@ abstract class _AdminsState implements AdminsState {
   String get type;
   @override
   @JsonKey(ignore: true)
-  _$$_AdminsStateCopyWith<_$_AdminsState> get copyWith =>
+  _$$AdminsStateImplCopyWith<_$AdminsStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

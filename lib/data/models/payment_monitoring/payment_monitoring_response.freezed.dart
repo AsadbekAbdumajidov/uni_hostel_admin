@@ -86,12 +86,12 @@ class _$PaymentMonitoringResponseCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_PaymentMonitoringResponseCopyWith<$Res>
+abstract class _$$PaymentMonitoringResponseImplCopyWith<$Res>
     implements $PaymentMonitoringResponseCopyWith<$Res> {
-  factory _$$_PaymentMonitoringResponseCopyWith(
-          _$_PaymentMonitoringResponse value,
-          $Res Function(_$_PaymentMonitoringResponse) then) =
-      __$$_PaymentMonitoringResponseCopyWithImpl<$Res>;
+  factory _$$PaymentMonitoringResponseImplCopyWith(
+          _$PaymentMonitoringResponseImpl value,
+          $Res Function(_$PaymentMonitoringResponseImpl) then) =
+      __$$PaymentMonitoringResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -102,13 +102,13 @@ abstract class _$$_PaymentMonitoringResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PaymentMonitoringResponseCopyWithImpl<$Res>
+class __$$PaymentMonitoringResponseImplCopyWithImpl<$Res>
     extends _$PaymentMonitoringResponseCopyWithImpl<$Res,
-        _$_PaymentMonitoringResponse>
-    implements _$$_PaymentMonitoringResponseCopyWith<$Res> {
-  __$$_PaymentMonitoringResponseCopyWithImpl(
-      _$_PaymentMonitoringResponse _value,
-      $Res Function(_$_PaymentMonitoringResponse) _then)
+        _$PaymentMonitoringResponseImpl>
+    implements _$$PaymentMonitoringResponseImplCopyWith<$Res> {
+  __$$PaymentMonitoringResponseImplCopyWithImpl(
+      _$PaymentMonitoringResponseImpl _value,
+      $Res Function(_$PaymentMonitoringResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -119,7 +119,7 @@ class __$$_PaymentMonitoringResponseCopyWithImpl<$Res>
     Object? previous = freezed,
     Object? results = freezed,
   }) {
-    return _then(_$_PaymentMonitoringResponse(
+    return _then(_$PaymentMonitoringResponseImpl(
       count: freezed == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
@@ -142,16 +142,16 @@ class __$$_PaymentMonitoringResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PaymentMonitoringResponse implements _PaymentMonitoringResponse {
-  const _$_PaymentMonitoringResponse(
+class _$PaymentMonitoringResponseImpl implements _PaymentMonitoringResponse {
+  const _$PaymentMonitoringResponseImpl(
       {this.count,
       this.next,
       this.previous,
       final List<PaymentsWhoPaidModel>? results})
       : _results = results;
 
-  factory _$_PaymentMonitoringResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_PaymentMonitoringResponseFromJson(json);
+  factory _$PaymentMonitoringResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PaymentMonitoringResponseImplFromJson(json);
 
   @override
   final int? count;
@@ -178,7 +178,7 @@ class _$_PaymentMonitoringResponse implements _PaymentMonitoringResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PaymentMonitoringResponse &&
+            other is _$PaymentMonitoringResponseImpl &&
             (identical(other.count, count) || other.count == count) &&
             (identical(other.next, next) || other.next == next) &&
             (identical(other.previous, previous) ||
@@ -194,13 +194,13 @@ class _$_PaymentMonitoringResponse implements _PaymentMonitoringResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PaymentMonitoringResponseCopyWith<_$_PaymentMonitoringResponse>
-      get copyWith => __$$_PaymentMonitoringResponseCopyWithImpl<
-          _$_PaymentMonitoringResponse>(this, _$identity);
+  _$$PaymentMonitoringResponseImplCopyWith<_$PaymentMonitoringResponseImpl>
+      get copyWith => __$$PaymentMonitoringResponseImplCopyWithImpl<
+          _$PaymentMonitoringResponseImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PaymentMonitoringResponseToJson(
+    return _$$PaymentMonitoringResponseImplToJson(
       this,
     );
   }
@@ -212,10 +212,10 @@ abstract class _PaymentMonitoringResponse implements PaymentMonitoringResponse {
           final String? next,
           final String? previous,
           final List<PaymentsWhoPaidModel>? results}) =
-      _$_PaymentMonitoringResponse;
+      _$PaymentMonitoringResponseImpl;
 
   factory _PaymentMonitoringResponse.fromJson(Map<String, dynamic> json) =
-      _$_PaymentMonitoringResponse.fromJson;
+      _$PaymentMonitoringResponseImpl.fromJson;
 
   @override
   int? get count;
@@ -227,7 +227,7 @@ abstract class _PaymentMonitoringResponse implements PaymentMonitoringResponse {
   List<PaymentsWhoPaidModel>? get results;
   @override
   @JsonKey(ignore: true)
-  _$$_PaymentMonitoringResponseCopyWith<_$_PaymentMonitoringResponse>
+  _$$PaymentMonitoringResponseImplCopyWith<_$PaymentMonitoringResponseImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -347,11 +347,11 @@ class _$PaymentsWhoPaidModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_WhoPaidModelCopyWith<$Res>
+abstract class _$$WhoPaidModelImplCopyWith<$Res>
     implements $PaymentsWhoPaidModelCopyWith<$Res> {
-  factory _$$_WhoPaidModelCopyWith(
-          _$_WhoPaidModel value, $Res Function(_$_WhoPaidModel) then) =
-      __$$_WhoPaidModelCopyWithImpl<$Res>;
+  factory _$$WhoPaidModelImplCopyWith(
+          _$WhoPaidModelImpl value, $Res Function(_$WhoPaidModelImpl) then) =
+      __$$WhoPaidModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -368,11 +368,11 @@ abstract class _$$_WhoPaidModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_WhoPaidModelCopyWithImpl<$Res>
-    extends _$PaymentsWhoPaidModelCopyWithImpl<$Res, _$_WhoPaidModel>
-    implements _$$_WhoPaidModelCopyWith<$Res> {
-  __$$_WhoPaidModelCopyWithImpl(
-      _$_WhoPaidModel _value, $Res Function(_$_WhoPaidModel) _then)
+class __$$WhoPaidModelImplCopyWithImpl<$Res>
+    extends _$PaymentsWhoPaidModelCopyWithImpl<$Res, _$WhoPaidModelImpl>
+    implements _$$WhoPaidModelImplCopyWith<$Res> {
+  __$$WhoPaidModelImplCopyWithImpl(
+      _$WhoPaidModelImpl _value, $Res Function(_$WhoPaidModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -389,7 +389,7 @@ class __$$_WhoPaidModelCopyWithImpl<$Res>
     Object? paid = freezed,
     Object? duty = freezed,
   }) {
-    return _then(_$_WhoPaidModel(
+    return _then(_$WhoPaidModelImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -436,8 +436,8 @@ class __$$_WhoPaidModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_WhoPaidModel implements _WhoPaidModel {
-  const _$_WhoPaidModel(
+class _$WhoPaidModelImpl implements _WhoPaidModel {
+  const _$WhoPaidModelImpl(
       {this.id,
       this.course,
       @JsonKey(name: 'full_name') this.fullName,
@@ -451,8 +451,8 @@ class _$_WhoPaidModel implements _WhoPaidModel {
       : _payments = payments,
         _schedules = schedules;
 
-  factory _$_WhoPaidModel.fromJson(Map<String, dynamic> json) =>
-      _$$_WhoPaidModelFromJson(json);
+  factory _$WhoPaidModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$WhoPaidModelImplFromJson(json);
 
   @override
   final int? id;
@@ -503,7 +503,7 @@ class _$_WhoPaidModel implements _WhoPaidModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WhoPaidModel &&
+            other is _$WhoPaidModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.course, course) || other.course == course) &&
             (identical(other.fullName, fullName) ||
@@ -538,12 +538,12 @@ class _$_WhoPaidModel implements _WhoPaidModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WhoPaidModelCopyWith<_$_WhoPaidModel> get copyWith =>
-      __$$_WhoPaidModelCopyWithImpl<_$_WhoPaidModel>(this, _$identity);
+  _$$WhoPaidModelImplCopyWith<_$WhoPaidModelImpl> get copyWith =>
+      __$$WhoPaidModelImplCopyWithImpl<_$WhoPaidModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WhoPaidModelToJson(
+    return _$$WhoPaidModelImplToJson(
       this,
     );
   }
@@ -560,10 +560,10 @@ abstract class _WhoPaidModel implements PaymentsWhoPaidModel {
       final List<Schedules>? schedules,
       final int? total,
       final int? paid,
-      final int? duty}) = _$_WhoPaidModel;
+      final int? duty}) = _$WhoPaidModelImpl;
 
   factory _WhoPaidModel.fromJson(Map<String, dynamic> json) =
-      _$_WhoPaidModel.fromJson;
+      _$WhoPaidModelImpl.fromJson;
 
   @override
   int? get id;
@@ -590,7 +590,7 @@ abstract class _WhoPaidModel implements PaymentsWhoPaidModel {
   int? get duty;
   @override
   @JsonKey(ignore: true)
-  _$$_WhoPaidModelCopyWith<_$_WhoPaidModel> get copyWith =>
+  _$$WhoPaidModelImplCopyWith<_$WhoPaidModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -664,10 +664,11 @@ class _$PaymentsCopyWithImpl<$Res, $Val extends Payments>
 }
 
 /// @nodoc
-abstract class _$$_PaymentsCopyWith<$Res> implements $PaymentsCopyWith<$Res> {
-  factory _$$_PaymentsCopyWith(
-          _$_Payments value, $Res Function(_$_Payments) then) =
-      __$$_PaymentsCopyWithImpl<$Res>;
+abstract class _$$PaymentsImplCopyWith<$Res>
+    implements $PaymentsCopyWith<$Res> {
+  factory _$$PaymentsImplCopyWith(
+          _$PaymentsImpl value, $Res Function(_$PaymentsImpl) then) =
+      __$$PaymentsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -678,11 +679,11 @@ abstract class _$$_PaymentsCopyWith<$Res> implements $PaymentsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_PaymentsCopyWithImpl<$Res>
-    extends _$PaymentsCopyWithImpl<$Res, _$_Payments>
-    implements _$$_PaymentsCopyWith<$Res> {
-  __$$_PaymentsCopyWithImpl(
-      _$_Payments _value, $Res Function(_$_Payments) _then)
+class __$$PaymentsImplCopyWithImpl<$Res>
+    extends _$PaymentsCopyWithImpl<$Res, _$PaymentsImpl>
+    implements _$$PaymentsImplCopyWith<$Res> {
+  __$$PaymentsImplCopyWithImpl(
+      _$PaymentsImpl _value, $Res Function(_$PaymentsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -693,7 +694,7 @@ class __$$_PaymentsCopyWithImpl<$Res>
     Object? status = freezed,
     Object? payedAt = freezed,
   }) {
-    return _then(_$_Payments(
+    return _then(_$PaymentsImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -716,15 +717,15 @@ class __$$_PaymentsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Payments implements _Payments {
-  const _$_Payments(
+class _$PaymentsImpl implements _Payments {
+  const _$PaymentsImpl(
       {this.id,
       this.amount,
       this.status,
       @JsonKey(name: 'payed_at') this.payedAt});
 
-  factory _$_Payments.fromJson(Map<String, dynamic> json) =>
-      _$$_PaymentsFromJson(json);
+  factory _$PaymentsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PaymentsImplFromJson(json);
 
   @override
   final int? id;
@@ -745,7 +746,7 @@ class _$_Payments implements _Payments {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Payments &&
+            other is _$PaymentsImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.status, status) || other.status == status) &&
@@ -759,12 +760,12 @@ class _$_Payments implements _Payments {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PaymentsCopyWith<_$_Payments> get copyWith =>
-      __$$_PaymentsCopyWithImpl<_$_Payments>(this, _$identity);
+  _$$PaymentsImplCopyWith<_$PaymentsImpl> get copyWith =>
+      __$$PaymentsImplCopyWithImpl<_$PaymentsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PaymentsToJson(
+    return _$$PaymentsImplToJson(
       this,
     );
   }
@@ -775,9 +776,10 @@ abstract class _Payments implements Payments {
       {final int? id,
       final String? amount,
       final String? status,
-      @JsonKey(name: 'payed_at') final String? payedAt}) = _$_Payments;
+      @JsonKey(name: 'payed_at') final String? payedAt}) = _$PaymentsImpl;
 
-  factory _Payments.fromJson(Map<String, dynamic> json) = _$_Payments.fromJson;
+  factory _Payments.fromJson(Map<String, dynamic> json) =
+      _$PaymentsImpl.fromJson;
 
   @override
   int? get id;
@@ -790,7 +792,7 @@ abstract class _Payments implements Payments {
   String? get payedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_PaymentsCopyWith<_$_Payments> get copyWith =>
+  _$$PaymentsImplCopyWith<_$PaymentsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -888,10 +890,11 @@ class _$SchedulesCopyWithImpl<$Res, $Val extends Schedules>
 }
 
 /// @nodoc
-abstract class _$$_SchedulesCopyWith<$Res> implements $SchedulesCopyWith<$Res> {
-  factory _$$_SchedulesCopyWith(
-          _$_Schedules value, $Res Function(_$_Schedules) then) =
-      __$$_SchedulesCopyWithImpl<$Res>;
+abstract class _$$SchedulesImplCopyWith<$Res>
+    implements $SchedulesCopyWith<$Res> {
+  factory _$$SchedulesImplCopyWith(
+          _$SchedulesImpl value, $Res Function(_$SchedulesImpl) then) =
+      __$$SchedulesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -905,11 +908,11 @@ abstract class _$$_SchedulesCopyWith<$Res> implements $SchedulesCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SchedulesCopyWithImpl<$Res>
-    extends _$SchedulesCopyWithImpl<$Res, _$_Schedules>
-    implements _$$_SchedulesCopyWith<$Res> {
-  __$$_SchedulesCopyWithImpl(
-      _$_Schedules _value, $Res Function(_$_Schedules) _then)
+class __$$SchedulesImplCopyWithImpl<$Res>
+    extends _$SchedulesCopyWithImpl<$Res, _$SchedulesImpl>
+    implements _$$SchedulesImplCopyWith<$Res> {
+  __$$SchedulesImplCopyWithImpl(
+      _$SchedulesImpl _value, $Res Function(_$SchedulesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -923,7 +926,7 @@ class __$$_SchedulesCopyWithImpl<$Res>
     Object? payed = null,
     Object? residual = freezed,
   }) {
-    return _then(_$_Schedules(
+    return _then(_$SchedulesImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -958,8 +961,8 @@ class __$$_SchedulesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Schedules implements _Schedules {
-  const _$_Schedules(
+class _$SchedulesImpl implements _Schedules {
+  const _$SchedulesImpl(
       {this.id,
       @JsonKey(name: 'monthly_payment_price') this.monthlyPrice,
       @JsonKey(name: 'payed_amount') this.payedAmount,
@@ -968,8 +971,8 @@ class _$_Schedules implements _Schedules {
       required this.payed,
       this.residual});
 
-  factory _$_Schedules.fromJson(Map<String, dynamic> json) =>
-      _$$_SchedulesFromJson(json);
+  factory _$SchedulesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SchedulesImplFromJson(json);
 
   @override
   final int? id;
@@ -999,7 +1002,7 @@ class _$_Schedules implements _Schedules {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Schedules &&
+            other is _$SchedulesImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.monthlyPrice, monthlyPrice) ||
                 other.monthlyPrice == monthlyPrice) &&
@@ -1022,12 +1025,12 @@ class _$_Schedules implements _Schedules {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SchedulesCopyWith<_$_Schedules> get copyWith =>
-      __$$_SchedulesCopyWithImpl<_$_Schedules>(this, _$identity);
+  _$$SchedulesImplCopyWith<_$SchedulesImpl> get copyWith =>
+      __$$SchedulesImplCopyWithImpl<_$SchedulesImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SchedulesToJson(
+    return _$$SchedulesImplToJson(
       this,
     );
   }
@@ -1041,10 +1044,10 @@ abstract class _Schedules implements Schedules {
       @JsonKey(name: 'payment_date') required final String paymentDate,
       @JsonKey(name: 'payed_date') final String? payedDate,
       required final bool payed,
-      final int? residual}) = _$_Schedules;
+      final int? residual}) = _$SchedulesImpl;
 
   factory _Schedules.fromJson(Map<String, dynamic> json) =
-      _$_Schedules.fromJson;
+      _$SchedulesImpl.fromJson;
 
   @override
   int? get id;
@@ -1066,6 +1069,6 @@ abstract class _Schedules implements Schedules {
   int? get residual;
   @override
   @JsonKey(ignore: true)
-  _$$_SchedulesCopyWith<_$_Schedules> get copyWith =>
+  _$$SchedulesImplCopyWith<_$SchedulesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
